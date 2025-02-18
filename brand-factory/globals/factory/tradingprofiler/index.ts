@@ -1,10 +1,20 @@
-import type { BrandArrItem } from "../../../types/Brands";
-import type { TradingProfilerSVGVariation } from "../../../types/Brands/logo";
-import type { TranslationsType } from "../../../types/Translations";
-import { defaultColorBlack, defaultColorBlackStrokeBlack, defaultColorWhite, defaultLogo, squareColorBlack, squareColorWhite } from "./logos";
+import type { BrandArrItem } from "../../types/Brands";
+import type { TradingProfilerSVGVariation } from "../../types/Brands/logo";
+import type { TranslationsType } from "../../types/translations";
+import {
+  defaultColorBlack,
+  defaultColorBlackStrokeBlack,
+  defaultColorWhite,
+  defaultLogo,
+  squareColorBlack,
+  squareColorWhite,
+} from "./logos";
 import { defaultColorBlackStrokeWhite } from "./logos/defaultColorBlackStrokeWhite";
 
-export const tradingprofiler = (whatsapp: boolean, whatsappNumber: () => TranslationsType): BrandArrItem<TradingProfilerSVGVariation> => ({
+export const tradingprofiler = (
+  whatsapp: boolean,
+  whatsappNumber: () => TranslationsType
+): BrandArrItem<TradingProfilerSVGVariation> => ({
   id: 10,
   nameToLower: "tradingprofiler",
   name: "TradingProfiler",

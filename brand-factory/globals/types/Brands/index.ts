@@ -1,5 +1,5 @@
 import type { LicenseType } from "../lp-params-type";
-import type { TranslationsType } from "../Translations";
+import type { TranslationsType } from "../translations";
 import type { BrandsNames } from "./names";
 
 export interface BrandArrItem<TSVGLogoVariations> {

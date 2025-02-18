@@ -1,9 +1,12 @@
-import type { BrandArrItem } from "../../../types/Brands";
-import type { DayTradingStarSVGVariation } from "../../../types/Brands/logo";
-import type { TranslationsType } from "../../../types/Translations";
+import type { BrandArrItem } from "../../types/Brands";
+import type { DayTradingStarSVGVariation } from "../../types/Brands/logo";
+import type { TranslationsType } from "../../types/translations";
 import { defaultLogo } from "./logos/defaultLogo";
 
-export const daytradingstar = (whatsapp: boolean, whatsappNumber: () => TranslationsType): BrandArrItem<DayTradingStarSVGVariation> => ({
+export const daytradingstar = (
+  whatsapp: boolean,
+  whatsappNumber: () => TranslationsType
+): BrandArrItem<DayTradingStarSVGVariation> => ({
   id: 6,
   nameToLower: "daytradingstar",
   name: "DayTradingStar",

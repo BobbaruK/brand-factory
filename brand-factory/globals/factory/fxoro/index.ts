@@ -1,6 +1,6 @@
-import type { BrandArrItem } from "../../../types/Brands";
-import type { FXOROSVGVariation } from "../../../types/Brands/logo";
-import type { TranslationsType } from "../../../types/Translations";
+import type { BrandArrItem } from "../../types/Brands";
+import type { FXOROSVGVariation } from "../../types/Brands/logo";
+import type { TranslationsType } from "../../types/translations";
 import { defaultLogo } from "./logos/defaultLogo";
 
 export const fxoro = (whatsapp: boolean, whatsappNumber: () => TranslationsType): BrandArrItem<FXOROSVGVariation> => ({

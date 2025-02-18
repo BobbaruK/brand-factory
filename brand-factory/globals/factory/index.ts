@@ -1,6 +1,7 @@
 import { type BrandArrItem } from "../types/Brands";
 import { type BrandsNames } from "../types/Brands/names";
-import type { LandingPageType, LicenseType } from "../types/lp-params-type";
+import type { Features } from "../types/enums";
+import type { LicenseType } from "../types/lp-params-type";
 import { daytradingstar } from "./daytradingstar";
 import { facoltaditrading } from "./facoltaditrading";
 import { fxoro } from "./fxoro";
@@ -18,14 +19,14 @@ interface BrandFactory {
   brand: BrandsNames;
   license: LicenseType;
   whatsapp: boolean;
-  lpType?: LandingPageType;
+  features?: Features[];
 }
 
 export const brandFactory = <T>({
   brand,
   license,
   whatsapp,
-  lpType,
+  features,
 }: BrandFactory): BrandArrItem<T> => {
   const whatsappNumber = () => {
     switch (license) {
@@ -92,7 +93,7 @@ export const brandFactory = <T>({
       return tradestrategyhub(
         whatsapp,
         whatsappNumber,
-        lpType
+        features
       ) as BrandArrItem<T>;
 
     case "protraderzone":

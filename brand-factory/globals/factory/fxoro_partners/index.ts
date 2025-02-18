@@ -1,9 +1,12 @@
-import type { BrandArrItem } from "../../../types/Brands";
-import type { FXOROPartnersSVGVariation } from "../../../types/Brands/logo";
-import type { TranslationsType } from "../../../types/Translations";
+import type { BrandArrItem } from "../../types/Brands";
+import type { FXOROPartnersSVGVariation } from "../../types/Brands/logo";
+import type { TranslationsType } from "../../types/translations";
 import { defaultLogo, whiteGold } from "./logos";
 
-export const fxoro_partners = (whatsapp: boolean, whatsappNumber: () => TranslationsType): BrandArrItem<FXOROPartnersSVGVariation> => ({
+export const fxoro_partners = (
+  whatsapp: boolean,
+  whatsappNumber: () => TranslationsType
+): BrandArrItem<FXOROPartnersSVGVariation> => ({
   id: 5,
   nameToLower: "fxoro_partners",
   name: "FXORO",

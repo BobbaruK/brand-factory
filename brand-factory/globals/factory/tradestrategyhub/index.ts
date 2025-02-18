@@ -1,10 +1,14 @@
-import type { BrandArrItem } from "../../../types/Brands";
-import type { TradeStrategyHubSVGVariation } from "../../../types/Brands/logo";
-import type { LandingPageType } from "../../../types/LandingPageType";
-import { type TranslationsType } from "../../../types/Translations";
+import type { BrandArrItem } from "../../types/Brands";
+import type { TradeStrategyHubSVGVariation } from "../../types/Brands/logo";
+import { Features } from "../../types/enums";
+import { type TranslationsType } from "../../types/translations";
 import { defaultLogo } from "./logos/defaultLogo";
 
-export const tradestrategyhub = (whatsapp: boolean, whatsappNumber: () => TranslationsType, lpType?: LandingPageType): BrandArrItem<TradeStrategyHubSVGVariation> => ({
+export const tradestrategyhub = (
+  whatsapp: boolean,
+  whatsappNumber: () => TranslationsType,
+  features?: Features[]
+): BrandArrItem<TradeStrategyHubSVGVariation> => ({
   id: 7,
   nameToLower: "tradestrategyhub",
   name: "TradeStrategyHub",
@@ -27,21 +31,51 @@ export const tradestrategyhub = (whatsapp: boolean, whatsappNumber: () => Transl
   },
   recaptchaKey: "6LeapJgpAAAAABjc0UySawSAB6zKqRNwbqFiMbUk",
   privacyLink: {
-    en: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
-    it: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
-    tr: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
-    ro: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
-    ar: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
-    de: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
-    es: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
-    sv: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
-    pt: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
-    fi: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
-    pl: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
-    hu: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
-    th: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
-    ms: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
-    vi: lpType !== "outbrain" ? "https://tradestrategyhub.com/privacypolicy/en/" : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    en: !features?.includes(Features.outbrain)
+      ? "https://tradestrategyhub.com/privacypolicy/en/"
+      : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    it: !features?.includes(Features.outbrain)
+      ? "https://tradestrategyhub.com/privacypolicy/en/"
+      : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    tr: !features?.includes(Features.outbrain)
+      ? "https://tradestrategyhub.com/privacypolicy/en/"
+      : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    ro: !features?.includes(Features.outbrain)
+      ? "https://tradestrategyhub.com/privacypolicy/en/"
+      : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    ar: !features?.includes(Features.outbrain)
+      ? "https://tradestrategyhub.com/privacypolicy/en/"
+      : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    de: !features?.includes(Features.outbrain)
+      ? "https://tradestrategyhub.com/privacypolicy/en/"
+      : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    es: !features?.includes(Features.outbrain)
+      ? "https://tradestrategyhub.com/privacypolicy/en/"
+      : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    sv: !features?.includes(Features.outbrain)
+      ? "https://tradestrategyhub.com/privacypolicy/en/"
+      : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    pt: !features?.includes(Features.outbrain)
+      ? "https://tradestrategyhub.com/privacypolicy/en/"
+      : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    fi: !features?.includes(Features.outbrain)
+      ? "https://tradestrategyhub.com/privacypolicy/en/"
+      : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    pl: !features?.includes(Features.outbrain)
+      ? "https://tradestrategyhub.com/privacypolicy/en/"
+      : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    hu: !features?.includes(Features.outbrain)
+      ? "https://tradestrategyhub.com/privacypolicy/en/"
+      : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    th: !features?.includes(Features.outbrain)
+      ? "https://tradestrategyhub.com/privacypolicy/en/"
+      : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    ms: !features?.includes(Features.outbrain)
+      ? "https://tradestrategyhub.com/privacypolicy/en/"
+      : "https://tradestrategyhub.com/privacypolicy/ob/en/",
+    vi: !features?.includes(Features.outbrain)
+      ? "https://tradestrategyhub.com/privacypolicy/en/"
+      : "https://tradestrategyhub.com/privacypolicy/ob/en/",
   },
   whatsapp: whatsapp,
   whatsappNumber: whatsappNumber(),

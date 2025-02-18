@@ -1,9 +1,17 @@
-import type { BrandArrItem } from "../../../types/Brands";
-import type { FXOROGlobalSVGVariation } from "../../../types/Brands/logo";
-import type { TranslationsType } from "../../../types/Translations";
-import { blackOrangeLogo, defaultLogo, whiteOrangeLogo, whiteLogo } from "./logos";
+import type { BrandArrItem } from "../../types/Brands";
+import type { FXOROGlobalSVGVariation } from "../../types/Brands/logo";
+import type { TranslationsType } from "../../types/translations";
+import {
+  blackOrangeLogo,
+  defaultLogo,
+  whiteOrangeLogo,
+  whiteLogo,
+} from "./logos";
 
-export const fxoro_global = (whatsapp: boolean, whatsappNumber: () => TranslationsType): BrandArrItem<FXOROGlobalSVGVariation> => ({
+export const fxoro_global = (
+  whatsapp: boolean,
+  whatsappNumber: () => TranslationsType
+): BrandArrItem<FXOROGlobalSVGVariation> => ({
   id: 5,
   nameToLower: "fxoro_global",
   name: "FXORO Global",

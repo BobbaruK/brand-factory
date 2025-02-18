@@ -1,9 +1,12 @@
-import type { BrandArrItem } from "../../../types/Brands";
-import type { ProTraderZoneSVGVariation } from "../../../types/Brands/logo";
-import type { TranslationsType } from "../../../types/Translations";
+import type { BrandArrItem } from "../../types/Brands";
+import type { ProTraderZoneSVGVariation } from "../../types/Brands/logo";
+import type { TranslationsType } from "../../types/translations";
 import { defaultLogo, darkBlueOrange, whiteOrange } from "./logos";
 
-export const protraderzone = (whatsapp: boolean, whatsappNumber: () => TranslationsType): BrandArrItem<ProTraderZoneSVGVariation> => ({
+export const protraderzone = (
+  whatsapp: boolean,
+  whatsappNumber: () => TranslationsType
+): BrandArrItem<ProTraderZoneSVGVariation> => ({
   id: 8,
   nameToLower: "protraderzone",
   name: "ProTradersZone",

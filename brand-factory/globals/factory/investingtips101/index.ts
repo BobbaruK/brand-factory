@@ -1,9 +1,12 @@
-import type { BrandArrItem } from "../../../types/Brands";
-import type { Investingtips101SVGVariation } from "../../../types/Brands/logo";
-import type { TranslationsType } from "../../../types/Translations";
+import type { BrandArrItem } from "../../types/Brands";
+import type { Investingtips101SVGVariation } from "../../types/Brands/logo";
+import type { TranslationsType } from "../../types/translations";
 import { defaultLogo } from "./logos";
 
-export const investingtips101 = (whatsapp: boolean, whatsappNumber: () => TranslationsType): BrandArrItem<Investingtips101SVGVariation> => ({
+export const investingtips101 = (
+  whatsapp: boolean,
+  whatsappNumber: () => TranslationsType
+): BrandArrItem<Investingtips101SVGVariation> => ({
   id: 1,
   nameToLower: "investingtips101",
   name: "Investing Tips 101",

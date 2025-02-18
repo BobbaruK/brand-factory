@@ -1,9 +1,21 @@
-import type { BrandArrItem } from "../../../types/Brands";
-import type { TradingAtheneumSVGVariation } from "../../../types/Brands/logo";
-import type { TranslationsType } from "../../../types/Translations";
-import { defaultCustom, defaultDark, defaultLight, defaultLogo, squareCustom, squareDark, squareLight, squareLogo } from "./logos";
+import type { BrandArrItem } from "../../types/Brands";
+import type { TradingAtheneumSVGVariation } from "../../types/Brands/logo";
+import type { TranslationsType } from "../../types/translations";
+import {
+  defaultCustom,
+  defaultDark,
+  defaultLight,
+  defaultLogo,
+  squareCustom,
+  squareDark,
+  squareLight,
+  squareLogo,
+} from "./logos";
 
-export const tradingatheneum = (whatsapp: boolean, whatsappNumber: () => TranslationsType): BrandArrItem<TradingAtheneumSVGVariation> => ({
+export const tradingatheneum = (
+  whatsapp: boolean,
+  whatsappNumber: () => TranslationsType
+): BrandArrItem<TradingAtheneumSVGVariation> => ({
   id: 1,
   nameToLower: "tradingatheneum",
   name: "Trading Atheneum",

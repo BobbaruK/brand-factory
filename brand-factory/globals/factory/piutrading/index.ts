@@ -1,9 +1,12 @@
-import type { BrandArrItem } from "../../../types/Brands";
-import type { PiuTradingSVGVariation } from "../../../types/Brands/logo";
-import type { TranslationsType } from "../../../types/Translations";
+import type { BrandArrItem } from "../../types/Brands";
+import type { PiuTradingSVGVariation } from "../../types/Brands/logo";
+import type { TranslationsType } from "../../types/translations";
 import { blackGreen, defaultLogo } from "./logos";
 
-export const piutrading = (whatsapp: boolean, whatsappNumber: () => TranslationsType): BrandArrItem<PiuTradingSVGVariation> => ({
+export const piutrading = (
+  whatsapp: boolean,
+  whatsappNumber: () => TranslationsType
+): BrandArrItem<PiuTradingSVGVariation> => ({
   id: 9,
   nameToLower: "piutrading",
   name: "Più Trading",

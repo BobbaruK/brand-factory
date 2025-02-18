@@ -1,6 +1,6 @@
-import type { BrandArrItem } from "../../../types/Brands";
-import type { FacoltaDiTradingSVGVariation } from "../../../types/Brands/logo";
-import type { TranslationsType } from "../../../types/Translations";
+import type { BrandArrItem } from "../../types/Brands";
+import type { FacoltaDiTradingSVGVariation } from "../../types/Brands/logo";
+import type { TranslationsType } from "../../types/translations";
 import { defaultLogo } from "./logos/defaultLogo";
 
 export const facoltaditrading = (whatsapp: boolean, whatsappNumber: () => TranslationsType): BrandArrItem<FacoltaDiTradingSVGVariation> => ({
