@@ -1,0 +1,44 @@
+---
+import { type ComponentProps } from "../../types/component-props";
+import type { FooterTranslation } from "../../types/footer-translations";
+
+interface Props {
+  componentProps: ComponentProps;
+  translations: FooterTranslation;
+}
+const { componentProps, translations } = Astro.props;
+---
+
+<>
+  {
+    componentProps.lpType === "classic" && (
+      <Fragment set:html={translations.classic[componentProps.lang]} />
+    )
+  }
+
+  {
+    componentProps.lpType === "esma" && (
+      <Fragment set:html={translations.esma[componentProps.lang]} />
+    )
+  }
+
+  {
+    componentProps.lpType === "endorsed" && (
+      <Fragment set:html={translations.endorsed[componentProps.lang]} />
+    )
+  }
+
+  {
+    (componentProps.lpType === "esma" ||
+      componentProps.lpType === "endorsed") && (
+      <div class="logoWrapper">
+        <img
+          src="https://fxoro.com/wp-content/themes/CSSecoStarterThemeV2-master/imgs/poweredfxoro-white-gold.png"
+          alt="Logo"
+          width="150"
+          height="60"
+        />
+      </div>
+    )
+  }
+</>

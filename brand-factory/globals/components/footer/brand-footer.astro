@@ -1,8 +1,12 @@
 ---
 import footerTranslations from "../../translations/footer";
+import {
+  glossaryLetter_E,
+  glossaryLetter_P,
+} from "../../translations/glossary";
 import { type ComponentProps } from "../../types/component-props";
 import { Features } from "../../types/enums";
-import { glossaryLetter_E, glossaryLetter_P } from "../../translations/glossary";
+import BrandFooterType from "./brand-footer-type.astro";
 
 interface Props {
   componentProps: ComponentProps;
@@ -11,48 +15,30 @@ const { componentProps } = Astro.props;
 
 const translations = footerTranslations(componentProps.brandObj.name);
 
-const feature = Features.rfm;
+const feature_rfm = componentProps.features?.includes(Features.rfm);
+const feature_outbrain = componentProps.features?.includes(Features.outbrain);
+const feature_atheneum = componentProps.features?.includes(Features.atheneum);
 ---
 
 <footer class="brandFooter">
   <div class="container">
-    
     {
-      componentProps.features?.includes(feature) ? (
-        <>
-          <Fragment set:html={translations.rfm[componentProps.lang]} />
-        </>
+      !feature_rfm && !feature_outbrain && !feature_atheneum ? (
+        <BrandFooterType
+          componentProps={componentProps}
+          translations={translations}
+        />
       ) : (
         <>
-          {componentProps.lpType === "classic" && (
-            <Fragment set:html={translations.classic[componentProps.lang]} />
+          {feature_rfm && (
+            <Fragment set:html={translations.rfm[componentProps.lang]} />
           )}
 
-          {componentProps.lpType === "esma" && (
-            <Fragment set:html={translations.esma[componentProps.lang]} />
-          )}
-
-          {componentProps.lpType === "endorsed" && (
-            <Fragment set:html={translations.endorsed[componentProps.lang]} />
-          )}
-
-          {componentProps.lpType === "outbrain" && (
+          {feature_outbrain && (
             <Fragment set:html={translations.outbrain[componentProps.lang]} />
           )}
 
-          {(componentProps.lpType === "esma" ||
-            componentProps.lpType === "endorsed") && (
-            <div class="logoWrapper">
-              <img
-                src="https://fxoro.com/wp-content/themes/CSSecoStarterThemeV2-master/imgs/poweredfxoro-white-gold.png"
-                alt="Logo"
-                width="150"
-                height="60"
-              />
-            </div>
-          )}
-
-          {componentProps.lpType === "atheneum" && (
+          {feature_atheneum && (
             <>
               <Fragment set:html={translations.atheneum[componentProps.lang]} />{" "}
               <div class="footer-meta-wrapper">
@@ -114,37 +100,37 @@ const feature = Features.rfm;
   </div>
 </footer>
 
-<style  is:global>
-   /* .footer-meta-wrapper {
-     display: flex;
-     justify-content: start;
-     align-items: center;
-     gap: 50px;
-     flex-wrap: wrap;
-     .footer-meta {
-       display: flex;
-       flex-direction: column;
-       gap: 8px;
-       flex-wrap: wrap;
-       .footer-meta-row {
-         display: flex;
-         gap: 4px;
-         .iconW {
-           width: 25px;
-           height: 25px;
-           border: 1px solid currentColor;
-           border-radius: 100%;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-         }
-       }
-     }
-     .footer-logo {
-       svg {
-         max-height: 60px;
-         width: auto;
-       }
-     }
-   } */
+<style is:global>
+  .footer-meta-wrapper {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    .footer-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-wrap: wrap;
+      .footer-meta-row {
+        display: flex;
+        gap: 4px;
+        .iconW {
+          width: 25px;
+          height: 25px;
+          border: 1px solid currentColor;
+          border-radius: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+    .footer-logo {
+      svg {
+        max-height: 60px;
+        width: auto;
+      }
+    }
+  }
 </style>
