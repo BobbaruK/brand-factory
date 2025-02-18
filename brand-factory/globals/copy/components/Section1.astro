@@ -10,10 +10,13 @@ const { componentProps } = Astro.props;
 ---
 
 <section id="section1" class="section1">
-  <div class="container">
+  <div class="container flex flex-col items-start justify-start gap-4 py-4">
     <h1>section 1</h1>
     <p>{componentProps.brandObj.name}</p>
-    <p>{glossaryLetter_E.email[componentProps.lang]}</p>
-    <Button>Hello World</Button>
+    <Button>{glossaryLetter_E.email[componentProps.lang]}</Button>
+    <div class="rounded-md border p-4">
+      <pre
+        class="text-wrap">const componentProps = {JSON.stringify(componentProps, null, 2)}</pre>
+    </div>
   </div>
 </section>

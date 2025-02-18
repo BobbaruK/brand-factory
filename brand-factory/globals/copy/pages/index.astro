@@ -3,23 +3,27 @@ import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
 import { type PiuTradingSVGVariation } from "../../../../globals/types/Brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type {
   LandingPageType,
   LicenseType,
 } from "../../../../globals/types/lp-params-type";
+import { checkFeatures } from "../../../../globals/utils/check-features";
 import Layout from "../layouts/Layout.astro";
 
 const license: LicenseType = "fsa";
-const lpType: LandingPageType = "endorsed";
+const lpType: LandingPageType = "esma";
+const features = checkFeatures([
+  // Features.rfm,
+  // Features.outbrain,
+  Features.atheneum,
+]);
 
 export interface CustomOptions {
   logoSquare: boolean;
 }
 
-const componentProps: ComponentProps<
-  PiuTradingSVGVariation,
-  CustomOptions
-> = {
+const componentProps: ComponentProps<PiuTradingSVGVariation, CustomOptions> = {
   lang: "en",
   license,
   dir: "ltr",
@@ -28,7 +32,7 @@ const componentProps: ComponentProps<
     brand: "piutrading",
     license,
     whatsapp: false,
-    lpType,
+    features,
   }),
   logo: function () {
     return this.brandObj.images.logoSVG.blackGreen;
@@ -38,10 +42,7 @@ const componentProps: ComponentProps<
   customOptions: {
     logoSquare: false,
   },
-  features: [
-    // Features.rfm,
-    //
-  ],
+  features,
   // fxoroFooter: true,
 };
 ---
