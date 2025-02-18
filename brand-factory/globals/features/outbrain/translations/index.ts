@@ -1,0 +1,1 @@
+export { parasFooterOutbrain } from "./footer";

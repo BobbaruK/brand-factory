@@ -1,0 +1,150 @@
+---
+import footerTranslations from "../../translations/footer";
+import { type ComponentProps } from "../../types/component-props";
+import { Features } from "../../types/enums";
+import { glossaryLetter_E, glossaryLetter_P } from "../../translations/glossary";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const translations = footerTranslations(componentProps.brandObj.name);
+
+const feature = Features.rfm;
+---
+
+<footer class="brandFooter">
+  <div class="container">
+    
+    {
+      componentProps.features?.includes(feature) ? (
+        <>
+          <Fragment set:html={translations.rfm[componentProps.lang]} />
+        </>
+      ) : (
+        <>
+          {componentProps.lpType === "classic" && (
+            <Fragment set:html={translations.classic[componentProps.lang]} />
+          )}
+
+          {componentProps.lpType === "esma" && (
+            <Fragment set:html={translations.esma[componentProps.lang]} />
+          )}
+
+          {componentProps.lpType === "endorsed" && (
+            <Fragment set:html={translations.endorsed[componentProps.lang]} />
+          )}
+
+          {componentProps.lpType === "outbrain" && (
+            <Fragment set:html={translations.outbrain[componentProps.lang]} />
+          )}
+
+          {(componentProps.lpType === "esma" ||
+            componentProps.lpType === "endorsed") && (
+            <div class="logoWrapper">
+              <img
+                src="https://fxoro.com/wp-content/themes/CSSecoStarterThemeV2-master/imgs/poweredfxoro-white-gold.png"
+                alt="Logo"
+                width="150"
+                height="60"
+              />
+            </div>
+          )}
+
+          {componentProps.lpType === "atheneum" && (
+            <>
+              <Fragment set:html={translations.atheneum[componentProps.lang]} />{" "}
+              <div class="footer-meta-wrapper">
+                <div class="footer-meta">
+                  <div class="footer-meta-row">
+                    <div class="iconW">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.5"
+                          d="m2.357 7.714l6.98 4.654c.963.641 1.444.962 1.964 1.087c.46.11.939.11 1.398 0c.52-.125 1.001-.446 1.964-1.087l6.98-4.654M7.157 19.5h9.686c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.31-1.311c.328-.642.328-1.482.328-3.162V9.3c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311c-.642-.327-1.482-.327-3.162-.327H7.157c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.31 1.311c-.328.642-.328 1.482-.328 3.162v5.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311c.642.327 1.482.327 3.162.327"
+                        />
+                      </svg>
+                    </div>
+                    <span>
+                      {glossaryLetter_E.email[componentProps.lang]}:{" "}
+                      <a href="mailto:info@tradingatheneum.com">
+                        info@tradingatheneum.com
+                      </a>
+                    </span>
+                  </div>
+                  <div class="footer-meta-row">
+                    <div class="iconW">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M4.05 21q-.45 0-.75-.3t-.3-.75V15.9q0-.325.225-.587t.575-.363l3.45-.7q.35-.05.713.063t.587.337L10.9 17q.95-.55 1.8-1.213t1.625-1.437q.825-.8 1.513-1.662t1.187-1.788L14.6 8.45q-.2-.2-.275-.475T14.3 7.3l.65-3.5q.05-.325.325-.562T15.9 3h4.05q.45 0 .75.3t.3.75q0 3.125-1.362 6.175t-3.863 5.55t-5.55 3.863T4.05 21"
+                        />
+                      </svg>
+                    </div>
+                    <span>
+                      {glossaryLetter_P.phone[componentProps.lang]}:{" "}
+                      <a href="tel:+390688060055">+39 0688060055</a>
+                    </span>
+                  </div>
+                </div>
+                <div class="footer-logo">
+                  <Fragment set:html={componentProps.logo()} />
+                </div>
+              </div>
+            </>
+          )}
+        </>
+      )
+    }
+  </div>
+</footer>
+
+<style  is:global>
+   /* .footer-meta-wrapper {
+     display: flex;
+     justify-content: start;
+     align-items: center;
+     gap: 50px;
+     flex-wrap: wrap;
+     .footer-meta {
+       display: flex;
+       flex-direction: column;
+       gap: 8px;
+       flex-wrap: wrap;
+       .footer-meta-row {
+         display: flex;
+         gap: 4px;
+         .iconW {
+           width: 25px;
+           height: 25px;
+           border: 1px solid currentColor;
+           border-radius: 100%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+         }
+       }
+     }
+     .footer-logo {
+       svg {
+         max-height: 60px;
+         width: auto;
+       }
+     }
+   } */
+</style>

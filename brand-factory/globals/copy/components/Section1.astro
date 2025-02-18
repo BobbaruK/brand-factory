@@ -1,0 +1,19 @@
+---
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Button } from "./ui/button";
+import { glossaryLetter_E } from "../../../../globals/translations/glossary";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+---
+
+<section id="section1" class="section1">
+  <div class="container">
+    <h1>section 1</h1>
+    <p>{componentProps.brandObj.name}</p>
+    <p>{glossaryLetter_E.email[componentProps.lang]}</p>
+    <Button>Hello World</Button>
+  </div>
+</section>

@@ -1,0 +1,51 @@
+---
+import Section1 from "@/components/Section1.astro";
+import { brandFactory } from "../../../../globals/factory";
+import { type PiuTradingSVGVariation } from "../../../../globals/types/Brands/logo";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type {
+  LandingPageType,
+  LicenseType,
+} from "../../../../globals/types/lp-params-type";
+import Layout from "../layouts/Layout.astro";
+
+const license: LicenseType = "fsa";
+const lpType: LandingPageType = "endorsed";
+
+export interface CustomOptions {
+  logoSquare: boolean;
+}
+
+const componentProps: ComponentProps<
+  PiuTradingSVGVariation,
+  CustomOptions
+> = {
+  lang: "en",
+  license,
+  dir: "ltr",
+  lpName: "Cometolearn",
+  brandObj: brandFactory({
+    brand: "piutrading",
+    license,
+    whatsapp: false,
+    lpType,
+  }),
+  logo: function () {
+    return this.brandObj.images.logoSVG.blackGreen;
+  },
+  lpType,
+  formValidation: "classic",
+  customOptions: {
+    logoSquare: false,
+  },
+  features: [
+    // Features.rfm,
+    //
+  ],
+  // fxoroFooter: true,
+};
+---
+
+<Layout componentProps={componentProps}>
+  <Section1 componentProps={componentProps} />
+</Layout>

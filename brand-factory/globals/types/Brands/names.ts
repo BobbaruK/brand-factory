@@ -1,0 +1,1 @@
+export type BrandsNames = "investingtips101" | "tradersacademic" | "facoltaditrading" | "fxoro" | "fxoro_global" | "daytradingstar" | "tradestrategyhub" | "protraderzone" | "piutrading" | "tradingprofiler" | "fxoro_partners" | "tradingatheneum";
