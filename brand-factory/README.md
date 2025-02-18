@@ -103,7 +103,7 @@ export default {
 
 Install the [VS Code Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and add the following settings to your VS Code configuration:
 
-`CTRL + SHIFT + P` `Preferences: User Settings (JSON)`
+`CTRL + SHIFT + P` > `Preferences: User Settings (JSON)`
 
 ```json
 {
