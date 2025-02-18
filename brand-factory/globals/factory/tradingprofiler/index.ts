@@ -1,5 +1,5 @@
-import type { BrandArrItem } from "../../types/Brands";
-import type { TradingProfilerSVGVariation } from "../../types/Brands/logo";
+import type { BrandArrItem } from "../../types/brands";
+import type { TradingProfilerSVGVariation } from "../../types/brands/logo";
 import type { TranslationsType } from "../../types/translations";
 import {
   defaultColorBlack,

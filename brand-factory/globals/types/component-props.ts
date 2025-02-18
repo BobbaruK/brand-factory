@@ -1,5 +1,5 @@
 import { Features } from "../types/enums";
-import type { BrandArrItem } from "./Brands";
+import type { BrandArrItem } from "./brands";
 import type {
   FormValidation,
   LandingPageType,

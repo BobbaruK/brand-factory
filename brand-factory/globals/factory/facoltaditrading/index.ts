@@ -1,5 +1,5 @@
-import type { BrandArrItem } from "../../types/Brands";
-import type { FacoltaDiTradingSVGVariation } from "../../types/Brands/logo";
+import type { BrandArrItem } from "../../types/brands";
+import type { FacoltaDiTradingSVGVariation } from "../../types/brands/logo";
 import type { TranslationsType } from "../../types/translations";
 import { defaultLogo } from "./logos/defaultLogo";
 

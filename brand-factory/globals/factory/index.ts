@@ -1,5 +1,5 @@
-import { type BrandArrItem } from "../types/Brands";
-import { type BrandsNames } from "../types/Brands/names";
+import { type BrandArrItem } from "../types/brands";
+import { type BrandsNames } from "../types/brands/names";
 import type { Features } from "../types/enums";
 import type { LicenseType } from "../types/lp-params-type";
 import { daytradingstar } from "./daytradingstar";

@@ -1,5 +1,5 @@
-import type { BrandArrItem } from "../../types/Brands";
-import type { ProTraderZoneSVGVariation } from "../../types/Brands/logo";
+import type { BrandArrItem } from "../../types/brands";
+import type { ProTraderZoneSVGVariation } from "../../types/brands/logo";
 import type { TranslationsType } from "../../types/translations";
 import { defaultLogo, darkBlueOrange, whiteOrange } from "./logos";
 

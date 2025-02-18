@@ -1,5 +1,5 @@
-import type { BrandArrItem } from "../../types/Brands";
-import type { PiuTradingSVGVariation } from "../../types/Brands/logo";
+import type { BrandArrItem } from "../../types/brands";
+import type { PiuTradingSVGVariation } from "../../types/brands/logo";
 import type { TranslationsType } from "../../types/translations";
 import { blackGreen, defaultLogo } from "./logos";
 
