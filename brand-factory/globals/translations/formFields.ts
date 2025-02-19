@@ -1,7 +1,9 @@
-import type { FormTranslations } from "../types/FormTranslations";
+import type { FormTranslations } from "../types/form-translations";
 import type { BrandArrItem } from "../types/brands";
 
-export default function formFieldsTranslations(brand: BrandArrItem<null>): FormTranslations {
+export default function formFieldsTranslations(
+  brand: BrandArrItem<null>
+): FormTranslations {
   return {
     firstName: {
       en: "First Name",
