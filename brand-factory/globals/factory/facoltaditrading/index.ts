@@ -3,7 +3,10 @@ import type { FacoltaDiTradingSVGVariation } from "../../types/brands/logo";
 import type { TranslationsType } from "../../types/translations";
 import { defaultLogo } from "./logos/defaultLogo";
 
-export const facoltaditrading = (whatsapp: boolean, whatsappNumber: () => TranslationsType): BrandArrItem<FacoltaDiTradingSVGVariation> => ({
+export const facoltaditrading = (
+  whatsapp: boolean,
+  whatsappNumber: () => TranslationsType
+): BrandArrItem<FacoltaDiTradingSVGVariation> => ({
   id: 3,
   nameToLower: "facoltaditrading",
   name: "Facoltà Di Trading",

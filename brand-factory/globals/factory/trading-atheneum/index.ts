@@ -69,4 +69,9 @@ export const tradingatheneum = (
     },
     faviconLink: "https://tradingatheneum.com/global_assets/imgs/favicon.png",
   },
+  footerMetaData: {
+    email: "info@tradingatheneum.com",
+    phone: "+390688060055",
+    logo: defaultCustom,
+  },
 });

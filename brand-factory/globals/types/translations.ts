@@ -1,9 +1,3 @@
-import { type LandingPageType } from "./lp-params-type";
-
-export type FooterTranslations = {
-  [key in LandingPageType]: TranslationsType;
-};
-
 export type Languages =
   | "en"
   | "it"

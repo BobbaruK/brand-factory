@@ -1,15 +1,12 @@
-import type {
-  FooterTranslations,
-  TranslationsType,
-} from "../types/translations";
+import type { TranslationsType } from "../types/translations";
 import { ReadyForMailTranslation } from "../features/ready-for-email/translations";
 import { AtheneumTranslation } from "../features/atheneum/translations";
 import { parasFooterOutbrain } from "../features/outbrain/translations";
-import type { FooterTranslation } from "../types/footer-translations";
+import type { FooterTranslations } from "../types/footer";
 
 export default function footerTranslations(
   brandName: string
-): FooterTranslation {
+): FooterTranslations {
   const classic: TranslationsType = {
     en: `<p>Trading carries a high level of risk to your capital due to the volatility of the underlying market. Trading is not suitable for everyone and may result in you losing all your investment. ${brandName} products may not be suitable for all investors. Therefore, you should ensure that you understand the risks and seek advice from an independent and suitably licensed financial advisor.</p>`,
     it: `<p>Il trading ha un elevato livello di rischio per il capitale a causa della volatilità del mercato. Il trading non è adatto a tutti e può causare la perdita di tutto il tuo investimento. I segnali ${brandName} potrebbero non essere adatti a tutti gli investitori. Pertanto, è necessario assicurarsi di comprendere i rischi e richiedere consulenza da un consulente finanziario indipendente e adeguatamente autorizzato.</p>`,
