@@ -72,15 +72,19 @@ Create a `./src/styles/global.css` file and add an @import for Tailwind CSS.
 }
 ```
 
-### 8. Copy files
+### 8. Add SASS
+
+`npm install -D sass-embedded`
+
+### 9. Copy files
 
 Copy folders from `./globals/copy/` to `./designs/lp_slug/src/`.
 
-### 9. Install Prettier Plugin for Astro and Tailwind
+### 10. Install Prettier Plugin for Astro and Tailwind
 
 `npm i --save-dev prettier prettier-plugin-astro prettier-plugin-tailwindcss`
 
-### 10. Create `.prettierrc.mjs` in the root of the project
+### 11. Create `.prettierrc.mjs` in the root of the project
 
 ```javascript
 /** @type {import("prettier").Config} */
@@ -97,7 +101,7 @@ export default {
 };
 ```
 
-### 11. Install the VS Code Prettier extension
+### 12. Install the VS Code Prettier extension
 
 **Do this if you didn't do it by now**
 
@@ -114,7 +118,7 @@ Install the [VS Code Prettier extension](https://marketplace.visualstudio.com/it
 }
 ```
 
-### 12. Add ShadCN
+### 13. Add ShadCN
 
 Because you created a new project with Tailwind v4 and React 19, use the `canary` version of the command-line:
 
@@ -122,23 +126,23 @@ Because you created a new project with Tailwind v4 and React 19, use the `canary
 
 More info [here](https://ui.shadcn.com/docs/tailwind-v4)
 
-### 13. Configure ShadCN
+### 14. Configure ShadCN
 
 - Which color would you like to use as the **base color**? - **Slate**
 - Would you like to use **CSS variables** for theming? - **yes**
 - How would you like to proceed? - **Use --force**
 
-### 14. Add ShadCN components
+### 15. Add ShadCN components
 
 `npx shadcn@latest add button input label`
 
-### 15. Reload window
+### 16. Reload window
 
 Sometimes you need to reload the window for the changes to apply
 
 `CTRL + SHIFT + P` `Developer: Reload Window`
 
-### 16. Happy coding!
+### 17. Happy coding!
 
 `npm run dev` - development
 
