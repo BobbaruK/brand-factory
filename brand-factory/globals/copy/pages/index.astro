@@ -12,11 +12,11 @@ import { checkFeatures } from "../../../../globals/utils/check-features";
 import Layout from "../layouts/Layout.astro";
 
 const license: LicenseType = "fsa";
-const lpType: LandingPageType = "esma";
+const lpType: LandingPageType = "esma"; 
 const features = checkFeatures([
-  // Features.rfm,
+  Features.rfm,
   // Features.outbrain,
-  Features.atheneum,
+  // Features.atheneum,
 ]);
 
 export interface CustomOptions {
@@ -38,7 +38,7 @@ const componentProps: ComponentProps<PiuTradingSVGVariation, CustomOptions> = {
     return this.brandObj.images.logoSVG.blackGreen;
   },
   lpType,
-  formValidation: "classic",
+  formValidation: "classic", // direct reg === rfm
   customOptions: {
     logoSquare: false,
   },
