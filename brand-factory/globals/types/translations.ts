@@ -13,7 +13,8 @@ export type Languages =
   | "hu"
   | "th"
   | "ms"
-  | "vi";
+  | "vi"
+  | "showcase";
 
 export type TranslationsType = {
   [key in Languages]: string;
