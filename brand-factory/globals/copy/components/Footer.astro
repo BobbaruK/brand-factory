@@ -14,7 +14,10 @@ const { componentProps } = Astro.props;
     // TODO: handle style for FxoroFooter
     <FxoroFooter componentProps={componentProps} />
   ) : (
-    <BrandFooter componentProps={componentProps} />
+    <BrandFooter
+      componentProps={componentProps}
+      footerMetaData={componentProps.brandObj.footerMetaData}
+    />
   )
 }
 

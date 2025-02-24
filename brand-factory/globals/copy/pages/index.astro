@@ -1,7 +1,7 @@
 ---
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type PiuTradingSVGVariation } from "../../../../globals/types/brands/logo";
+import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -12,30 +12,32 @@ import { checkFeatures } from "../../../../globals/utils/check-features";
 import Layout from "../layouts/Layout.astro";
 
 const license: LicenseType = "fsa";
-const lpType: LandingPageType = "esma"; 
+const lpType: LandingPageType = "esma";
 const features = checkFeatures([
-  Features.rfm,
+  // Features.rfm,
   // Features.outbrain,
-  // Features.atheneum,
+  Features.atheneum,
 ]);
 
 export interface CustomOptions {
   logoSquare: boolean;
 }
 
-const componentProps: ComponentProps<PiuTradingSVGVariation, CustomOptions> = {
+const componentProps: ComponentProps<
+  TradingAtheneumSVGVariation,
+  CustomOptions
+> = {
   lang: "en",
   license,
-  dir: "ltr",
-  lpName: "Cometolearn",
+  lpName: "",
   brandObj: brandFactory({
-    brand: "piutrading",
+    brand: "tradingatheneum",
     license,
-    whatsapp: false,
+    whatsapp: true,
     features,
   }),
   logo: function () {
-    return this.brandObj.images.logoSVG.blackGreen;
+    return this.brandObj.images.logoSVG.default;
   },
   lpType,
   formValidation: "classic", // direct reg === rfm
