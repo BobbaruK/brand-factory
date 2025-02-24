@@ -9,7 +9,7 @@ import { type Languages } from "./translations";
 
 export interface ComponentProps<TSVGLogoVariations = any, TCustomOpts = any> {
   lang: Languages;
-  dir: "rtl" | "ltr";
+  // dir: NotificationDirection;
   license: LicenseType;
   lpName: string;
   brandObj: BrandArrItem<TSVGLogoVariations>;
