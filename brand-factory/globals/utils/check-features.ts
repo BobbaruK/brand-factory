@@ -8,7 +8,7 @@ export const checkFeatures = (features: Features[]) => {
       features.includes(Features.atheneum))
   )
     throw new Error(
-      `You cannot combine features: ${Features.rfm}, ${Features.outbrain} and ${Features.atheneum}`
+      `You cannot combine these features: ${Features.rfm}, ${Features.outbrain} and ${Features.atheneum}`
     );
 
   return features;
