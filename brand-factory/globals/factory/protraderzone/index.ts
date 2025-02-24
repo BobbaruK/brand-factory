@@ -1,7 +1,7 @@
 import type { BrandArrItem } from "../../types/brands";
 import type { ProTraderZoneSVGVariation } from "../../types/brands/logo";
 import type { TranslationsType } from "../../types/translations";
-import { defaultLogo, darkBlueOrange, whiteOrange } from "./logos";
+import { darkBlueOrange, defaultLogo, whiteOrange } from "./logos";
 
 export const protraderzone = (
   whatsapp: boolean,
@@ -26,6 +26,7 @@ export const protraderzone = (
     th: "",
     ms: "",
     vi: "",
+    showcase: "#",
   },
   recaptchaKey: "6LcLpJgpAAAAAIFFCX3S3t4--80SlT_c5Prq4vNH",
   privacyLink: {
@@ -44,6 +45,7 @@ export const protraderzone = (
     th: "https://protraderzone.com/privacypolicy/en/",
     ms: "https://protraderzone.com/privacypolicy/en/",
     vi: "https://protraderzone.com/privacypolicy/en/",
+    showcase: "#",
   },
   whatsapp: whatsapp,
   whatsappNumber: whatsappNumber(),

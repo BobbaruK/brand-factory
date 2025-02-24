@@ -26,6 +26,7 @@ export const piutrading = (
     th: "https://piutrading.com/thanks-en.html",
     ms: "https://piutrading.com/thanks-en.html",
     vi: "https://piutrading.com/thanks-en.html",
+    showcase: "#",
   },
   recaptchaKey: "6LdCa2EjAAAAAO0nn5jZLdYCGMdTfxlPuO29d1s-",
   privacyLink: {
@@ -44,6 +45,7 @@ export const piutrading = (
     th: "",
     ms: "",
     vi: "",
+    showcase: "#",
   },
   whatsapp: whatsapp,
   whatsappNumber: whatsappNumber(),

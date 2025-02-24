@@ -26,6 +26,7 @@ export const fxoro_partners = (
     th: ``,
     ms: ``,
     vi: ``,
+    showcase: "#",
   },
   recaptchaKey: "6LeILoQjAAAAAN_Dsbeu4ncn9Adut_tO3uK4Blnk",
   privacyLink: {
@@ -44,6 +45,7 @@ export const fxoro_partners = (
     th: ``,
     ms: ``,
     vi: ``,
+    showcase: "#",
   },
 
   whatsapp: whatsapp,

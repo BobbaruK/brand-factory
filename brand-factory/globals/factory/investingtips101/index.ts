@@ -26,6 +26,7 @@ export const investingtips101 = (
     th: "",
     ms: "",
     vi: "",
+    showcase: "#",
   },
   recaptchaKey: "6Lcie2QjAAAAABe6qk6JiC3wvPyhbiywPGijEKjm",
   privacyLink: {
@@ -44,6 +45,7 @@ export const investingtips101 = (
     th: "",
     ms: "",
     vi: "",
+    showcase: "#",
   },
   whatsapp: whatsapp,
   whatsappNumber: whatsappNumber(),

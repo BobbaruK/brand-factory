@@ -26,6 +26,7 @@ export const daytradingstar = (
     th: "",
     ms: "",
     vi: "",
+    showcase: "#",
   },
   recaptchaKey: "6LcgMIQjAAAAAMWXsI2BwV71Zof51ic9igSBCXOK",
   privacyLink: {
@@ -44,6 +45,7 @@ export const daytradingstar = (
     th: "https://daytradingstar.com/privacypolicy.html",
     ms: "https://daytradingstar.com/privacypolicy.html",
     vi: "https://daytradingstar.com/privacypolicy.html",
+    showcase: "#",
   },
   whatsapp: whatsapp,
   whatsappNumber: whatsappNumber(),

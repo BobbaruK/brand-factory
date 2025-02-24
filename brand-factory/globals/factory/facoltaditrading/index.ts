@@ -26,6 +26,7 @@ export const facoltaditrading = (
     th: `https://facoltaditrading.com/thank-you/en`,
     ms: `https://facoltaditrading.com/thank-you/en`,
     vi: `https://facoltaditrading.com/thank-you/en`,
+    showcase: "#",
   },
   recaptchaKey: "6LfWLIQjAAAAADF97_A4hqRnyD3EmZ-XLXDXgIVa",
   privacyLink: {
@@ -44,6 +45,7 @@ export const facoltaditrading = (
     th: "https://facoltaditrading.com/privacypolicy.html",
     ms: "https://facoltaditrading.com/privacypolicy.html",
     vi: "https://facoltaditrading.com/privacypolicy.html",
+    showcase: "#",
   },
   whatsapp: whatsapp,
   whatsappNumber: whatsappNumber(),
