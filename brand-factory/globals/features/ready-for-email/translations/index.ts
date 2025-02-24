@@ -1,0 +1,1 @@
+export { parasFooterReadyForMail } from "./footer";
