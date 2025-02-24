@@ -1,1 +1,1 @@
-export { AtheneumTranslation } from "./footer";
+export { parasFooterAtheneum } from "./footer";
