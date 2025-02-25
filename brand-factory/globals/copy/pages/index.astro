@@ -7,6 +7,7 @@ import { Features } from "../../../../globals/types/enums";
 import type {
   LandingPageType,
   LicenseType,
+  RegistrationType,
 } from "../../../../globals/types/lp-params-type";
 import { checkFeatures } from "../../../../globals/utils/check-features";
 import Layout from "../layouts/Layout.astro";
@@ -14,10 +15,11 @@ import Layout from "../layouts/Layout.astro";
 const license: LicenseType = "fsa";
 const lpType: LandingPageType = "esma";
 const features = checkFeatures([
-  // Features.rfm,
+  // Features.readyForMail,
   // Features.outbrain,
-  Features.atheneum,
+  // Features.atheneum,
 ]);
+const registrationType: RegistrationType = "classic";
 
 export interface CustomOptions {
   logoSquare: boolean;
@@ -37,10 +39,12 @@ const componentProps: ComponentProps<
     features,
   }),
   logo: function () {
-    return this.brandObj.images.logoSVG.default;
+    return this.brandObj.images.logoSVG.defaultCustom;
   },
   lpType,
-  formValidation: "classic", // direct reg === rfm
+  registrationType: features.includes(Features.readyForMail)
+    ? "direct_registration"
+    : registrationType, // direct_registration === rfm(Ready for mail) feature,
   customOptions: {
     logoSquare: false,
   },

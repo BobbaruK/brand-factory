@@ -19,7 +19,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
   dir={lang === "ar" ? "rtl" : "ltr"}
   data-brandname={componentProps.brandObj.name}
   data-lptype={componentProps.lpType}
-  data-formvalidation={componentProps.formValidation}
+  data-registrationtype={componentProps.registrationType}
   data-recaptchasitekey={componentProps.brandObj.recaptchaKey}
   data-typage={componentProps.brandObj.typage[lang]}
   data-openwa={componentProps.brandObj.whatsapp && "true"}

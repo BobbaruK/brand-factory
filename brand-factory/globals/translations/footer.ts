@@ -129,25 +129,6 @@ export default function footerTranslations(
       <p>Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu.</p>`,
   };
 
-  // const outbrain: TranslationsType = {
-  //   en: `
-  //     <p>CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. The vast majority of retail investor accounts lose money when trading CFDs. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.</p>`,
-  //   it: "",
-  //   tr: "",
-  //   ro: "",
-  //   ar: "",
-  //   de: "",
-  //   es: ``,
-  //   sv: "",
-  //   pt: "",
-  //   fi: "",
-  //   pl: ``,
-  //   hu: "",
-  //   th: "",
-  //   ms: "",
-  //   vi: "",
-  // };
-
   return {
     classic,
     esma,

@@ -1,7 +1,7 @@
 import { Features } from "../types/enums";
 import type { BrandArrItem } from "./brands";
 import type {
-  FormValidation,
+  RegistrationType,
   LandingPageType,
   LicenseType,
 } from "./lp-params-type";
@@ -15,7 +15,7 @@ export interface ComponentProps<TSVGLogoVariations = any, TCustomOpts = any> {
   brandObj: BrandArrItem<TSVGLogoVariations>;
   logo: () => string;
   lpType: LandingPageType;
-  formValidation: FormValidation;
+  registrationType: RegistrationType;
   fxoroFooter?: boolean;
   customOptions?: TCustomOpts; // any
   features?: Features[];

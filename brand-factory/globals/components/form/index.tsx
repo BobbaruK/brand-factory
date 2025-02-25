@@ -297,7 +297,7 @@ function FormCheckBoxes({
   id,
   translations,
 }: Omit<Props & { translations: FormTranslations }, "button">) {
-  if (componentProps.features?.includes(Features.rfm))
+  if (componentProps.features?.includes(Features.readyForMail))
     return (
       <>
         <FormCheckBox

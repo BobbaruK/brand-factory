@@ -1,4 +1,4 @@
-export type FormValidation =
+export type RegistrationType =
   | "classic"
   | "sms_registration"
   | "direct_registration";

@@ -1,5 +1,5 @@
 export enum Features {
-  rfm = "Ready for mail",
+  readyForMail = "Ready for mail",
   outbrain = "Outbrain",
   atheneum = "Atheneum",
 }
