@@ -53,6 +53,6 @@ export const oracleSignals = (
     logoSVG: {
       default: defaultLogo,
     },
-    faviconLink: "https://fxoro.com/global_assets/imgs/favicon.svg",
+    faviconLink: "https://oracle-signals.com/global_assets/imgs/favicon.png",
   },
 });
