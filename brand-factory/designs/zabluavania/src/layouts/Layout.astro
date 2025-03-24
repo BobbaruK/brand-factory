@@ -1,0 +1,88 @@
+---
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import "@fontsource/ubuntu/400.css";
+import "@fontsource/ubuntu/700.css";
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import backgroundImage from "../assets/bg.jpg";
+import "../styles/global.css";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+
+const { componentProps } = Astro.props;
+
+const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
+---
+
+<!doctype html>
+<html
+  lang={lang}
+  dir={lang === "ar" ? "rtl" : "ltr"}
+  data-brandname={componentProps.brandObj.name}
+  data-lptype={componentProps.lpType}
+  data-registrationtype={componentProps.registrationType}
+  data-recaptchasitekey={componentProps.brandObj.recaptchaKey}
+  data-typage={componentProps.brandObj.typage[lang]}
+  data-openwa={componentProps.brandObj.whatsapp && "true"}
+  data-wanumber={componentProps.brandObj.whatsapp
+    ? componentProps.brandObj.whatsappNumber[lang]
+    : false}
+>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={componentProps.brandObj.images.faviconLink}
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{componentProps.lpName} | {componentProps.brandObj.name}</title>
+    <style>
+      body {
+        font-family: "Ubuntu", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="relative">
+      <Image
+        src={backgroundImage}
+        alt="Background image"
+        class="absolute inset-0 z-0 h-full w-full object-cover"
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, backgroundImage.width]}
+        sizes={`
+          (max-width: 320px) 576px,
+          (max-width: 576px) 640px,
+          (max-width: 640px) 768px,
+          (max-width: 768px) 1024px,
+          (max-width: 1024px) 1280px,
+          (max-width: 1280px) 1536px,
+          1920px
+        `}
+      />
+      <div id="site-wrapper" class="relative z-10 min-h-screen">
+        <Header componentProps={componentProps} />
+        <main>
+          <slot />
+        </main>
+        <Footer componentProps={componentProps} />
+      </div>
+    </div>
+    <script
+      type="module"
+      src="https://assets.smartsupporthub.com/js/bundle/astro_lp_v2.js"
+      is:inline></script>
+  </body>
+
+  <style>
+    #site-wrapper {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100dvh;
+    }
+  </style>
+</html>

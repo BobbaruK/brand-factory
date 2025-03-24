@@ -1,0 +1,57 @@
+---
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import FormWrapper from "./Form-Wrapper.astro";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const formTitle: TranslationsType = {
+  en: `Get your free signals!`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+
+const formButton: TranslationsType = {
+  en: `Register Now`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+---
+
+<div class="hidden md:block">
+  <FormWrapper
+    componentProps={componentProps}
+    title={formTitle[componentProps.lang]}
+    buttonLabel={formButton[componentProps.lang]}
+    id="sectionForm"
+  />
+</div>
