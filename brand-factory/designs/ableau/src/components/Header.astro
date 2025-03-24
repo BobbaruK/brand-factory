@@ -9,8 +9,8 @@ interface Props {
 const { componentProps } = Astro.props;
 ---
 
-<header id="header">
-  <div class="container">
+<header id="header" class="py-3 md:py-4">
+  <div class="container [&>svg]:max-w-full">
     <MainLogo
       size={componentProps.brandObj.nameToLower}
       logo={componentProps.logo()}

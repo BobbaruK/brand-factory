@@ -2,7 +2,7 @@
 import SectionTest from "@/components/Section-Test.astro";
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
+import { type OracleSignalsSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 // import { Features } from "../../../../globals/types/enums";
 import type {
@@ -26,30 +26,28 @@ export interface CustomOptions {
   logoSquare: boolean;
 }
 
-const componentProps: ComponentProps<
-  TradingAtheneumSVGVariation,
-  CustomOptions
-> = {
-  lang: "en",
-  license,
-  lpName: "Corsitrading",
-  brandObj: brandFactory({
-    brand: "tradingatheneum",
+const componentProps: ComponentProps<OracleSignalsSVGVariation, CustomOptions> =
+  {
+    lang: "en",
     license,
-    whatsapp: false,
+    lpName: "Corsitrading",
+    brandObj: brandFactory({
+      brand: "oracle-signals",
+      license,
+      whatsapp: false,
+      features,
+    }),
+    logo: function () {
+      return this.brandObj.images.logoSVG.default;
+    },
+    lpType,
+    registrationType,
+    customOptions: {
+      logoSquare: false,
+    },
     features,
-  }),
-  logo: function () {
-    return this.brandObj.images.logoSVG.defaultCustom;
-  },
-  lpType,
-  registrationType,
-  customOptions: {
-    logoSquare: false,
-  },
-  features,
-  // fxoroFooter: true,
-};
+    // fxoroFooter: true,
+  };
 ---
 
 <Layout componentProps={componentProps}>
