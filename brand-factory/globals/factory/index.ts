@@ -8,6 +8,7 @@ import { fxoro } from "./fxoro";
 import { fxoro_global } from "./fxoro_global";
 import { fxoro_partners } from "./fxoro_partners";
 import { investingtips101 } from "./investingtips101";
+import { oracleSignals } from "./oracle-sigals";
 import { piutrading } from "./piutrading";
 import { protraderzone } from "./protraderzone";
 import { tradersacademic } from "./tradersacademic";
@@ -47,7 +48,7 @@ export const brandFactory = <T>({
           th: "35725205563",
           ms: "35725205563",
           vi: "35725205563",
-          showcase: "00000000000"
+          showcase: "00000000000",
         };
 
       case "fsa":
@@ -67,7 +68,7 @@ export const brandFactory = <T>({
           th: "",
           ms: "",
           vi: "",
-          showcase: "00000000000"
+          showcase: "00000000000",
         };
     }
   };
@@ -112,6 +113,9 @@ export const brandFactory = <T>({
 
     case "tradingatheneum":
       return tradingatheneum(whatsapp, whatsappNumber) as BrandArrItem<T>;
+
+    case "oracle-signals":
+      return oracleSignals(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
     default:
       return investingtips101(whatsapp, whatsappNumber) as BrandArrItem<T>;

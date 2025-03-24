@@ -65,3 +65,7 @@ export type TradingAtheneumSVGVariation = {
   squareDark: string;
   squareCustom: string;
 };
+
+export type OracleSignalsSVGVariation = {
+  default: string;
+};
