@@ -1,0 +1,268 @@
+---
+import { Button } from "@/components/ui/button";
+import Form from "../../../../globals/components/form";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import icon1 from "../assets/icon_1.png";
+import icon2 from "../assets/icon_2.png";
+import icon3 from "../assets/icon_3.png";
+import icon4 from "../assets/icon_4.png";
+import phone from "../assets/phone.png";
+import { Image } from "astro:assets";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: `Opere con divisas, acciones, materias primas y más con un mejor conocimiento del mercado.`,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+
+const bullets: {
+  title: TranslationsType;
+  iconImage: ImageMetadata;
+  para: TranslationsType;
+}[] = [
+  {
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "Webinarios",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+      showcase: "",
+    },
+    para: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+      showcase: "",
+    },
+    iconImage: icon1,
+  },
+  {
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "Tutoriales en vídeo",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+      showcase: "",
+    },
+    para: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+      showcase: "",
+    },
+    iconImage: icon2,
+  },
+  {
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "Formación personalizada",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+      showcase: "",
+    },
+    para: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "Aprenda a detectar tendencias, reconocer mejores oportunidades de trading, realizar análisis y más.",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+      showcase: "",
+    },
+    iconImage: icon3,
+  },
+  {
+    title: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "Señales de Forex gratis",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+      showcase: "",
+    },
+    para: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "Conocer el mercado Forex nunca había sido tan fácil con nuestras señales concisas y fáciles de entender.",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+      showcase: "",
+    },
+    iconImage: icon4,
+  },
+];
+---
+
+<section id="section3" class="py-9">
+  <div class="container flex flex-col gap-8 lg:flex-row">
+    <div class="lg:basis-1/2">
+      <h2
+        set:html={title[componentProps.lang]}
+        class="border-b-primary text-heading2 border-b-2 pb-2 text-center font-bold md:max-w-[40ch] md:text-start"
+      />
+      <div
+        class="mt-8 flex flex-col items-center justify-center gap-8 text-center md:flex-row md:flex-wrap md:items-start md:justify-start md:gap-y-4 md:text-start"
+      >
+        {
+          bullets.map((bullet) => {
+            return (
+              <div class="flex h-full flex-col items-center justify-center gap-2 md:basis-[45%] md:items-start md:justify-start">
+                <Image
+                  src={bullet.iconImage}
+                  alt="Graph presentation"
+                  class="h-28 w-auto md:h-20"
+                  widths={[
+                    320,
+                    576,
+                    640,
+                    768,
+                    1024,
+                    1280,
+                    1536,
+                    bullet.iconImage.width,
+                  ]}
+                  sizes={`
+                    (max-width: 320px) 320px,
+                    350px
+                  `}
+                />
+                <h3
+                  set:html={bullet.title[componentProps.lang]}
+                  class="text-heading3 text-primary font-bold uppercase lg:max-w-[30ch]"
+                />
+                {bullet.para[componentProps.lang] && (
+                  <p
+                    class="hidden md:block"
+                    set:html={bullet.para[componentProps.lang]}
+                  />
+                )}
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+    <div class="grid place-items-center lg:basis-1/2">
+      <Image
+        src={phone}
+        alt="Graph presentation"
+        class="w-full max-w-[350px]"
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, phone.width]}
+        sizes={`
+          (max-width: 320px) 320px,
+          350px
+        `}
+      />
+    </div>
+  </div>
+
+  <style lang="scss">
+    h2 {
+    }
+  </style>
+</section>
