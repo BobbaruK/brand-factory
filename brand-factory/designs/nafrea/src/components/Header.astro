@@ -1,20 +1,165 @@
 ---
 import { type CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import Form from "../../../../globals/components/form";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import bgImage from "../assets/bg.jpg";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Learn how to trade on the financial markets for <span class="text-white uppercase font-bold">free</span>, with zero risk`,
+  it: ``,
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `Receive your <strong>free PDF <span class="text-white">guide for learning now</span>.</strong>`,
+    it: ``,
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+    showcase: "",
+  },
+  {
+    en: `${componentProps.brandObj.name} is offering you the opportunity to learn how to trade and to exercise your skills on a <strong>free demo account with 10,000 EUR and 0 risk</strong>.`,
+    it: ``,
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+    showcase: "",
+  },
+];
+
+const formTitle: TranslationsType = {
+  en: `REGISTER NOW to receive your <strong class="uppercase">free pdf guide</strong>`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+
+const formButton: TranslationsType = {
+  en: "Get the guide",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header id="header" class="relative py-4 lg:pb-20">
+  <Image
+    src={bgImage}
+    alt="Background"
+    class="absolute top-0 left-0 z-0 h-full w-full object-cover object-bottom md:object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bgImage.width]}
+    sizes={`100vw`}
+  />
+  <div class="relative z-10 container flex flex-col gap-8 lg:flex-row">
+    <div
+      class="flex flex-col justify-start gap-4 text-white md:gap-8 lg:basis-1/2 lg:gap-16"
+    >
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+      <h1
+        set:html={title[componentProps.lang]}
+        class="text-heading1 text-primary lg:w-[23ch]"
+      />
+
+      {
+        paras.map((para, index) => {
+          return (
+            <p
+              set:html={para[componentProps.lang]}
+              class={`text-para-lead ${index === 0 ? "text-primary lg:w-[20ch]" : "lg:w-[40ch]"}`}
+            />
+          );
+        })
+      }
+    </div>
+    <div class="lg:basis-1/2">
+      <div
+        class="mx-auto flex flex-col items-center justify-center gap-6 bg-white p-6 shadow-lg lg:max-w-[400px] lg:pb-20"
+      >
+        <h2
+          set:html={formTitle[componentProps.lang]}
+          class="text-form-title w-[25ch] text-center"
+        />
+        <Form
+          componentProps={componentProps}
+          button={formButton[componentProps.lang]}
+          id="header-form"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="bg-background pointer-events-none absolute top-auto right-0 -bottom-[1px] left-0 h-[200px] w-full [clip-path:polygon(100%_0,0_100%,100%_100%)]"
+  >
   </div>
 </header>

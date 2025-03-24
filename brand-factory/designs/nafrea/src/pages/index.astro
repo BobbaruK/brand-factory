@@ -1,10 +1,9 @@
 ---
-import SectionTest from "@/components/Section-Test.astro";
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
 import { type OracleSignalsSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
-// import { Features } from "../../../../globals/types/enums";
+import { Features } from "../../../../globals/types/enums";
 import type {
   LandingPageType,
   LicenseType,
@@ -16,7 +15,7 @@ import Layout from "../layouts/Layout.astro";
 const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
-  // Features.readyForMail,
+  Features.readyForMail,
   // Features.outbrain,
   // Features.atheneum,
 ]);
@@ -26,33 +25,30 @@ export interface CustomOptions {
   logoSquare: boolean;
 }
 
-const componentProps: ComponentProps<
-  OracleSignalsSVGVariation,
-  CustomOptions
-> = {
-  lang: "en",
-  license,
-  lpName: "Cometolearn",
-  brandObj: brandFactory({
-    brand: "oracle-signals",
+const componentProps: ComponentProps<OracleSignalsSVGVariation, CustomOptions> =
+  {
+    lang: "en",
     license,
-    whatsapp: false,
+    lpName: "Cometolearn",
+    brandObj: brandFactory({
+      brand: "oracle-signals",
+      license,
+      whatsapp: false,
+      features,
+    }),
+    logo: function () {
+      return this.brandObj.images.logoSVG.default;
+    },
+    lpType,
+    registrationType,
+    customOptions: {
+      logoSquare: false,
+    },
     features,
-  }),
-  logo: function () {
-    return this.brandObj.images.logoSVG.default;
-  },
-  lpType,
-  registrationType,
-  customOptions: {
-    logoSquare: false,
-  },
-  features,
-  // fxoroFooter: true,
-};
+    // fxoroFooter: true,
+  };
 ---
 
 <Layout componentProps={componentProps}>
-  <SectionTest componentProps={componentProps} />
   <Section1 componentProps={componentProps} />
 </Layout>

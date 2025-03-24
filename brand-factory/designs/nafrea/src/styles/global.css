@@ -16,22 +16,22 @@
     0.9537rem + 1.4815vw,
     2.25rem
   ); /* 20 - 36 ; 320 - 1400 */
-  --text-heading1--line-height: clamp(
+  /* --text-heading1--line-height: clamp(
     1.25rem,
     0.75rem + 2.5vw,
     2.75rem
-  ); /* 20 - 44 ; 320 - 1280 */
+  );*/ /* 20 - 44 ; 320 - 1280 */
 
   --text-heading2: clamp(
     1.125rem,
     1.0509rem + 0.3704vw,
     1.375rem
   ); /* 18 - 22 ; 320 - 1400 */
-  --text-heading2--line-height: clamp(
+  /* --text-heading2--line-height: clamp(
     1.25rem,
     0.8333rem + 2.0833vw,
     2.5rem
-  ); /* 20 - 40 ; 320 - 1280 */
+  );*/ /* 20 - 40 ; 320 - 1280 */
 
   --text-heading3: clamp(
     1rem,
@@ -49,10 +49,16 @@
     0.7639rem + 0.5556vw,
     1.25rem
   ); /* 14 - 20 ; 320 - 1400 */
+
+  --text-para-lead: clamp(
+    1rem,
+    0.9259rem + 0.3704vw,
+    1.25rem
+  ); /* 16 - 20 ; 320 - 1400 */
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
