@@ -173,6 +173,7 @@ form.registerForm {
         display: none;
       }
     }
+
     input[type="text"],
     input[type="email"],
     input[type="tel"],
@@ -183,6 +184,7 @@ form.registerForm {
       // transition: 350ms;
       // width: 100%;
       height: var(--inputHeight);
+      background-color: var(--background);
       &:hover {
       }
       &:focus {
@@ -192,8 +194,6 @@ form.registerForm {
     }
     select option {
       margin: 40px;
-      background: var(--clr-brandPrimaryColor-light);
-      color: var(--clr-white);
       text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
     }
     .phone {
@@ -224,7 +224,7 @@ form.registerForm {
       padding: 10px 15px;
       transition: 350ms;
       width: 100%;
-      height: var(--inputHeight);
+      min-height: var(--inputHeight);
       &:hover {
       }
     }

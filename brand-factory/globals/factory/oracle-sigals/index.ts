@@ -28,7 +28,7 @@ export const oracleSignals = (
     vi: ``,
     showcase: "#",
   },
-  recaptchaKey: "",
+  recaptchaKey: "6LeSkf4qAAAAADlA-HG8iv1AsFvlSHEk5Za4d2NC",
   privacyLink: {
     en: ``,
     it: ``,
