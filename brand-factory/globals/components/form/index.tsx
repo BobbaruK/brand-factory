@@ -381,7 +381,7 @@ function FormCheckBox({
         />
         <Label
           htmlFor={`${id}-${classLabel}`}
-          className="agreement inline-flex"
+          className="agreement inline"
           dangerouslySetInnerHTML={{ __html: `<span>${label}</span>` }}
         />
       </div>
