@@ -196,15 +196,15 @@ const bullets: {
         {
           bullets.map((li) => (
             <li class="flex flex-col items-center justify-center gap-4 lg:flex-row">
-              <div class="bulletSquare relative grid h-28 w-28 place-items-center overflow-hidden rounded-full border border-[hsl(var(--secondary-dark))] bg-[hsl(var(--secondary-dark))]/50 p-4 shadow-md lg:w-28 lg:min-w-28">
+              <div class="bulletSquare relative grid h-28 w-28 place-items-center overflow-hidden rounded-full border border-[var(--secondary-dark)] bg-[var(--secondary-dark)]/50 p-4 shadow-md lg:w-28 lg:min-w-28">
                 <div
-                  class="text-background grid h-full w-full place-items-center rounded-full bg-[hsl(var(--secondary-dark))] text-3xl font-bold"
+                  class="text-background grid h-full w-full place-items-center rounded-full bg-[var(--secondary-dark)] text-3xl font-bold"
                   set:html={li.icon}
                 />
               </div>
               <div class="leading-tight">
                 <h3
-                  class="text-heading3 font-bold text-[hsl(var(--secondary-dark))] uppercase"
+                  class="text-heading3 font-bold text-[var(--secondary-dark)] uppercase"
                   set:html={li.title[componentProps.lang]}
                 />
                 <p set:html={li.para[componentProps.lang]} />
@@ -322,7 +322,7 @@ const bullets: {
         }
       }
       button[type="submit"] {
-        @apply bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground flex h-12 flex-row-reverse gap-4 border-e-2 border-b-2 border-[hsl(var(--secondary-dark))] uppercase;
+        @apply bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground flex h-12 flex-row-reverse gap-4 border-e-2 border-b-2 border-[var(--secondary-dark)] uppercase;
       }
     }
   }
@@ -335,7 +335,7 @@ const bullets: {
     &::before {
       content: "";
 
-      @apply absolute top-0 -left-[90px] -z-10 block h-full w-full rotate-45 bg-[hsl(var(--secondary-dark))]/50;
+      @apply absolute top-0 -left-[90px] -z-10 block h-full w-full rotate-45 bg-[var(--secondary-dark)]/50;
     }
   }
 </style>
