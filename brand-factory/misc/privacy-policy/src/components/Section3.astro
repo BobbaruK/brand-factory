@@ -1,0 +1,125 @@
+---
+import type { InfoSection } from "@/types/InfoSection";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const infoSection3: InfoSection = {
+  title: {
+    en: "How We Use Your Information",
+    it: "Come Utilizziamo le Tue Informazioni",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  paras: [
+    {
+      en: "We use your information for the following purposes:",
+      it: "Utilizziamo le tue informazioni per i seguenti scopi:",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  ],
+
+  list: [
+    {
+      en: `To provide, operate, and improve our services`,
+      it: "Fornire, gestire e migliorare i nostri servizi",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    {
+      en: `To personalize user experience`,
+      it: "Personalizzare l'esperienza dell'utente",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    {
+      en: `To communicate with you regarding updates, promotions, or customer support`,
+      it: "Comunicare con te riguardo ad aggiornamenti, promozioni o supporto clienti",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  ],
+};
+---
+
+<section id="section3">
+  <div class="container space-y-4">
+    <h2
+      set:html={infoSection3.title[componentProps.lang]}
+      class="text-lg font-medium"
+    />
+
+    {
+      infoSection3.paras?.map((para) => (
+        <p set:html={para[componentProps.lang]} class="mb-2" />
+      ))
+    }
+
+    <ul class="list-inside list-disc">
+      {
+        infoSection3.list?.map((li) => (
+          <li set:html={li[componentProps.lang]} class="mb-2" />
+        ))
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,108 @@
+---
+import type { InfoSection } from "@/types/InfoSection";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const infoSection2: InfoSection = {
+  title: {
+    en: "Information We Collect",
+    it: "Informazioni che Raccogliamo",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  paras: [
+    {
+      en: "We may collect the following types of information:",
+      it: "Possiamo raccogliere i seguenti tipi di informazioni:",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  ],
+
+  list: [
+    {
+      en: `<span class="font-bold">Personal Information</span>: Name, email address, phone number, and any other information you provide voluntarily.`,
+      it: `<span class="font-bold">Informazioni personali</span>: Nome, indirizzo email, numero di telefono e qualsiasi altra informazione fornita volontariamente.`,
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    {
+      en: `<span class="font-bold">Non-Personal Information</span>: Browser type, IP address, device information, and usage data collected through cookies or similar technologies.`,
+      it: `<span class="font-bold">Informazioni non personali</span>: Tipo di browser, indirizzo IP, informazioni sul dispositivo e dati di utilizzo raccolti tramite cookie o tecnologie simili.`,
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  ],
+};
+---
+
+<section id="section2">
+  <div class="container space-y-4">
+    <h2
+      set:html={infoSection2.title[componentProps.lang]}
+      class="text-lg font-medium"
+    />
+
+    {
+      infoSection2.paras?.map((para) => (
+        <p set:html={para[componentProps.lang]} class="mb-2" />
+      ))
+    }
+
+    <ul class="list-inside list-disc">
+      {
+        infoSection2.list?.map((li) => (
+          <li set:html={li[componentProps.lang]} class="mb-2" />
+        ))
+      }
+    </ul>
+  </div>
+</section>

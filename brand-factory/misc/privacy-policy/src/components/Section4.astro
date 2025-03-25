@@ -1,0 +1,62 @@
+---
+import type { InfoSection } from "@/types/InfoSection";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const infoSection4: InfoSection = {
+  title: {
+    en: "Cookies and Tracking Technologies",
+    it: "Cookie e Tecnologie di Tracciamento",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  paras: [
+    {
+      en: "We use cookies and similar technologies to enhance user experience, analyze website traffic, and improve our services. You can manage cookie preferences through your browser settings.",
+      it: "Utilizziamo cookie e tecnologie simili per migliorare l'esperienza dell'utente, analizzare il traffico del sito web e ottimizzare i nostri servizi. Puoi gestire le preferenze sui cookie tramite le impostazioni del tuo browser.",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  ],
+};
+---
+
+<section id="section4">
+  <div class="container space-y-4">
+    <h2
+      set:html={infoSection4.title[componentProps.lang]}
+      class="text-lg font-medium"
+    />
+    {
+      infoSection4.paras?.map((para) => (
+        <p set:html={para[componentProps.lang]} class="mb-2" />
+      ))
+    }
+  </div>
+</section>

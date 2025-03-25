@@ -1,0 +1,62 @@
+---
+import type { InfoSection } from "@/types/InfoSection";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const infoSection5: InfoSection = {
+  title: {
+    en: "Data Security",
+    it: "Sicurezza dei Dati",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  paras: [
+    {
+      en: "We implement appropriate security measures to protect your personal information.",
+      it: "Adottiamo misure di sicurezza adeguate per proteggere le tue informazioni personali.",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  ],
+};
+---
+
+<section id="section5">
+  <div class="container space-y-4">
+    <h2
+      set:html={infoSection5.title[componentProps.lang]}
+      class="text-lg font-medium"
+    />
+    {
+      infoSection5.paras?.map((para) => (
+        <p set:html={para[componentProps.lang]} class="mb-2" />
+      ))
+    }
+  </div>
+</section>

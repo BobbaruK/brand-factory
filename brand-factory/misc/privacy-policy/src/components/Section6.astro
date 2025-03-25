@@ -1,0 +1,62 @@
+---
+import type { InfoSection } from "@/types/InfoSection";
+import type { ComponentProps } from "../../../../../../globals/types/ComponentProps";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const infoSection6: InfoSection = {
+  title: {
+    en: "Changes to This Privacy Policy",
+    it: "Modifiche a Questa Informativa sulla Privacy",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: "",
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  paras: [
+    {
+      en: `We may update this Privacy Policy from time to time. Any changes will be posted on this page, and we encourage you to review it periodically.`,
+      it: "Possiamo aggiornare questa Informativa sulla Privacy di tanto in tanto. Eventuali modifiche saranno pubblicate su questa pagina, e ti invitiamo a consultarla periodicamente.",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  ],
+};
+---
+
+<section id="section6">
+  <div class="container space-y-4">
+    <h2
+      set:html={infoSection6.title[componentProps.lang]}
+      class="text-lg font-medium"
+    />
+    {
+      infoSection6.paras?.map((para) => (
+        <p set:html={para[componentProps.lang]} class="mb-2" />
+      ))
+    }
+  </div>
+</section>
