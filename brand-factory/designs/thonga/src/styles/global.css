@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @utility container {
-  max-width: 1280px;
+  max-width: 1400px;
   margin-inline: auto;
   padding-inline: 1rem;
   width: 100%;
@@ -12,21 +12,21 @@
 
 @theme {
   --text-heading1: clamp(
-    1.125rem,
-    0.6667rem + 2.2917vw,
-    2.5rem
-  ); /* 18 - 40 ; 320 - 1280 */
-  --text-heading1--line-height: clamp(
+    1.25rem,
+    0.9537rem + 1.4815vw,
+    2.25rem
+  ); /* 18 - 40 ; 320 - 1400 */
+  /* --text-heading1--line-height: clamp(
     1.25rem,
     0.75rem + 2.5vw,
     2.75rem
   ); /* 20 - 44 ; 320 - 1280 */
   --text-heading2: clamp(
     1.125rem,
-    0.8333rem + 1.4583vw,
-    2rem
-  ); /* 18 - 32 ; 320 - 1280 */
-  --text-heading2--line-height: clamp(
+    1.0509rem + 0.3704vw,
+    1.375rem
+  ); /* 18 - 22 ; 320 - 1400 */
+  /* --text-heading2--line-height: clamp(
     1.25rem,
     0.8333rem + 2.0833vw,
     2.5rem
@@ -41,6 +41,18 @@
     1rem + 1.25vw,
     2rem
   ); /* 20 - 32 ; 320 - 1280 */
+
+  --text-form-title: clamp(
+    0.875rem,
+    0.7639rem + 0.5556vw,
+    1.25rem
+  ); /* 14 - 20 ; 320 - 1400 */
+
+  --text-para-lead: clamp(
+    1rem,
+    0.9259rem + 0.3704vw,
+    1.25rem
+  ); /* 16 - 20 ; 320 - 1400 */
 }
 
 :root {
@@ -51,10 +63,10 @@
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --primary: oklch(0.83 0.17 79.29);
+  --primary-foreground: oklch(0.12 0.04 260.83);
+  --secondary: oklch(0.97 0.01 0);
+  --secondary-foreground: oklch(0.21 0.04 265.74);
   --muted: oklch(0.968 0.007 247.896);
   --muted-foreground: oklch(0.554 0.046 257.417);
   --accent: oklch(0.968 0.007 247.896);
