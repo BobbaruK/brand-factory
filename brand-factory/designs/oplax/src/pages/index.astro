@@ -2,7 +2,7 @@
 import SectionTest from "@/components/Section-Test.astro";
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
+import { type OracleSignalsSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 // import { Features } from "../../../../globals/types/enums";
 import type {
@@ -27,20 +27,20 @@ export interface CustomOptions {
 }
 
 const componentProps: ComponentProps<
-  TradingAtheneumSVGVariation,
+  OracleSignalsSVGVariation,
   CustomOptions
 > = {
   lang: "es",
   license,
   lpName: "LiveTradingSignals",
   brandObj: brandFactory({
-    brand: "tradingatheneum",
+    brand: "oracle-signals",
     license,
     whatsapp: false,
     features,
   }),
   logo: function () {
-    return this.brandObj.images.logoSVG.defaultCustom;
+    return this.brandObj.images.logoSVG.default;
   },
   lpType,
   registrationType,
