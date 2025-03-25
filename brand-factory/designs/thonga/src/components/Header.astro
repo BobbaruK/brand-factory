@@ -1,20 +1,264 @@
 ---
 import { type CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import Form from "../../../../globals/components/form";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import bgImage from "../assets/ctlBG.jpg";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: ``,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Comience a operar <span class="text-white font-normal">gratis</span> en los mercados financieros con riesgo cero`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+  showcase: ``,
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: ``,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: `Reciba su guía gratuita en PDF para aprender ahora`,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+    showcase: ``,
+  },
+  {
+    en: ``,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: `${componentProps.brandObj.name} le ofrece la oportunidad de aprender a operar y ejercitar sus habilidades en una cuenta demo de 10,000 EUR sin riesgo.`,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+    showcase: ``,
+  },
+];
+
+const formTitle: TranslationsType = {
+  en: ``,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Regístrese ahora para recibir su <strong class="uppercase">guía pdf gratuita</strong>`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+  showcase: ``,
+};
+
+const formButton: TranslationsType = {
+  en: ``,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Descargue la guía`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+  showcase: ``,
+};
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header id="header" class="relative py-4 lg:pb-48">
+  <Image
+    src={bgImage}
+    alt="Background"
+    class="absolute top-0 left-0 z-0 h-full w-full object-cover md:object-fill"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bgImage.width]}
+    sizes={`100vw`}
+  />
+  <div class="relative z-10 container flex flex-col gap-8 lg:flex-row">
+    <div
+      class="flex flex-col justify-start gap-4 leading-tight text-white md:gap-8 lg:basis-1/2 lg:gap-16"
+    >
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+      <h1
+        set:html={title[componentProps.lang]}
+        class="text-heading1 text-primary font-thin text-balance uppercase"
+      />
+
+      {
+        paras.map((para, index) => {
+          return (
+            <p
+              set:html={para[componentProps.lang]}
+              class={`text-para-lead ${index === 0 ? "text-primary lg:w-[25ch]" : "lg:w-[40ch]"}`}
+            />
+          );
+        })
+      }
+    </div>
+    <div class="lg:basis-1/2">
+      <div
+        class="mx-auto flex flex-col gap-6 bg-white p-6 shadow-lg lg:-mb-52 lg:max-w-[400px] lg:pb-20"
+      >
+        <h2
+          set:html={formTitle[componentProps.lang]}
+          class="text-form-title text-center text-balance"
+        />
+        <Form
+          componentProps={componentProps}
+          button={formButton[componentProps.lang]}
+          id="main-form"
+        />
+      </div>
+    </div>
   </div>
 </header>
+
+<style lang="scss" is:global>
+  @reference "../styles/global.css";
+
+  form.registerForm {
+    input,
+    select {
+      @apply text-slate-800;
+    }
+    input[disabled] {
+      // color: white;
+    }
+
+    .registerFormInner {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, auto);
+      @container (min-width: 750px) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      > .form-control {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        @container (min-width: 750px) {
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
+
+        &.firstNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.lastNameWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.emailWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+          }
+        }
+        &.countryWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.phoneNumberWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+        &.agreementWrapper,
+        &.riskEsma {
+          @container (min-width: 750px) {
+            grid-column-start: 1;
+            grid-column-end: 4;
+          }
+        }
+        &.submitButtonWrapper {
+          @container (min-width: 750px) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 3;
+          }
+        }
+      }
+    }
+
+    .form-control {
+      label {
+        font-size: 1rem;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        // border: medium none;
+        // max-width: 100%;
+        // padding: 5px 15px;
+        // transition: 350ms;
+        // width: 100%;
+
+        @apply h-12 text-black;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      button {
+        @apply flex h-12 gap-4 text-lg uppercase;
+      }
+    }
+  }
+</style>
