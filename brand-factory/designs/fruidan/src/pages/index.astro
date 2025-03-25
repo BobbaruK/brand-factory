@@ -14,7 +14,7 @@ import { checkFeatures } from "../../../../globals/utils/check-features";
 import Layout from "../layouts/Layout.astro";
 
 const license: LicenseType = "fsa";
-const lpType: LandingPageType = "classic";
+const lpType: LandingPageType = "endorsed";
 const features = checkFeatures([
   // Features.readyForMail,
   // Features.outbrain,
@@ -34,7 +34,7 @@ const componentProps: ComponentProps<OracleSignalsSVGVariation, CustomOptions> =
     brandObj: brandFactory({
       brand: "oracle-signals",
       license,
-      whatsapp: false,
+      whatsapp: true,
       features,
     }),
     logo: function () {
