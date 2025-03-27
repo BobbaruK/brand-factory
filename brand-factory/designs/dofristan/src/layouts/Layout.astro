@@ -8,6 +8,8 @@ import "@fontsource-variable/rubik";
 // Supports weights 300-800
 import "@fontsource-variable/open-sans";
 import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
+import Form from "../../../../globals/components/form";
+import type { TranslationsType } from "../../../../globals/types/translations";
 
 interface Props {
   componentProps: ComponentProps;
@@ -16,6 +18,44 @@ interface Props {
 const { componentProps } = Astro.props;
 
 const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
+
+const modalTitle: TranslationsType = {
+  en: "Claim your free signals kit",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: ``,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+
+const btnLabel: TranslationsType = {
+  en: "Start now",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: ``,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
 ---
 
 <!doctype html>
@@ -59,7 +99,20 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    <Dialog> Content Here! </Dialog>
+    <Dialog>
+      <div class="space-y-6">
+        <h3
+          set:html={modalTitle[componentProps.lang]}
+          class="text-heading2 font-rubik text-center font-black text-balance uppercase"
+        />
+        <Form
+          componentProps={componentProps}
+          button={btnLabel[componentProps.lang]}
+          id="modal-form"
+          layout={2}
+        />
+      </div>
+    </Dialog>
     <script
       type="module"
       src="https://assets.smartsupporthub.com/js/bundle/astro_lp_v2.js"
@@ -78,6 +131,19 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
     flex-direction: column;
   }
 </style>
+
+<!-- <style lang="scss" is:global>
+  .modal {
+    background: var(--primary) !important;
+    // color: var(--color-primary-foreground) !important;
+    button {
+      background: var(--secondary) !important;
+      &:hover {
+        background: oklch(from var(--secondary) l c h / 0.8) !important;
+      }
+    }
+  }
+</style> -->
 
 <script>
   import { initModal } from "../../../../globals/components/custom-dialog/init.ts";
