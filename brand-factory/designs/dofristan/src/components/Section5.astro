@@ -1,0 +1,164 @@
+---
+import { burgerMenu } from "@/constants/burger";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Button } from "./ui/button";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "Trade on World Class Assets",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: ``,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+
+const para: TranslationsType = {
+  en: "No matter where you are, our professional signals will reach you in real time via email, PC, laptop or smartphone twice a day. Once received, you must instantly copy them and open the positions based on alert: <strong>asset, up or down, price and expiry time.</strong>",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: ``,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+
+const btnLabel: TranslationsType = {
+  en: "Start now",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: ``,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+
+// TODO: data table
+---
+
+<section id="section5" class="section5 py-4 lg:py-6 2xl:pt-24 2xl:pb-18">
+  <div class="container space-y-6 text-center">
+    <h2
+      class="font-rubik text-primary text-heading2 after:bg-foreground relative mb-3 pb-2 font-medium after:absolute after:bottom-0 after:left-1/2 after:block after:h-[2px] after:w-[50px] after:-translate-1/2 after:content-[''] md:mb-7 md:pb-5 xl:mb-10 xl:pb-7"
+      set:html={title[componentProps.lang]}
+    />
+
+    <p set:html={para[componentProps.lang]} class="lg:text-[20px]" />
+
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead className="text-center">
+            <div class="grid place-items-center">
+              <Fragment set:html={burgerMenu} />
+            </div>
+          </TableHead>
+          <TableHead className="text-center">Symbol</TableHead>
+          <TableHead className="text-center">Pattern</TableHead>
+          <TableHead className="text-center">Time</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableCell>
+            <div class="grid rotate-180 place-items-center text-red-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                ><!-- Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE -->
+                <path fill="currentColor" d="M1 21h22L12 2"></path></svg
+              >
+            </div>
+          </TableCell>
+          <TableCell>EURGBP (15-90MIN)</TableCell>
+          <TableCell>APPROACH</TableCell>
+          <TableCell>7 MINS AGO</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>
+            <div class="grid place-items-center text-green-400">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                ><!-- Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE -->
+                <path fill="currentColor" d="M1 21h22L12 2"></path></svg
+              >
+            </div>
+          </TableCell>
+          <TableCell>EURGBP (15-90MIN)</TableCell>
+          <TableCell>REBOUND</TableCell>
+          <TableCell>7 MINS AGO</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>
+            <div class="grid place-items-center text-green-400">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                ><!-- Icon from Material Design Icons by Pictogrammers - https://github.com/Templarian/MaterialDesign/blob/master/LICENSE -->
+                <path fill="currentColor" d="M1 21h22L12 2"></path></svg
+              >
+            </div>
+          </TableCell>
+          <TableCell>EURGBP (15-90MIN)</TableCell>
+          <TableCell>REBOUND</TableCell>
+          <TableCell>7 MINS AGO</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+
+    <Button
+      set:html={btnLabel[componentProps.lang]}
+      variant={"secondary"}
+      className="js-modal-trigger font-rubik hover:text-foreground hover:border-secondary h-auto min-h-[50px] grow cursor-pointer rounded-3xl border-2 border-transparent text-[16px]! font-medium hover:bg-transparent lg:px-12"
+    />
+  </div>
+</section>

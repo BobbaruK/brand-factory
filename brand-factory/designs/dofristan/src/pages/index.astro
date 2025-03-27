@@ -4,6 +4,7 @@ import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
 import Section4 from "@/components/Section4.astro";
+import Section5 from "@/components/Section5.astro";
 import { brandFactory } from "../../../../globals/factory";
 import { type OracleSignalsSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
@@ -58,4 +59,5 @@ const componentProps: ComponentProps<OracleSignalsSVGVariation, CustomOptions> =
   <Section2 componentProps={componentProps} />
   <Section3 componentProps={componentProps} />
   <Section4 componentProps={componentProps} />
+  <Section5 componentProps={componentProps} />
 </Layout>
