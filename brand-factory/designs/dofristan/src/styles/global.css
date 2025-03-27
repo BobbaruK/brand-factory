@@ -58,6 +58,17 @@
     1rem + 1.25vw,
     2rem
   ); /* 20 - 32 ; 320 - 1280 */
+
+  --text-heading-lead: clamp(
+    1.25rem,
+    0.2744rem + 4.878vw,
+    3.75rem
+  ); /* 20 - 60 ; 320 - 1140 */
+  --text-heading-lead--line-height: clamp(
+    1.5rem,
+    0.4268rem + 5.3659vw,
+    4.25rem
+  ); /* 24 - 68 ; 320 - 1140 */
 }
 
 :root {
@@ -93,6 +104,8 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  --custom-background: oklch(0.98 0 0);
 }
 
 .dark {
@@ -165,6 +178,8 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-custom-background: var(--custom-background);
 }
 
 @layer base {

@@ -43,6 +43,9 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
     <meta name="generator" content={Astro.generator} />
     <title>{componentProps.lpName} | {componentProps.brandObj.name}</title>
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
       body {
         font-family: "Open Sans Variable", sans-serif;
       }
