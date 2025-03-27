@@ -1,0 +1,76 @@
+---
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Image } from "astro:assets";
+import quotes from "../assets/quote.png";
+import coach from "../assets/coach.jpg";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const quote: TranslationsType = {
+  en: `Our job here at ${componentProps.brandObj.name} is to make it easier for you to find the best trade signals for your investments, regardless if you are a novice or a professional. We only work with Trusted Brokers with Fast payouts, fully regulated. So, you will receive only professional signals, twice a day, straight to your phone or laptop through SMS & Email.`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: ``,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+
+const couchData: TranslationsType = {
+  en: `Online Forex Trading Coach`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: ``,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+---
+
+<section
+  id="section3"
+  class="section3 3xl:py-12 bg-custom-background py-4 lg:py-6 2xl:py-8"
+>
+  <div class="container grid place-items-center gap-6 2xl:gap-16">
+    <Image
+      src={quotes}
+      alt="Quote"
+      class=""
+      widths={[320, 576, 640, 768, 1024, 1280, 1536, quotes.width]}
+      sizes={`46px`}
+    />
+    <p set:html={quote[componentProps.lang]} class="text-center italic" />
+    <div class="grid place-items-center gap-2 text-center lg:gap-4">
+      <Image
+        src={coach}
+        alt="Quote"
+        class="rounded-full"
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, coach.width]}
+        sizes={`46px`}
+      />
+      <p set:html={couchData[componentProps.lang]} class="text-sm font-bold" />
+    </div>
+  </div>
+</section>
