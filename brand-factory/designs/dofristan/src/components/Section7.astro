@@ -1,0 +1,65 @@
+---
+import { Button } from "@/components/ui/button";
+import Form from "../../../../globals/components/form";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "Never miss another trading opportunity again!",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: ``,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+
+const btnLabel: TranslationsType = {
+  en: "Start now",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: ``,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+---
+
+<section id="section7" class="section7 py-4 lg:py-6 2xl:pt-24 2xl:pb-18">
+  <div class="container space-y-6">
+    <h2
+      class="font-rubik text-primary text-heading2 after:bg-foreground relative mb-3 pb-2 text-center font-medium after:absolute after:bottom-0 after:left-1/2 after:block after:h-[2px] after:w-[50px] after:-translate-1/2 after:content-[''] md:mb-7 md:pb-5 xl:mb-10 xl:pb-7"
+      set:html={title[componentProps.lang]}
+    />
+
+    <Form
+      componentProps={componentProps}
+      button={btnLabel[componentProps.lang]}
+      id="section-form"
+      layout={2}
+    />
+  </div>
+</section>
