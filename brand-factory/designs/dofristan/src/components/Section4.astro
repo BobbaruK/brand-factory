@@ -1,0 +1,183 @@
+---
+import { Button } from "@/components/ui/button";
+import Form from "../../../../globals/components/form";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Image } from "astro:assets";
+import bg from "../assets/trade_background.jpg";
+import { icon1 } from "../constants/icon1";
+import { icon2 } from "@/constants/icon2";
+import { icon3 } from "@/constants/icon3";
+import { icon4 } from "@/constants/icon4";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const bgPath = `url('${bg.src}')`;
+
+const title: TranslationsType = {
+  en: "Trade on World Class Assets",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: ``,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+
+const para: TranslationsType = {
+  en: "Over 2100 instruments in the global financial markets",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: ``,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+
+const bullets: {
+  icon: string;
+  label: TranslationsType;
+}[] = [
+  {
+    icon: icon1,
+    label: {
+      en: "Stocks",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+      showcase: "",
+    },
+  },
+  {
+    icon: icon2,
+    label: {
+      en: "Forex",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+      showcase: "",
+    },
+  },
+  {
+    icon: icon3,
+    label: {
+      en: "Indices",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+      showcase: "",
+    },
+  },
+  {
+    icon: icon4,
+    label: {
+      en: "Commodities",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+      showcase: "",
+    },
+  },
+];
+---
+
+<section id="section4" class="section4 py-4 text-white lg:py-6 2xl:pt-24 2xl:pb-18">
+  <div class="container space-y-6 text-center">
+    <h2
+      class="font-rubik text-heading2 font-medium"
+      set:html={title[componentProps.lang]}
+    />
+    <p
+      set:html={para[componentProps.lang]}
+      class="after:bg-background relative mb-3 pb-2 text-center font-medium after:absolute after:bottom-0 after:left-1/2 after:block after:h-[2px] after:w-[50px] after:-translate-1/2 after:content-[''] md:mb-7 md:pb-5 lg:text-[20px] xl:mb-10 xl:pb-7"
+    />
+    <div class="flex flex-wrap justify-around gap-8">
+      {
+        bullets.map((bullet) => (
+          <article class="grid place-items-center">
+            <div set:html={bullet.icon} class="[&>svg]:size-16" />
+            <h3
+              set:html={bullet.label[componentProps.lang]}
+              class="text-heading3 font-rubik font-medium uppercase"
+            />
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss" define:vars={{ bgPath }}>
+  #section4 {
+    background-image: var(--bgPath);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>
