@@ -69,9 +69,13 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
 
 <style>
   #site-wrapper {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+    /* issue with responsive table - page is long enough and footer comes naturally at the very bottom */
+    /* display: grid;
+    grid-template-rows: auto 1fr auto; */
     min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
   }
 </style>
 
