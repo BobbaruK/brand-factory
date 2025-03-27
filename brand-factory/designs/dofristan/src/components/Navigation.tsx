@@ -9,6 +9,7 @@ import {
 import { Button } from "./ui/button";
 import { useMediaQuery } from "usehooks-ts";
 import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 interface Props {
   navItems: {
@@ -19,6 +20,14 @@ interface Props {
 
 export const Navigation = ({ navItems }: Props) => {
   const matches = useMediaQuery("(min-width: 768px)");
+  const [isCompLoaded, setIsCompLoaded] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsCompLoaded(true);
+    return () => {};
+  }, [setIsCompLoaded]);
+
+  if (!isCompLoaded) return null;
 
   return (
     <nav>
