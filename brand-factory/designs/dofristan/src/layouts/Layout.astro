@@ -3,6 +3,10 @@ import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import "../styles/global.css";
+// Supports weights 300-900
+import "@fontsource-variable/rubik";
+// Supports weights 300-800
+import "@fontsource-variable/open-sans";
 
 interface Props {
   componentProps: ComponentProps;
@@ -37,6 +41,11 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{componentProps.lpName} | {componentProps.brandObj.name}</title>
+    <style>
+      body {
+        font-family: "Open Sans Variable", sans-serif;
+      }
+    </style>
   </head>
   <body>
     <div id="site-wrapper">

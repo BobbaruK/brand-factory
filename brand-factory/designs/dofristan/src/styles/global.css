@@ -4,23 +4,27 @@
 @custom-variant dark (&:is(.dark *));
 
 @utility container {
-  max-width: 1280px;
+  max-width: 1140px;
   margin-inline: auto;
   padding-inline: 1rem;
   width: 100%;
 }
 
 @theme {
+  /* Fonts */
+  --font-rubik: "Rubik Variable", sans-serif;
+
+  /* Headings */
   --text-heading1: clamp(
-    1.125rem,
-    0.6667rem + 2.2917vw,
-    2.5rem
-  ); /* 18 - 40 ; 320 - 1280 */
-  --text-heading1--line-height: clamp(
     1.25rem,
-    0.75rem + 2.5vw,
-    2.75rem
-  ); /* 20 - 44 ; 320 - 1280 */
+    0.5671rem + 3.4146vw,
+    3rem
+  ); /* 20 - 48 ; 320 - 1140 */
+  --text-heading1--line-height: clamp(
+    1.375rem,
+    0.4482rem + 4.6341vw,
+    3.75rem
+  ); /* 22 - 60 ; 320 - 1140 */
 
   --text-heading2: clamp(
     1.125rem,
@@ -35,10 +39,21 @@
 
   --text-heading3: clamp(
     1rem,
-    0.9167rem + 0.4167vw,
-    1.25rem
-  ); /* 16 - 20 ; 320 - 1280 */
+    0.8537rem + 0.7317vw,
+    1.375rem
+  ); /* 16 - 22 ; 320 - 1280 */
   --text-heading3--line-height: clamp(
+    1.25rem,
+    1rem + 1.25vw,
+    2rem
+  ); /* 20 - 32 ; 320 - 1280 */
+
+  --text-para-lead: clamp(
+    1.125rem,
+    0.9787rem + 0.7317vw,
+    1.5rem
+  ); /* 18 - 24 ; 320 - 1140 */
+  --text-para-lead--line-height: clamp(
     1.25rem,
     1rem + 1.25vw,
     2rem
@@ -46,17 +61,17 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 1.5rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --primary: oklch(0.58 0.23 259.81);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.69 0.2 147.25);
+  --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.968 0.007 247.896);
   --muted-foreground: oklch(0.554 0.046 257.417);
   --accent: oklch(0.968 0.007 247.896);
