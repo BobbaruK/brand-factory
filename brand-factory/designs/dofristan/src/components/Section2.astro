@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import bg from "../assets/chart_background.png";
+import devices from "../assets/devices.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const bgPath = `url('${bg.src}')`;
+
+const title: TranslationsType = {
+  en: "Why choose us?",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: ``,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+
+const para: TranslationsType = {
+  en: "We use professional signals, knowledge, insights, trading tips and top stories coming directly from the world’s top stock experts to make your trades 100% profitable.",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: ``,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "",
+};
+---
+
+<section
+  id="section2"
+  class="section2 3xl:py-12 relative py-4 lg:py-6 2xl:py-8"
+>
+  <div class="relative z-10 container flex flex-col gap-y-6 lg:flex-row">
+    <div class="flex flex-col justify-center">
+      <h2
+        class="font-rubik text-primary text-heading2 after:bg-foreground relative mb-3 pb-2 font-medium after:absolute after:bottom-0 after:left-0 after:block after:h-[2px] after:w-[50px] after:content-[''] md:mb-7 md:pb-5 xl:mb-10 xl:pb-7"
+        set:html={title[componentProps.lang]}
+      />
+      <p set:html={para[componentProps.lang]} />
+    </div>
+    <div class="grid place-items-center lg:min-w-[540px]">
+      <Image
+        src={devices}
+        alt="Devices"
+        class=""
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, devices.width]}
+        sizes={`(max-width: 320px) 271px,
+								(max-width: 639px) 589px,
+								(max-width: 767px) 589px,
+								(max-width: 1023px) 589px,
+								(max-width: 1279px) 540px,
+								(max-width: 1535px) 540px,
+								540px`}
+      />
+    </div>
+  </div>
+</section>
+
+<style lang="scss" define:vars={{ bgPath }}>
+  #section2 {
+    background-image: var(--bgPath);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+  }
+</style>
