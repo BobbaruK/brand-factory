@@ -1,9 +1,10 @@
 ---
-import { Button } from "@/components/ui/button";
-import Form from "../../../../globals/components/form";
-import type { ComponentProps } from "../../../../globals/types/component-props";
-import Visa from "../../../../globals/components/logos/misc/Visa/Visa.astro";
+import BankTransfer from "../../../../globals/components/logos/misc/BankTransfer/BankTransfer.astro";
+import MasterCard from "../../../../globals/components/logos/misc/MasterCard/MasterCard.astro";
+import Neteller from "../../../../globals/components/logos/misc/Neteller/Neteller.astro";
 import Skrill from "../../../../globals/components/logos/misc/Skrill/Skrill.astro";
+import Visa from "../../../../globals/components/logos/misc/Visa/Visa.astro";
+import type { ComponentProps } from "../../../../globals/types/component-props";
 
 interface Props {
   componentProps: ComponentProps;
@@ -16,9 +17,12 @@ const { componentProps } = Astro.props;
   class="section6 bg-custom-background py-4 md:py-6 lg:py-8 2xl:py-16"
 >
   <div
-    class="container flex flex-wrap items-center justify-around [&>svg]:max-h-[40px] [&>svg]:w-auto gap-8"
+    class="container flex flex-wrap items-center justify-around gap-8 [&>svg]:max-h-[20px] [&>svg]:w-auto lg:[&>svg]:max-h-[40px]"
   >
     <Visa />
     <Skrill />
+    <MasterCard />
+    <BankTransfer />
+    <Neteller />
   </div>
 </section>
