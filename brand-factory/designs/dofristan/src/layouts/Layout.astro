@@ -34,7 +34,7 @@ const modalTitle: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "",
+  showcase: "Donec sodales sagittis magna.",
 };
 
 const btnLabel: TranslationsType = {
@@ -53,7 +53,7 @@ const btnLabel: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "",
+  showcase: "Etiam rhoncus",
 };
 ---
 
@@ -70,6 +70,7 @@ const btnLabel: TranslationsType = {
   data-wanumber={componentProps.brandObj.whatsapp
     ? componentProps.brandObj.whatsappNumber[lang]
     : false}
+  data-lpfeatures={componentProps.features?.join(', ')}
 >
   <head>
     <meta charset="utf-8" />

@@ -31,7 +31,7 @@ const ctaMenuButton: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "",
+  showcase: "Aenean commodo",
 };
 
 const title: TranslationsType = {
@@ -50,7 +50,7 @@ const title: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "",
+  showcase: "Nulla consequat massa.",
 };
 
 const paraLead: TranslationsType = {
@@ -69,7 +69,8 @@ const paraLead: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "",
+  showcase:
+    "Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.",
 };
 
 const buttons: (
@@ -100,7 +101,7 @@ const buttons: (
       th: "",
       ms: "",
       vi: "",
-      showcase: "",
+      showcase: "Etiam rhoncus",
     },
     type: "Modal",
   },
@@ -121,9 +122,78 @@ const buttons: (
       th: "",
       ms: "",
       vi: "",
-      showcase: "",
+      showcase: "Integer tincidunt",
     },
     type: "Href",
+    href: "#section7",
+  },
+];
+
+const navItems: {
+  label: TranslationsType;
+  href: string;
+}[] = [
+  {
+    label: {
+      en: "Home",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+      showcase: "Quisque",
+    },
+    href: "#section1",
+  },
+  {
+    label: {
+      en: "Oracle Signals",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+      showcase: "Aenean",
+    },
+    href: "#section2",
+  },
+  {
+    label: {
+      en: "Contact us",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+      showcase: "Curabitur",
+    },
     href: "#section7",
   },
 ];
@@ -140,21 +210,10 @@ const buttons: (
     />
     <div class="flex items-center gap-8">
       <Navigation
-        navItems={[
-          { label: "Home", href: "#header" },
-          {
-            label: "Oracle Signals",
-            href: "#section1",
-          },
-          {
-            label: "Why Choose Us",
-            href: "#section2",
-          },
-          {
-            label: "Contact us",
-            href: "#section7",
-          },
-        ]}
+        navItems={navItems.map((item) => ({
+          label: item.label[componentProps.lang],
+          href: item.href,
+        }))}
         client:load
       />
       <Button
