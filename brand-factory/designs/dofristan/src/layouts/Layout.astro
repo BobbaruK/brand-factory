@@ -1,15 +1,14 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-import type { ComponentProps } from "../../../../globals/types/component-props";
-import "../styles/global.css";
-// Supports weights 300-900
-import "@fontsource-variable/rubik";
-// Supports weights 300-800
 import "@fontsource-variable/open-sans";
+import "@fontsource-variable/rubik";
 import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
 import Form from "../../../../globals/components/form";
+import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import "../styles/global.css";
+import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
 
 interface Props {
   componentProps: ComponentProps;
@@ -113,6 +112,7 @@ const btnLabel: TranslationsType = {
         />
       </div>
     </Dialog>
+    <BackToTop />
     <script
       type="module"
       src="https://assets.smartsupporthub.com/js/bundle/astro_lp_v2.js"
