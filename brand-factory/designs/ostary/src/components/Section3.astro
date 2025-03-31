@@ -1,0 +1,220 @@
+---
+import { Image } from "astro:assets";
+import hand from "../assets/hand.png";
+import background from "../assets/s3bg.png";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Varför investera i Amazon med ${componentProps.brandObj.name}?`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: `In enim justo, rhoncus ut ${componentProps.brandObj.name}?`,
+};
+
+const para: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `6 punkter som gör ${componentProps.brandObj.name} den perfekta mäklaren att investera i Amazon med.`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase:
+    "Maecenas tempus, ${componentProps.brandObj.name} tellus eget condimentum rhoncus, sem quam semper libero.",
+};
+
+const list: TranslationsType[] = [
+  {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `Diagrammen uppdateras i realtid.`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+    showcase: "Nulla consequat massa quis enim.",
+  },
+  {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `Kostnadsfri registrering.`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+    showcase: "Integer tincidunt. Cras dapibus.",
+  },
+  {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `24-timmars stöd och support.`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+    showcase: "Etiam ultricies nisi vel augue.",
+  },
+  {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `Erfaren personlig mentor tilldelat till ditt konto.`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+    showcase: "Curabitur ullamcorper ultricies nisi. Nam eget dui.",
+  },
+  {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `Tillgång till enkla och precisa verktyg.`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+    showcase: "Donec vitae sapien ut libero venenatis faucibus.",
+  },
+  {
+    en: "",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: `Utbildning för att utveckla teknik att hantera handel med Amazon.`,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+    showcase: "Etiam sit amet orci eget eros faucibus tincidunt. Duis leo.",
+  },
+];
+---
+
+<section id="section3" class="relative py-10">
+  <div class="arrow"></div>
+  <Image
+    src={background}
+    alt="Background"
+    class="absolute top-0 left-0 z-0 h-full w-full object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+  />
+  <div
+    class="relative z-30 container flex flex-col items-center justify-center gap-4 text-center lg:gap-8"
+  >
+    <h2 set:html={title[componentProps.lang]} class="text-heading2 font-bold" />
+    <p
+      class="max-w-[50ch] text-center text-sm sm:text-lg"
+      set:html={para[componentProps.lang]}
+    />
+    <div class="flex flex-col gap-4 md:flex-row md:items-center">
+      <ol class="shrink text-start lg:columns-2">
+        {
+          list.map((listItem) => (
+            <li
+              set:html={listItem[componentProps.lang]}
+              class="mb-4 flex items-center gap-4"
+            />
+          ))
+        }
+      </ol>
+      <Image
+        src={hand}
+        alt="Background"
+        class="m-auto h-auto w-full max-w-24"
+        widths={[320, hand.width]}
+        sizes={`96px`}
+      />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @reference "../styles/global.css";
+
+  .arrow {
+    @apply absolute top-0 left-[50%] z-20 h-0 w-0 -translate-x-[50%];
+    border-style: solid;
+    border-width: 40px 160px 0 160px;
+    border-color: var(--foreground) transparent transparent transparent;
+  }
+  ol {
+    counter-reset: listItem;
+    li::before {
+      counter-increment: listItem;
+      content: counter(listItem);
+      @apply grid min-h-6 min-w-6 place-items-center rounded-full bg-black text-white;
+    }
+  }
+</style>
