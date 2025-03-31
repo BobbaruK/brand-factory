@@ -32,7 +32,7 @@ const componentProps: ComponentProps<
 > = {
   lang: "en",
   license,
-  lpName: "",
+  lpName: "Gold",
   brandObj: brandFactory({
     brand: "tradingatheneum",
     license,
@@ -53,6 +53,6 @@ const componentProps: ComponentProps<
 ---
 
 <Layout componentProps={componentProps}>
-  <SectionTest componentProps={componentProps} />
   <Section1 componentProps={componentProps} />
+  <SectionTest componentProps={componentProps} />
 </Layout>
