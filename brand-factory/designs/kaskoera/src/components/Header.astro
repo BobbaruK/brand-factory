@@ -1,20 +1,118 @@
 ---
-import { type CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
-import { type ComponentProps } from "../../../../globals/types/component-props";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import bg from "../assets/topBG-desktop.jpg";
+import { Button } from "./ui/button";
 
 interface Props {
-  componentProps: ComponentProps<any, CustomOptions>;
+  componentProps: ComponentProps;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `<span class="text-primary">Trade Oil</span> with a top Broker`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `<span class="text-primary">Opera con petróleo</span> con un bróker de primera categoría`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+  showcase: "",
+};
+
+const para: TranslationsType = {
+  en: `<span class="text-primary">${componentProps.brandObj.name}</span> offers you all the knowledge and last generation tools in order to let you trade oil and all other instruments on the market.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `<span class="text-primary">${componentProps.brandObj.name}</span> te ofrece todo el conocimiento y herramientas de última generación para que operes con petróleo y otros instrumentos en el mercado.`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+  showcase: "",
+};
+
+const buttonLabel: TranslationsType = {
+  en: `Register Now!`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `¡Regístrate ahora!`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+  showcase: "",
+};
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header class="relative">
+  <Image
+    src={bg}
+    alt="Background"
+    class="absolute inset-0 z-0 h-full w-full object-cover object-left md:object-center"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
+    sizes={`
+      (max-width: 320px) 576px,
+      (max-width: 576px) 640px,
+      (max-width: 640px) 768px,
+      (max-width: 768px) 1024px,
+      (max-width: 1024px) 1280px,
+      (max-width: 1280px) 1536px,
+      100vw
+    `}
+  />
+  <div class="absolute inset-0 z-10 bg-stone-800/90 xl:hidden"></div>
+  <div class="relative z-20 container text-white">
+    <div
+      class="py-5 sm:py-7 md:py-9 lg:py-10 xl:py-12 2xl:py-16 [&>svg]:max-w-full"
+    >
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+    <div class="py-5 sm:py-7 md:py-9 lg:py-10 xl:py-12 2xl:py-16">
+      <div
+        class="grid place-items-center gap-8 text-center leading-tight lg:gap-14"
+      >
+        <h1
+          class="text-heading1 max-w-[30ch] font-bold"
+          set:html={title[componentProps.lang]}
+        />
+        <p
+          class="text-para-lead max-w-[45ch] font-medium"
+          set:html={para[componentProps.lang]}
+        />
+        <Button
+          className="js-modal-trigger h-auto cursor-pointer gap-4 px-16 py-2 text-sm font-bold md:text-lg"
+          set:html={buttonLabel[componentProps.lang]}
+        />
+      </div>
+    </div>
   </div>
 </header>
