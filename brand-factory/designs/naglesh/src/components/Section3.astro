@@ -1,0 +1,38 @@
+---
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const buttonLabel: TranslationsType = {
+  en: `Register Now!`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `¡Regístrate ahora!`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+  showcase: "",
+};
+---
+
+<section class="py-7">
+  <div class="container grid place-items-center">
+    <Button
+      className="js-modal-trigger h-auto cursor-pointer gap-4 px-16 py-2 text-sm font-bold md:text-lg"
+      set:html={buttonLabel[componentProps.lang]}
+    />
+  </div>
+</section>
