@@ -1,0 +1,119 @@
+---
+import { Button } from "@/components/ui/button";
+import { Image } from "astro:assets";
+import tableDesk from "../assets/tabledesk.png";
+import tableMob from "../assets/tablemobile.png";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Hur snabbt kan Amazon växa?`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "Nullam accumsan lorem in dui?",
+};
+
+const para: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Amazons totala försäljningstillväxt föregående år.`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum.",
+};
+
+const formBtn: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Börja nu`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+  showcase: "Sed aliquam",
+};
+---
+
+<section id="section4" class="relative py-10">
+  <div
+    class="relative z-10 container flex flex-col items-center justify-center gap-4 text-center"
+  >
+    <h2 set:html={title[componentProps.lang]} class="text-heading2 font-bold" />
+    <p
+      class="text-center text-sm sm:text-lg"
+      set:html={para[componentProps.lang]}
+    />
+    <!-- TODO: do a real chart here -->
+    <Image
+      src={tableMob}
+      alt="Background"
+      class="block w-full max-w-96 md:hidden"
+      widths={[320, tableMob.width]}
+      sizes={`384px`}
+    />
+    <Image
+      src={tableDesk}
+      alt="Background"
+      class="hidden w-full max-w-[930px] md:block"
+      widths={[768, tableDesk.width]}
+      sizes={`
+        (max-width: 767px) 100px,
+        930px
+      `}
+    />
+    <Button
+      variant="secondary"
+      set:html={formBtn[componentProps.lang]}
+      className="hover:bg-primary hover:text-primary-foreground h-auto w-auto px-8 py-3 font-bold"
+      id="s4-btn"
+    />
+  </div>
+</section>
+
+<style lang="scss"></style>
+
+<script lang="ts">
+  const form = document.querySelector("form");
+  const button = document.getElementById("s4-btn");
+
+  button.addEventListener("click", () => {
+    form.scrollIntoView({
+      behavior: "smooth",
+    });
+  });
+</script>
