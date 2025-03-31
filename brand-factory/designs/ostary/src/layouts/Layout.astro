@@ -4,6 +4,7 @@ import Header from "@/components/Header.astro";
 import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import "../styles/global.css";
+import "@fontsource-variable/roboto";
 
 interface Props {
   componentProps: ComponentProps;
@@ -27,7 +28,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
   data-wanumber={componentProps.brandObj.whatsapp
     ? componentProps.brandObj.whatsappNumber[lang]
     : false}
-  data-lpfeatures={componentProps.features?.join(', ')}
+  data-lpfeatures={componentProps.features?.join(", ")}
 >
   <head>
     <meta charset="utf-8" />
@@ -39,6 +40,11 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{componentProps.lpName} | {componentProps.brandObj.name}</title>
+    <style>
+      body {
+        font-family: "Roboto Variable", sans-serif;
+      }
+    </style>
   </head>
   <body>
     <div id="site-wrapper">
@@ -48,7 +54,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    
+
     <BackToTop />
     <script
       type="module"

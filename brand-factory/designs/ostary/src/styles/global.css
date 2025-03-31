@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @utility container {
-  max-width: 1280px;
+  max-width: 1140px;
   margin-inline: auto;
   padding-inline: 1rem;
   width: 100%;
@@ -13,25 +13,25 @@
 @theme {
   --text-heading1: clamp(
     1.125rem,
-    0.6667rem + 2.2917vw,
-    2.5rem
-  ); /* 18 - 40 ; 320 - 1280 */
+    0.7835rem + 1.7073vw,
+    2rem
+  ); /* 18 - 32 ; 320 - 1140 */
   --text-heading1--line-height: clamp(
-    1.25rem,
-    0.75rem + 2.5vw,
-    2.75rem
-  ); /* 20 - 44 ; 320 - 1280 */
+    1.6875rem,
+    1.1753rem + 2.561vw,
+    3rem
+  ); /* 27 - 48 ; 320 - 1140 */
 
   --text-heading2: clamp(
-    1.125rem,
-    0.8333rem + 1.4583vw,
-    2rem
-  ); /* 18 - 32 ; 320 - 1280 */
+    1rem,
+    0.6585rem + 1.7073vw,
+    1.875rem
+  ); /* 16 - 30 ; 320 - 1140 */
   --text-heading2--line-height: clamp(
-    1.25rem,
-    0.8333rem + 2.0833vw,
-    2.5rem
-  ); /* 20 - 40 ; 320 - 1280 */
+    1.5rem,
+    1.0122rem + 2.439vw,
+    2.75rem
+  ); /* 24 - 44 ; 320 - 1140 */
 
   --text-heading3: clamp(
     1rem,
@@ -54,20 +54,31 @@
     1rem + 1.25vw,
     2rem
   ); /* 20 - 32 ; 320 - 1280 */
+
+  --text-form-title: clamp(
+    1rem,
+    0.8049rem + 0.9756vw,
+    1.5rem
+  ); /* 16 - 24 ; 320 - 1140 */
+  --text-form-title--line-height: clamp(
+    1.5rem,
+    1.2073rem + 1.4634vw,
+    2.25rem
+  ); /* 24 - 36 ; 320 - 1140 */
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.5rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --primary: oklch(0.87 0.17 92.43);
+  --primary-foreground: oklch(0.22 0.01 0);
+  --secondary: oklch(0.75 0.16 58.72);
+  --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.968 0.007 247.896);
   --muted-foreground: oklch(0.554 0.046 257.417);
   --accent: oklch(0.968 0.007 247.896);
