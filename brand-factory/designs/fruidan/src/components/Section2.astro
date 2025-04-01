@@ -6,6 +6,8 @@ import type { TranslationsType } from "../../../../globals/types/translations";
 import { icon1 } from "@/constants/icon1";
 import { icon2 } from "@/constants/icon2";
 import { icon3 } from "@/constants/icon3";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -28,7 +30,6 @@ const title: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Nulla consequat.",
 };
 
 const formButton: TranslationsType = {
@@ -47,7 +48,6 @@ const formButton: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Nullam dictum",
 };
 
 const bullets: {
@@ -73,7 +73,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Etiam",
     },
     para: {
       en: "",
@@ -91,8 +90,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase:
-        "Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.",
     },
   },
   {
@@ -113,7 +110,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Aenean leo",
     },
     para: {
       en: ``,
@@ -131,8 +127,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase:
-        "In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.",
     },
   },
   {
@@ -153,7 +147,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Donec",
     },
     para: {
       en: ``,
@@ -171,7 +164,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Aenean commodo ligula eget dolor. Aenean massa.",
     },
   },
 ];
@@ -185,11 +177,15 @@ const bullets: {
       >
         <h2
           class="text-heading2 mb-4 rounded-b-md bg-gradient-to-t from-stone-300 p-1 py-2 text-center md:py-4"
-          set:html={title[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({ words: 3 })
+            : title[componentProps.lang]}
         />
         <Form
           componentProps={componentProps}
-          button={formButton[componentProps.lang]}
+          button={componentProps.features?.includes(Features.showcase)
+            ? showcase({ words: 2 })
+            : formButton[componentProps.lang]}
           id="form1"
         />
       </div>
@@ -210,9 +206,19 @@ const bullets: {
               <div class="leading-tight">
                 <h3
                   class="text-heading3 font-bold text-[var(--secondary-dark)] uppercase"
-                  set:html={li.title[componentProps.lang]}
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({ words: 1 })
+                      : li.title[componentProps.lang]
+                  }
                 />
-                <p set:html={li.para[componentProps.lang]} />
+                <p
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({ words: 15 })
+                      : li.para[componentProps.lang]
+                  }
+                />
               </div>
             </li>
           ))
