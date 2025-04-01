@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import Form from "../../../../globals/components/form";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -25,7 +27,6 @@ const title: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Nulla consequat massa quis enim.",
 };
 
 const formButton: TranslationsType = {
@@ -44,7 +45,6 @@ const formButton: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Nam eget",
 };
 
 const list: {
@@ -70,7 +70,6 @@ const list: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Aenean",
     },
     para: {
       en: "Receive trading signals prepared for you by professional analysts.",
@@ -88,7 +87,6 @@ const list: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.",
     },
   },
   {
@@ -109,7 +107,6 @@ const list: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Donec",
     },
     para: {
       en: `You can count on ${componentProps.brandObj.name} signals - a daily accuracy of 92%`,
@@ -127,7 +124,6 @@ const list: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
     },
   },
   {
@@ -148,7 +144,6 @@ const list: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Maecenas",
     },
     para: {
       en: `FREE access to real-time trading signals`,
@@ -166,7 +161,6 @@ const list: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.",
     },
   },
 ];
@@ -180,11 +174,15 @@ const list: {
       >
         <h2
           class="text-heading2 mb-4 rounded-b-md bg-gradient-to-t from-stone-300 p-1 py-2 text-center md:py-4"
-          set:html={title[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({ words: 3 })
+            : title[componentProps.lang]}
         />
         <Form
           componentProps={componentProps}
-          button={formButton[componentProps.lang]}
+          button={componentProps.features?.includes(Features.showcase)
+            ? showcase({ words: 2 })
+            : formButton[componentProps.lang]}
           id="main-form"
         />
       </div>
@@ -205,9 +203,15 @@ const list: {
               <div>
                 <h3
                   class="text-heading3 text-secondary uppercase"
-                  set:html={li.title[componentProps.lang]}
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({ words: 1 })
+                      : li.title[componentProps.lang]
+                  }
                 />
-                <p set:html={li.para[componentProps.lang]} />
+                <p set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({ words: 15 })
+              : li.para[componentProps.lang]} />
               </div>
             </li>
           ))
