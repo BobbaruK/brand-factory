@@ -10,41 +10,50 @@ import { lorem50 } from "./lorem-50";
 export const showcase = (
   opts:
     | {
-        words: 1 | 5 | 10 | 15 | 30 | 50;
+        words: 1;
       }
     | {
-        words: 2 | 3;
+        words: 2 | 3 | 5 | 10 | 15 | 30 | 50;
         spanClasses?: string;
+        brandName?: string;
       }
 ) => {
-  const randNo = (max: number) => Math.floor(Math.random() * max) + 1;
+  const randNo = (max: number) => Math.floor(Math.random() * max);
 
   switch (opts.words) {
     case 1:
-      return lorem1[randNo(lorem1.length - 1)];
+      return lorem1[randNo(lorem1.length)];
 
     case 2:
-      return lorem2(opts.spanClasses)[randNo(lorem2().length - 1)];
+      return lorem2(opts.spanClasses, opts.brandName)[randNo(lorem2().length)];
 
     case 3:
-      return lorem3(opts.spanClasses)[randNo(lorem3().length - 1)];
+      return lorem3(opts.spanClasses, opts.brandName)[randNo(lorem3().length)];
 
     case 5:
-      return lorem5[randNo(lorem5.length - 1)];
+      return lorem5(opts.spanClasses, opts.brandName)[randNo(lorem5().length)];
 
     case 10:
-      return lorem10[randNo(lorem10.length - 1)];
+      return lorem10(opts.spanClasses, opts.brandName)[
+        randNo(lorem10().length)
+      ];
 
     case 15:
-      return lorem15[randNo(lorem15.length - 1)];
+      return lorem15(opts.spanClasses, opts.brandName)[
+        randNo(lorem15().length)
+      ];
 
     case 30:
-      return lorem30[randNo(lorem30.length - 1)];
+      return lorem30(opts.spanClasses, opts.brandName)[
+        randNo(lorem30().length)
+      ];
 
     case 50:
-      return lorem50[randNo(lorem50.length - 1)];
+      return lorem50(opts.spanClasses, opts.brandName)[
+        randNo(lorem50().length)
+      ];
 
     default:
-      return lorem10[randNo(lorem10.length - 1)];
+      return lorem10()[randNo(lorem10().length)];
   }
 };

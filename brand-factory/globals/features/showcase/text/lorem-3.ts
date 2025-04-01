@@ -1,16 +1,30 @@
-export const lorem3 = (spanClasses?: string): string[] => {
+export const lorem3 = (spanClasses?: string, brandName?: string): string[] => {
   if (spanClasses)
     return [
-      `Lorem ipsum <span class="${spanClasses}">dolor</span>.`,
-      `<span class="${spanClasses}">Vestibulum</span> ante ipsum.`,
-      `Phasellus <span class="${spanClasses}">accumsan</span> est.`,
-      `Curabitur ullamcorper <span class="${spanClasses}">nisi</span>.`,
-      `<span class="${spanClasses}">Nam</span> eget dui.`,
-      `Etiam <span class="${spanClasses}">rhoncus</span> faucibus.`,
-      `Donec vitae <span class="${spanClasses}">sapien</span>.`,
-      `<span class="${spanClasses}">Nullam</span> quis ante.`,
-      `Duis <span class="${spanClasses}">arcu</span> tortor.`,
-      `Integer ante <span class="${spanClasses}">arcu</span>.`,
+      `Lorem ipsum <span class="${spanClasses}">${
+        brandName || "dolor"
+      }</span>.`,
+      `<span class="${spanClasses}">${
+        brandName || "Vestibulum"
+      }</span> ante ipsum.`,
+      `Phasellus <span class="${spanClasses}">${
+        brandName || "accumsan"
+      }</span> est.`,
+      `Curabitur ullamcorper <span class="${spanClasses}">${
+        brandName || "nisi"
+      }</span>.`,
+      `<span class="${spanClasses}">${brandName || "Nam"}</span> eget dui.`,
+      `Etiam <span class="${spanClasses}">${
+        brandName || "rhoncus"
+      }</span> faucibus.`,
+      `Donec vitae <span class="${spanClasses}">${
+        brandName || "sapien"
+      }</span>.`,
+      `<span class="${spanClasses}">${brandName || "Nullam"}</span> quis ante.`,
+      `Duis <span class="${spanClasses}">${brandName || "arcu"}</span> tortor.`,
+      `Integer ante <span class="${spanClasses}">${
+        brandName || "arcu"
+      }</span>.`,
     ];
 
   return [
