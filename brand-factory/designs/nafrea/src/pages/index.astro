@@ -18,6 +18,7 @@ const features = checkFeatures([
   // Features.readyForMail,
   // Features.outbrain,
   // Features.atheneum,
+  Features.showcase,
 ]);
 const registrationType: RegistrationType = "classic";
 
@@ -27,7 +28,7 @@ export interface CustomOptions {
 
 const componentProps: ComponentProps<OracleSignalsSVGVariation, CustomOptions> =
   {
-    lang: "showcase",
+    lang: "en",
     license,
     lpName: "Cometolearn",
     brandObj: brandFactory({
