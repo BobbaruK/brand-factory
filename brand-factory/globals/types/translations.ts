@@ -14,7 +14,6 @@ export type Languages =
   | "th"
   | "ms"
   | "vi"
-  | "showcase";
 
 export type TranslationsType = {
   [key in Languages]: string;
