@@ -7,6 +7,8 @@ import { Image } from "astro:assets";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import bg from "../assets/bg-desktop.jpg";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -36,7 +38,6 @@ const bullets: {
       th: ``,
       ms: ``,
       vi: ``,
-      showcase: "Etiam rhoncus",
     },
     para: {
       en: `Taylor-made mentoring from our top analysts`,
@@ -54,7 +55,6 @@ const bullets: {
       th: ``,
       ms: ``,
       vi: ``,
-      showcase: "Aenean imperdiet. Etiam ultricies nisi vel augue.",
     },
   },
   {
@@ -75,7 +75,6 @@ const bullets: {
       th: ``,
       ms: ``,
       vi: ``,
-      showcase: "Vivamus elementum",
     },
     para: {
       en: `A massive choice of free masterclasses, webinars and tutorials with the best market gurus around the world`,
@@ -93,7 +92,6 @@ const bullets: {
       th: ``,
       ms: ``,
       vi: ``,
-      showcase: "Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.",
     },
   },
   {
@@ -114,7 +112,6 @@ const bullets: {
       th: ``,
       ms: ``,
       vi: ``,
-      showcase: "Nullam quis ante",
     },
     para: {
       en: `Apps, platforms, mobile alerts, notifications with the latest news from the market`,
@@ -132,7 +129,6 @@ const bullets: {
       th: ``,
       ms: ``,
       vi: ``,
-      showcase: "Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.",
     },
   },
   {
@@ -153,7 +149,6 @@ const bullets: {
       th: ``,
       ms: ``,
       vi: ``,
-      showcase: "Sed consequat",
     },
     para: {
       en: `24/7 specialized support from our analysts`,
@@ -171,7 +166,6 @@ const bullets: {
       th: ``,
       ms: ``,
       vi: ``,
-      showcase: "Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus.",
     },
   },
 ];
@@ -206,11 +200,23 @@ const bullets: {
           <div>
             <h2
               class="text-gold-s2-title text-primary font-bold uppercase"
-              set:html={bullet.title[componentProps.lang]}
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 2,
+                    })
+                  : bullet.title[componentProps.lang]
+              }
             />
             <p
               class="text-gold-s2-title"
-              set:html={bullet.para[componentProps.lang]}
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 10,
+                    })
+                  : bullet.para[componentProps.lang]
+              }
             />
           </div>
         </div>

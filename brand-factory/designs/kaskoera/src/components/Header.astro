@@ -1,7 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import bg from "../assets/topBG-desktop.jpg";
 import { Button } from "./ui/button";
@@ -27,7 +29,6 @@ const title: TranslationsType = {
   th: ``,
   ms: ``,
   vi: ``,
-  showcase: `<span class="text-primary">Aenean commodo</span> ligula eget dolor. Aenean massa.`,
 };
 
 const para: TranslationsType = {
@@ -46,7 +47,6 @@ const para: TranslationsType = {
   th: ``,
   ms: ``,
   vi: ``,
-  showcase: `<span class="text-primary">${componentProps.brandObj.name}</span> maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.`,
 };
 
 const buttonLabel: TranslationsType = {
@@ -65,7 +65,6 @@ const buttonLabel: TranslationsType = {
   th: ``,
   ms: ``,
   vi: ``,
-  showcase: "Etiam ultricies",
 };
 ---
 
@@ -102,15 +101,25 @@ const buttonLabel: TranslationsType = {
       >
         <h1
           class="text-heading1 max-w-[30ch] font-bold"
-          set:html={title[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({ words: 5, spanClasses: "text-primary" })
+            : title[componentProps.lang]}
         />
         <p
           class="text-para-lead max-w-[45ch] font-medium"
-          set:html={para[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 15,
+                spanClasses: "text-primary",
+                brandName: componentProps.brandObj.name,
+              })
+            : para[componentProps.lang]}
         />
         <Button
           className="js-modal-trigger h-auto cursor-pointer gap-4 px-16 py-2 text-sm font-bold md:text-lg"
-          set:html={buttonLabel[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({ words: 2 })
+            : buttonLabel[componentProps.lang]}
         />
       </div>
     </div>

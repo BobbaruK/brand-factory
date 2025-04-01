@@ -1,5 +1,7 @@
 ---
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { Button } from "./ui/button";
 
@@ -24,7 +26,6 @@ const buttonLabel: TranslationsType = {
   th: ``,
   ms: ``,
   vi: ``,
-  showcase: "Duis leo",
 };
 ---
 
@@ -32,7 +33,11 @@ const buttonLabel: TranslationsType = {
   <div class="container grid place-items-center">
     <Button
       className="js-modal-trigger h-auto cursor-pointer gap-4 px-16 py-2 text-sm font-bold md:text-lg"
-      set:html={buttonLabel[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 2,
+          })
+        : buttonLabel[componentProps.lang]}
     />
   </div>
 </section>

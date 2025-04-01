@@ -1,5 +1,7 @@
 ---
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 
 interface Props {
@@ -23,7 +25,6 @@ const para: TranslationsType = {
   th: ``,
   ms: ``,
   vi: ``,
-  showcase: `<span class="text-secondary">${componentProps.brandObj.name}</span> sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero.`,
 };
 ---
 
@@ -31,7 +32,13 @@ const para: TranslationsType = {
   <div class="container grid place-items-center">
     <p
       class="text-para-lead-2 max-w-[53ch] text-center leading-tight font-bold"
-      set:html={para[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 30,
+            spanClasses: "text-secondary",
+            brandName: componentProps.brandObj.name,
+          })
+        : para[componentProps.lang]}
     />
   </div>
 </section>

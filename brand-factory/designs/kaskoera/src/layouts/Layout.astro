@@ -1,13 +1,15 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
-import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
-import type { ComponentProps } from "../../../../globals/types/component-props";
-import "../styles/global.css";
 import "@fontsource-variable/rubik";
+import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
+import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
 import Form from "../../../../globals/components/form";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import "../styles/global.css";
 
 interface Props {
   componentProps: ComponentProps;
@@ -33,13 +35,12 @@ const buttonLabel: TranslationsType = {
   th: ``,
   ms: ``,
   vi: ``,
-  showcase: "Vestibulum ante",
 };
 ---
 
 <!doctype html>
 <html
-  lang={lang !== "showcase" ? lang : "en"}
+  lang={lang}
   dir={lang === "ar" ? "rtl" : "ltr"}
   data-brandname={componentProps.brandObj.name}
   data-lptype={componentProps.lpType}
@@ -82,7 +83,9 @@ const buttonLabel: TranslationsType = {
     <Dialog>
       <Form
         componentProps={componentProps}
-        button={buttonLabel[componentProps.lang]}
+        button={componentProps.features?.includes(Features.showcase)
+          ? showcase({ words: 2 })
+          : buttonLabel[componentProps.lang]}
         id="modal-form"
       />
     </Dialog>
