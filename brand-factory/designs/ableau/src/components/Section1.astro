@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import subHeaderBG2 from "../assets/subHeaderBG2.jpg";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -25,7 +27,7 @@ const title: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: `Lorem ipsum dolor <span class="text-secondary uppercase">sit</span>.`,
+  // showcase: `Lorem ipsum dolor <span class="text-secondary uppercase">sit</span>.`,
 };
 
 const paras: TranslationsType[] = [
@@ -45,7 +47,7 @@ const paras: TranslationsType[] = [
     th: "",
     ms: "",
     vi: "",
-    showcase: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, soluta? Nisi, quam quibusdam aut, inventore corporis nostrum id molestias iste illo hic, sed unde officia iusto at velit dolor dignissimos?",
+    // showcase: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, soluta? Nisi, quam quibusdam aut, inventore corporis nostrum id molestias iste illo hic, sed unde officia iusto at velit dolor dignissimos?",
   },
   {
     en: "",
@@ -63,7 +65,7 @@ const paras: TranslationsType[] = [
     th: "",
     ms: "",
     vi: "",
-    showcase: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+    // showcase: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
   },
 ];
 ---
@@ -92,16 +94,37 @@ const paras: TranslationsType[] = [
     <div class="flex flex-col gap-6 lg:basis-1/2">
       <h1
         class="text-heading1 lg:bg-primary font-bold text-white"
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({ words: 3, spanClasses: "text-secondary uppercase" })
+          : title[componentProps.lang]}
       />
       <div class="flex flex-col gap-6">
         {
-          paras.map((para) => (
-            <p
-              class="text-white sm:text-[18px]"
-              set:html={para[componentProps.lang]}
-            />
-          ))
+          paras.map((para, index) => {
+            const showCaseWords = (index: number) => {
+              switch (index) {
+                case 0:
+                  return showcase({ words: 50 });
+
+                case 1:
+                  return showcase({ words: 30 });
+
+                default:
+                  return showcase({ words: 30 });
+              }
+            };
+
+            return (
+              <p
+                class="text-white sm:text-[18px]"
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showCaseWords(index)
+                    : para[componentProps.lang]
+                }
+              />
+            );
+          })
         }
       </div>
     </div>

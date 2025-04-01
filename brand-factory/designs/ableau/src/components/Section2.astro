@@ -1,6 +1,8 @@
 ---
 import Form from "../../../../globals/components/form";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 
 interface Props {
@@ -24,7 +26,6 @@ const title: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Vivamus elementum semper nisi.",
 };
 
 const formBtn: TranslationsType = {
@@ -43,7 +44,6 @@ const formBtn: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Duis leo",
 };
 ---
 
@@ -52,14 +52,18 @@ const formBtn: TranslationsType = {
     <div class="container">
       <h2
         class="text-heading2 text-center font-bold uppercase"
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({ words: 5 })
+          : title[componentProps.lang]}
       />
     </div>
   </div>
   <div class="container py-4 lg:pb-0">
     <Form
       componentProps={componentProps}
-      button={formBtn[componentProps.lang]}
+      button={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 2 })
+        : formBtn[componentProps.lang]}
       id="main-form"
     />
   </div>

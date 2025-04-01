@@ -9,6 +9,8 @@ import icon3 from "../assets/icon_3.png";
 import icon4 from "../assets/icon_4.png";
 import phone from "../assets/phone.png";
 import { Image } from "astro:assets";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -31,7 +33,6 @@ const title: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
 };
 
 const bullets: {
@@ -56,7 +57,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Nam",
     },
     para: {
       en: "",
@@ -74,7 +74,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Aenean commodo ligula eget dolor. Aenean massa.",
     },
     iconImage: icon1,
   },
@@ -95,7 +94,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Nullam",
     },
     para: {
       en: "",
@@ -113,7 +111,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
     },
     iconImage: icon2,
   },
@@ -134,7 +131,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Aliquam",
     },
     para: {
       en: "",
@@ -152,7 +148,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.",
     },
     iconImage: icon3,
   },
@@ -173,7 +168,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Duis",
     },
     para: {
       en: "",
@@ -191,7 +185,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.",
     },
     iconImage: icon4,
   },
@@ -202,7 +195,9 @@ const bullets: {
   <div class="container flex flex-col gap-8 lg:flex-row">
     <div class="lg:basis-1/2">
       <h2
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({ words: 10 })
+          : title[componentProps.lang]}
         class="border-b-primary text-heading2 border-b-2 pb-2 text-center font-bold md:max-w-[40ch] md:text-start"
       />
       <div
@@ -232,15 +227,21 @@ const bullets: {
                   `}
                 />
                 <h3
-                  set:html={bullet.title[componentProps.lang]}
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({ words: 2 })
+                      : bullet.title[componentProps.lang]
+                  }
                   class="text-heading3 text-primary font-bold uppercase lg:max-w-[30ch]"
                 />
-                {bullet.para[componentProps.lang] && (
-                  <p
-                    class="hidden md:block"
-                    set:html={bullet.para[componentProps.lang]}
-                  />
-                )}
+                {componentProps.features?.includes(Features.showcase)
+                  ? showcase({ words: 10 })
+                  : bullet.para[componentProps.lang] && (
+                      <p
+                        class="hidden md:block"
+                        set:html={bullet.para[componentProps.lang]}
+                      />
+                    )}
               </div>
             );
           })
