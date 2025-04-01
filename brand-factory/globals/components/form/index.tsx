@@ -8,6 +8,7 @@ import type { ComponentProps } from "../../types/component-props";
 import { Features } from "../../types/enums";
 import "./index.scss";
 import type { FormTranslations } from "../../types/form-translations";
+import { showcase } from "../../features/showcase/text";
 // import formFieldsTranslations from "../../../../globals/translations/formFields";
 // import type { ComponentProps } from "../../../../globals/types/component-props";
 // import { Features } from "../../../../globals//types/enums";
@@ -276,6 +277,15 @@ function FormCheckBoxes({
   id,
   translations,
 }: Omit<Props & { translations: FormTranslations }, "button">) {
+  if (componentProps.features?.includes(Features.showcase))
+    return (
+      <FormCheckBox
+        id={id}
+        label={showcase({ words: 10 })}
+        classLabel="agreementClassic"
+      />
+    );
+
   if (componentProps.features?.includes(Features.readyForMail))
     return (
       <>

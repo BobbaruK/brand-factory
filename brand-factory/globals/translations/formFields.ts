@@ -33,7 +33,6 @@ export default function formFieldsTranslations(
       th: `ฉันยินยอมที่จะได้รับการสื่อสารต่างๆ จาก ${brand.name}.`,
       ms: `Saya bersetuju untuk menerima pelbagai komunikasi daripada ${brand.name}.`,
       vi: `Tôi đồng ý nhận các thông tin liên lạc từ ${brand.name}.`,
-      showcase: `Nulla consequat massa quis enim ${brand.name}.`,
     },
     agreeClassicShort: {
       en: `To proceed, You must agree to receive communications from ${brand.name}.`,
@@ -51,7 +50,6 @@ export default function formFieldsTranslations(
       th: `ในการดำเนินการต่อ คุณต้องยินยอมที่จะได้รับการสื่อสารจาก ${brand.name}.`,
       ms: `Untuk meneruskan, Anda mesti bersetuju untuk menerima komunikasi daripada ${brand.name}.`,
       vi: `Để tiếp tục, bạn phải đồng ý nhận thông tin từ ${brand.name}.`,
-      showcase: `Phasellus viverra nulla ut metus varius laoreet quisque rutrum ${brand.name}.`,
     },
     agreeClassicShortFSA: {
       en: `I consent to the distribution of my information with third parties for promotional purposes.`,
@@ -69,7 +67,6 @@ export default function formFieldsTranslations(
       th: `ฉันยินยอมให้ข้อมูลของฉันถูกแจกจ่ายให้กับบุคคลที่สามเพื่อวัตถุประสงค์ทางการตลาด.`,
       ms: `Saya bersetuju untuk pengedaran maklumat saya dengan pihak ketiga untuk tujuan promosi.`,
       vi: `Tôi đồng ý cho phép thông tin của tôi được chia sẻ với bên thứ ba cho mục đích quảng cáo.`,
-      showcase: `Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.`,
     },
     agree1ESMA: {
       en: "I agree to be contacted / receive call / SMS / email for market news and marketing information.",
@@ -87,7 +84,6 @@ export default function formFieldsTranslations(
       th: `ฉันยินยอมที่จะได้รับการติดต่อ / รับโทรศัพท์ / SMS / อีเมล เพื่อข่าวสารตลาดและข้อมูลการตลาด.`,
       ms: `Saya bersetuju untuk dihubungi / menerima panggilan / SMS / e-mel untuk berita pasaran dan maklumat pemasaran.`,
       vi: "Tôi đồng ý được liên lạc / nhận cuộc gọi / SMS để biết tin tức thị trường và thông tin tiếp thị.",
-      showcase: `Nam quam nunc / blandit vel / luctus pulvinar / hendrerit id, lorem.`,
     },
     agree2ESMA: {
       en: `I agree with the <a href="${brand.privacyLink.en}" target="_blank">Privacy Policy</a>.`,
@@ -105,7 +101,6 @@ export default function formFieldsTranslations(
       th: `ฉันยินยอมกับ <a href="${brand.privacyLink.th}" target="_blank">นโยบายความเป็นส่วนตัว</a>.`,
       ms: `Saya bersetuju dengan <a href="${brand.privacyLink.ms}" target="_blank">Dasar Privasi</a>.`,
       vi: `Tôi đồng ý với <a href="${brand.privacyLink.vi}" target="_blank">Chính sách quyền riêng tư</a>.`,
-      showcase: `Aenean commodo ligula eget dolor. <a href="${brand.privacyLink.showcase}" target="_blank">Aenean massa</a>.`,
     },
     riskESMA_CYSEC: {
       en: `Trading CFD's is risky. You might lose all your invested capital.`,
@@ -123,7 +118,6 @@ export default function formFieldsTranslations(
       th: `การเทรด CFD มีความเสี่ยง คุณอาจสูญเสียเงินลงทุนทั้งหมดที่คุณลงทุนไป.`,
       ms: `Perdagangan CFD berisiko. Anda mungkin kehilangan semua modal yang dilaburkan.`,
       vi: `Giao dịch CFD có rủi ro. Bạn có thể mất toàn bộ vốn đã đầu tư.`,
-      showcase: `Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.`,
     },
     riskESMA_FSA: {
       en: `Trading CFD's is risky.`,
@@ -141,7 +135,6 @@ export default function formFieldsTranslations(
       th: `การเทรด CFD มีความเสี่ยง`,
       ms: `Perdagangan CFD berisiko.`,
       vi: `Giao dịch CFD tiềm ẩn rủi ro.`,
-      showcase: `Aenean imperdiet nisi vel augue.`,
     },
   };
 }
