@@ -23,7 +23,6 @@ export default function footerTranslations(
     th: `<p>การซื้อขายมีความเสี่ยงสูงต่อเงินทุนของคุณเนื่องจากความผันผวนของตลาด การซื้อขายไม่เหมาะสำหรับทุกคนและอาจทำให้คุณสูญเสียเงินลงทุนทั้งหมด ผลิตภัณฑ์ของ ${brandName} อาจไม่เหมาะสำหรับนักลงทุนทุกคน ดังนั้นคุณควรแน่ใจว่าคุณเข้าใจความเสี่ยงและขอคำแนะนำจากที่ปรึกษาทางการเงินอิสระที่ได้รับอนุญาตอย่างเหมาะสม</p>`,
     ms: `<p>Perdagangan membawa tahap risiko yang tinggi kepada modal anda kerana turun naik pasaran asas. Perdagangan tidak sesuai untuk semua orang dan boleh mengakibatkan kehilangan semua pelaburan anda. Produk ${brandName} mungkin tidak sesuai untuk semua pelabur. Oleh itu, anda harus memastikan bahawa anda memahami risiko dan mendapatkan nasihat daripada penasihat kewangan bebas yang berlesen dengan sewajarnya.</p>`,
     vi: `<p>Giao dịch mang lại mức độ rủi ro cao cho vốn của bạn do sự biến động của thị trường cơ sở. Giao dịch không phù hợp với tất cả mọi người và có thể dẫn đến mất toàn bộ khoản đầu tư của bạn. Sản phẩm của ${brandName} có thể không phù hợp với tất cả các nhà đầu tư. Do đó, bạn nên đảm bảo rằng bạn hiểu các rủi ro và tìm kiếm lời khuyên từ một cố vấn tài chính độc lập và được cấp phép phù hợp.</p>`,
-    showcase: `<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime obcaecati ad, labore molestiae veritatis ut aut voluptas voluptates ducimus fuga impedit tenetur voluptatibus optio corrupti, dolorum ullam, dolore ipsa omnis. Quia rem ${brandName} pariatur, veniam perferendis nesciunt impedit cumque! Necessitatibus sapiente, molestias earum animi eligendi delectus blanditiis error ipsum quo odio.</p>`,
   };
 
   const esma: TranslationsType = {
@@ -73,9 +72,6 @@ export default function footerTranslations(
     vi: `
       <p>CFD là các công cụ phức tạp và có rủi ro cao mất tiền nhanh chóng do đòn bẩy. Phần lớn tài khoản nhà đầu tư nhỏ lẻ mất tiền khi giao dịch CFD. Bạn nên cân nhắc xem bạn có hiểu cách CFD hoạt động hay không và liệu bạn có đủ khả năng chấp nhận rủi ro mất tiền cao hay không.</p>
       <p>Giao dịch các công cụ tài chính tiềm ẩn rủi ro đáng kể, bao gồm khả năng mất một phần hoặc toàn bộ vốn đầu tư. Hoạt động này có thể không phù hợp với mọi nhà đầu tư. Giá của nhiều công cụ tài chính biến động mạnh và có thể bị ảnh hưởng bởi các yếu tố bên ngoài như sự kiện tài chính, quy định hoặc chính trị. Giao dịch ký quỹ làm tăng rủi ro tài chính liên quan. Trước khi quyết định giao dịch công cụ tài chính hoặc tiền điện tử, điều quan trọng là phải nhận thức đầy đủ về các rủi ro và chi phí tiềm ẩn liên quan đến việc tham gia vào thị trường tài chính. Dành thời gian để đánh giá cẩn thận mục tiêu đầu tư, mức độ kinh nghiệm và khả năng chịu rủi ro của bạn. Khi cần thiết, hãy tìm kiếm lời khuyên chuyên môn để đảm bảo quyết định được đưa ra một cách thông tin.</p>`,
-    showcase: `
-      <p>Vestibulum fringilla pede sit amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nullam sagittis. Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis.</p>
-      <p>Donec posuere vulputate arcu. Phasellus accumsan cursus velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci. Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc.</p>`,
   };
 
   const endorsed: TranslationsType = {
@@ -124,9 +120,6 @@ export default function footerTranslations(
     vi: `
       <p>Sản phẩm có đòn bẩy như CFDs và Forex được coi là tài sản tài chính phức tạp và có thể không phù hợp với tất cả các nhà đầu tư vì chúng mang lại rủi ro cao và có thể dẫn đến việc mất vốn đầu tư của bạn. Trước khi tham gia giao dịch, hãy xem xét mục tiêu tài chính, kỹ năng và đánh giá các rủi ro tiềm ẩn liên quan đến việc giao dịch Sản phẩm của Công ty. Có thể tìm kiếm lời khuyên độc lập.</p>
       <p>ORO FINTECH LIMITED được đăng ký tại Seychelles với số đăng ký 8425077-1 và được Ủy ban Dịch vụ Tài chính (FSA) cấp phép làm Nhà môi giới Chứng khoán với số giấy phép SD046.</p>`,
-    showcase: `
-      <p>Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.</p>
-      <p>Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu.</p>`,
   };
 
   return {
