@@ -1,5 +1,7 @@
 ---
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { Button } from "./ui/button";
 
@@ -24,7 +26,6 @@ const title: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Maecenas",
 };
 
 const para: TranslationsType = {
@@ -43,7 +44,6 @@ const para: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum eget tellus.",
 };
 
 const bullets: {
@@ -67,7 +67,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Nulla",
     },
     para: {
       en: "Get a 2 months free subscription to our premium Trading Signals Kit",
@@ -85,7 +84,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.",
     },
   },
   {
@@ -105,7 +103,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Aenean",
     },
     para: {
       en: "Choose the package that suits you best. Get signals anywhere and anytime on your phone, tablet or PC",
@@ -123,7 +120,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
     },
   },
   {
@@ -143,7 +139,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Etiam rhoncus",
     },
     para: {
       en: "Instantly copy the positions based on alerts: assets, up or down, price & expiry time.",
@@ -161,7 +156,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
     },
   },
 ];
@@ -182,7 +176,6 @@ const btnLabel: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Nulla consequat massa",
 };
 ---
 
@@ -195,11 +188,15 @@ const btnLabel: TranslationsType = {
   >
     <h2
       class="font-rubik text-primary text-heading-lead text-center font-medium tracking-widest"
-      set:html={title[componentProps.lang]}
+      set:html={  componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 1 })
+        : title[componentProps.lang]}
     />
     <p
       class="text-center lg:text-[20px]"
-      set:html={para[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 10 })
+        : para[componentProps.lang]}
     />
   </div>
   <div
@@ -219,11 +216,15 @@ const btnLabel: TranslationsType = {
               )}
             </div>
             <h3
-              set:html={bullet.title[componentProps.lang]}
+              set:html={componentProps.features?.includes(Features.showcase) 
+                ? showcase({ words: 1 }) 
+                : bullet.title[componentProps.lang]}
               class="text-heading3 text-primary font-rubik font-medium uppercase"
             />
             <p
-              set:html={bullet.para[componentProps.lang]}
+              set:html={componentProps.features?.includes(Features.showcase) 
+                ? showcase({ words: 10 }) 
+                : bullet.para[componentProps.lang]}
               class="max-w-[35ch] font-bold"
             />
           </article>
@@ -238,7 +239,9 @@ const btnLabel: TranslationsType = {
   </div>
   <div class="container grid place-items-center">
     <Button
-      set:html={btnLabel[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase) 
+        ? showcase({ words: 3 }) 
+        : btnLabel[componentProps.lang]}
       variant={"secondary"}
       className="js-modal-trigger font-rubik hover:text-foreground hover:border-secondary h-auto min-h-[50px] grow cursor-pointer rounded-3xl border-2 border-transparent text-[16px]! font-medium uppercase hover:bg-transparent lg:px-12"
     />

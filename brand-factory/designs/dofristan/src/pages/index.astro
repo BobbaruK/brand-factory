@@ -10,7 +10,7 @@ import Section7 from "@/components/Section7.astro";
 import { brandFactory } from "../../../../globals/factory";
 import { type OracleSignalsSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
-// import { Features } from "../../../../globals/types/enums";
+import { Features } from "../../../../globals/types/enums";
 import type {
   LandingPageType,
   LicenseType,
@@ -25,6 +25,7 @@ const features = checkFeatures([
   // Features.readyForMail,
   // Features.outbrain,
   // Features.atheneum,
+  // Features.showcase,
 ]);
 const registrationType: RegistrationType = "classic";
 
@@ -34,7 +35,7 @@ export interface CustomOptions {
 
 const componentProps: ComponentProps<OracleSignalsSVGVariation, CustomOptions> =
   {
-    lang: "showcase",
+    lang: "en",
     license,
     lpName: "Home",
     brandObj: brandFactory({

@@ -9,6 +9,8 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import "../styles/global.css";
 import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -34,7 +36,6 @@ const modalTitle: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Donec sodales sagittis magna.",
 };
 
 const btnLabel: TranslationsType = {
@@ -53,13 +54,12 @@ const btnLabel: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Etiam rhoncus",
 };
 ---
 
 <!doctype html>
 <html
-  lang={lang !== "showcase" ? lang : "en"}
+  lang={lang}
   dir={lang === "ar" ? "rtl" : "ltr"}
   data-brandname={componentProps.brandObj.name}
   data-lptype={componentProps.lpType}
@@ -70,7 +70,7 @@ const btnLabel: TranslationsType = {
   data-wanumber={componentProps.brandObj.whatsapp
     ? componentProps.brandObj.whatsappNumber[lang]
     : false}
-  data-lpfeatures={componentProps.features?.join(', ')}
+  data-lpfeatures={componentProps.features?.join(", ")}
 >
   <head>
     <meta charset="utf-8" />
@@ -102,12 +102,16 @@ const btnLabel: TranslationsType = {
     <Dialog>
       <div class="space-y-6">
         <h3
-          set:html={modalTitle[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({ words: 5 })
+            : modalTitle[componentProps.lang]}
           class="text-heading2 font-rubik text-center font-black text-balance uppercase"
         />
         <Form
           componentProps={componentProps}
-          button={btnLabel[componentProps.lang]}
+          button={componentProps.features?.includes(Features.showcase)
+            ? showcase({ words: 1 })
+            : btnLabel[componentProps.lang]}
           id="modal-form"
           layout={2}
         />

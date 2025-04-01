@@ -4,6 +4,8 @@ import type { TranslationsType } from "../../../../globals/types/translations";
 import { Image } from "astro:assets";
 import quotes from "../assets/quote.png";
 import coach from "../assets/coach.jpg";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -26,10 +28,9 @@ const quote: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: `Nullam quis ante. Etiam ${componentProps.brandObj.name} sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.`,
 };
 
-const couchData: TranslationsType = {
+const coachData: TranslationsType = {
   en: `Online Forex Trading Coach`,
   it: "",
   tr: "",
@@ -45,7 +46,6 @@ const couchData: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Nulla consequat massa quis enim",
 };
 ---
 
@@ -61,7 +61,12 @@ const couchData: TranslationsType = {
       widths={[320, 576, 640, 768, 1024, 1280, 1536, quotes.width]}
       sizes={`46px`}
     />
-    <p set:html={quote[componentProps.lang]} class="text-center italic" />
+    <p
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 50 })
+        : quote[componentProps.lang]}
+      class="text-center italic"
+    />
     <div class="grid place-items-center gap-2 text-center lg:gap-4">
       <Image
         src={coach}
@@ -70,7 +75,12 @@ const couchData: TranslationsType = {
         widths={[320, 576, 640, 768, 1024, 1280, 1536, coach.width]}
         sizes={`46px`}
       />
-      <p set:html={couchData[componentProps.lang]} class="text-sm font-bold" />
+      <p
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({ words: 5 })
+          : coachData[componentProps.lang]}
+        class="text-sm font-bold"
+      />
     </div>
   </div>
 </section>

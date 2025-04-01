@@ -1,11 +1,12 @@
 ---
 import { type CustomOptions } from "@/pages/index.astro";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
+import { showcase } from "../../../../globals/features/showcase/text";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import bg from "../assets/bg.jpg";
 import { Navigation } from "./Navigation";
-import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "./ui/button";
 
 interface Props {
@@ -31,7 +32,6 @@ const ctaMenuButton: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Aenean commodo",
 };
 
 const title: TranslationsType = {
@@ -50,7 +50,6 @@ const title: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Nulla consequat massa.",
 };
 
 const paraLead: TranslationsType = {
@@ -69,8 +68,6 @@ const paraLead: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase:
-    "Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.",
 };
 
 const buttons: (
@@ -101,7 +98,6 @@ const buttons: (
       th: "",
       ms: "",
       vi: "",
-      showcase: "Etiam rhoncus",
     },
     type: "Modal",
   },
@@ -122,7 +118,6 @@ const buttons: (
       th: "",
       ms: "",
       vi: "",
-      showcase: "Integer tincidunt",
     },
     type: "Href",
     href: "#section7",
@@ -150,7 +145,6 @@ const navItems: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Quisque",
     },
     href: "#section1",
   },
@@ -171,7 +165,6 @@ const navItems: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Aenean",
     },
     href: "#section2",
   },
@@ -192,7 +185,6 @@ const navItems: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Curabitur",
     },
     href: "#section7",
   },
@@ -211,26 +203,34 @@ const navItems: {
     <div class="flex items-center gap-8">
       <Navigation
         navItems={navItems.map((item) => ({
-          label: item.label[componentProps.lang],
+          label: componentProps.features?.includes(Features.showcase)
+            ? showcase({ words: 2 })
+            : item.label[componentProps.lang],
           href: item.href,
         }))}
         client:load
       />
       <Button
         variant={"secondary"}
-        set:html={ctaMenuButton[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({ words: 1 })
+          : ctaMenuButton[componentProps.lang]}
         className="font-rubik js-modal-trigger hidden cursor-pointer rounded-3xl text-xs font-medium md:block"
       />
     </div>
   </div>
   <div class="container space-y-6 pt-[min(140px,_10%)] pb-[min(190px,_10%)]">
     <h1
-      class="text-heading1 font-rubik font-black uppercase"
-      set:html={title[componentProps.lang]}
+      class="text-heading1 font-rubik font-black text-balance uppercase"
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 5 })
+        : title[componentProps.lang]}
     />
     <p
       class="text-para-lead font-rubik max-w-[40ch]"
-      set:html={paraLead[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 15 })
+        : paraLead[componentProps.lang]}
     />
     <div
       class="font-rubik flex w-full max-w-[730px] flex-wrap items-center gap-4 font-medium"
@@ -240,7 +240,11 @@ const navItems: {
           if (button.type === "Modal")
             return (
               <Button
-                set:html={button.label[componentProps.lang]}
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({ words: 3 })
+                    : button.label[componentProps.lang]
+                }
                 className="js-modal-trigger h-auto min-h-[50px]  rounded-3xl  border-2 border-transparent hover:bg-transparent hover:border-white cursor-pointer grow text-[16px]!"
               />
             );
@@ -251,7 +255,11 @@ const navItems: {
                 <a
                   href={button.href}
                   class={`${buttonVariants({ variant: "secondary" })} h-auto! min-h-[50px]! grow cursor-pointer rounded-3xl! border-2 border-transparent bg-white text-[16px]! text-black! hover:border-white hover:bg-transparent hover:text-white!`}
-                  set:html={button.label[componentProps.lang]}
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({ words: 3 })
+                      : button.label[componentProps.lang]
+                  }
                 />
               </Button>
             );

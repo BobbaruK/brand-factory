@@ -12,6 +12,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -34,7 +36,6 @@ const title: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Aenean leo ligula, porttitor eu.",
 };
 
 const para: TranslationsType = {
@@ -53,8 +54,6 @@ const para: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase:
-    "Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.",
 };
 
 const btnLabel: TranslationsType = {
@@ -73,7 +72,6 @@ const btnLabel: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Aenean massa",
 };
 
 // TODO: data table
@@ -83,10 +81,17 @@ const btnLabel: TranslationsType = {
   <div class="container space-y-6 text-center">
     <h2
       class="font-rubik text-primary text-heading2 after:bg-foreground relative mb-3 pb-2 font-medium after:absolute after:bottom-0 after:left-1/2 after:block after:h-[2px] after:w-[50px] after:-translate-1/2 after:content-[''] md:mb-7 md:pb-5 xl:mb-10 xl:pb-7"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 5 })
+        : title[componentProps.lang]}
     />
 
-    <p set:html={para[componentProps.lang]} class="lg:text-[20px]" />
+    <p
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 30 })
+        : para[componentProps.lang]}
+      class="lg:text-[20px]"
+    />
 
     <Table>
       <TableHeader>
@@ -157,7 +162,9 @@ const btnLabel: TranslationsType = {
     </Table>
 
     <Button
-      set:html={btnLabel[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 2 })
+        : btnLabel[componentProps.lang]}
       variant={"secondary"}
       className="js-modal-trigger font-rubik hover:text-foreground hover:border-secondary h-auto min-h-[50px] grow cursor-pointer rounded-3xl border-2 border-transparent text-[16px]! font-medium hover:bg-transparent lg:px-12"
     />
