@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import phoneImage from "../assets/mobile.png";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -25,7 +27,6 @@ const para: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: `Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, <strong>${componentProps.brandObj.name} nisi quis porttitor congue</strong>, elit erat euismod orci, ac. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.`,
 };
 
 const listTitle: TranslationsType = {
@@ -44,7 +45,6 @@ const listTitle: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "",
 };
 
 const list: TranslationsType[] = [
@@ -64,7 +64,6 @@ const list: TranslationsType[] = [
     th: "",
     ms: "",
     vi: "",
-    showcase: "Cras <strong>dapibus</strong>",
   },
   {
     en: `One on one <strong>personal training</strong>`,
@@ -82,7 +81,6 @@ const list: TranslationsType[] = [
     th: "",
     ms: "",
     vi: "",
-    showcase: "Vivamus elementum <strong>semper nisi</strong>",
   },
   {
     en: `Daily market <strong>analysis</strong>`,
@@ -100,7 +98,6 @@ const list: TranslationsType[] = [
     th: "",
     ms: "",
     vi: "",
-    showcase: "Quisque <strong>rutrum</strong>",
   },
   {
     en: `Professional <strong>guidance & support</strong>`,
@@ -118,7 +115,6 @@ const list: TranslationsType[] = [
     th: "",
     ms: "",
     vi: "",
-    showcase: "Etiam ultricies <strong>nisi vel augue</strong>",
   },
 ];
 ---
@@ -126,7 +122,15 @@ const list: TranslationsType[] = [
 <section class="py-4">
   <div class="container md:flex md:gap-4">
     <div class="flex flex-col gap-4 pb-10">
-      <p set:html={para[componentProps.lang]} />
+      <p
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 50,
+              spanClasses: "text-secondary font-bold",
+              brandName: componentProps.brandObj.name,
+            })
+          : para[componentProps.lang]}
+      />
       <p><strong set:html={listTitle[componentProps.lang]} /></p>
       <ul class="flex flex-col gap-1">
         {
@@ -154,7 +158,16 @@ const list: TranslationsType[] = [
                   <path d="m5.75 7.75l2.5 2.5l6-6.5" />
                 </g>
               </svg>
-              <p set:html={li[componentProps.lang]} />
+              <p
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 5,
+                        spanClasses: "font-bold",
+                      })
+                    : li[componentProps.lang]
+                }
+              />
             </li>
           ))
         }

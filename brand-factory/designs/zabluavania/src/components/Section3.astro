@@ -1,5 +1,7 @@
 ---
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import FormWrapper from "./Form-Wrapper.astro";
 
@@ -24,7 +26,6 @@ const formTitle: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Aenean vulputate eleifend tellus",
 };
 
 const formButton: TranslationsType = {
@@ -43,15 +44,22 @@ const formButton: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Cras id dui",
 };
 ---
 
 <div class="hidden md:block">
   <FormWrapper
     componentProps={componentProps}
-    title={formTitle[componentProps.lang]}
-    buttonLabel={formButton[componentProps.lang]}
+    title={componentProps.features?.includes(Features.showcase)
+      ? showcase({
+          words: 3,
+        })
+      : formTitle[componentProps.lang]}
+    buttonLabel={componentProps.features?.includes(Features.showcase)
+      ? showcase({
+          words: 1,
+        })
+      : formButton[componentProps.lang]}
     id="sectionForm"
   />
 </div>

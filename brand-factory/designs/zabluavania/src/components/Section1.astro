@@ -1,5 +1,7 @@
 ---
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import FormWrapper from "./Form-Wrapper.astro";
 
@@ -24,7 +26,6 @@ const title: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: `<strong class="text-secondary">Lorem ipsum</strong> dolor sit amet, consectetuer adipiscing elit.`,
 };
 
 const formTitle: TranslationsType = {
@@ -43,7 +44,6 @@ const formTitle: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Aenean leo ligula",
 };
 
 const formBtn: TranslationsType = {
@@ -62,7 +62,6 @@ const formBtn: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Nullam quis",
 };
 ---
 
@@ -70,14 +69,27 @@ const formBtn: TranslationsType = {
   <div class="container grid place-items-center py-8">
     <h1
       class="font-ubuntu text-heading1 text-primary max-w-[28ch] text-center text-balance uppercase"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+            spanClasses: "text-secondary",
+          })
+        : title[componentProps.lang]}
     />
   </div>
   <div class="block md:hidden">
     <FormWrapper
       componentProps={componentProps}
-      title={formTitle[componentProps.lang]}
-      buttonLabel={formBtn[componentProps.lang]}
+      title={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 3,
+          })
+        : formTitle[componentProps.lang]}
+      buttonLabel={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 2,
+          })
+        : formBtn[componentProps.lang]}
       id="titleForm"
     />
   </div>
