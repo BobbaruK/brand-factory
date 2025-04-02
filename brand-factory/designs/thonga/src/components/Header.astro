@@ -6,6 +6,8 @@ import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import bgImage from "../assets/ctlBG.jpg";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -28,7 +30,6 @@ const title: TranslationsType = {
   th: ``,
   ms: ``,
   vi: ``,
-  showcase: `Aenean leo ligula, porttitor eu, consequat <span class="text-white font-normal">vitae</span>, eleifend ac, enim.`,
 };
 
 const paras: TranslationsType[] = [
@@ -48,7 +49,6 @@ const paras: TranslationsType[] = [
     th: ``,
     ms: ``,
     vi: ``,
-    showcase: `Vivamus elementum semper nisi. Aenean vulputate eleifend.`,
   },
   {
     en: ``,
@@ -66,7 +66,6 @@ const paras: TranslationsType[] = [
     th: ``,
     ms: ``,
     vi: ``,
-    showcase: `${componentProps.brandObj.name} nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`,
   },
 ];
 
@@ -86,7 +85,6 @@ const formTitle: TranslationsType = {
   th: ``,
   ms: ``,
   vi: ``,
-  showcase: `Nulla consequat massa quis enim <strong class="uppercase">donec pede justo</strong>`,
 };
 
 const formButton: TranslationsType = {
@@ -105,7 +103,6 @@ const formButton: TranslationsType = {
   th: ``,
   ms: ``,
   vi: ``,
-  showcase: `Nulla consequat`,
 };
 ---
 
@@ -127,7 +124,12 @@ const formButton: TranslationsType = {
         square={componentProps.customOptions?.logoSquare}
       />
       <h1
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 10,
+              spanClasses: "text-white uppercase font-bold",
+            })
+          : title[componentProps.lang]}
         class="text-heading1 text-primary font-thin text-balance uppercase"
       />
 
@@ -135,7 +137,14 @@ const formButton: TranslationsType = {
         paras.map((para, index) => {
           return (
             <p
-              set:html={para[componentProps.lang]}
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: index === 0 ? 5 : 15,
+                      spanClasses: "text-white uppercase font-bold",
+                    })
+                  : para[componentProps.lang]
+              }
               class={`text-para-lead ${index === 0 ? "text-primary lg:w-[25ch]" : "lg:w-[40ch]"}`}
             />
           );
@@ -147,12 +156,21 @@ const formButton: TranslationsType = {
         class="mx-auto flex flex-col gap-6 bg-white p-6 shadow-lg lg:-mb-52 lg:max-w-[400px] lg:pb-20"
       >
         <h2
-          set:html={formTitle[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 10,
+                spanClasses: "uppercase font-bold ",
+              })
+            : formTitle[componentProps.lang]}
           class="text-form-title text-center text-balance"
         />
         <Form
           componentProps={componentProps}
-          button={formButton[componentProps.lang]}
+          button={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : formButton[componentProps.lang]}
           id="main-form"
         />
       </div>

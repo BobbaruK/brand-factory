@@ -4,7 +4,9 @@ import {
   professionalBlackSection1Icon2,
   professionalBlackSection1Icon3,
 } from "@/constants";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 
 interface Props {
@@ -28,7 +30,6 @@ const title: TranslationsType = {
   th: ``,
   ms: ``,
   vi: ``,
-  showcase: `Aenean commodo ligula eget dolor. Aenean massa.`,
 };
 
 const bullets: {
@@ -52,7 +53,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Nam eget dui. Etiam rhoncus.",
     },
     svgIcon: professionalBlackSection1Icon1,
   },
@@ -73,7 +73,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Vivamus elementum semper nisi.",
     },
     svgIcon: professionalBlackSection1Icon2,
   },
@@ -94,7 +93,6 @@ const bullets: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "In enim justo, rhoncus ut, venenatis vitae, justo.",
     },
     svgIcon: professionalBlackSection1Icon3,
   },
@@ -104,7 +102,11 @@ const bullets: {
 <section id="section1" class="my-12 lg:mt-0">
   <div class="container flex flex-col gap-6 md:gap-8 lg:gap-12">
     <h2
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+          })
+        : title[componentProps.lang]}
       class="text-heading2 text-primary font-extrabold uppercase lg:w-[40ch]"
     />
 
@@ -117,7 +119,16 @@ const bullets: {
                 set:html={bullet.svgIcon}
                 class="h-24 w-24 [&>svg]:h-full [&>svg]:w-full"
               />
-              <p set:html={bullet.title[componentProps.lang]} class="" />
+              <p
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 10,
+                      })
+                    : bullet.title[componentProps.lang]
+                }
+                class=""
+              />
             </article>
           );
         })
