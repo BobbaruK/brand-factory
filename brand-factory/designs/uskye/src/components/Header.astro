@@ -2,19 +2,181 @@
 import { type CustomOptions } from "@/pages/index.astro";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import { Image } from "astro:assets";
+import topBG from "../assets/topBG.jpg";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import desktopBrands from "../assets/mobile_brands-desktop.png";
+import mobileBrands from "../assets/mobile_brands-mobile.png";
+import Form from "../../../../globals/components/form";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formButton: TranslationsType = {
+  en: "Start your trading now",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: `Zacznij handlować teraz`,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "Bắt đầu giao dịch ngay",
+};
+
+const formDisclaimer: TranslationsType = {
+  en: `* This offer is subjected to <a href="https://global.fxoro.com/en/terms-and-conditions-lp/" target="_blank" class='underline'>terms and conditions</a>`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: `* Ưu đãi này tuân thủ các <a href="https://global.fxoro.com/en/terms-and-conditions-lp/" target="_blank" class='underline'>điều khoản và điều kiện</a>`,
+};
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header id="header" class="relative">
+  <Image
+    src={topBG}
+    alt="Background"
+    class="absolute top-0 left-0 z-0 h-full w-full"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, topBG.width]}
+    sizes={"100vw"}
+  />
+
+  <div class="relative z-10">
+    <div class="container py-5 text-white sm:py-7 md:py-8 lg:py-9 xl:py-11">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+    <div class="pb-7 sm:py-7 md:py-8 lg:py-9 xl:py-11">
+      <div class="container flex flex-col gap-8 lg:flex-row">
+        <div class="lg:basis-7/12">
+          <h1
+            set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({ words: 5 })
+              : title[componentProps.lang]}
+            class="text-heading1 mb-2 font-medium text-white"
+          />
+
+          <p
+            class="text-heading2 mb-2 font-medium text-white"
+            set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({ words: 30 })
+              : para[componentProps.lang]}
+          />
+
+          <Image
+            src={desktopBrands}
+            alt="Background"
+            class="mx-auto hidden max-w-full lg:block"
+            widths={[320, 576, 640, 768, 1024, 1280, 1536, desktopBrands.width]}
+            sizes={`
+              (max-width: 1023px) 0,
+              (max-width: 1280px) 708px,
+              780px
+            `}
+          />
+        </div>
+        <div class="lg:basis-5/12">
+          <div id="formWrapper" class="bg-gray-200 p-4">
+            <Form
+              componentProps={componentProps}
+              button={componentProps.features?.includes(Features.showcase)
+                ? showcase({ words: 3 })
+                : formButton[componentProps.lang]}
+              id="form1"
+            />
+
+            <p
+              class="mt-4 text-center text-sm"
+              set:html={componentProps.features?.includes(Features.showcase)
+                ? showcase({ words: 5 })
+                : formDisclaimer[componentProps.lang]}
+            />
+          </div>
+          <Image
+            src={mobileBrands}
+            alt="Background"
+            class="mx-auto mt-4 block max-w-full lg:hidden"
+            widths={[320, 576, 640, 768, 1024, 1280, 1536, mobileBrands.width]}
+            sizes={`270px`}
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </header>
+
+<style lang="scss" is:global>
+  @reference "../styles/global.css";
+
+  form.registerForm {
+    .form-control {
+      input,
+      select {
+        @apply rounded-none border border-gray-400;
+      }
+      button[type="submit"] {
+        @apply gap-4 rounded-none py-7;
+      }
+    }
+  }
+</style>
