@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import tabletImage from "../assets/hands_holding_tablet.png";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -25,7 +27,6 @@ const title: TranslationsType = {
   th: ``,
   ms: ``,
   vi: ``,
-  showcase: `Aenean commodo ligula eget dolor.`,
 };
 
 const para: TranslationsType = {
@@ -44,7 +45,6 @@ const para: TranslationsType = {
   th: ``,
   ms: ``,
   vi: ``,
-  showcase: `Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.`,
 };
 ---
 
@@ -75,9 +75,20 @@ const para: TranslationsType = {
       >
         <h1
           class="text-heading1 uppercase"
-          set:html={title[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 5,
+              })
+            : title[componentProps.lang]}
         />
-        <p set:html={para[componentProps.lang]} />
+        <p
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 50,
+                spanClasses: "font-bold",
+              })
+            : para[componentProps.lang]}
+        />
       </div>
     </div>
   </div>
