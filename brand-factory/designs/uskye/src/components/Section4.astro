@@ -1,0 +1,103 @@
+---
+import {
+  buttonWrapperDisclaimer,
+  buttonWrapperLabel,
+} from "@/translations/button-wrapper";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import ButtonWrapper from "./Button-Wrapper";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "Trade in your favorite Product",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "Giao dịch sản phẩm bạn yêu thích!",
+};
+
+const para: TranslationsType = {
+  en: `Open an account with ${componentProps.brandObj.name}, and diversify your portfolio by investing in a variety of products.`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: `Mở tài khoản với ${componentProps.brandObj.name} và đa dạng hóa danh mục đầu tư của bạn bằng cách đầu tư vào nhiều loại sản phẩm.`,
+};
+---
+
+<section id="section4" class="py-7 md:py-8 lg:py-9 xl:py-11">
+  <div class="container flex flex-col items-center justify-center gap-12">
+    <h2
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 5 })
+        : title[componentProps.lang]}
+      class="text-heading2 text-center font-bold"
+    />
+    <div
+      class="corners relative max-w-[60ch] px-4 py-8 text-center"
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 15 })
+        : para[componentProps.lang]}
+    />
+    <ButtonWrapper
+      buttonLabel={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 2 })
+        : buttonWrapperLabel[componentProps.lang]}
+      buttonDisclaimer={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 5 })
+        : buttonWrapperDisclaimer[componentProps.lang]}
+      hrefTo="formWrapper"
+      whatsapp={componentProps.brandObj.whatsapp}
+      client:only
+    />
+  </div>
+</section>
+
+<style lang="scss">
+  .corners {
+    &::before,
+    &::after {
+      border: 5px solid #fbbf3c;
+      content: "";
+      height: 100%;
+      width: 100px;
+      position: absolute;
+      inset: 0 auto;
+    }
+
+    &::before {
+      border-width: 0 0 5px 5px;
+      left: 0;
+    }
+    &::after {
+      border-width: 5px 5px 0 0;
+      right: 0;
+    }
+  }
+</style>
