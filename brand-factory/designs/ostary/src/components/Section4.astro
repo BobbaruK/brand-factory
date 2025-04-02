@@ -5,6 +5,8 @@ import tableDesk from "../assets/tabledesk.png";
 import tableMob from "../assets/tablemobile.png";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -27,7 +29,6 @@ const title: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Nullam accumsan lorem in dui?",
 };
 
 const para: TranslationsType = {
@@ -46,7 +47,6 @@ const para: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum.",
 };
 
 const formBtn: TranslationsType = {
@@ -65,7 +65,6 @@ const formBtn: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Sed aliquam",
 };
 ---
 
@@ -73,10 +72,21 @@ const formBtn: TranslationsType = {
   <div
     class="relative z-10 container flex flex-col items-center justify-center gap-4 text-center"
   >
-    <h2 set:html={title[componentProps.lang]} class="text-heading2 font-bold" />
+    <h2
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+      class="text-heading2 font-bold"
+    />
     <p
       class="text-center text-sm sm:text-lg"
-      set:html={para[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+          })
+        : para[componentProps.lang]}
     />
     <!-- TODO: do a real chart here -->
     <Image
@@ -98,7 +108,11 @@ const formBtn: TranslationsType = {
     />
     <Button
       variant="secondary"
-      set:html={formBtn[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 2,
+          })
+        : formBtn[componentProps.lang]}
       className="hover:bg-primary hover:text-primary-foreground h-auto w-auto px-8 py-3 font-bold"
       id="s4-btn"
     />

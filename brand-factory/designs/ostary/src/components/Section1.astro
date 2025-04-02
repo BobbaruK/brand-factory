@@ -8,6 +8,8 @@ import topBG from "../assets/bg.jpg";
 import icon1 from "../assets/icon_1.png";
 import icon2 from "../assets/icon_2.png";
 import icon3 from "../assets/icon_3.png";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -30,7 +32,6 @@ const title: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Donec vitae sapien ut libero venenatis faucibus.",
 };
 
 const para: TranslationsType = {
@@ -49,7 +50,6 @@ const para: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Curabitur ullamcorper ultricies nisi.",
 };
 
 const list: {
@@ -73,7 +73,6 @@ const list: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Nullam dictum felis eu pede mollis pretium.",
     },
     icon: icon1,
   },
@@ -94,7 +93,6 @@ const list: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Donec quam felis, ultricies nec, pellentesque eu, pretium.",
     },
     icon: icon2,
   },
@@ -115,7 +113,6 @@ const list: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
     },
     icon: icon3,
   },
@@ -137,7 +134,6 @@ const formTitle: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 };
 
 const formBtn: TranslationsType = {
@@ -156,7 +152,6 @@ const formBtn: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Aenean massa",
 };
 ---
 
@@ -176,12 +171,21 @@ const formBtn: TranslationsType = {
   >
     <div class="flex flex-col justify-center gap-6 lg:grow">
       <h1
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
         class="sectionTitle bg-primary text-heading1 text-primary-foreground pe-2 font-bold"
       />
       <p
         class="text-sm font-light sm:text-lg lg:max-w-[45ch]"
-        set:html={para[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 30,
+              spanClasses: "font-bold",
+            })
+          : para[componentProps.lang]}
       />
       <ul
         class="flex flex-col gap-4 text-sm font-light sm:text-lg lg:max-w-[50ch]"
@@ -196,7 +200,11 @@ const formBtn: TranslationsType = {
                 widths={[listItem.icon.width]}
                 sizes={"32px"}
               />
-              {listItem.text[componentProps.lang]}
+              {componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 15,
+                  })
+                : listItem.text[componentProps.lang]}
             </li>
           ))
         }
@@ -206,13 +214,22 @@ const formBtn: TranslationsType = {
       class="formWrapper relative flex flex-col gap-8 bg-white lg:w-[33.333333%] lg:min-w-[33.333333%] lg:py-4 xl:pt-8 2xl:pt-12"
     >
       <h2
-        set:html={formTitle[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+              spanClasses: "uppercase",
+            })
+          : formTitle[componentProps.lang]}
         class="formTitle bg-primary text-form-title text-primary-foreground relative px-4 py-2 text-center font-bold"
       />
       <div class="text-foreground lg:p-4">
         <Form
           componentProps={componentProps}
-          button={formBtn[componentProps.lang]}
+          button={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : formBtn[componentProps.lang]}
           id="s1-form"
         />
       </div>

@@ -17,7 +17,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
 
 <!doctype html>
 <html
-  lang={lang !== "showcase" ? lang : "en"}
+  lang={lang}
   dir={lang === "ar" ? "rtl" : "ltr"}
   data-brandname={componentProps.brandObj.name}
   data-lptype={componentProps.lpType}

@@ -1,9 +1,11 @@
 ---
-import { Image } from "astro:assets";
 import { Input } from "@/components/ui/input";
-import arrows from "../assets/arrows.png";
+import { Image } from "astro:assets";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import arrows from "../assets/arrows.png";
 
 interface Props {
   componentProps: ComponentProps;
@@ -26,7 +28,6 @@ const title: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Sed consequat, leo eget bibendum sodales, augue velit?",
 };
 
 const para: TranslationsType = {
@@ -45,8 +46,6 @@ const para: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase:
-    "Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum.",
 };
 
 const ammount: TranslationsType = {
@@ -65,7 +64,6 @@ const ammount: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Nulla consequat",
 };
 
 const movement: {
@@ -88,7 +86,6 @@ const movement: {
     th: "",
     ms: "",
     vi: "",
-    showcase: "Etiam rhoncus",
   },
   disclaimer: {
     en: "",
@@ -106,7 +103,6 @@ const movement: {
     th: "",
     ms: "",
     vi: "",
-    showcase: "* Maecenas nec odio et ante tincidunt tempus.",
   },
 };
 ---
@@ -130,10 +126,22 @@ const movement: {
   <div
     class="relative z-30 container flex flex-col items-center justify-center gap-4 text-center lg:gap-8"
   >
-    <h2 set:html={title[componentProps.lang]} class="text-heading2 font-bold" />
+    <h2
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+          })
+        : title[componentProps.lang]}
+      class="text-heading2 font-bold"
+    />
     <p
       class="max-w-[78ch] text-center text-sm sm:text-lg"
-      set:html={para[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 30,
+            spanClasses: "font-bold",
+          })
+        : para[componentProps.lang]}
     />
     <div
       class="flex flex-col items-center justify-center gap-8 md:flex-row md:items-end md:gap-16"
@@ -141,7 +149,14 @@ const movement: {
       <div
         class="flex w-full flex-col items-center justify-center gap-4 md:w-52"
       >
-        <p class="font-bold" set:html={ammount[componentProps.lang] + " (€)"} />
+        <p
+          class="font-bold"
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : ammount[componentProps.lang] + " (€)"}
+        />
         <Input type="number" id="ammount" className="w-full text-center" />
       </div>
       <svg
@@ -161,8 +176,20 @@ const movement: {
         class="flex w-full flex-col items-center justify-center gap-4 md:w-52"
       >
         <p class="flex flex-col">
-          <b set:html={movement.title[componentProps.lang] + " (€) *"} />
-          <small set:html={movement.disclaimer[componentProps.lang]} />
+          <b
+            set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 2,
+                })
+              : movement.title[componentProps.lang] + " (€) *"}
+          />
+          <small
+            set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 5,
+                })
+              : movement.disclaimer[componentProps.lang]}
+          />
         </p>
         <Input
           type="number"
