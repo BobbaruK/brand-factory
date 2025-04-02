@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import Form from "../../../../globals/components/form";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -25,7 +27,6 @@ const formTitle: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Nam eget dui. Etiam rhoncus.",
 };
 
 const formButton: TranslationsType = {
@@ -44,7 +45,6 @@ const formButton: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: "Maecenas",
 };
 
 const list: {
@@ -70,7 +70,6 @@ const list: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Aliquam",
     },
     para: {
       en: "",
@@ -88,8 +87,6 @@ const list: {
       th: "",
       ms: "",
       vi: "",
-      showcase:
-        "Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.",
     },
   },
   {
@@ -110,7 +107,6 @@ const list: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Vivamus",
     },
     para: {
       en: ``,
@@ -128,7 +124,6 @@ const list: {
       th: "",
       ms: "",
       vi: "",
-      showcase: `In enim justo, rhoncus ut ${componentProps.brandObj.name}, imperdiet a, venenatis vitae, justo.`,
     },
   },
   {
@@ -149,7 +144,6 @@ const list: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Nulla",
     },
     para: {
       en: ``,
@@ -167,7 +161,6 @@ const list: {
       th: "",
       ms: "",
       vi: "",
-      showcase: "Aenean commodo ligula eget dolor. Aenean massa.",
     },
   },
 ];
@@ -181,11 +174,20 @@ const list: {
       >
         <h2
           class="text-heading2 mb-4 rounded-b-md bg-gradient-to-t from-stone-300 px-1 py-2 text-center md:mb-8 md:py-4 lg:mb-16"
-          set:html={formTitle[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 5,
+                spanClasses: "uppercase",
+              })
+            : formTitle[componentProps.lang]}
         />
         <Form
           componentProps={componentProps}
-          button={formButton[componentProps.lang]}
+          button={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 1,
+              })
+            : formButton[componentProps.lang]}
           id="form1"
         />
       </div>
@@ -206,9 +208,24 @@ const list: {
               <div>
                 <h3
                   class="text-heading3 text-secondary uppercase"
-                  set:html={li.title[componentProps.lang]}
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({
+                          words: 1,
+                        })
+                      : li.title[componentProps.lang]
+                  }
                 />
-                <p set:html={li.para[componentProps.lang]} />
+                <p
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({
+                          words: 10,
+                          spanClasses: "uppercase",
+                        })
+                      : li.para[componentProps.lang]
+                  }
+                />
               </div>
             </li>
           ))

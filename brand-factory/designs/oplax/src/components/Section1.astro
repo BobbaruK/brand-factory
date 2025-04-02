@@ -4,6 +4,8 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import stampGreenEN_Image from "../assets/stamp-green-en.png";
 import tablet from "../assets/tablet.png";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -26,7 +28,6 @@ const title: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: `Nulla consequat <strong>massa</strong>`,
 };
 
 const para: TranslationsType = {
@@ -45,7 +46,6 @@ const para: TranslationsType = {
   th: "",
   ms: "",
   vi: "",
-  showcase: `Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec ${componentProps.brandObj.name} sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.`,
 };
 
 const stampPic: {
@@ -118,14 +118,21 @@ const stampPic: {
               class="float-end m-2 hidden h-24 w-24 rotate-[20deg] object-fill lg:block"
               widths={[320, 576, 640, 768, 1024, 1280, 1536, stampPic.en.width]}
               sizes={`
-              (max-width: 320px) 576px,
-              (max-width: 576px) 768px,
-              (max-width: 768px) 1024px,
-              (max-width: 1024px) 1536px,
-              100vw
-            `}
+                (max-width: 320px) 576px,
+                (max-width: 576px) 768px,
+                (max-width: 768px) 1024px,
+                (max-width: 1024px) 1536px,
+                100vw
+              `}
             />
-            <Fragment set:html={title[componentProps.lang]} />
+            <Fragment
+              set:html={componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 5,
+                    spanClasses: "font-bold",
+                  })
+                : title[componentProps.lang]}
+            />
           </h1>
         </div>
         <div
@@ -138,14 +145,22 @@ const stampPic: {
               class="float-end m-2 h-24 w-24 rotate-[20deg] object-fill lg:hidden"
               widths={[320, 576, 640, 768, 1024, 1280, 1536, stampPic.en.width]}
               sizes={`
-            (max-width: 320px) 576px,
-            (max-width: 576px) 768px,
-            (max-width: 768px) 1024px,
-            (max-width: 1024px) 1536px,
-            100vw
-          `}
+                (max-width: 320px) 576px,
+                (max-width: 576px) 768px,
+                (max-width: 768px) 1024px,
+                (max-width: 1024px) 1536px,
+                100vw
+              `}
             />
-            <Fragment set:html={para[componentProps.lang]} />
+            <Fragment
+              set:html={componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 50,
+                    spanClasses: "font-bold",
+                    brandName: componentProps.brandObj.name,
+                  })
+                : para[componentProps.lang]}
+            />
           </p>
         </div>
       </div>
