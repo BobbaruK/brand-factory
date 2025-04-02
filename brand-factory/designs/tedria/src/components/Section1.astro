@@ -1,5 +1,7 @@
 ---
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 
 interface Props {
@@ -48,11 +50,21 @@ const para: TranslationsType = {
   <div class="container grid place-items-center gap-4">
     <h2
       class="text-heading2 max-w-[30ch] text-center leading-tight font-extrabold"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+            spanClasses: "text-secondary",
+            brandName: componentProps.brandObj.name,
+          })
+        : title[componentProps.lang]}
     />
     <p
       class="text-para-lead-2 max-w-[64ch] text-center leading-tight"
-      set:html={para[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 50,
+          })
+        : para[componentProps.lang]}
     />
   </div>
 </section>

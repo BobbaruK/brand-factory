@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import mobile from "../assets/m-desktop.png";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -92,14 +94,24 @@ const list: TranslationsType[] = [
       >
         <h2
           class="text-[20px] font-extrabold"
-          set:html={title[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 3,
+              })
+            : title[componentProps.lang]}
         />
         <ul class="flex list-inside flex-col gap-2 lg:list-disc lg:justify-end">
           {
             list.map((li) => (
               <li
                 class="text-para-lead-2 leading-tight"
-                set:html={li[componentProps.lang]}
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 5,
+                      })
+                    : li[componentProps.lang]
+                }
               />
             ))
           }

@@ -6,6 +6,8 @@ import icon1 from "../assets/icon1.png";
 import icon2 from "../assets/icon2.png";
 import icon3 from "../assets/icon3.png";
 import bg from "../assets/s3-desktop.jpg";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -112,7 +114,16 @@ const bullets: {
               640px
             `}
           />
-          <p set:html={bullet.para[componentProps.lang]} />
+          <p
+            set:html={
+              componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 15,
+                    spanClasses: "font-extrabold text-secondary uppercase",
+                  })
+                : bullet.para[componentProps.lang]
+            }
+          />
         </div>
       ))
     }

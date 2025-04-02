@@ -3,6 +3,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -56,11 +58,19 @@ const btnDisclaimer: TranslationsType = {
         "text-2xl",
         "h-auto",
       )}
-      set:html={buttonLabel[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 3,
+          })
+        : buttonLabel[componentProps.lang]}
     />
     <p
       class="max-w-[30ch] text-center text-xs"
-      set:html={btnDisclaimer[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 3,
+          })
+        : btnDisclaimer[componentProps.lang]}
     />
   </div>
 </section>

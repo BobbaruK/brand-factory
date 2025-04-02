@@ -6,6 +6,8 @@ import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import bg from "../assets/topbg-desktop.jpg";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -104,18 +106,24 @@ const formBtnLabel: TranslationsType = {
         >
           <h1
             class="text-heading1 lg:text-foreground max-w-[20ch] text-center leading-tight font-extrabold text-white uppercase"
-            set:html={title[componentProps.lang]}
+            set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({ words: 5, spanClasses: "text-secondary" })
+              : title[componentProps.lang]}
           />
           <p
             class="text-para-lead lg:text-foreground max-w-[25ch] text-center text-white"
-            set:html={para[componentProps.lang]}
+            set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({ words: 15 })
+              : para[componentProps.lang]}
           />
           <div
             class="bg-primary text-primary-foreground w-full max-w-[360px] p-4"
           >
             <Form
               componentProps={componentProps}
-              button={formBtnLabel[componentProps.lang]}
+              button={componentProps.features?.includes(Features.showcase)
+                ? showcase({ words: 2 })
+                : formBtnLabel[componentProps.lang]}
               id="form1"
             />
           </div>
