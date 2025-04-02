@@ -1,20 +1,137 @@
 ---
 import { type CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import Form from "../../../../globals/components/form";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import bg from "../assets/topbg-desktop.jpg";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Investing should be <span class="text-secondary">accessible</span> to everyone`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: `That's why we are now offering the opportunity to our clients to invest in the shares of the companies they love and trust.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const formBtnLabel: TranslationsType = {
+  en: `Join`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header id="header" class="relative">
+  <Image
+    src={bg}
+    alt="Background"
+    class="absolute inset-0 z-0 h-full w-full object-cover object-left lg:object-center"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
+    sizes={`
+      (max-width: 320px) 576px,
+      (max-width: 576px) 640px,
+      (max-width: 640px) 768px,
+      (max-width: 768px) 1024px,
+      (max-width: 1024px) 1280px,
+      (max-width: 1280px) 1536px,
+      100vw
+    `}
+  />
+  <div class="bg-primary/60 absolute inset-0 z-10 h-full w-full lg:hidden">
+  </div>
+  <div class="relative z-20">
+    <div
+      class="lg:text-foreground pt-5 pb-4 text-white sm:pt-7 md:pt-9 lg:pt-10 xl:pt-12 2xl:pt-16"
+    >
+      <div class="container [&>svg]:max-w-full">
+        <MainLogo
+          size={componentProps.brandObj.nameToLower}
+          logo={componentProps.logo()}
+          square={componentProps.customOptions?.logoSquare}
+        />
+      </div>
+    </div>
+    <div class="py-4 sm:pb-7 md:pb-9 lg:pb-10 xl:pb-12 2xl:pb-16">
+      <div class="container lg:flex lg:flex-row-reverse lg:gap-4">
+        <div
+          class="flex flex-col items-center justify-center gap-[clamp(1rem,_0.5rem_+_2.5vw,_2.5rem)]"
+        >
+          <h1
+            class="text-heading1 lg:text-foreground max-w-[20ch] text-center leading-tight font-extrabold text-white uppercase"
+            set:html={title[componentProps.lang]}
+          />
+          <p
+            class="text-para-lead lg:text-foreground max-w-[25ch] text-center text-white"
+            set:html={para[componentProps.lang]}
+          />
+          <div
+            class="bg-primary text-primary-foreground w-full max-w-[360px] p-4"
+          >
+            <Form
+              componentProps={componentProps}
+              button={formBtnLabel[componentProps.lang]}
+              id="form1"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
+
+<style lang="scss" is:global define:vars={{}}>
+  @reference "../styles/global.css";
+  form.registerForm {
+    .form-control {
+      button {
+        @apply bg-secondary text-secondary-foreground hover:bg-muted hover:text-muted-foreground flex gap-4 uppercase;
+      }
+    }
+  }
+</style>
