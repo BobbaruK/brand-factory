@@ -129,6 +129,26 @@ const formBtnLabel: TranslationsType = {
   @reference "../styles/global.css";
   form.registerForm {
     .form-control {
+      label {
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        // border: medium none;
+        // max-width: 100%;
+        // padding: 5px 15px;
+        // transition: 350ms;
+        // width: 100%;
+
+        @apply text-black;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
       button {
         @apply bg-secondary text-secondary-foreground hover:bg-muted hover:text-muted-foreground flex gap-4 uppercase;
       }
