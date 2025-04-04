@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @utility container {
-  max-width: 1280px;
+  max-width: 1400px;
   margin-inline: auto;
   padding-inline: 1rem;
   width: 100%;
@@ -12,26 +12,26 @@
 
 @theme {
   --text-heading1: clamp(
-    1.125rem,
-    0.6667rem + 2.2917vw,
-    2.5rem
-  ); /* 18 - 40 ; 320 - 1280 */
+    1.5rem,
+    1.3519rem + 0.7407vw,
+    2rem
+  ); /* 24 - 32 ; 320 - 1400 */
   --text-heading1--line-height: clamp(
-    1.25rem,
-    0.75rem + 2.5vw,
-    2.75rem
-  ); /* 20 - 44 ; 320 - 1280 */
+    2.25rem,
+    2.0278rem + 1.1111vw,
+    3rem
+  ); /* 36 - 48 ; 320 - 1400 */
 
   --text-heading2: clamp(
-    1.125rem,
-    0.8333rem + 1.4583vw,
-    2rem
-  ); /* 18 - 32 ; 320 - 1280 */
-  --text-heading2--line-height: clamp(
     1.25rem,
-    0.8333rem + 2.0833vw,
-    2.5rem
-  ); /* 20 - 40 ; 320 - 1280 */
+    1.0648rem + 0.9259vw,
+    1.875rem
+  ); /* 20 - 30 ; 320 - 1400 */
+  --text-heading2--line-height: clamp(
+    1.5rem,
+    1.2778rem + 1.1111vw,
+    2.25rem
+  ); /* 24 - 36 ; 320 - 1400 */
 
   --text-heading3: clamp(
     1rem,
@@ -45,15 +45,15 @@
   ); /* 20 - 32 ; 320 - 1280 */
 
   --text-para-lead: clamp(
-    1rem,
-    0.9167rem + 0.4167vw,
-    1.25rem
-  ); /* 16 - 20 ; 320 - 1280 */
+    1.5rem,
+    1.4259rem + 0.3704vw,
+    1.75rem
+  ); /* 24 - 28 ; 320 - 1400 */
   --text-para-lead--line-height: clamp(
-    1.25rem,
-    1rem + 1.25vw,
-    2rem
-  ); /* 20 - 32 ; 320 - 1280 */
+    2.25rem,
+    2.1389rem + 0.5556vw,
+    2.625rem
+  ); /* 36 - 42 ; 320 - 1400 */
 }
 
 :root {
@@ -64,9 +64,9 @@
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
+  --primary: oklch(0.78 0.16 86.7);
+  --primary-foreground: oklch(0.26 0.01 0);
+  --secondary: oklch(0.97 0.0068 247.9);
   --secondary-foreground: oklch(0.208 0.042 265.755);
   --muted: oklch(0.968 0.007 247.896);
   --muted-foreground: oklch(0.554 0.046 257.417);
