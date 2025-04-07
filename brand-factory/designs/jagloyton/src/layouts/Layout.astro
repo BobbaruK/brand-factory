@@ -3,7 +3,8 @@ import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
 import type { ComponentProps } from "../../../../globals/types/component-props";
-import "../styles/global.css";
+import "../styles/global.css"; // Supports weights 300-800
+import "@fontsource-variable/open-sans";
 
 interface Props {
   componentProps: ComponentProps;
@@ -27,7 +28,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
   data-wanumber={componentProps.brandObj.whatsapp
     ? componentProps.brandObj.whatsappNumber[lang]
     : false}
-  data-lpfeatures={componentProps.features?.join(', ')}
+  data-lpfeatures={componentProps.features?.join(", ")}
 >
   <head>
     <meta charset="utf-8" />
@@ -49,6 +50,10 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
           scroll-behavior: auto;
         }
       }
+
+      body {
+        font-family: "Open Sans Variable", sans-serif;
+      }
     </style>
   </head>
   <body>
@@ -59,7 +64,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    
+
     <BackToTop />
     <script
       type="module"
