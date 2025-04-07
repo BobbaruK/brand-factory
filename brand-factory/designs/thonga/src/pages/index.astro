@@ -1,7 +1,7 @@
 ---
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type OracleSignalsSVGVariation } from "../../../../globals/types/brands/logo";
+import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -18,21 +18,22 @@ const features = checkFeatures([
   // Features.readyForMail,
   // Features.outbrain,
   // Features.atheneum,
-  Features.showcase,
+  // Features.showcase,
 ]);
 const registrationType: RegistrationType = "classic";
 
 export interface CustomOptions {
   logoSquare: boolean;
+  colorScheme: "default" | "green";
 }
 
-const componentProps: ComponentProps<OracleSignalsSVGVariation, CustomOptions> =
+const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> =
   {
-    lang: "es",
+    lang: "ar",
     license,
     lpName: "Cometolearn",
     brandObj: brandFactory({
-      brand: "oracle-signals",
+      brand: "fxoro_global",
       license,
       whatsapp: false,
       features,
@@ -44,9 +45,10 @@ const componentProps: ComponentProps<OracleSignalsSVGVariation, CustomOptions> =
     registrationType,
     customOptions: {
       logoSquare: false,
+      colorScheme: "green",
     },
     features,
-    // fxoroFooter: true,
+    fxoroFooter: true,
   };
 ---
 

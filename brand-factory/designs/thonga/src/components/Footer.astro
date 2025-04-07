@@ -22,6 +22,8 @@ const { componentProps } = Astro.props;
 }
 
 <style is:global>
+  @reference "../styles/global.css";
+
   .brandFooter {
     padding-block: calc(var(--spacing) * 8);
     background-color: var(--color-stone-700);
@@ -40,12 +42,12 @@ const { componentProps } = Astro.props;
   }
 
   /* TODO: handle style for FxoroFooter */
-  /* #globalFooter {
+  #globalFooter {
     > .modal {
       display: none !important;
     }
     .dfSomething {
-      // @apply mt-4;
+      /* @apply mt-4; */
     }
     .theApps {
       @apply py-4;
@@ -66,5 +68,5 @@ const { componentProps } = Astro.props;
         @apply z-30;
       }
     }
-  } */
+  }
 </style>

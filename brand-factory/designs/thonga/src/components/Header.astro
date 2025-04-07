@@ -19,7 +19,7 @@ const title: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `احصل على تدريب مجاني على التداول الخالي من المخاطر في السوق المالية`,
   de: ``,
   es: `Comience a operar <span class="text-white font-normal">gratis</span> en los mercados financieros con riesgo cero`,
   sv: ``,
@@ -38,7 +38,7 @@ const paras: TranslationsType[] = [
     it: ``,
     tr: ``,
     ro: ``,
-    ar: ``,
+    ar: `احصل على دليل PDF المجاني الخاص بك وأصبح خبير التداول الذي طالما رغبت في أن تكونه.`,
     de: ``,
     es: `Reciba su guía gratuita en PDF para aprender ahora`,
     sv: ``,
@@ -55,7 +55,7 @@ const paras: TranslationsType[] = [
     it: ``,
     tr: ``,
     ro: ``,
-    ar: ``,
+    ar: `المكافأة: يوفر لك ${componentProps.brandObj.name} فرصة فريدة للتداول وممارسة مهاراتك على حساب تجريبي مجاني.`,
     de: ``,
     es: `${componentProps.brandObj.name} le ofrece la oportunidad de aprender a operar y ejercitar sus habilidades en una cuenta demo de 10,000 EUR sin riesgo.`,
     sv: ``,
@@ -74,7 +74,7 @@ const formTitle: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `سجل الان لتلقي دليل PDF المجاني الخاص بك`,
   de: ``,
   es: `Regístrese ahora para recibir su <strong class="uppercase">guía pdf gratuita</strong>`,
   sv: ``,
@@ -92,7 +92,7 @@ const formButton: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `احصل على الدليل`,
   de: ``,
   es: `Descargue la guía`,
   sv: ``,
@@ -276,6 +276,16 @@ const formButton: TranslationsType = {
       }
       button {
         @apply flex h-12 gap-4 text-lg uppercase;
+      }
+    }
+  }
+
+  html[data-colorscheme="green"] {
+    form.registerForm {
+      .form-control {
+        button {
+          @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+        }
       }
     }
   }
