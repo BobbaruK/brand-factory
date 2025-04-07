@@ -2,19 +2,281 @@
 import { type CustomOptions } from "@/pages/index.astro";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import FormWrapper from "./FormWrapper.astro";
+import { Image } from "astro:assets";
+import phoneImage from "../assets/mobile.png";
+import backgroundImage from "../assets/bg.jpg";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `We show you how to use the best tools the market has to offer`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "نوضح لك كيفية تفسير الإشارات والاستفادة منها",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formTitle: TranslationsType = {
+  en: `Talk to us for more details`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: `"اسألنا عن كيفية الاستثمار في أمازون`,
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formButton: TranslationsType = {
+  en: `Register Now`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "البدء",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: `Knowing how to use sophisticated and modern trading tools can make a difference in your trading activity. Join us and we will introduce you to step by step courses with a trusted broker so that you will be able to access, understand and efficiently use advanced trading tools.`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "السوق المالي مليء بالفرص. يتيح لك فهم كيفية عمل التداول اتخاذ القرارات الصحيحة. نقدم لك دعمنا الكامل لتحديد الإشارات المربحة في السوق. يمكنك الحصول عليها هنا جنبًا إلى جنب مع هذه المزايا الرائعة:",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const listTitle: TranslationsType = {
+  en: `Here is what you can get:`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const list: TranslationsType[] = [
+  {
+    en: `An eBook`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "إشارات SMS مجانية",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: `Video guides`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "تدريب شخصي واحد على واحد",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: `Extensive trading dictionary`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "تحليل السوق اليومي",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: `Specialized webinars`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "التوجيه والدعم المهني",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+];
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header id="header" class="relative">
+  <Image
+    src={backgroundImage}
+    alt="Background graphs"
+    class="absolute inset-0 z-0 h-full w-full object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, backgroundImage.width]}
+    sizes={`100vw`}
+  />
+  <div class="relative z-10">
+    <div class="container py-4">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+
+    <div class="container grid place-items-center pt-4 pb-8 md:py-8">
+      <h1
+        class="text-heading1 text-primary max-w-[50ch] text-center font-bold text-balance uppercase"
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({ words: 10 })
+          : title[componentProps.lang]}
+      />
+    </div>
+
+    <div class="block md:hidden">
+      <FormWrapper
+        componentProps={componentProps}
+        title={componentProps.features?.includes(Features.showcase)
+          ? showcase({ words: 3 })
+          : formTitle[componentProps.lang]}
+        buttonLabel={componentProps.features?.includes(Features.showcase)
+          ? showcase({ words: 2 })
+          : formButton[componentProps.lang]}
+        id="titleForm"
+      />
+    </div>
+
+    <div class="container py-4 md:flex md:gap-4">
+      <div class="flex flex-col gap-4 pb-10">
+        <p
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({ words: 50 })
+            : para[componentProps.lang]}
+        />
+        <p
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({ words: 5 })
+            : listTitle[componentProps.lang]}
+        />
+        <ul class="flex flex-col gap-1">
+          {
+            list.map((li) => (
+              <li class="flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  aria-hidden="true"
+                  role="img"
+                  class="iconify iconify--charm"
+                  width="32"
+                  height="32"
+                  preserveAspectRatio="xMidYMid meet"
+                  viewBox="0 0 16 16"
+                >
+                  <g
+                    fill="none"
+                    stroke="var(--primary)"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                  >
+                    <path d="M14.25 8.75c-.5 2.5-2.385 4.854-5.03 5.38A6.25 6.25 0 0 1 3.373 3.798C5.187 1.8 8.25 1.25 10.75 2.25" />
+                    <path d="m5.75 7.75l2.5 2.5l6-6.5" />
+                  </g>
+                </svg>
+                <p
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({ words: 5 })
+                      : li[componentProps.lang]
+                  }
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div
+        class="flex items-center justify-center md:min-w-[300px] lg:min-w-[400px]"
+      >
+        <Image
+          src={phoneImage}
+          alt="Apple Laptop Diploma"
+          class="relative z-20 max-w-[264px] md:-mb-[120px] md:max-w-full lg:-mb-[80px]"
+          widths={[320, phoneImage.width]}
+          sizes={`350px`}
+        />
+      </div>
+    </div>
   </div>
 </header>
