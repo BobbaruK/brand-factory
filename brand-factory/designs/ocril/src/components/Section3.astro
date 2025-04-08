@@ -1,0 +1,69 @@
+---
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const buttonLabel: TranslationsType = {
+  en: `Open an account now`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const btnDisclaimer: TranslationsType = {
+  en: `Trading CFD's is risky. You might lose all your invested capital.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section class="relative py-4 md:py-9 lg:py-10 xl:py-12">
+  <div class="container grid place-items-center gap-1">
+    <ButtonDisclaimer lang={componentProps.lang} className="mx-auto">
+      <a
+        class={cn(
+          buttonVariants({ variant: "secondary" }),
+          "font-bold bg-black py-6 px-8  text-white hover:bg-black hover:text-white hover:opacity-85",
+        )}
+        href="#header"
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>
