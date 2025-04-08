@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import devices from "../assets/devices.png";
 import bg from "../assets/s2BG.jpg";
@@ -151,21 +153,54 @@ const bullets: {
   <div class="relative z-10 container flex flex-col gap-4 text-white md:gap-10">
     <h2
       class="text-heading2 text-center font-bold"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
     />
     <div class="flex flex-col gap-4 text-center md:flex-row md:text-start">
       <div class="flex flex-col gap-4">
         <h3
           class="font-bold"
-          set:html={bullets.mt4.title[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 1,
+              })
+            : bullets.mt4.title[componentProps.lang]}
         />
-        <p set:html={bullets.mt4.para[componentProps.lang]} />
+        <p
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 30,
+              })
+            : bullets.mt4.para[componentProps.lang]}
+        />
         <h3
           class="font-bold"
-          set:html={bullets.mobileApp.title[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 5,
+                brandName: componentProps.brandObj.name,
+                spanClasses: "font-bold",
+              })
+            : bullets.mobileApp.title[componentProps.lang]}
         />
-        <p set:html={bullets.mobileApp.para[componentProps.lang]} />
-        <p class="font-bold" set:html={bullets.para[componentProps.lang]} />
+        <p
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 30,
+              })
+            : bullets.mobileApp.para[componentProps.lang]}
+        />
+        <p
+          class="font-bold"
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 15,
+              })
+            : bullets.para[componentProps.lang]}
+        />
       </div>
       <div class="grid place-items-center md:w-[40%] md:min-w-[40%]">
         <Image

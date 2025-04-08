@@ -6,6 +6,8 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import phoneImage from "../assets/phone.png";
 import bgPattern from "../assets/topBgPattern.png";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -82,14 +84,24 @@ const formButton: TranslationsType = {
     <div>
       <h1
         class="text-heading1 text-center leading-tight font-bold md:max-w-[25ch] md:text-start"
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 10,
+              brandName: componentProps.brandObj.name,
+              spanClasses: "font-bold",
+            })
+          : title[componentProps.lang]}
       />
     </div>
     <div class="md:row-span-2">
       <div class="bg-background text-foreground rounded-md p-4">
         <Form
           componentProps={componentProps}
-          button={formButton[componentProps.lang]}
+          button={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : formButton[componentProps.lang]}
           id="form1"
         />
       </div>
