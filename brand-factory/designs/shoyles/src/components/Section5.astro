@@ -1,0 +1,42 @@
+---
+import { cn } from "@/lib/utils";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { buttonVariants } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const button: TranslationsType = {
+  en: `Open an account now`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: `Zasubskrybuj`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section class="py-4 sm:py-8 md:py-9 lg:py-10 xl:py-12 2xl:py-14">
+  <div class="container">
+    <ButtonDisclaimer lang={componentProps.lang} className="mx-auto">
+      <a
+        class={cn(buttonVariants({ variant: "default" }), "font-bold", "p-6")}
+        href="#formWrapper"
+        set:html={button[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>
