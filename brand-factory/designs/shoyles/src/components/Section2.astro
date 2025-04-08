@@ -1,0 +1,199 @@
+---
+import { icon1 } from "@/constants/icon1";
+import { icon2 } from "@/constants/icon2";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { icon3 } from "@/constants/icon3";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Start your trading journey today with an account that suits you`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: `Rozpocznij swoją podróż w świecie inwestycji z kotem które Ci odpowiada`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+interface Bullet {
+  icon: string;
+  label: TranslationsType;
+  para: TranslationsType;
+}
+
+const bullets: Bullet[] = [
+  {
+    icon: icon1,
+    label: {
+      en: `Islamic Account`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Konto Islamskie`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `The Islamic trading account is a type of brokerage account that complies with Islamic precepts.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Islamskie konto handlowe jest rodzajem konta maklerskiego, które jest zgodne z islamskimi zasadami.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: icon2,
+    label: {
+      en: `Fixed spread Account`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Konto ze stałym spreadem`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Fixed spread accounts are structured so that the same differential is always used regardless of market changes.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Konta ze stałymi spreadami są skonstruowane w taki sposób, że niezależnie od zmian rynkowych zawsze używany jest ten sam dyferencjał.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: icon3,
+    label: {
+      en: `Spread variable Account`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Konto z płynnym spreadem`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `The variable spread account differs from the fixed-spread type in that it varies according to market conditions.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Konto ze zmiennym spreadem różni się od konta ze stałym, że zmienia się w zależności od warunków rynkowych.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+];
+---
+
+<section
+  class="counter text-foreground bg-stone-200 py-4 sm:py-8 md:py-9 lg:py-10 xl:py-12 2xl:py-14"
+>
+  <div class="container flex flex-col gap-5 md:gap-6 lg:gap-14">
+    <h2
+      class="text-heading2 text-center font-bold"
+      set:html={title[componentProps.lang]}
+    />
+    <div class="flex flex-col gap-10 text-center md:gap-0">
+      {
+        bullets.map((bullet) => (
+          <div class="flex flex-col gap-2 md:flex-row md:gap-4">
+            <div class="md:border-secondary flex grow flex-col gap-4 md:flex-row md:items-center md:border-e md:py-6 md:pe-10 lg:py-10">
+              <div class="order-1 grid place-items-center md:order-3 md:ms-auto">
+                <div class="number bg-background text-primary grid h-10 w-10 place-items-center rounded-full font-bold" />
+              </div>
+              <div
+                class="order-2 grid place-items-center md:order-1 [&>svg]:h-auto [&>svg]:max-w-24"
+                set:html={bullet.icon}
+              />
+              <div class="order-3 grow md:order-2">
+                <h3
+                  class="text-heading3 font-bold"
+                  set:html={bullet.label[componentProps.lang]}
+                />
+              </div>
+            </div>
+            <div class="flex items-center justify-end md:w-[50%] md:min-w-[50%] md:text-end">
+              <p set:html={bullet.para[componentProps.lang]} />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .counter {
+    counter-reset: nr;
+    .number {
+      &::before {
+        counter-increment: nr;
+        content: counter(nr) "";
+      }
+    }
+  }
+</style>
