@@ -17,7 +17,7 @@ const title: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `كيف يمكنك تحقيق أقصى استفادة من تجربة التداول الخاصة بك؟`,
   de: ``,
   es: ``,
   sv: ``,
@@ -36,7 +36,7 @@ const list: TranslationsType[] = [
     it: ``,
     tr: ``,
     ro: ``,
-    ar: ``,
+    ar: `حساب يسمح لك بالتداول بما يتماشى 100٪ مع الشريعة الإسلامية.`,
     de: ``,
     es: ``,
     sv: ``,
@@ -53,7 +53,7 @@ const list: TranslationsType[] = [
     it: ``,
     tr: ``,
     ro: ``,
-    ar: ``,
+    ar: `مجموعة أدوات ورؤى تداول مجانية حول كيفية البدء في التنقل في الأسواق`,
     de: ``,
     es: ``,
     sv: ``,
@@ -70,7 +70,7 @@ const list: TranslationsType[] = [
     it: ``,
     tr: ``,
     ro: ``,
-    ar: ``,
+    ar: `التدريب والدعم لمساعدتك على البدء`,
     de: ``,
     es: ``,
     sv: ``,
@@ -87,13 +87,30 @@ const list: TranslationsType[] = [
     it: ``,
     tr: ``,
     ro: ``,
-    ar: ``,
+    ar: `MT4 هي منصة التداول الأكثر شيوعًا على سطح المكتب أو الأجهزة المحمولة أو الأجهزة اللوحية.`,
     de: ``,
     es: ``,
     sv: ``,
     pt: ``,
     fi: ``,
     pl: `Wybieraj między stałym oraz płynnym spreadem`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: ``,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: `فروق أسعار ثابتة أو متغيرة لتناسب أسلوب التداول الخاص بك`,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
     hu: ``,
     th: ``,
     ms: ``,
@@ -116,18 +133,21 @@ const list: TranslationsType[] = [
     />
     <ol class="flex list-inside list-decimal flex-col gap-3 font-bold">
       {
-        list.map((el) => (
-          <li
-            set:html={
-              componentProps.features?.includes(Features.showcase)
-                ? showcase({
-                    words: 10,
-                    spanClasses: "text-primary",
-                  })
-                : el[componentProps.lang]
-            }
-          />
-        ))
+        list.map((el) => {
+          if (!el[componentProps.lang]) return null;
+          return (
+            <li
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 10,
+                      spanClasses: "text-primary",
+                    })
+                  : el[componentProps.lang]
+              }
+            />
+          );
+        })
       }
     </ol>
   </div>
