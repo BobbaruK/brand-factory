@@ -19,7 +19,25 @@ const title: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `تمنحك ${componentProps.brandObj.name} القدرة على التداول في الأسواق المالية بأدوات احترافية.`,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: ``,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `يمكنك التداول بحرية أكبر في الأسواق المالية مع ميزات المتداول المحترف في ${componentProps.brandObj.name}`,
   de: ``,
   es: ``,
   sv: ``,
@@ -37,7 +55,7 @@ const formButton: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `اضغط هنا للتسجيل`,
   de: ``,
   es: ``,
   sv: ``,
@@ -91,6 +109,16 @@ const formButton: TranslationsType = {
               spanClasses: "font-bold",
             })
           : title[componentProps.lang]}
+      />
+      <p
+        class="text-para-lead mt-4 text-center leading-tight font-bold md:mt-8 md:max-w-[25ch] md:text-start"
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 10,
+              brandName: componentProps.brandObj.name,
+              spanClasses: "font-bold",
+            })
+          : para[componentProps.lang]}
       />
     </div>
     <div class="md:row-span-2">
