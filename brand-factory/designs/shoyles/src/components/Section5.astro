@@ -1,7 +1,9 @@
 ---
 import { cn } from "@/lib/utils";
 import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { buttonVariants } from "./ui/button";
 
@@ -35,7 +37,11 @@ const button: TranslationsType = {
       <a
         class={cn(buttonVariants({ variant: "default" }), "font-bold", "p-6")}
         href="#formWrapper"
-        set:html={button[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : button[componentProps.lang]}
       />
     </ButtonDisclaimer>
   </div>

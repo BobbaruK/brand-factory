@@ -4,6 +4,8 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { buttonVariants } from "./ui/button";
 import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -122,14 +124,31 @@ const button: TranslationsType = {
   <div class="container flex flex-col gap-6">
     <h2
       class="text-heading2 text-center font-bold"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 3,
+          })
+        : title[componentProps.lang]}
     />
     <div class="flex flex-col gap-8 md:flex-row">
       <div class="md:flex md:grow md:items-center md:justify-end">
         <ol
           class="flex list-inside list-decimal flex-col gap-1 text-center md:text-end"
         >
-          {list.map((el) => <li set:html={el[componentProps.lang]} />)}
+          {
+            list.map((el) => (
+              <li
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 5,
+                        spanClasses: "font-bold",
+                      })
+                    : el[componentProps.lang]
+                }
+              />
+            ))
+          }
         </ol>
       </div>
       <dir
@@ -189,7 +208,11 @@ const button: TranslationsType = {
       <a
         class={cn(buttonVariants({ variant: "default" }), "font-bold", "p-6")}
         href="#formWrapper"
-        set:html={button[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : button[componentProps.lang]}
       />
     </ButtonDisclaimer>
   </div>

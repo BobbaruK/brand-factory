@@ -106,9 +106,29 @@ const list: TranslationsType[] = [
   class="bg-secondary py-4 text-white sm:py-8 md:py-9 lg:py-10 xl:py-12 2xl:py-14"
 >
   <div class="container flex flex-col gap-5 text-center md:gap-6 lg:gap-14">
-    <h2 class="text-heading2 font-bold" set:html={title[componentProps.lang]} />
+    <h2
+      class="text-heading2 font-bold"
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+    />
     <ol class="flex list-inside list-decimal flex-col gap-3 font-bold">
-      {list.map((el) => <li set:html={el[componentProps.lang]} />)}
+      {
+        list.map((el) => (
+          <li
+            set:html={
+              componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 10,
+                    spanClasses: "text-primary",
+                  })
+                : el[componentProps.lang]
+            }
+          />
+        ))
+      }
     </ol>
   </div>
 </section>

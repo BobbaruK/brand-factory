@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import phoneImage from "../assets/phone.png";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -150,7 +152,11 @@ const list: ListEl[] = [
   <div class="container mb-10">
     <h2
       class="text-heading2 text-primary text-center font-bold"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+          })
+        : title[componentProps.lang]}
     />
   </div>
   <div class="container flex flex-col gap-10 lg:flex-row lg:gap-4">
@@ -161,9 +167,23 @@ const list: ListEl[] = [
             <li class="flex flex-col gap-2">
               <h3
                 class="text-heading3 text-primary font-bold"
-                set:html={el.title[componentProps.lang]}
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 5,
+                      })
+                    : el.title[componentProps.lang]
+                }
               />
-              <p set:html={el.para[componentProps.lang]} />
+              <p
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 10,
+                      })
+                    : el.para[componentProps.lang]
+                }
+              />
             </li>
           ))
         }
@@ -172,7 +192,7 @@ const list: ListEl[] = [
     <div class="grid place-items-center lg:w-[40%] lg:min-w-[40%]">
       <Image
         src={phoneImage}
-        alt="Apple Laptop Diploma"
+        alt="Guy with Diploma"
         class=""
         widths={[320, phoneImage.width]}
         sizes={`285px`}

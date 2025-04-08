@@ -4,6 +4,8 @@ import { icon2 } from "@/constants/icon2";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { icon3 } from "@/constants/icon3";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -155,7 +157,11 @@ const bullets: Bullet[] = [
   <div class="container flex flex-col gap-5 md:gap-6 lg:gap-14">
     <h2
       class="text-heading2 text-center font-bold"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+          })
+        : title[componentProps.lang]}
     />
     <div class="flex flex-col gap-10 text-center md:gap-0">
       {
@@ -172,12 +178,26 @@ const bullets: Bullet[] = [
               <div class="order-3 grow md:order-2">
                 <h3
                   class="text-heading3 font-bold"
-                  set:html={bullet.label[componentProps.lang]}
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({
+                          words: 3,
+                        })
+                      : bullet.label[componentProps.lang]
+                  }
                 />
               </div>
             </div>
             <div class="flex items-center justify-end md:w-[50%] md:min-w-[50%] md:text-end">
-              <p set:html={bullet.para[componentProps.lang]} />
+              <p
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 15,
+                      })
+                    : bullet.para[componentProps.lang]
+                }
+              />
             </div>
           </div>
         ))
