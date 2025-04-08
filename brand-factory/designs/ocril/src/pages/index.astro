@@ -1,7 +1,7 @@
 ---
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
+import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -26,21 +26,18 @@ export interface CustomOptions {
   logoSquare: boolean;
 }
 
-const componentProps: ComponentProps<
-  TradingAtheneumSVGVariation,
-  CustomOptions
-> = {
+const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
   lang: "en",
   license,
   lpName: "Freedom to trade",
   brandObj: brandFactory({
-    brand: "tradingatheneum",
+    brand: "fxoro_global",
     license,
     whatsapp: false,
     features,
   }),
   logo: function () {
-    return this.brandObj.images.logoSVG.defaultCustom;
+    return this.brandObj.images.logoSVG.default;
   },
   lpType,
   registrationType,
