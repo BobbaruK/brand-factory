@@ -1,20 +1,111 @@
 ---
 import { type CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import Form from "../../../../globals/components/form";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import bgDesktop from "../assets/topBG-desktop.jpg";
+import bgMobile from "../assets/topBG-mobile.jpg";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `<span class="text-primary">${componentProps.brandObj.name}</span>. Your doorway to global financial markets.`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const formButton: TranslationsType = {
+  en: `Get Information`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header id="header" class="relative">
+  <Image
+    src={bgMobile}
+    alt="Apple Laptop Diploma"
+    class="absolute inset-0 z-0 block h-full w-full object-cover sm:hidden"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bgMobile.width]}
+    sizes={`
+      (max-width: 320px) 576px,
+      (max-width: 576px) 640px,
+      (max-width: 640px) 768px,
+      0px
+    `}
+  />
+
+  <Image
+    src={bgDesktop}
+    alt="Apple Laptop Diploma"
+    class="absolute inset-0 z-0 hidden h-full w-full object-cover object-top sm:block"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bgDesktop.width]}
+    sizes={`
+      (max-width: 320px) 576px,
+      (max-width: 576px) 640px,
+      (max-width: 640px) 768px,
+      (max-width: 768px) 1024px,
+      (max-width: 1024px) 1280px,
+      (max-width: 1280px) 1536px,
+      1920px
+    `}
+  />
+  <div class="relative z-10">
+    <div class="container py-4 text-white">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+    <section class="py-4 sm:py-8 md:py-9 lg:py-10 xl:py-12 2xl:py-14">
+      <div class="container flex flex-col gap-4 md:flex-row">
+        <div class="flex grow items-center justify-start text-white">
+          <h1
+            class="text-heading1 text-center font-bold md:text-start lg:max-w-[20ch]"
+            set:html={title[componentProps.lang]}
+          />
+        </div>
+        <div
+          id="formWrapper"
+          class="bg-background p-4 md:w-[50%] md:min-w-[50%] lg:w-[40%] lg:min-w-[40%]"
+        >
+          <Form
+            componentProps={componentProps}
+            button={formButton[componentProps.lang]}
+            id="form1"
+          />
+        </div>
+      </div>
+    </section>
   </div>
 </header>
