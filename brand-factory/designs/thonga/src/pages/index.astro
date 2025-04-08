@@ -16,7 +16,7 @@ const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
   // Features.readyForMail,
-  // Features.outbrain,
+  Features.outbrain,
   // Features.atheneum,
   // Features.showcase,
 ]);
@@ -27,29 +27,28 @@ export interface CustomOptions {
   colorScheme: "default" | "green";
 }
 
-const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> =
-  {
-    lang: "ar",
+const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
+  lang: "ar",
+  license,
+  lpName: "Cometolearn",
+  brandObj: brandFactory({
+    brand: "fxoro_global",
     license,
-    lpName: "Cometolearn",
-    brandObj: brandFactory({
-      brand: "fxoro_global",
-      license,
-      whatsapp: false,
-      features,
-    }),
-    logo: function () {
-      return this.brandObj.images.logoSVG.default;
-    },
-    lpType,
-    registrationType,
-    customOptions: {
-      logoSquare: false,
-      colorScheme: "green",
-    },
+    whatsapp: false,
     features,
-    fxoroFooter: true,
-  };
+  }),
+  logo: function () {
+    return this.brandObj.images.logoSVG.default;
+  },
+  lpType,
+  registrationType,
+  customOptions: {
+    logoSquare: false,
+    colorScheme: "green",
+  },
+  features,
+  fxoroFooter: true,
+};
 ---
 
 <Layout componentProps={componentProps}>
