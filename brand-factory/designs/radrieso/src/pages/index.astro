@@ -16,7 +16,7 @@ const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
   // Features.readyForMail,
-  // Features.outbrain,
+  Features.outbrain,
   // Features.atheneum,
   // Features.showcase,
 ]);
@@ -30,7 +30,7 @@ const componentProps: ComponentProps<
   TradingAtheneumSVGVariation,
   CustomOptions
 > = {
-  lang: "ar",
+  lang: "en",
   license,
   lpName: "Trading Signals",
   brandObj: brandFactory({
@@ -53,5 +53,5 @@ const componentProps: ComponentProps<
 ---
 
 <Layout componentProps={componentProps}>
-  <!-- <Section1 componentProps={componentProps} /> -->
+  <Section1 componentProps={componentProps} />
 </Layout>
