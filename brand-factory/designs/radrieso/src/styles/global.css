@@ -41,15 +41,11 @@
   ); /* 20 - 32 ; 320 - 1280 */
 
   --text-para-lead: clamp(
-    1rem,
-    0.9167rem + 0.4167vw,
-    1.25rem
-  ); /* 16 - 20 ; 320 - 1280 */
-  --text-para-lead--line-height: clamp(
-    1.25rem,
-    1rem + 1.25vw,
-    2rem
-  ); /* 20 - 32 ; 320 - 1280 */
+    1.375rem,
+    0.7256rem + 3.2468vw,
+    2.625rem
+  ); /* 22 - 42 ; 320 - 936 */
+  --text-para-lead--line-height: normal;
 
   --font-tahoma: Tahoma, Geneva, sans-serif;
   --font-times: "Times New Roman", Geneva, serif;
@@ -96,7 +92,7 @@
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.41 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
