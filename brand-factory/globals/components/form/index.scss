@@ -211,7 +211,8 @@ form.registerForm {
       }
     }
     input[type="checkbox"] {
-      margin-right: 0.5rem;
+      // margin-right: 0.5rem;
+      margin-inline-end: 0.5rem;
     }
     button[type="submit"] {
       display: flex;
@@ -267,9 +268,6 @@ html[dir="rtl"] {
             text-align: end;
           }
         }
-      }
-      input[type="checkbox"] {
-        margin-inline-end: 0.5rem;
       }
     }
   }

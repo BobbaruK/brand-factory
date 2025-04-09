@@ -308,12 +308,12 @@ function FormCheckBoxes({
         <FormCheckBox
           id={id}
           label={translations.agree1ESMA[componentProps.lang]}
-          classLabel="agreement1ESMA"
+          classLabel="agreementClassic"
         />
         <FormCheckBox
           id={id}
           label={translations.agree2ESMA[componentProps.lang]}
-          classLabel="agreement2ESMA"
+          classLabel="agreementClassicFSA"
         />
       </>
     );
@@ -353,12 +353,12 @@ function FormCheckBoxes({
         <FormCheckBox
           id={id}
           label={translations.agree1ESMA[componentProps.lang]}
-          classLabel="agreement1ESMA"
+          classLabel="agreementClassic"
         />
         <FormCheckBox
           id={id}
           label={translations.agree2ESMA[componentProps.lang]}
-          classLabel="agreement2ESMA"
+          classLabel="agreementClassicFSA"
         />
       </>
     );
@@ -380,8 +380,7 @@ function FormCheckBox({
   classLabel: string;
 }) {
   return (
-    <div
-      className={`form-control agreementWrapper agreementWrapper${classLabel}`}>
+    <div className={`form-control agreementWrapper ${classLabel}`}>
       <div className="field">
         <input
           type="checkbox"
