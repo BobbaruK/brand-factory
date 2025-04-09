@@ -27,7 +27,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
   data-wanumber={componentProps.brandObj.whatsapp
     ? componentProps.brandObj.whatsappNumber[lang]
     : false}
-  data-lpfeatures={componentProps.features?.join(', ')}
+  data-lpfeatures={componentProps.features?.join(", ")}
 >
   <head>
     <meta charset="utf-8" />
@@ -51,7 +51,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       }
     </style>
   </head>
-  <body>
+  <body class="font-tahoma">
     <div id="site-wrapper">
       <Header componentProps={componentProps} />
       <main>
@@ -59,7 +59,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    
+
     <BackToTop />
     <script
       type="module"
