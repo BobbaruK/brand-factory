@@ -8,6 +8,8 @@ import phone from "../assets/img-phone.png";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { Features } from "../../../../globals/types/enums";
 import { showcase } from "../../../../globals/features/showcase/text";
+import candlesRight from "../assets/candles-right.png";
+import candlesLeft from "../assets/candles-left.png";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -188,14 +190,28 @@ const list: {
     sizes={`100vw`}
   />
   <div class="relative z-10">
-    <div class="container py-4">
+    <Image
+      src={candlesRight}
+      alt="Candles"
+      class="pointer-events-none absolute inset-0 right-auto -left-[10%] z-0 block hidden h-full w-1/2 scale-x-[-1] object-cover 2xl:block"
+      widths={[320, 576, 640, 768, 1024, 1280, 1536, candlesRight.width]}
+      sizes={`100vw`}
+    />
+    <Image
+      src={candlesLeft}
+      alt="Candles"
+      class="pointer-events-none absolute inset-0 -right-[10%] left-auto z-0 block hidden h-full w-1/2 scale-x-[-1] object-cover 2xl:block"
+      widths={[320, 576, 640, 768, 1024, 1280, 1536, candlesLeft.width]}
+      sizes={`100vw`}
+    />
+    <div class="relative z-10 container py-4">
       <MainLogo
         size={componentProps.brandObj.nameToLower}
         logo={componentProps.logo()}
         square={componentProps.customOptions?.logoSquare}
       />
     </div>
-    <div class="container flex gap-4 py-4 md:pb-12">
+    <div class="relative z-10 container flex gap-4 py-4 md:pb-12">
       <div class="flex flex-col gap-4">
         <div>
           <h1
@@ -268,9 +284,13 @@ const list: {
         <Image
           src={phone}
           alt="Phone"
-          class="scale-[1.4] lg:scale-[1.8]"
+          class=""
           widths={[320, 576, 640, 768, 1024, 1280, 1536, phone.width]}
-          sizes={`100vw`}
+          sizes={`
+            (max-width: 320px) 157px,
+            (max-width: 576px) 311px,
+            (max-width: 768px) 382px,
+            450px`}
           style={{
             transformOrigin: `bottom ${componentProps.lang === "ar" ? "right" : "left"}`,
           }}
