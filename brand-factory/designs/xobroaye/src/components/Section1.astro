@@ -71,12 +71,27 @@ const formBtn: TranslationsType = {
   <div class="container space-y-4">
     <h1
       class="text-heading1 text-center font-black text-balance uppercase"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+          })
+        : title[componentProps.lang]}
     />
-    <p class="text-center text-balance" set:html={para[componentProps.lang]} />
+    <p
+      class="text-center text-balance"
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 50,
+          })
+        : para[componentProps.lang]}
+    />
     <Form
       componentProps={componentProps}
-      button={formBtn[componentProps.lang]}
+      button={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 1,
+          })
+        : formBtn[componentProps.lang]}
       id="bottom-form"
       layout={1}
     />

@@ -2,8 +2,10 @@
 import type { CustomOptions } from "@/pages/index.astro";
 import { Image } from "astro:assets";
 import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import { showcase } from "../../../../../globals/features/showcase/text";
 import type { FXOROGlobalSVGVariation } from "../../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../../globals/types/component-props";
+import { Features } from "../../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../../globals/types/translations";
 import phone from "../../assets/aside/default/fxoro_phone.png";
 
@@ -50,7 +52,11 @@ const title: TranslationsType = {
 
     <h2
       class="text-heading2 text-center font-black text-balance"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+          })
+        : title[componentProps.lang]}
     />
   </div>
 </Fragment>

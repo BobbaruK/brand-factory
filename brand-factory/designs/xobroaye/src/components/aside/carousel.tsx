@@ -4,11 +4,16 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 import type { CustomOptions } from "@/pages/index.astro";
 import type { Slide } from "@/types/slides";
+import { useEffect, useState } from "react";
+import { showcase } from "../../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../../globals/types/component-props";
-import { cn } from "@/lib/utils";
+import { Features } from "../../../../../globals/types/enums/Features";
+import { Button } from "../ui/button";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -16,8 +21,25 @@ interface Props {
 }
 
 export const CarouselComp = ({ componentProps, slides }: Props) => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
+
   return (
-    <Carousel className="h-full">
+    <Carousel className="h-full" setApi={setApi}>
       <CarouselContent className="h-full">
         {slides.map((slide) => (
           <CarouselItem
@@ -33,18 +55,41 @@ export const CarouselComp = ({ componentProps, slides }: Props) => {
               )}
             >
               <h2 className="text-heading2 text-center font-black text-balance uppercase">
-                {slide.title[componentProps.lang]}
+                {componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 2,
+                    })
+                  : slide.title[componentProps.lang]}
               </h2>
               <p className="text-heading2 text-center font-black text-balance uppercase">
-                {slide.para[componentProps.lang]}
+                {componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 5,
+                    })
+                  : slide.para[componentProps.lang]}
               </p>
             </div>
           </CarouselItem>
         ))}
       </CarouselContent>
       <div className="controls absolute inset-auto bottom-20 flex w-full items-center justify-between gap-4 p-4 px-16">
-        <CarouselPrevious className="static" />
-        <CarouselNext className="static" />
+        <CarouselPrevious className="static translate-none transform-none" />
+        <div className="flex items-center justify-center gap-2">
+          {Array.from({ length: count }).map((_, index) => (
+            <Button
+              key={index}
+              variant={index + 1 === current ? "secondary" : "default"}
+              size={"icon"}
+              className="size-4 rounded-full"
+              onClick={() => {
+                api?.scrollTo(index);
+              }}
+            >
+              <span className="hidden">{index + 1}</span>
+            </Button>
+          ))}
+        </div>
+        <CarouselNext className="static translate-none transform-none" />
       </div>
     </Carousel>
   );
