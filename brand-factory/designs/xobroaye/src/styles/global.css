@@ -14,16 +14,8 @@
   --text-heading1: 30px; /* TODO: maybe clamp?! - lil bitch */
   --text-heading1--line-height: 36px; /* TODO: maybe clamp?! - lil bitch */
 
-  --text-heading2: clamp(
-    1.125rem,
-    0.8333rem + 1.4583vw,
-    2rem
-  ); /* 18 - 32 ; 320 - 1280 */
-  --text-heading2--line-height: clamp(
-    1.25rem,
-    0.8333rem + 2.0833vw,
-    2.5rem
-  ); /* 20 - 40 ; 320 - 1280 */
+  --text-heading2: 30px; /* TODO: maybe clamp?! - lil bitch */
+  --text-heading2--line-height: 36px; /* TODO: maybe clamp?! - lil bitch */
 
   --text-heading3: clamp(
     1rem,

@@ -24,10 +24,11 @@ const registrationType: RegistrationType = "classic";
 
 export interface CustomOptions {
   logoSquare: boolean;
+  asideType?: "default" | "carousel";
 }
 
 const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
-  lang: "en",
+  lang: "ar",
   license,
   lpName: "Home",
   brandObj: brandFactory({
@@ -37,12 +38,13 @@ const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
     features,
   }),
   logo: function () {
-    return this.brandObj.images.logoSVG.blackOrange;
+    return this.brandObj.images.logoSVG.default;
   },
   lpType,
   registrationType,
   customOptions: {
     logoSquare: false,
+    asideType: "default",
   },
   features,
   // fxoroFooter: true,

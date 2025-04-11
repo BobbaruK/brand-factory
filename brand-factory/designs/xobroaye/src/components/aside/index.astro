@@ -1,0 +1,52 @@
+---
+import type { CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import MainLogo from "../../../../../globals/components/logos/MainLogo.astro";
+import type { FXOROGlobalSVGVariation } from "../../../../../globals/types/brands/logo";
+import type { ComponentProps } from "../../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../../globals/types/translations";
+import phone from "../../assets/aside/default/fxoro_phone.png";
+import Default from "./default.astro";
+
+interface Props {
+  componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions>;
+}
+const { componentProps } = Astro.props;
+
+const titleDefault: TranslationsType = {
+  en: `Trade Anywhere. Anytime. <span class="text-primary block">With the ${componentProps.brandObj.name} Trading App.</span>`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: `تداول في أي مكان، وفي أي وقت، مع تطبيق ${componentProps.brandObj.name} للتداول`,
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<aside class="relative hidden p-4 pt-16 lg:block">
+  {
+    (!componentProps.customOptions?.asideType ||
+      componentProps.customOptions?.asideType === "default") && (
+      <Default componentProps={componentProps} />
+    )
+  }
+
+  {
+    componentProps.customOptions?.asideType === "carousel" && (
+      <p>aside carousel</p>
+    )
+  }
+</aside>
+
+<style is:global>
+  /* @reference "../styles/global.css"; */
+</style>
