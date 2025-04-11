@@ -5,6 +5,8 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import "../styles/global.css";
 // Supports weights 100-900
 import "@fontsource-variable/montserrat";
+import { Image } from "astro:assets";
+import bg from "../assets/bgleft.png";
 
 interface Props {
   componentProps: ComponentProps;
@@ -57,13 +59,24 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
     </style>
   </head>
   <body>
-    <div id="site-wrapper">
-      <Header componentProps={componentProps} />
-      <main>
+    <div
+      id="site-wrapper"
+      class="grid lg:grid-cols-[50%_50%] xl:grid-cols-[70%_30%]"
+    >
+      <main class="relative flex min-h-dvh flex-col">
+        <Image
+          src={bg}
+          alt="Background pattern"
+          class="pointer-events-none absolute inset-0 z-0 block h-full w-full object-cover"
+          widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
+          sizes={`100vw`}
+        />
+        <Header componentProps={componentProps} />
         <slot />
       </main>
-      <Footer componentProps={componentProps} />
+      <aside class="hidden lg:block">test aside</aside>
     </div>
+    <Footer componentProps={componentProps} />
 
     <script
       type="module"
@@ -73,9 +86,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
 </html>
 
 <style>
-  #site-wrapper {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+  /* main {
     min-height: 100vh;
-  }
+  } */
 </style>
