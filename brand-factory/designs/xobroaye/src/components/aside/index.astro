@@ -7,6 +7,8 @@ import type { ComponentProps } from "../../../../../globals/types/component-prop
 import type { TranslationsType } from "../../../../../globals/types/translations";
 import phone from "../../assets/aside/default/fxoro_phone.png";
 import Default from "./default.astro";
+import Carousel from "./carousel.astro";
+import { cn } from "@/lib/utils";
 
 interface Props {
   componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions>;
@@ -32,7 +34,15 @@ const titleDefault: TranslationsType = {
 };
 ---
 
-<aside class="relative hidden p-4 pt-16 lg:block">
+<aside
+  class={cn(
+    "relative hidden  lg:block",
+    !componentProps.customOptions?.asideType ||
+      componentProps.customOptions?.asideType === "default"
+      ? "p-4 pt-16"
+      : "",
+  )}
+>
   {
     (!componentProps.customOptions?.asideType ||
       componentProps.customOptions?.asideType === "default") && (
@@ -42,7 +52,7 @@ const titleDefault: TranslationsType = {
 
   {
     componentProps.customOptions?.asideType === "carousel" && (
-      <p>aside carousel</p>
+      <Carousel componentProps={componentProps} />
     )
   }
 </aside>
