@@ -3,6 +3,8 @@ import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import "../styles/global.css";
+// Supports weights 100-900
+import "@fontsource-variable/montserrat";
 
 interface Props {
   componentProps: ComponentProps;
@@ -26,7 +28,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
   data-wanumber={componentProps.brandObj.whatsapp
     ? componentProps.brandObj.whatsappNumber[lang]
     : false}
-  data-lpfeatures={componentProps.features?.join(', ')}
+  data-lpfeatures={componentProps.features?.join(", ")}
 >
   <head>
     <meta charset="utf-8" />
@@ -48,6 +50,10 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
           scroll-behavior: auto;
         }
       }
+
+      body {
+        font-family: "Montserrat Variable", sans-serif;
+      }
     </style>
   </head>
   <body>
@@ -58,8 +64,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    
-    
+
     <script
       type="module"
       src="https://assets.smartsupporthub.com/js/bundle/astro_lp_v2.js"
