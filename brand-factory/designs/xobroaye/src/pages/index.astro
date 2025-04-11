@@ -16,9 +16,9 @@ const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
   // Features.readyForMail,
-  // Features.outbrain,
+  Features.outbrain,
   // Features.atheneum,
-  Features.showcase,
+  // Features.showcase,
 ]);
 const registrationType: RegistrationType = "classic";
 
@@ -50,5 +50,5 @@ const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
 ---
 
 <Layout componentProps={componentProps}>
-  <!-- <Section1 componentProps={componentProps} /> -->
+  <Section1 componentProps={componentProps} />
 </Layout>
