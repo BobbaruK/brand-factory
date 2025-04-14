@@ -6,6 +6,7 @@ import type { FXOROGlobalSVGVariation } from "../../../../../globals/types/brand
 import type { ComponentProps } from "../../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../../globals/types/translations";
 import slide1 from "../../assets/aside/carousel/slider1.jpg";
+import slide1Ar from "../../assets/aside/carousel/slider1-ar.jpg";
 import slide2 from "../../assets/aside/carousel/slider2.jpg";
 import slide3 from "../../assets/aside/carousel/slider3.jpg";
 import slide4 from "../../assets/aside/carousel/slider4.jpg";
@@ -20,13 +21,13 @@ const { componentProps } = Astro.props;
 const slides: Slide[] = [
   {
     id: 1,
-    imageUrl: slide1.src,
+    imageUrl: componentProps.lang === "ar" ? slide1Ar.src : slide1.src,
     title: {
       en: `${componentProps.brandObj.name} offers`,
       it: "",
       tr: "",
       ro: "",
-      ar: ``,
+      ar: `عروض ${componentProps.brandObj.name}`,
       de: "",
       es: "",
       sv: ``,
@@ -43,7 +44,7 @@ const slides: Slide[] = [
       it: "",
       tr: "",
       ro: "",
-      ar: ``,
+      ar: `تطبيقات الويب والهواتف الذكية المرخصة والآمنة`,
       de: "",
       es: "",
       sv: ``,
@@ -64,7 +65,7 @@ const slides: Slide[] = [
       it: "",
       tr: "",
       ro: "",
-      ar: ``,
+      ar: `عروض ${componentProps.brandObj.name}`,
       de: "",
       es: "",
       sv: ``,
@@ -81,7 +82,7 @@ const slides: Slide[] = [
       it: "",
       tr: "",
       ro: "",
-      ar: ``,
+      ar: `إشارات تداول مجانية وتحليل السوق`,
       de: "",
       es: "",
       sv: ``,
@@ -102,7 +103,7 @@ const slides: Slide[] = [
       it: "",
       tr: "",
       ro: "",
-      ar: ``,
+      ar: `عروض ${componentProps.brandObj.name}`,
       de: "",
       es: "",
       sv: ``,
@@ -119,7 +120,7 @@ const slides: Slide[] = [
       it: "",
       tr: "",
       ro: "",
-      ar: ``,
+      ar: `دعم العملاء المتواصل أثناء تجربتك التجارية`,
       de: "",
       es: "",
       sv: ``,
@@ -140,7 +141,7 @@ const slides: Slide[] = [
       it: "",
       tr: "",
       ro: "",
-      ar: ``,
+      ar: `عروض ${componentProps.brandObj.name}`,
       de: "",
       es: "",
       sv: ``,
@@ -157,7 +158,7 @@ const slides: Slide[] = [
       it: "",
       tr: "",
       ro: "",
-      ar: ``,
+      ar: `منصة حائزة على جوائز عالمية`,
       de: "",
       es: "",
       sv: ``,

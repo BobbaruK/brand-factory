@@ -20,7 +20,7 @@ const features = checkFeatures([
   // Features.atheneum,
   // Features.showcase,
 ]);
-const registrationType: RegistrationType = "classic";
+const registrationType: RegistrationType = "direct_registration";
 
 export interface CustomOptions {
   logoSquare: boolean;
@@ -45,11 +45,11 @@ const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
   registrationType,
   customOptions: {
     logoSquare: false,
-    asideType: "carousel",
-    textVs: "A",
+    // asideType: "carousel",
+    // textVs: "B",
   },
   features,
-  // fxoroFooter: true,
+  fxoroFooter: true,
 };
 ---
 

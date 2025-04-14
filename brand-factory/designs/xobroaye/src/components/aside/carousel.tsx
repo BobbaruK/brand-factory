@@ -39,7 +39,14 @@ export const CarouselComp = ({ componentProps, slides }: Props) => {
   }, [api]);
 
   return (
-    <Carousel className="h-full" setApi={setApi}>
+    <Carousel
+      className="h-full"
+      setApi={setApi}
+      opts={{
+        direction: componentProps.lang === "ar" ? "rtl" : "ltr",
+        loop: true,
+      }}
+    >
       <CarouselContent className="h-full">
         {slides.map((slide) => (
           <CarouselItem
@@ -56,6 +63,9 @@ export const CarouselComp = ({ componentProps, slides }: Props) => {
                 componentProps.customOptions?.asideType === "carousel"
                   ? "p-4 pt-16"
                   : "",
+                componentProps.lang === "ar" && slide.id === 1
+                  ? "text-black"
+                  : "text-white",
               )}
             >
               <h2 className="text-heading2 text-center font-black text-balance uppercase">
@@ -76,8 +86,17 @@ export const CarouselComp = ({ componentProps, slides }: Props) => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <div className="controls absolute inset-auto bottom-20 flex w-full items-center justify-between gap-4 p-4 px-16">
-        <CarouselPrevious className="static translate-none transform-none" />
+      <div
+        className={cn(
+          "controls absolute inset-auto bottom-20 flex w-full items-center justify-between gap-4 p-4 px-16",
+        )}
+      >
+        <CarouselPrevious
+          className={cn(
+            "static translate-none transform-none",
+            componentProps.lang === "ar" ? "scale-x-[-1]" : "",
+          )}
+        />
         <div className="flex items-center justify-center gap-2">
           {Array.from({ length: count }).map((_, index) => (
             <Button
@@ -93,7 +112,12 @@ export const CarouselComp = ({ componentProps, slides }: Props) => {
             </Button>
           ))}
         </div>
-        <CarouselNext className="static translate-none transform-none" />
+        <CarouselNext
+          className={cn(
+            "static translate-none transform-none",
+            componentProps.lang === "ar" ? "scale-x-[-1]" : "",
+          )}
+        />
       </div>
     </Carousel>
   );
