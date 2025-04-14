@@ -25,10 +25,11 @@ const registrationType: RegistrationType = "classic";
 export interface CustomOptions {
   logoSquare: boolean;
   asideType?: "default" | "carousel";
+  textVs?: "default" | "A" | "B";
 }
 
 const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
-  lang: "en",
+  lang: "ar",
   license,
   lpName: "Home",
   brandObj: brandFactory({
@@ -45,6 +46,7 @@ const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
   customOptions: {
     logoSquare: false,
     asideType: "carousel",
+    textVs: "A",
   },
   features,
   // fxoroFooter: true,
