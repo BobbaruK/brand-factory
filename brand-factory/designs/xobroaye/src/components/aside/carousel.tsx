@@ -44,7 +44,11 @@ export const CarouselComp = ({ componentProps, slides }: Props) => {
         {slides.map((slide) => (
           <CarouselItem
             key={slide.id}
-            style={{ backgroundImage: `url('${slide.imageUrl}')` }}
+            style={{
+              backgroundImage: `url('${slide.imageUrl}')`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
           >
             <div
               className={cn(
