@@ -1,10 +1,16 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
 import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
+import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import "../styles/global.css";
+// Supports weights 100-900
+import "@fontsource-variable/montserrat";
+import Form from "../../../../globals/components/form";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
 
 interface Props {
   componentProps: ComponentProps;
@@ -13,6 +19,24 @@ interface Props {
 const { componentProps } = Astro.props;
 
 const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
+
+const btnLabel: TranslationsType = {
+  en: `Explore CFDs trading`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `ابدأ رحلتك`,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
 ---
 
 <!doctype html>
@@ -28,7 +52,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
   data-wanumber={componentProps.brandObj.whatsapp
     ? componentProps.brandObj.whatsappNumber[lang]
     : false}
-  data-lpfeatures={componentProps.features?.join(', ')}
+  data-lpfeatures={componentProps.features?.join(", ")}
 >
   <head>
     <meta charset="utf-8" />
@@ -50,6 +74,10 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
           scroll-behavior: auto;
         }
       }
+
+      body {
+        font-family: "Montserrat Variable", sans-serif;
+      }
     </style>
   </head>
   <body>
@@ -60,7 +88,16 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    <Dialog> Dialog Content Here! </Dialog>
+    <Dialog>
+      <Form
+        componentProps={componentProps}
+        button={componentProps.features?.includes(Features.showcase)
+          ? showcase({ words: 1 })
+          : btnLabel[componentProps.lang]}
+        id="modal-form"
+        layout={2}
+      />
+    </Dialog>
     <BackToTop />
     <script
       type="module"
