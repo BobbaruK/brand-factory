@@ -12,7 +12,7 @@ interface Props {
 }
 const { componentProps } = Astro.props;
 
-const titleDefault: TranslationsType = {
+const title: TranslationsType = {
   en: `Take the first step toward smarter investing.`,
   it: "",
   tr: "",
@@ -30,62 +30,7 @@ const titleDefault: TranslationsType = {
   vi: "",
 };
 
-const titleCarouselA: TranslationsType = {
-  en: ``,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: `سجّل وابدأ التداول`,
-  de: "",
-  es: "",
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
-
-const titleCarouselB: TranslationsType = {
-  en: ``,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: `سجّل وابدأ التداول اليوم`,
-  de: "",
-  es: "",
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
-
-const titleCarousel: TranslationsType = textBy(
-  {
-    default: titleDefault,
-    A: titleCarouselA,
-    B: titleCarouselB,
-  },
-  "textVs",
-  componentProps.customOptions,
-);
-
-const title: TranslationsType = textBy(
-  {
-    default: titleDefault,
-    carousel: titleCarousel,
-  },
-  "asideType",
-  componentProps.customOptions,
-);
-
-const paraDefault: TranslationsType = {
+const para: TranslationsType = {
   en: `Fill out the form and one of our ${componentProps.brandObj.name} experts will contact you to help you get started. Whether you're new to trading or looking to take your investments to the next level, we’re here to support your journey with trusted tools and insights. Start now and take control of your financial future!`,
   it: "",
   tr: "",
@@ -102,61 +47,6 @@ const paraDefault: TranslationsType = {
   ms: "",
   vi: "",
 };
-
-const paraCarouselA: TranslationsType = {
-  en: ``,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: `سجّل وابدأ التداول تداول عقود الفروقات على المؤشرات، السلع، الفوركس، الأسهم، العملات الرقمية، وصناديق الاستثمار المتداولة (ETFs). احصل على إشارات تداول احترافية وتحليلات سوقية مميزة`,
-  de: "",
-  es: "",
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
-
-const paraCarouselB: TranslationsType = {
-  en: ``,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: ` تداول عقود الفروقات على المؤشرات، السلع، الفوركس، الأسهم، العملات الرقمية، وصناديق الاستثمار المتداولة (ETFs). استمتع بجلسات تدريب فردية مجانية مع خبرائنا`,
-  de: "",
-  es: "",
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
-
-const paraCarousel: TranslationsType = textBy(
-  {
-    default: paraDefault,
-    A: paraCarouselA,
-    B: paraCarouselB,
-  },
-  "textVs",
-  componentProps.customOptions,
-);
-
-const para: TranslationsType = textBy(
-  {
-    default: paraDefault,
-    carousel: paraCarousel,
-  },
-  "asideType",
-  componentProps.customOptions,
-);
 
 const formBtn: TranslationsType = {
   en: `Join`,

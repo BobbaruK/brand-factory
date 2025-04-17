@@ -11,15 +11,7 @@ const { componentProps } = Astro.props;
 ---
 
 <header id="header">
-  <div
-    class={cn(
-      "py-headerY container",
-      !componentProps.customOptions?.asideType ||
-        componentProps.customOptions?.asideType === "default"
-        ? "hidden"
-        : "",
-    )}
-  >
+  <div class={"py-headerY container lg:hidden"}>
     <MainLogo
       size={componentProps.brandObj.nameToLower}
       logo={componentProps.logo()}

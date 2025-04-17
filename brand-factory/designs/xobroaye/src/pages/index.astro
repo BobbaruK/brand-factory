@@ -24,8 +24,7 @@ const registrationType: RegistrationType = "direct_registration";
 
 export interface CustomOptions {
   logoSquare: boolean;
-  asideType?: "default" | "carousel";
-  textVs?: "default" | "A" | "B";
+  // textVs?: "default" | "A" | "B";
 }
 
 const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
@@ -45,7 +44,6 @@ const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
   registrationType,
   customOptions: {
     logoSquare: false,
-    // asideType: "carousel",
     // textVs: "B",
   },
   features,
