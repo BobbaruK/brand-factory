@@ -1,36 +1,42 @@
 import type { ReactNode } from "react";
 import type { Languages, TranslationsType } from "../../types/translations";
 import "./index.scss";
+import type { ComponentProps } from "../../types/component-props";
+import formFieldsTranslations from "../../translations/formFields";
 
 interface Props extends React.HTMLProps<HTMLDivElement> {
+  componentProps: ComponentProps;
   children: ReactNode;
-  lang: Languages;
 }
 
-export const ButtonDisclaimer = ({ children, lang, ...restProps }: Props) => {
-  const para: TranslationsType = {
-    en: `Trading CFDs is risky. You may lose all your invested capital.`,
-    it: `Il trading di CFD è rischioso. Potresti perdere tutto il capitale investito.`,
-    tr: ``,
-    ro: `Tranzacționarea CFD-urilor este riscantă. Este posibil să pierdeți tot capitalul investit.`,
-    ar: `تداول العقود مقابل الفروقات أمر محفوف بالمخاطر. قد تفقد كل رأس المال المستثمر.`,
-    de: ``,
-    es: `Operar con CFDs es arriesgado. Puede perder todo el capital invertido.`,
-    sv: `Trading med CFD:er är mycket riskfyllt. Du kan förlora allt investerat kapital.`,
-    pt: ``,
-    fi: ``,
-    pl: `Handel kontraktami CFD jest ryzykowny. Możesz stracić cały zainwestowany kapitał.`,
-    hu: ``,
-    th: ``,
-    ms: ``,
-    vi: ``,
+export const ButtonDisclaimer = ({
+  componentProps,
+  children,
+  ...restProps
+}: Props) => {
+  const fields = formFieldsTranslations(componentProps.brandObj);
+
+  const paraFN = () => {
+    switch (componentProps.license) {
+      case "cysec":
+        return fields.riskESMA_CYSEC;
+
+      case "fsa":
+        return fields.riskESMA_FSA;
+
+      default:
+        return fields.riskESMA_CYSEC;
+    }
   };
 
+  const para = paraFN();
   return (
     <div {...restProps} className={`btn-disc-wrapper ${restProps.className}`}>
       {children}
 
-      <p className="btn-disc-wrapper--disclaimer">{para[lang]}</p>
+      <p className="btn-disc-wrapper--disclaimer">
+        {para[componentProps.lang]}
+      </p>
     </div>
   );
 };
