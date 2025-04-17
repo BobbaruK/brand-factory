@@ -1,0 +1,201 @@
+---
+import type { CustomOptions } from "@/pages/index.astro";
+import Form from "../../../../globals/components/form";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+
+interface Props {
+  componentProps: ComponentProps<any, CustomOptions>;
+}
+const { componentProps } = Astro.props;
+
+const titleCarouselA: TranslationsType = {
+  en: ``,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: `سجّل وابدأ التداول`,
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const titleCarouselB: TranslationsType = {
+  en: ``,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: `سجّل وابدأ التداول اليوم`,
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const title: TranslationsType = textBy(
+  {
+    default: titleCarouselA,
+    A: titleCarouselA,
+    B: titleCarouselB,
+  },
+  "textVs",
+  componentProps.customOptions,
+);
+
+const paraCarouselA: TranslationsType = {
+  en: ``,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: `سجّل وابدأ التداول تداول عقود الفروقات على المؤشرات، السلع، الفوركس، الأسهم، العملات الرقمية، وصناديق الاستثمار المتداولة (ETFs). احصل على إشارات تداول احترافية وتحليلات سوقية مميزة`,
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const paraCarouselB: TranslationsType = {
+  en: ``,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: ` تداول عقود الفروقات على المؤشرات، السلع، الفوركس، الأسهم، العملات الرقمية، وصناديق الاستثمار المتداولة (ETFs). استمتع بجلسات تدريب فردية مجانية مع خبرائنا`,
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = textBy(
+  {
+    default: paraCarouselA,
+    A: paraCarouselA,
+    B: paraCarouselB,
+  },
+  "textVs",
+  componentProps.customOptions,
+);
+
+const formBtn: TranslationsType = {
+  en: `Join`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "إنضم الآن",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section id="section1" class="section1 py-headerY my-auto">
+  <div class="container space-y-4">
+    <h1
+      class="text-heading1 text-center font-black text-balance uppercase"
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+          })
+        : title[componentProps.lang]}
+    />
+    <p
+      class="text-center text-balance"
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 50,
+          })
+        : para[componentProps.lang]}
+    />
+    <Form
+      componentProps={componentProps}
+      button={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 1,
+          })
+        : formBtn[componentProps.lang]}
+      id="bottom-form"
+      layout={1}
+    />
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  @reference "../styles/global.css";
+
+  form.registerForm {
+    max-width: 600px;
+    margin-inline: auto;
+    .registerFormInner {
+      .form-control {
+        label {
+          // @apply text-white;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+          &:hover {
+          }
+          &:focus {
+          }
+          &::placeholder {
+          }
+          @apply h-auto bg-zinc-200 px-8 py-4;
+        }
+
+        .phone {
+          direction: ltr;
+          display: flex;
+          [type="text"] {
+            max-width: 115px;
+            border-right: 1px solid var(--clr-gray-100);
+            border-end-end-radius: 0;
+            border-start-end-radius: 0;
+          }
+          [type="tel"] {
+            border-start-start-radius: 0;
+            border-end-start-radius: 0;
+          }
+        }
+        button {
+          @apply h-auto px-8 py-4 text-[1.5rem] font-black;
+        }
+      }
+    }
+  }
+</style>
