@@ -72,7 +72,7 @@ const paras: TranslationsType[] = [
 ];
 
 const button: TranslationsType = {
-  en: `Explore CFDs trading`,
+  en: `Start your journey`,
   it: ``,
   tr: ``,
   ro: ``,
@@ -113,9 +113,9 @@ const button: TranslationsType = {
         />
       ))
     }
-    <ButtonDisclaimer lang={componentProps.lang}>
+    <ButtonDisclaimer componentProps={componentProps} client:load>
       <Button
-        className={"js-modal-trigger w-full cursor-pointer p-6 font-bold"}
+        className={"js-modal-trigger w-full cursor-pointer p-6 font-black uppercase"}
         set:html={componentProps.features?.includes(Features.showcase)
           ? showcase({
               words: 2,
