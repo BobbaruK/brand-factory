@@ -26,7 +26,6 @@ export const fxoro = (
     th: `https://my.fxoro.com/th/%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%A5%E0%B8%87%E0%B8%97%E0%B8%B0%E0%B9%80%E0%B8%9A-%E0%B8%A2%E0%B8%99/`,
     ms: `https://my.fxoro.com/ms/daftar/`,
     vi: `https://my.fxoro.com/vi/dang-ky/`,
-    showcase: "#",
   },
   recaptchaKey: "6LeuLYQjAAAAABfXp16faOgK81dNJOvm1otioobl",
   privacyLink: {
@@ -45,7 +44,6 @@ export const fxoro = (
     th: `https://fxoro.com/th/privacy-and-security-policy/`,
     ms: `https://fxoro.com/ms/privacy-and-security-policy/`,
     vi: `https://fxoro.com/vi/privacy-and-security-policy/`,
-    showcase: "#",
   },
   whatsapp: whatsapp,
   whatsappNumber: whatsappNumber(),

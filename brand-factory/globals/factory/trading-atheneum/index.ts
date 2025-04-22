@@ -35,7 +35,6 @@ export const tradingatheneum = (
     th: "",
     ms: "",
     vi: "",
-    showcase: "#",
   },
   recaptchaKey: "6LfLo8gqAAAAALIKXDJO36xlthQ-f0Zsyk_BwiON",
   privacyLink: {
@@ -54,7 +53,6 @@ export const tradingatheneum = (
     th: "",
     ms: "",
     vi: "",
-    showcase: "#",
   },
   whatsapp: whatsapp,
   whatsappNumber: whatsappNumber(),

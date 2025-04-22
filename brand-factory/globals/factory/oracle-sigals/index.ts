@@ -26,7 +26,6 @@ export const oracleSignals = (
     th: `https://oracle-signals.com/thank-you/th/`,
     ms: `https://oracle-signals.com/thank-you/ms/`,
     vi: `https://oracle-signals.com/thank-you/vi/`,
-    showcase: "#",
   },
   recaptchaKey: "6LeSkf4qAAAAADlA-HG8iv1AsFvlSHEk5Za4d2NC",
   privacyLink: {
@@ -45,7 +44,6 @@ export const oracleSignals = (
     th: `https://oracle-signals.com/privacy-policy/th/`,
     ms: `https://oracle-signals.com/privacy-policy/ms/`,
     vi: `https://oracle-signals.com/privacy-policy/vi/`,
-    showcase: "#",
   },
   whatsapp: whatsapp,
   whatsappNumber: whatsappNumber(),

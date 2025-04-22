@@ -17,6 +17,5 @@ export const glossaryLetter_S: AlphabetLetter = {
     th: "ส่ง",
     ms: "Hantar",
     vi: "Gửi",
-    showcase: "Submit",
   },
 };

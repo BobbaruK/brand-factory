@@ -18,6 +18,5 @@ export const glossaryLetter_T: AlphabetLetter = {
     th: `ขอบคุณ!`,
     ms: `Terima Kasih!`,
     vi: `Cảm ơn bạn!`,
-    showcase: `Thank You!`,
   },
 };

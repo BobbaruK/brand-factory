@@ -17,6 +17,5 @@ export const glossaryLetter_F: AlphabetLetter = {
     th: "ชื่อ",
     ms: "Nama Pertama",
     vi: "Tên",
-    showcase: "First Name",
   },
 };

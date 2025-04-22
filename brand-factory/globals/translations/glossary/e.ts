@@ -17,6 +17,5 @@ export const glossaryLetter_E: AlphabetLetter = {
     th: "อีเมล",
     ms: "E-mel",
     vi: "E-mail",
-    showcase: "E-mail",
   },
 };

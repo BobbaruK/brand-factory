@@ -34,7 +34,6 @@ export const tradingprofiler = (
     th: "",
     ms: "",
     vi: "",
-    showcase: "#",
   },
   recaptchaKey: "6LekLYQjAAAAAC8K5qL3_1vgESa_o0ms2fGzTGny",
   privacyLink: {
@@ -53,7 +52,6 @@ export const tradingprofiler = (
     th: "",
     ms: "",
     vi: "",
-    showcase: "#",
   },
   whatsapp: whatsapp,
   whatsappNumber: whatsappNumber(),

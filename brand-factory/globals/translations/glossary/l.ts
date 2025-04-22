@@ -17,6 +17,5 @@ export const glossaryLetter_L: AlphabetLetter = {
     th: "นามสกุล",
     ms: "Nama Akhir",
     vi: "Họ",
-    showcase: "Last Name",
   },
 };

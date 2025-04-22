@@ -27,7 +27,6 @@ export const tradestrategyhub = (
         th: "https://tradestrategyhub.com/privacypolicy/en/",
         ms: "https://tradestrategyhub.com/privacypolicy/en/",
         vi: "https://tradestrategyhub.com/privacypolicy/en/",
-        showcase: "#",
       };
 
     return {
@@ -46,7 +45,6 @@ export const tradestrategyhub = (
       th: "https://tradestrategyhub.com/privacypolicy/ob/en/",
       ms: "https://tradestrategyhub.com/privacypolicy/ob/en/",
       vi: "https://tradestrategyhub.com/privacypolicy/ob/en/",
-      showcase: "#",
     };
   };
 
@@ -70,7 +68,6 @@ export const tradestrategyhub = (
       th: "",
       ms: "",
       vi: "",
-      showcase: "#",
     },
     recaptchaKey: "6LeapJgpAAAAABjc0UySawSAB6zKqRNwbqFiMbUk",
     privacyLink: privacyLinks(),

@@ -17,7 +17,6 @@ export const glossaryLetter_P: AlphabetLetter = {
     th: "โทรศัพท์",
     ms: "Telefon",
     vi: "Điện thoại",
-    showcase: "Phone",
   },
   phoneNo: {
     en: "Phone number",
@@ -35,6 +34,5 @@ export const glossaryLetter_P: AlphabetLetter = {
     th: "หมายเลขโทรศัพท์",
     ms: "Nombor Telefon",
     vi: "Số điện thoại",
-    showcase: "Phone number",
   },
 };

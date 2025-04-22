@@ -17,6 +17,5 @@ export const glossaryLetter_C: AlphabetLetter = {
     th: "ประเทศ",
     ms: "Negara",
     vi: "Quốc gia",
-    showcase: "Country",
   },
 };

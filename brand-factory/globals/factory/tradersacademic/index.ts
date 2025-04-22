@@ -26,7 +26,6 @@ export const tradersacademic = (
     th: "",
     ms: "",
     vi: "",
-    showcase: "#",
   },
   recaptchaKey: "6LcF02QjAAAAADxEES9rYjPPlDNRwJiAOmDwSnUA",
   privacyLink: {
@@ -45,7 +44,6 @@ export const tradersacademic = (
     th: "https://www.tradersacademic.com/privacypolicy.html",
     ms: "https://www.tradersacademic.com/privacypolicy.html",
     vi: "https://www.tradersacademic.com/privacypolicy.html",
-    showcase: "#",
   },
   whatsapp: whatsapp,
   whatsappNumber: whatsappNumber(),
