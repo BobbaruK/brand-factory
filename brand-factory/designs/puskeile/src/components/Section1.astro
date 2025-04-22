@@ -1,0 +1,125 @@
+---
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Why gold? Because stability matters!`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: `لماذا الذهب؟ لأن الاستقرار مهم`,
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `Gold has always been a symbol of security and value. In times of economic uncertainty, investors turn to gold to guard over their wealth. With ${componentProps.brandObj.name}, you get access to real-time pricing, market analysis, and fast execution to make the most of every market move.`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: `لطالما كان الذهب رمزًا للأمان والقيمة. في أوقات عدم الاستقرار الاقتصادي، يلجأ المستثمرون إلى الذهب لحماية ثرواتهم. مع ${componentProps.brandObj.name}، ستحصل على تسعير لحظي، وتحليلات سوقية، وتنفيذ سريع للصفقات لتحقيق أقصى استفادة من تحركات السوق.`,
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: `Whether you're hedging inflation or you are looking for short-term opportunities, CFDs on gold can always be a powerful asset in your portfolio.`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: `سواء كنت تقوم بالتحوط ضد التضخم أو تبحث عن فرص قصيرة الأجل، فإن عقود فروقات الذهب يمكن أن تكون دائمًا أداة قوية في محفظتك.`,
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+];
+
+const button: TranslationsType = {
+  en: `Explore CFDs trading`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `استكشف تداول عقود الفروقات`,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section1" class="section1 py-headerY bg-black text-white">
+  <div class="container space-y-4 md:space-y-6">
+    <h2
+      class="text-heading2 text-primary font-black uppercase"
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+    />
+
+    {
+      paras.map((para) => (
+        <p
+          class="text-para-lead text-balance"
+          set:html={
+            componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 30,
+                })
+              : para[componentProps.lang]
+          }
+        />
+      ))
+    }
+
+    <ButtonDisclaimer componentProps={componentProps}>
+      <Button
+        className={"js-modal-trigger w-full cursor-pointer p-6 font-black uppercase"}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : button[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>
