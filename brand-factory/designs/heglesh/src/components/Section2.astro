@@ -1,0 +1,176 @@
+---
+import { icon2 } from "@/constants/icon-2";
+import { icon3 } from "@/constants/icon-3";
+import { icon4 } from "@/constants/icon-4";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { icon1 } from "../constants/icon-1";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Key benefits to trade cfd<span class="lowercase">s</span> with ${componentProps.brandObj.name}:`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: `الفوائد الرئيسية لتداول عقود الفروقات مع ${componentProps.brandObj.name}`,
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const bullets: {
+  icon: string;
+  para: TranslationsType;
+}[] = [
+  {
+    icon: icon1,
+    para: {
+      en: `Regulated trading environment`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `بيئة تداول منظمة`,
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: icon2,
+    para: {
+      en: `Real-time price updates`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `تحديثات فورية للأسعار`,
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: icon3,
+    para: {
+      en: `Fast execution of your positions`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `تنفيذ سريع للصفقات`,
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: icon4,
+    para: {
+      en: `Free 1-on-1 training with market experts`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `تدريب فردي مجاني مع خبراء السوق`,
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+];
+
+const button: TranslationsType = {
+  en: `Join ${componentProps.brandObj.name}`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `انضم إلى ${componentProps.brandObj.name}`,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section2" class="section2 py-headerY">
+  <div class="container space-y-4 md:space-y-6">
+    <h2
+      class="text-heading2 font-black uppercase"
+      set:html={title[componentProps.lang]}
+    />
+
+    <div class="flex flex-wrap items-start justify-around gap-8">
+      {
+        bullets.map((bullet) => (
+          <div class="flex w-fit flex-col items-center">
+            <div
+              class="grid place-items-center [&_svg]:h-auto [&_svg]:max-w-[200px]"
+              set:html={bullet.icon}
+            />
+            <p
+              class="text-para-lead max-w-[16ch] text-center text-balance"
+              set:html={bullet.para[componentProps.lang]}
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <ButtonDisclaimer componentProps={componentProps}>
+      <Button
+        className={"js-modal-trigger w-full cursor-pointer p-6 font-black uppercase"}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : button[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>

@@ -1,5 +1,6 @@
 ---
 import Section1 from "@/components/Section1.astro";
+import Section2 from "@/components/Section2.astro";
 import { brandFactory } from "../../../../globals/factory";
 import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
@@ -18,7 +19,7 @@ const features = checkFeatures([
   // Features.readyForMail,
   Features.outbrain,
   // Features.atheneum,
-  // Features.showcase,
+  Features.showcase,
 ]);
 const registrationType: RegistrationType = "direct_registration";
 
@@ -51,4 +52,6 @@ const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
 
 <Layout componentProps={componentProps}>
   <Section1 componentProps={componentProps} />
+  <Section2 componentProps={componentProps} />
+  <!-- <SectionTest componentProps={componentProps} /> -->
 </Layout>

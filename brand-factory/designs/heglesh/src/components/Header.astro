@@ -1,15 +1,15 @@
 ---
-import { type CustomOptions } from "@/pages/index.astro";
-import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
-import { type ComponentProps } from "../../../../globals/types/component-props";
-import type { TranslationsType } from "../../../../globals/types/translations";
-import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
-import { Features } from "../../../../globals/types/enums";
-import { showcase } from "../../../../globals/features/showcase/text";
-import { Button, buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
+import { type CustomOptions } from "@/pages/index.astro";
 import { Image } from "astro:assets";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { type ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
 import bgDesktop from "../assets/bg-hero-header.png";
+import { Button } from "./ui/button";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
