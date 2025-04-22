@@ -103,13 +103,23 @@ const button: TranslationsType = {
   >
     <h1
       class="text-heading1 max-w-[20ch] font-black uppercase"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
     />
     {
-      paras.map((para) => (
+      paras.map((para, index) => (
         <p
           class="text-para-lead max-w-[35ch]"
-          set:html={para[componentProps.lang]}
+          set:html={
+            componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: index === 0 ? 15 : 5,
+                })
+              : para[componentProps.lang]
+          }
         />
       ))
     }

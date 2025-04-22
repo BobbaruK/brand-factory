@@ -89,14 +89,24 @@ const button: TranslationsType = {
   <div class="container space-y-4 md:space-y-6">
     <h2
       class="text-heading2 text-primary font-black uppercase"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
     />
 
     {
       paras.map((para) => (
         <p
           class="text-para-lead text-balance"
-          set:html={para[componentProps.lang]}
+          set:html={
+            componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 30,
+                })
+              : para[componentProps.lang]
+          }
         />
       ))
     }

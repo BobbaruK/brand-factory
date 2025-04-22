@@ -142,7 +142,11 @@ const button: TranslationsType = {
   <div class="container space-y-4 md:space-y-6">
     <h2
       class="text-heading2 font-black uppercase"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
     />
 
     <div class="flex flex-wrap items-start justify-around gap-8">
@@ -155,7 +159,13 @@ const button: TranslationsType = {
             />
             <p
               class="text-para-lead max-w-[16ch] text-center text-balance"
-              set:html={bullet.para[componentProps.lang]}
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 5,
+                    })
+                  : bullet.para[componentProps.lang]
+              }
             />
           </div>
         ))
