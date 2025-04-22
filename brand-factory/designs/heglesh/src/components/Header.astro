@@ -91,7 +91,7 @@ const button: TranslationsType = {
 ---
 
 <header id="header" class="py-headerY relative">
-  <div class="relative z-10 container">
+  <div class="relative z-20 container">
     <MainLogo
       size={componentProps.brandObj.nameToLower}
       logo={componentProps.logo()}
@@ -125,6 +125,7 @@ const button: TranslationsType = {
     }
     <ButtonDisclaimer componentProps={componentProps} client:load>
       <Button
+        variant={"black"}
         className={"js-modal-trigger w-full cursor-pointer p-6 font-black uppercase"}
         set:html={componentProps.features?.includes(Features.showcase)
           ? showcase({
@@ -139,11 +140,15 @@ const button: TranslationsType = {
     src={bgDesktop}
     alt="Apple Laptop Diploma"
     class={cn(
-      "pointer-events-none h-[200px] w-full object-cover sm:object-bottom lg:absolute lg:inset-0 lg:block lg:h-full ",
+      "pointer-events-none w-full object-left-top z-0 absolute inset-0 block h-full object-cover sm:object-bottom",
       componentProps.lang === "ar" ? "object-left" : "object-left",
       { "scale-x-[-1]": componentProps.lang !== "ar" },
     )}
     widths={[320, 576, 640, 768, 1024, 1280, 1536, bgDesktop.width]}
     sizes={`100vw`}
   />
+  <div
+    class="pointer-events-none absolute inset-0 z-0 block h-full w-full bg-white/80 object-cover object-left-top xl:hidden"
+  >
+  </div>
 </header>
