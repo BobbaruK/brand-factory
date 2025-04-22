@@ -1,20 +1,167 @@
 ---
+import { cn } from "@/lib/utils";
 import { type CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
+import { showcase } from "../../../../globals/features/showcase/text";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import bgDesktop from "../assets/bg-hero-header.png";
+import lion from "../assets/lion-on-gold.png";
+import { Button } from "./ui/button";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Trade cfd<span class="lowercase">s</span> on gold with confidence on ${componentProps.brandObj.name}`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: `تداول عقود الفروقات على الذهب بثقة مع ${componentProps.brandObj.name}`,
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `Capitalize on the world’s most trusted asset. Trade gold CFDs with a globally known platform designed for smart traders.`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: `استفد من أكثر الأصول موثوقية في العالم. تداول عقود فروقات الذهب مع منصة عالمية مصممة للمتداولين الأذكياء.`,
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: `Begin trading CFDs on gold today!`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: `ابدأ تداول عقود الفروقات على الذهب اليوم`,
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+];
+
+const button: TranslationsType = {
+  en: `Start your journey`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `ابدأ رحلتك`,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
 ---
 
-<header id="header">
-  <div class="container">
+<header
+  id="header"
+  class="pt-headerY md:py-headerY relative overflow-clip pb-0 text-white"
+>
+  <div class="relative z-10 container">
     <MainLogo
       size={componentProps.brandObj.nameToLower}
       logo={componentProps.logo()}
       square={componentProps.customOptions?.logoSquare}
     />
   </div>
+  <div
+    class="relative z-10 container space-y-4 pt-4 md:space-y-6 md:pt-6 lg:space-y-8 lg:pt-8"
+  >
+    <h1
+      class="text-heading1 max-w-[20ch] font-black uppercase"
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+    />
+    {
+      paras.map((para, index) => (
+        <p
+          class="text-para-lead max-w-[35ch]"
+          set:html={
+            componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: index === 0 ? 15 : 5,
+                })
+              : para[componentProps.lang]
+          }
+        />
+      ))
+    }
+    <ButtonDisclaimer componentProps={componentProps} client:load>
+      <Button
+        variant={"black"}
+        className={"js-modal-trigger w-full cursor-pointer p-6 font-black uppercase"}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : button[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+
+    <Image
+      src={lion}
+      alt="Lion on gold"
+      class={cn(
+        "pointer-events-none max-w-[200px] md:absolute -bottom-28 end-0 w-full md:max-w-[clamp(21.25rem,_1.5625rem_+_41.0156vw,_34.375rem)]",
+        {
+          "scale-x-[-1]": componentProps.lang !== "ar",
+        },
+      )}
+      widths={[320, 576, 640, 768, 1024, 1280, 1536, bgDesktop.width]}
+      sizes={`100vw`}
+    />
+  </div>
+
+  <Image
+    src={bgDesktop}
+    alt="Apple Laptop Diploma"
+    class={cn(
+      "pointer-events-none w-full object-left-top object-cover absolute inset-0 block h-full",
+      componentProps.lang === "ar" ? "object-left" : "object-left",
+      { "scale-x-[-1]": componentProps.lang !== "ar" },
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bgDesktop.width]}
+    sizes={`100vw`}
+  />
 </header>
