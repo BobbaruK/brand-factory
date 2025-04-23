@@ -90,7 +90,7 @@ const button: TranslationsType = {
 };
 ---
 
-<header id="header" class="py-headerY relative">
+<header id="header" class="py-headerY relative overflow-clip">
   <div class="relative z-20 container">
     <MainLogo
       size={componentProps.brandObj.nameToLower}
@@ -138,10 +138,12 @@ const button: TranslationsType = {
 
   <Image
     src={bgDesktop}
-    alt="Apple Laptop Diploma"
+    alt="Lion on gold"
     class={cn(
-      "pointer-events-none w-full object-left-top z-0 absolute inset-0 block h-full object-cover sm:object-bottom",
-      componentProps.lang === "ar" ? "object-left" : "object-left",
+      "pointer-events-none w-full object-left-top z-0 absolute inset-0 block h-full object-cover sm:object-top  ",
+      componentProps.lang === "ar"
+        ? "object-left max-sm:-left-[50%] max-sm:right-auto max-sm:max-w-[150%] max-sm:w-[150%]"
+        : "object-left max-sm:-right-[70%] max-sm:left-auto max-sm:max-w-[170%] max-sm:w-[170%]",
       { "scale-x-[-1]": componentProps.lang !== "ar" },
     )}
     widths={[320, 576, 640, 768, 1024, 1280, 1536, bgDesktop.width]}

@@ -19,7 +19,7 @@ const features = checkFeatures([
   // Features.readyForMail,
   Features.outbrain,
   // Features.atheneum,
-  Features.showcase,
+  // Features.showcase,
 ]);
 const registrationType: RegistrationType = "direct_registration";
 
@@ -28,9 +28,9 @@ export interface CustomOptions {
 }
 
 const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
-  lang: "en",
+  lang: "ar",
   license,
-  lpName: "",
+  lpName: "Lion Gold",
   brandObj: brandFactory({
     brand: "fxoro_global",
     license,
@@ -46,7 +46,7 @@ const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
     logoSquare: false,
   },
   features,
-  // fxoroFooter: true,
+  fxoroFooter: true,
 };
 ---
 
