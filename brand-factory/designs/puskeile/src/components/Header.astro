@@ -91,11 +91,8 @@ const button: TranslationsType = {
 };
 ---
 
-<header
-  id="header"
-  class="pt-headerY md:py-headerY relative overflow-clip pb-0 text-white"
->
-  <div class="relative z-10 container">
+<header id="header" class="py-headerY relative overflow-clip text-white">
+  <div class="relative z-20 container">
     <MainLogo
       size={componentProps.brandObj.nameToLower}
       logo={componentProps.logo()}
@@ -103,7 +100,7 @@ const button: TranslationsType = {
     />
   </div>
   <div
-    class="relative z-10 container space-y-4 pt-4 md:space-y-6 md:pt-6 lg:space-y-8 lg:pt-8"
+    class="relative z-20 container space-y-4 pt-4 md:space-y-6 md:pt-6 lg:space-y-8 lg:pt-8"
   >
     <h1
       class="text-heading1 max-w-[20ch] font-black uppercase"
@@ -143,7 +140,7 @@ const button: TranslationsType = {
       src={lion}
       alt="Lion on gold"
       class={cn(
-        "pointer-events-none max-w-[200px] md:absolute -bottom-28 end-0 w-full md:max-w-[clamp(21.25rem,_1.5625rem_+_41.0156vw,_34.375rem)]",
+        "pointer-events-none -z-10 max-w-[200px] absolute -bottom-20 sm:-bottom-36 end-0 w-full sm:max-w-[clamp(21.25rem,_1.5625rem_+_41.0156vw,_34.375rem)] opacity-15 md:opacity-100",
         {
           "scale-x-[-1]": componentProps.lang !== "ar",
         },
@@ -153,11 +150,16 @@ const button: TranslationsType = {
     />
   </div>
 
+  <div
+    class="bg-secondary/70 pointer-events-none absolute inset-0 z-10 h-full w-full"
+  >
+  </div>
+
   <Image
     src={bgDesktop}
-    alt="Apple Laptop Diploma"
+    alt="Background"
     class={cn(
-      "pointer-events-none w-full object-left-top object-cover absolute inset-0 block h-full",
+      "pointer-events-none z-0 w-full object-left-top object-cover absolute inset-0 block h-full ",
       componentProps.lang === "ar" ? "object-left" : "object-left",
       { "scale-x-[-1]": componentProps.lang !== "ar" },
     )}
