@@ -13,4 +13,6 @@ export interface FormTranslations {
   agree2ESMA: TranslationsType;
   riskESMA_CYSEC: TranslationsType;
   riskESMA_FSA: TranslationsType;
+  officialTerms_CYSEC: TranslationsType;
+  officialTerms_FSA: TranslationsType;
 }

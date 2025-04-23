@@ -136,5 +136,309 @@ export default function formFieldsTranslations(
       ms: `Perdagangan CFD berisiko.`,
       vi: `Giao dịch CFD tiềm ẩn rủi ro.`,
     },
+    officialTerms_CYSEC: {
+      en: `I have read, understood and accepted the <a href="${
+        brand.officialTerms?.links.privacyPolicy?.en || "#"
+      }" target="_blank">Privacy Policy</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.en || "#"
+      }" target="_blank">Risk Warning</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.en || "#"
+      }" target="_blank">Terms and Conditions</a>, the <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.en || "#"
+      }" target="_blank">Order Execution Policy</a>, and the <a href="${
+        brand.officialTerms?.links.costAndCharges?.en || "#"
+      }" target="_blank">Costs and Charges</a>.`,
+      ro: `Am citit, înțeles și acceptat <a href="${
+        brand.officialTerms?.links.privacyPolicy?.ro || "#"
+      }" target="_blank">Politica de Confidențialitate</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.ro || "#"
+      }" target="_blank">Avertismentul privind riscurile</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.ro || "#"
+      }" target="_blank">Termenii și Condițiile</a>, <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.ro || "#"
+      }" target="_blank">Politica de Execuție a Ordinelor</a> și <a href="${
+        brand.officialTerms?.links.costAndCharges?.ro || "#"
+      }" target="_blank">Costurile și Comisioanele</a>.`,
+      it: `Ho letto, compreso e accettato la <a href="${
+        brand.officialTerms?.links.privacyPolicy?.it || "#"
+      }" target="_blank">Privacy Policy</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.it || "#"
+      }" target="_blank">Avviso sui Rischi</a>, i <a href="${
+        brand.officialTerms?.links.termsAndConditions?.it || "#"
+      }" target="_blank">Termini e Condizioni</a>, la <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.it || "#"
+      }" target="_blank">Politica di Esecuzione degli Ordini</a> e i <a href="${
+        brand.officialTerms?.links.costAndCharges?.it || "#"
+      }" target="_blank">Costi e Commissioni</a>.`,
+      tr: `Gizlilik Politikasını (<a href="${
+        brand.officialTerms?.links.privacyPolicy?.tr || "#"
+      }" target="_blank">Privacy Policy</a>), Risk Uyarısını (<a href="${
+        brand.officialTerms?.links.riskWarning?.tr || "#"
+      }" target="_blank">Risk Warning</a>), Şartlar ve Koşulları (<a href="${
+        brand.officialTerms?.links.termsAndConditions?.tr || "#"
+      }" target="_blank">Terms and Conditions</a>), Emir Gerçekleştirme Politikasını (<a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.tr || "#"
+      }" target="_blank">Order Execution Policy</a>) ve Maliyetler ile Ücretleri (<a href="${
+        brand.officialTerms?.links.costAndCharges?.tr || "#"
+      }" target="_blank">Costs and Charges</a>) okudum, anladım ve kabul ediyorum.`,
+      ar: `لقد قرأت وفهمت ووافقت على <a href="${
+        brand.officialTerms?.links.privacyPolicy?.ar || "#"
+      }" target="_blank">سياسة الخصوصية</a>، <a href="${
+        brand.officialTerms?.links.riskWarning?.ar || "#"
+      }" target="_blank">تحذير المخاطر</a>، <a href="${
+        brand.officialTerms?.links.termsAndConditions?.ar || "#"
+      }" target="_blank">الشروط والأحكام</a>، <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.ar || "#"
+      }" target="_blank">سياسة تنفيذ الأوامر</a> و<a href="${
+        brand.officialTerms?.links.costAndCharges?.ar || "#"
+      }" target="_blank">التكاليف والرسوم</a>.`,
+      de: `Ich habe die <a href="${
+        brand.officialTerms?.links.privacyPolicy?.de || "#"
+      }" target="_blank">Datenschutzrichtlinie</a>, den <a href="${
+        brand.officialTerms?.links.riskWarning?.de || "#"
+      }" target="_blank">Risikohinweis</a>, die <a href="${
+        brand.officialTerms?.links.termsAndConditions?.de || "#"
+      }" target="_blank">Allgemeinen Geschäftsbedingungen</a>, die <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.de || "#"
+      }" target="_blank">Ausführungspolitik</a> und die <a href="${
+        brand.officialTerms?.links.costAndCharges?.de || "#"
+      }" target="_blank">Kosten und Gebühren</a> gelesen, verstanden und akzeptiert.`,
+      es: `He leído, entendido y aceptado la <a href="${
+        brand.officialTerms?.links.privacyPolicy?.es || "#"
+      }" target="_blank">Política de Privacidad</a>, la <a href="${
+        brand.officialTerms?.links.riskWarning?.es || "#"
+      }" target="_blank">Advertencia de Riesgo</a>, los <a href="${
+        brand.officialTerms?.links.termsAndConditions?.es || "#"
+      }" target="_blank">Términos y Condiciones</a>, la <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.es || "#"
+      }" target="_blank">Política de Ejecución de Órdenes</a> y los <a href="${
+        brand.officialTerms?.links.costAndCharges?.es || "#"
+      }" target="_blank">Costes y Cargos</a>.`,
+      sv: `Jag har läst, förstått och accepterat <a href="${
+        brand.officialTerms?.links.privacyPolicy?.sv || "#"
+      }" target="_blank">Integritetspolicyn</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.sv || "#"
+      }" target="_blank">Riskvarningen</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.sv || "#"
+      }" target="_blank">Villkoren</a>, <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.sv || "#"
+      }" target="_blank">Orderutförandepolicyn</a> och <a href="${
+        brand.officialTerms?.links.costAndCharges?.sv || "#"
+      }" target="_blank">Kostnader och Avgifter</a>.`,
+      pt: `Li, compreendi e aceitei a <a href="${
+        brand.officialTerms?.links.privacyPolicy?.pt || "#"
+      }" target="_blank">Política de Privacidade</a>, o <a href="${
+        brand.officialTerms?.links.riskWarning?.pt || "#"
+      }" target="_blank">Aviso de Risco</a>, os <a href="${
+        brand.officialTerms?.links.termsAndConditions?.pt || "#"
+      }" target="_blank">Termos e Condições</a>, a <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.pt || "#"
+      }" target="_blank">Política de Execução de Ordens</a> e os <a href="${
+        brand.officialTerms?.links.costAndCharges?.pt || "#"
+      }" target="_blank">Custos e Encargos</a>.`,
+      fi: `Olen lukenut, ymmärtänyt ja hyväksynyt <a href="${
+        brand.officialTerms?.links.privacyPolicy?.fi || "#"
+      }" target="_blank">Tietosuojakäytännön</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.fi || "#"
+      }" target="_blank">Riski-ilmoituksen</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.fi || "#"
+      }" target="_blank">Ehdot</a>, <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.fi || "#"
+      }" target="_blank">Toimeksiantojen toteutuspolitiikan</a> ja <a href="${
+        brand.officialTerms?.links.costAndCharges?.fi || "#"
+      }" target="_blank">Kustannukset ja maksut</a>.`,
+      pl: `Przeczytałem, zrozumiałem i zaakceptowałem <a href="${
+        brand.officialTerms?.links.privacyPolicy?.pl || "#"
+      }" target="_blank">Politykę Prywatności</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.pl || "#"
+      }" target="_blank">Ostrzeżenie o ryzyku</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.pl || "#"
+      }" target="_blank">Regulamin</a>, <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.pl || "#"
+      }" target="_blank">Politykę realizacji zleceń</a> oraz <a href="${
+        brand.officialTerms?.links.costAndCharges?.pl || "#"
+      }" target="_blank">Koszty i opłaty</a>.`,
+      hu: `Elolvastam, megértettem és elfogadtam az <a href="${
+        brand.officialTerms?.links.privacyPolicy?.hu || "#"
+      }" target="_blank">Adatvédelmi szabályzatot</a>, a <a href="${
+        brand.officialTerms?.links.riskWarning?.hu || "#"
+      }" target="_blank">Kockázati figyelmeztetést</a>, az <a href="${
+        brand.officialTerms?.links.termsAndConditions?.hu || "#"
+      }" target="_blank">Általános Szerződési Feltételeket</a>, a <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.hu || "#"
+      }" target="_blank">Végrehajtási Szabályzatot</a> és a <a href="${
+        brand.officialTerms?.links.costAndCharges?.hu || "#"
+      }" target="_blank">Költségek és Díjak</a> leírását.`,
+      th: `ฉันได้อ่าน ทำความเข้าใจ และยอมรับ <a href="${
+        brand.officialTerms?.links.privacyPolicy?.th || "#"
+      }" target="_blank">นโยบายความเป็นส่วนตัว</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.th || "#"
+      }" target="_blank">คำเตือนความเสี่ยง</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.th || "#"
+      }" target="_blank">ข้อกำหนดและเงื่อนไข</a>, <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.th || "#"
+      }" target="_blank">นโยบายการดำเนินการตามคำสั่ง</a> และ <a href="${
+        brand.officialTerms?.links.costAndCharges?.th || "#"
+      }" target="_blank">ค่าใช้จ่ายและค่าธรรมเนียม</a>.`,
+      ms: `Saya telah membaca, memahami dan menerima <a href="${
+        brand.officialTerms?.links.privacyPolicy?.ms || "#"
+      }" target="_blank">Dasar Privasi</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.ms || "#"
+      }" target="_blank">Amaran Risiko</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.ms || "#"
+      }" target="_blank">Terma dan Syarat</a>, <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.ms || "#"
+      }" target="_blank">Dasar Pelaksanaan Pesanan</a> dan <a href="${
+        brand.officialTerms?.links.costAndCharges?.ms || "#"
+      }" target="_blank">Kos dan Caj</a>.`,
+      vi: `Tôi đã đọc, hiểu và chấp nhận <a href="${
+        brand.officialTerms?.links.privacyPolicy?.vi || "#"
+      }" target="_blank">Chính sách Bảo mật</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.vi || "#"
+      }" target="_blank">Cảnh báo Rủi ro</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.vi || "#"
+      }" target="_blank">Điều khoản và Điều kiện</a>, <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.vi || "#"
+      }" target="_blank">Chính sách Thực hiện Lệnh</a> và <a href="${
+        brand.officialTerms?.links.costAndCharges?.vi || "#"
+      }" target="_blank">Chi phí và Phí</a>.`,
+    },
+    officialTerms_FSA: {
+      en: `I have read, understood and accepted the <a href="${
+        brand.officialTerms?.links.privacyPolicy?.en || "#"
+      }" target="_blank">Privacy Policy</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.en || "#"
+      }" target="_blank">Risk Warning</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.en || "#"
+      }" target="_blank">Terms and Conditions</a> and the <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.en || "#"
+      }" target="_blank">Order Execution Policy</a>`,
+      ro: `Am citit, înțeles și acceptat <a href="${
+        brand.officialTerms?.links.privacyPolicy?.ro || "#"
+      }" target="_blank">Politica de Confidențialitate</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.ro || "#"
+      }" target="_blank">Avertismentul privind riscurile</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.ro || "#"
+      }" target="_blank">Termenii și Condițiile</a> și <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.ro || "#"
+      }" target="_blank">Politica de Execuție a Ordinelor</a>`,
+      it: `Ho letto, compreso e accettato la <a href="${
+        brand.officialTerms?.links.privacyPolicy?.it || "#"
+      }" target="_blank">Privacy Policy</a>, l'<a href="${
+        brand.officialTerms?.links.riskWarning?.it || "#"
+      }" target="_blank">Avviso sui Rischi</a>, i <a href="${
+        brand.officialTerms?.links.termsAndConditions?.it || "#"
+      }" target="_blank">Termini e Condizioni</a> e la <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.it || "#"
+      }" target="_blank">Politica di Esecuzione degli Ordini</a>`,
+      tr: `<a href="${
+        brand.officialTerms?.links.privacyPolicy?.tr || "#"
+      }" target="_blank">Gizlilik Politikasını</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.tr || "#"
+      }" target="_blank">Risk Uyarısını</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.tr || "#"
+      }" target="_blank">Şartlar ve Koşulları</a> ve <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.tr || "#"
+      }" target="_blank">Emir Gerçekleştirme Politikasını</a> okudum, anladım ve kabul ediyorum.`,
+      ar: `لقد قرأت وفهمت ووافقت على <a href="${
+        brand.officialTerms?.links.privacyPolicy?.ar || "#"
+      }" target="_blank">سياسة الخصوصية</a>، <a href="${
+        brand.officialTerms?.links.riskWarning?.ar || "#"
+      }" target="_blank">تحذير المخاطر</a>، <a href="${
+        brand.officialTerms?.links.termsAndConditions?.ar || "#"
+      }" target="_blank">الشروط والأحكام</a> و<a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.ar || "#"
+      }" target="_blank">سياسة تنفيذ الأوامر</a>`,
+      de: `Ich habe die <a href="${
+        brand.officialTerms?.links.privacyPolicy?.de || "#"
+      }" target="_blank">Datenschutzrichtlinie</a>, den <a href="${
+        brand.officialTerms?.links.riskWarning?.de || "#"
+      }" target="_blank">Risikohinweis</a>, die <a href="${
+        brand.officialTerms?.links.termsAndConditions?.de || "#"
+      }" target="_blank">Allgemeinen Geschäftsbedingungen</a> und die <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.de || "#"
+      }" target="_blank">Ausführungspolitik</a> gelesen, verstanden und akzeptiert.`,
+      es: `He leído, entendido y aceptado la <a href="${
+        brand.officialTerms?.links.privacyPolicy?.es || "#"
+      }" target="_blank">Política de Privacidad</a>, la <a href="${
+        brand.officialTerms?.links.riskWarning?.es || "#"
+      }" target="_blank">Advertencia de Riesgo</a>, los <a href="${
+        brand.officialTerms?.links.termsAndConditions?.es || "#"
+      }" target="_blank">Términos y Condiciones</a> y la <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.es || "#"
+      }" target="_blank">Política de Ejecución de Órdenes</a>`,
+      sv: `Jag har läst, förstått och accepterat <a href="${
+        brand.officialTerms?.links.privacyPolicy?.sv || "#"
+      }" target="_blank">Integritetspolicyn</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.sv || "#"
+      }" target="_blank">Riskvarningen</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.sv || "#"
+      }" target="_blank">Villkoren</a> och <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.sv || "#"
+      }" target="_blank">Orderutförandepolicyn</a>`,
+      pt: `Li, compreendi e aceitei a <a href="${
+        brand.officialTerms?.links.privacyPolicy?.pt || "#"
+      }" target="_blank">Política de Privacidade</a>, o <a href="${
+        brand.officialTerms?.links.riskWarning?.pt || "#"
+      }" target="_blank">Aviso de Risco</a>, os <a href="${
+        brand.officialTerms?.links.termsAndConditions?.pt || "#"
+      }" target="_blank">Termos e Condições</a> e a <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.pt || "#"
+      }" target="_blank">Política de Execução de Ordens</a>`,
+      fi: `Olen lukenut, ymmärtänyt ja hyväksynyt <a href="${
+        brand.officialTerms?.links.privacyPolicy?.fi || "#"
+      }" target="_blank">Tietosuojakäytännön</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.fi || "#"
+      }" target="_blank">Riski-ilmoituksen</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.fi || "#"
+      }" target="_blank">Ehdot</a> ja <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.fi || "#"
+      }" target="_blank">Toimeksiantojen toteutuspolitiikan</a>`,
+      pl: `Przeczytałem, zrozumiałem i zaakceptowałem <a href="${
+        brand.officialTerms?.links.privacyPolicy?.pl || "#"
+      }" target="_blank">Politykę Prywatności</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.pl || "#"
+      }" target="_blank">Ostrzeżenie o ryzyku</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.pl || "#"
+      }" target="_blank">Regulamin</a> oraz <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.pl || "#"
+      }" target="_blank">Politykę Realizacji Zleceń</a>`,
+      hu: `Elolvastam, megértettem és elfogadtam az <a href="${
+        brand.officialTerms?.links.privacyPolicy?.hu || "#"
+      }" target="_blank">Adatvédelmi Szabályzatot</a>, a <a href="${
+        brand.officialTerms?.links.riskWarning?.hu || "#"
+      }" target="_blank">Kockázati Figyelmeztetést</a>, az <a href="${
+        brand.officialTerms?.links.termsAndConditions?.hu || "#"
+      }" target="_blank">Általános Szerződési Feltételeket</a> és a <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.hu || "#"
+      }" target="_blank">Végrehajtási Szabályzatot</a>`,
+      th: `ฉันได้อ่าน ทำความเข้าใจ และยอมรับ <a href="${
+        brand.officialTerms?.links.privacyPolicy?.th || "#"
+      }" target="_blank">นโยบายความเป็นส่วนตัว</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.th || "#"
+      }" target="_blank">คำเตือนความเสี่ยง</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.th || "#"
+      }" target="_blank">ข้อกำหนดและเงื่อนไข</a> และ <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.th || "#"
+      }" target="_blank">นโยบายการดำเนินการตามคำสั่ง</a>`,
+      ms: `Saya telah membaca, memahami dan menerima <a href="${
+        brand.officialTerms?.links.privacyPolicy?.ms || "#"
+      }" target="_blank">Dasar Privasi</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.ms || "#"
+      }" target="_blank">Amaran Risiko</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.ms || "#"
+      }" target="_blank">Terma dan Syarat</a> dan <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.ms || "#"
+      }" target="_blank">Dasar Pelaksanaan Pesanan</a>`,
+      vi: `Tôi đã đọc, hiểu và chấp nhận <a href="${
+        brand.officialTerms?.links.privacyPolicy?.vi || "#"
+      }" target="_blank">Chính sách Bảo mật</a>, <a href="${
+        brand.officialTerms?.links.riskWarning?.vi || "#"
+      }" target="_blank">Cảnh báo Rủi ro</a>, <a href="${
+        brand.officialTerms?.links.termsAndConditions?.vi || "#"
+      }" target="_blank">Điều khoản và Điều kiện</a> và <a href="${
+        brand.officialTerms?.links.orderExecutionPolicy?.vi || "#"
+      }" target="_blank">Chính sách Thực hiện Lệnh</a>`,
+    },
   };
 }

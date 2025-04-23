@@ -329,6 +329,26 @@ function FormCheckBoxes({
       </>
     );
 
+  if (componentProps.features?.includes(Features.officialTerms))
+    return (
+      <>
+        <FormCheckBox
+          id={id}
+          label={translations.agree1ESMA[componentProps.lang]}
+          classLabel="agreementClassic"
+        />
+        <FormCheckBox
+          id={id}
+          label={
+            componentProps.license === "cysec"
+              ? translations.officialTerms_CYSEC[componentProps.lang]
+              : translations.officialTerms_FSA[componentProps.lang]
+          }
+          classLabel="agreementClassicFSA"
+        />
+      </>
+    );
+
   if (componentProps.lpType === "classic")
     return (
       <FormCheckBox

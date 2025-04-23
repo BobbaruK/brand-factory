@@ -1,3 +1,4 @@
+import type { OfficialTerms } from "../brands/official-terms";
 import type { FooterMetaData } from "../footer";
 import type { LicenseType } from "../lp-params-type";
 import type { TranslationsType } from "../translations";
@@ -14,6 +15,7 @@ export interface BrandArrItem<TSVGLogoVariations> {
   whatsapp: boolean;
   whatsappNumber: TranslationsType;
   footerMetaData?: FooterMetaData;
+  officialTerms?: OfficialTerms;
 }
 
 interface BrandItemImages<TSVGLogoVariations> {

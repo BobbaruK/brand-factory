@@ -1,6 +1,7 @@
 export enum Features {
+  showcase = "Showcase",
   readyForMail = "Ready for mail",
   outbrain = "Outbrain",
   atheneum = "Atheneum",
-  showcase = "Showcase",
+  officialTerms = "Official Terms and Conditions",
 }
