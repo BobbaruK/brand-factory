@@ -15,10 +15,11 @@ import Layout from "../layouts/Layout.astro";
 const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
+  // Features.showcase,
   // Features.readyForMail,
-  Features.outbrain,
+  // Features.outbrain,
   // Features.atheneum,
-  Features.showcase,
+  Features.officialTerms,
 ]);
 const registrationType: RegistrationType = "direct_registration";
 
@@ -28,7 +29,7 @@ export interface CustomOptions {
 }
 
 const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
-  lang: "en",
+  lang: "es",
   license,
   lpName: "Home",
   brandObj: brandFactory({
@@ -44,8 +45,7 @@ const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
   registrationType,
   customOptions: {
     logoSquare: false,
-    // asideType: "carousel",
-    textVs: "default",
+    textVs: "A",
   },
   features,
   fxoroFooter: true,
