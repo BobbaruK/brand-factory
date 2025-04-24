@@ -7,11 +7,16 @@ import formFieldsTranslations from "../../translations/formFields";
 interface Props extends React.HTMLProps<HTMLDivElement> {
   componentProps: ComponentProps;
   children: ReactNode;
+  disclaimer?: {
+    active: boolean;
+    text?: string;
+  };
 }
 
 export const ButtonDisclaimer = ({
   componentProps,
   children,
+  disclaimer,
   ...restProps
 }: Props) => {
   const fields = formFieldsTranslations(componentProps.brandObj);
@@ -31,12 +36,19 @@ export const ButtonDisclaimer = ({
 
   const para = paraFN();
   return (
-    <div {...restProps} className={`btn-disc-wrapper ${restProps.className}`}>
+    <div
+      {...restProps}
+      className={`btn-disc-wrapper ${
+        restProps.className ? restProps.className : ""
+      }`}
+    >
       {children}
 
-      <p className="btn-disc-wrapper--disclaimer">
-        {para[componentProps.lang]}
-      </p>
+      {disclaimer?.active !== false && (
+        <p className="btn-disc-wrapper--disclaimer">
+          {disclaimer?.text ? disclaimer.text : para[componentProps.lang]}
+        </p>
+      )}
     </div>
   );
 };
