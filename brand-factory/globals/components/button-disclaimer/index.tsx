@@ -40,14 +40,16 @@ export const ButtonDisclaimer = ({
       {...restProps}
       className={`btn-disc-wrapper ${
         restProps.className ? restProps.className : ""
-      }`}
-    >
+      }`}>
       {children}
 
       {disclaimer?.active !== false && (
-        <p className="btn-disc-wrapper--disclaimer">
-          {disclaimer?.text ? disclaimer.text : para[componentProps.lang]}
-        </p>
+        <p
+          className="btn-disc-wrapper--disclaimer"
+          dangerouslySetInnerHTML={{
+            __html: disclaimer?.text || para[componentProps.lang],
+          }}
+        />
       )}
     </div>
   );
