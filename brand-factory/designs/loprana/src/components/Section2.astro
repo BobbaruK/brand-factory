@@ -1,0 +1,160 @@
+---
+import { icon2 } from "@/constants/icon-2";
+import { icon3 } from "@/constants/icon-3";
+import { icon4 } from "@/constants/icon-4";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { icon1 } from "../constants/icon-1";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Why joining ${componentProps.brandObj.name}?`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: `لماذا تنضم إلى ${componentProps.brandObj.name}`,
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const bullets: {
+  icon: string;
+  para: TranslationsType;
+}[] = [
+  {
+    icon: icon1,
+    para: {
+      en: `50% trading bonus on your first deposit`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `مكافأة تداول 50% على أول إيداع`,
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: icon2,
+    para: {
+      en: `Trusted, regulated trading environment`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `بيئة تداول موثوقة ومنظمة`,
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: icon3,
+    para: {
+      en: `Access to expert market insights`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `وصول إلى تحليلات خبراء السوق`,
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: icon4,
+    para: {
+      en: `Various trading instruments: CFDs, stocks & more`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `أدوات تداول متنوعة: عقود فروقات، أسهم والمزيد`,
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+];
+---
+
+<section
+  id="section2"
+  class="section2 py-section bg-secondary text-secondary-foreground"
+>
+  <div class="space-y-section container md:space-y-6">
+    <h2
+      class="text-heading2 font-black uppercase"
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+    />
+
+    <div class="flex flex-wrap items-start justify-around gap-8">
+      {
+        bullets.map((bullet) => (
+          <div class="flex w-fit flex-col items-center gap-4">
+            <div
+              class="grid place-items-center [&_svg]:h-auto [&_svg]:max-w-[100px] md:[&_svg]:max-w-[150px] xl:[&_svg]:max-w-[170px]"
+              set:html={bullet.icon}
+            />
+            <p
+              class="text-para-lead sm:max-w-[15ch] text-center text-balance"
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 5,
+                    })
+                  : bullet.para[componentProps.lang]
+              }
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -66,6 +66,12 @@
     1.2976rem + 4.7619vw,
     4.75rem
   ); /* 36 - 76 ; 320 - 1160 */
+
+  --spacing-section: clamp(
+    1.25rem,
+    1.0595rem + 0.9524vw,
+    1.75rem
+  ); /* 20 - 28 ; 320 - 1160 */
 }
 
 @theme inline {
