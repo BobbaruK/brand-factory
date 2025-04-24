@@ -2,13 +2,11 @@
 import { icon2 } from "@/constants/icon-2";
 import { icon3 } from "@/constants/icon-3";
 import { icon4 } from "@/constants/icon-4";
-import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
 import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { icon1 } from "../constants/icon-1";
-import { Button } from "./ui/button";
 
 interface Props {
   componentProps: ComponentProps;
@@ -143,7 +141,7 @@ const bullets: {
               set:html={bullet.icon}
             />
             <p
-              class="text-para-lead sm:max-w-[15ch] text-center text-balance"
+              class="text-para-lead text-center text-balance sm:max-w-[15ch]"
               set:html={
                 componentProps.features?.includes(Features.showcase)
                   ? showcase({
