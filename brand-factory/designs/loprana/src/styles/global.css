@@ -46,14 +46,26 @@
 
   --text-para-lead: clamp(
     1rem,
-    0.9167rem + 0.4167vw,
-    1.25rem
-  ); /* 16 - 20 ; 320 - 1280 */
+    0.8095rem + 0.9524vw,
+    1.5rem
+  ); /* 16 - 24 ; 320 - 1160 */
   --text-para-lead--line-height: clamp(
     1.25rem,
-    1rem + 1.25vw,
+    0.9643rem + 1.4286vw,
     2rem
-  ); /* 20 - 32 ; 320 - 1280 */
+  ); /* 20 - 32 ; 320 - 1160 */
+
+  --text-button-size: clamp(
+    1.125rem,
+    0.9821rem + 0.7143vw,
+    1.5rem
+  ); /* 18 - 24 ; 320 - 1160 */
+
+  --spacing-header: clamp(
+    2.25rem,
+    1.2976rem + 4.7619vw,
+    4.75rem
+  ); /* 36 - 76 ; 320 - 1160 */
 }
 
 @theme inline {
@@ -95,7 +107,7 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);

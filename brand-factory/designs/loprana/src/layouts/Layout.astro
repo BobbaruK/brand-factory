@@ -87,3 +87,10 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
   import { initModal } from "../../../../globals/components/custom-dialog/init.ts";
   initModal();
 </script>
+
+<style is:global>
+  @reference "../styles/global.css";
+  button {
+    @apply text-button-size;
+  }
+</style>

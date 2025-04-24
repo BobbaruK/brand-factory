@@ -1,20 +1,165 @@
 ---
+import { cn } from "@/lib/utils";
 import { type CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
+import { showcase } from "../../../../globals/features/showcase/text";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import bgDesktop from "../assets/bg-hero-header.png";
+import man from "../assets/50-man.png";
+import { Button } from "./ui/button";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `<span class="text-primary">Get a 50% trading bonus</span> with your first deposit!`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: `احصل على مكافأة تداول 50% مع أول إيداع لك`,
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `Boost your trading power from day one. Create an account with ${componentProps.brandObj.name}. Then, make a deposit and receive up to 50% trading (non-withdrawable) power  to trade CFDs on gold, forex, indices, stocks, and more.`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: `عزّز قوتك في التداول من اليوم الأول. أنشئ حساباً مع ${componentProps.brandObj.name}، ثم قم بالإيداع واحصل على مكافأة تداول (غير قابلة للسحب) تصل إلى 50% لتداول عقود الفروقات على الذهب، الفوركس، المؤشرات، الأسهم والمزيد.`,
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: `Claim your bonus and start trading now!`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: `اطلب مكافأتك وابدأ التداول الآن`,
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+];
+
+const button: TranslationsType = {
+  en: `Open an account`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `افتح حساباً`,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
 ---
 
-<header id="header">
-  <div class="container">
+<header id="header" class="relative overflow-clip text-white">
+  <div class="pt-header relative z-20 container">
     <MainLogo
       size={componentProps.brandObj.nameToLower}
       logo={componentProps.logo()}
       square={componentProps.customOptions?.logoSquare}
     />
   </div>
+  <div
+    class="md:pb-header relative z-20 container space-y-4 pt-4 md:space-y-6 md:pt-6 lg:space-y-8 lg:pt-8"
+  >
+    <h1
+      class="text-heading1 max-w-[25ch] font-black uppercase"
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+    />
+    {
+      paras.map((para, index) => (
+        <p
+          class="text-para-lead max-w-[35ch]"
+          set:html={
+            componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: index === 0 ? 15 : 5,
+                })
+              : para[componentProps.lang]
+          }
+        />
+      ))
+    }
+    <ButtonDisclaimer componentProps={componentProps} client:load>
+      <Button
+        variant={"white"}
+        className={"js-modal-trigger w-full cursor-pointer p-6 font-black uppercase"}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : button[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+
+    <Image
+      src={man}
+      alt="Man holding 50% sign"
+      class={cn(
+        "pointer-events-none -z-10 max-w-[clamp(15.625rem,_7.2917rem_+_41.6667vw,_37.5rem)] absolute bottom-0 -end-24 xl:end-0 w-full max-md:static mx-auto",
+      )}
+      widths={[320, 576, 640, 768, 1024, 1280, 1536, bgDesktop.width]}
+      sizes={`100vw`}
+    />
+  </div>
+  <!-- 
+  <div
+    class="bg-secondary/70 pointer-events-none absolute inset-0 z-10 h-full w-full"
+  >
+  </div> -->
+
+  <Image
+    src={bgDesktop}
+    alt="Background"
+    class={cn(
+      "pointer-events-none z-0 w-full object-cover absolute inset-0 h-full ",
+      { "scale-x-[-1]": componentProps.lang === "ar" },
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bgDesktop.width]}
+    sizes={`100vw`}
+  />
 </header>
