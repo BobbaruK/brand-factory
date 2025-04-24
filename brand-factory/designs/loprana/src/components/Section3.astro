@@ -1,0 +1,46 @@
+---
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const button: TranslationsType = {
+  en: `Boost your first deposit`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `عزّز أول إيداع لك`,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section3" class="section3 py-section">
+  <div class="container">
+    <ButtonDisclaimer componentProps={componentProps}>
+      <Button
+        className={"js-modal-trigger w-full cursor-pointer p-6 font-black uppercase"}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : button[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>
