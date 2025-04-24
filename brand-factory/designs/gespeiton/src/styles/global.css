@@ -54,6 +54,22 @@
     1rem + 1.25vw,
     2rem
   ); /* 20 - 32 ; 320 - 1280 */
+
+  --spacing-ySpacing: clamp(
+    1rem,
+    0.5833rem + 2.0833vw,
+    2.25rem
+  ); /* 16 - 36 ; 320 - 1280  */
+  --spacing-custom: clamp(
+    1.75rem,
+    1.6667rem + 0.4167vw,
+    2rem
+  ); /* 28 - 32 ; 320 - 1280  */
+  --spacing-space: clamp(
+    1rem,
+    0.5833rem + 2.0833vw,
+    2.25rem
+  ); /* 16 - 36 ; 320 - 1280  */
 }
 
 @theme inline {

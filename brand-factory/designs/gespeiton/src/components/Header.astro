@@ -1,20 +1,127 @@
 ---
-import { type CustomOptions } from "@/pages/index.astro";
+import { formButtonTranslation } from "@/translations/form-button";
+import { Image } from "astro:assets";
+import Form from "../../../../globals/components/Form";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
-import { type ComponentProps } from "../../../../globals/types/component-props";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import background from "../assets/hero-bg.png";
+import type { CustomOptions } from "../pages/index.astro";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Ready to enhance your trading potential?`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `In trading, the key factor is the quality and reliability of the service you receive.`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `The goal of ${componentProps.brandObj.name} is to offer you professional signals and tools from a network of qualified traders who are always ready to listen and support you in taking the best decisions for your investments.`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header class="relative max-lg:border-b-2">
+  <Image
+    src={background}
+    alt="Background"
+    class="absolute inset-0 z-0 h-full w-full object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+    loading={"eager"}
+  />
+  <div
+    class="absolute inset-0 z-10 h-full w-full bg-[linear-gradient(90deg,_oklch(from_var(--primary)_l_c_h_/_0.9)_0%,_oklch(from_var(--primary)_l_c_h_/_0.9)_80%,_oklch(from_var(--primary)_l_c_h_/_0)_100%)] lg:right-auto lg:w-2/3"
+  >
+  </div>
+  <div class="text-primary-foreground relative z-20">
+    <div class="py-ySpacing container">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+    <div class="gap-custom lg:pb-ySpacing container flex flex-col lg:flex-row">
+      <div class="gap-custom flex grow flex-col justify-center">
+        <h1
+          class="text-heading1 leading-heading1 text-secondary font-black uppercase lg:max-w-[25ch]"
+          set:html={title[componentProps.lang]}
+        />
+        {
+          paras.map((para) => (
+            <p
+              class="text-paras lg:max-w-[40ch] xl:text-[24px]"
+              set:html={para[componentProps.lang]}
+            />
+          ))
+        }
+      </div>
+      <div
+        class="bg-background text-foreground py-4 max-lg:[box-shadow:_0_0_0_100vmax_var(--background)] max-lg:[clip-path:_inset(0_-100vmax)] lg:min-w-[40%] lg:p-8 xl:p-10"
+      >
+        <Form
+          componentProps={componentProps}
+          button={formButtonTranslation[componentProps.lang]}
+          id="hero-form"
+        />
+      </div>
+    </div>
   </div>
 </header>
+
+<style lang="scss" is:global>
+  @reference "../styles/global.css";
+
+  .submitButtonWrapper button {
+    @apply text-para-lead font-bold uppercase;
+  }
+</style>
