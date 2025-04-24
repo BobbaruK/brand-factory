@@ -7,6 +7,8 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import background from "../assets/hero-bg.png";
 import type { CustomOptions } from "../pages/index.astro";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -93,14 +95,24 @@ const paras: TranslationsType[] = [
     <div class="gap-custom lg:pb-ySpacing container flex flex-col lg:flex-row">
       <div class="gap-custom flex grow flex-col justify-center">
         <h1
-          class="text-heading1 leading-heading1 text-secondary font-black uppercase lg:max-w-[25ch]"
-          set:html={title[componentProps.lang]}
+          class="text-heading1 leading-heading1 text-secondary font-black text-balance uppercase lg:max-w-[25ch]"
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 5,
+              })
+            : title[componentProps.lang]}
         />
         {
-          paras.map((para) => (
+          paras.map((para, index) => (
             <p
-              class="text-para-lead lg:max-w-[40ch] xl:text-[24px]"
-              set:html={para[componentProps.lang]}
+              class="text-para-lead text-balance lg:max-w-[40ch] xl:text-[24px]"
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: index === 0 ? 30 : 10,
+                    })
+                  : para[componentProps.lang]
+              }
             />
           ))
         }
@@ -110,7 +122,11 @@ const paras: TranslationsType[] = [
       >
         <Form
           componentProps={componentProps}
-          button={formButtonTranslation[componentProps.lang]}
+          button={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : formButtonTranslation[componentProps.lang]}
           id="hero-form"
         />
       </div>

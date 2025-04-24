@@ -75,14 +75,24 @@ const buttonLabel: TranslationsType = {
   <div class="gap-custom container flex flex-col sm:items-center">
     <h2
       class="text-heading2 leading-heading2 text-secondary font-black uppercase"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
     />
 
     {
       paras.map((para) => (
         <p
           class="text-para-lead max-w-[70ch]"
-          set:html={para[componentProps.lang]}
+          set:html={
+            componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 15,
+                })
+              : para[componentProps.lang]
+          }
         />
       ))
     }

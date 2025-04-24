@@ -4,6 +4,8 @@ import { icon2 } from "@/constants/icon2";
 import { icon3 } from "@/constants/icon3";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -151,7 +153,11 @@ const articles: {
   <div class="container">
     <h2
       class="text-heading2 leading-heading2 font-black uppercase sm:text-center"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
     />
   </div>
   <div
@@ -166,11 +172,23 @@ const articles: {
           />
           <h3
             class="text-heading3 leading-heading3 text-primary font-black"
-            set:html={article.title[componentProps.lang]}
+            set:html={
+              componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 2,
+                  })
+                : article.title[componentProps.lang]
+            }
           />
           <p
             class="text-para-lead lg:max-w-[25ch]"
-            set:html={article.para[componentProps.lang]}
+            set:html={
+              componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 10,
+                  })
+                : article.para[componentProps.lang]
+            }
           />
         </article>
       ))

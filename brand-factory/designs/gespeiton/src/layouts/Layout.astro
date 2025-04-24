@@ -10,6 +10,8 @@ import "@fontsource/poppins/700.css";
 import "@fontsource/poppins/900.css";
 import Form from "../../../../globals/components/Form";
 import { formButtonTranslation } from "@/translations/form-button";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -72,7 +74,11 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
     <Dialog>
       <Form
         componentProps={componentProps}
-        button={formButtonTranslation[componentProps.lang]}
+        button={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : formButtonTranslation[componentProps.lang]}
         id="dialog-form"
       />
     </Dialog>
