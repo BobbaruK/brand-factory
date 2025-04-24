@@ -1,0 +1,107 @@
+---
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { Button } from "./ui/button";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `A world of opportunities, right in front of you!`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `Fill in the form to get in touch with one of our representatives and set up your trading goals. Expect us to get back to you in a matter of maximum 2 working days.`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+
+const buttonLabel: TranslationsType = {
+  en: `Contact us`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section
+  id="section2"
+  class="section2 bg-primary py-ySpacing text-primary-foreground sm:text-center"
+>
+  <div class="gap-custom container flex flex-col sm:items-center">
+    <h2
+      class="text-heading2 leading-heading2 text-secondary font-black uppercase"
+      set:html={title[componentProps.lang]}
+    />
+
+    {
+      paras.map((para) => (
+        <p
+          class="text-para-lead max-w-[70ch]"
+          set:html={para[componentProps.lang]}
+        />
+      ))
+    }
+
+    <ButtonDisclaimer
+      componentProps={componentProps}
+      disclaimer={{
+        active: false,
+      }}
+    >
+      <Button
+        variant={"white"}
+        className={"js-modal-trigger w-full cursor-pointer p-6 px-16 font-black uppercase"}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>

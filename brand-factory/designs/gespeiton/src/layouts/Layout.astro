@@ -8,6 +8,8 @@ import "../styles/global.css";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/700.css";
 import "@fontsource/poppins/900.css";
+import Form from "../../../../globals/components/Form";
+import { formButtonTranslation } from "@/translations/form-button";
 
 interface Props {
   componentProps: ComponentProps;
@@ -67,7 +69,13 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    <Dialog> Dialog Content Here! </Dialog>
+    <Dialog>
+      <Form
+        componentProps={componentProps}
+        button={formButtonTranslation[componentProps.lang]}
+        id="dialog-form"
+      />
+    </Dialog>
     <BackToTop />
     <script
       type="module"
@@ -88,3 +96,10 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
   import { initModal } from "../../../../globals/components/custom-dialog/init.ts";
   initModal();
 </script>
+
+<style is:global>
+  @reference "../styles/global.css";
+  button {
+    @apply md:text-para-lead;
+  }
+</style>
