@@ -5,6 +5,9 @@ import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
 import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import "../styles/global.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/poppins/900.css";
 
 interface Props {
   componentProps: ComponentProps;
@@ -28,7 +31,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
   data-wanumber={componentProps.brandObj.whatsapp
     ? componentProps.brandObj.whatsappNumber[lang]
     : false}
-  data-lpfeatures={componentProps.features?.join(', ')}
+  data-lpfeatures={componentProps.features?.join(", ")}
 >
   <head>
     <meta charset="utf-8" />
@@ -49,6 +52,10 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
         html {
           scroll-behavior: auto;
         }
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
       }
     </style>
   </head>
