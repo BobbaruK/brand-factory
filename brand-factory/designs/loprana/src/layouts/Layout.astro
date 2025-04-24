@@ -1,12 +1,16 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
 import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
+import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import "../styles/global.css";
 // Supports weights 100-900
 import "@fontsource-variable/montserrat";
+import Form from "../../../../globals/components/form";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
 
 interface Props {
   componentProps: ComponentProps;
@@ -15,6 +19,24 @@ interface Props {
 const { componentProps } = Astro.props;
 
 const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
+
+const btnLabel: TranslationsType = {
+  en: `Open an account`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `افتح حساباً`,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
 ---
 
 <!doctype html>
@@ -66,7 +88,16 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    <Dialog> Dialog Content Here! </Dialog>
+    <Dialog>
+      <Form
+        componentProps={componentProps}
+        button={componentProps.features?.includes(Features.showcase)
+          ? showcase({ words: 1 })
+          : btnLabel[componentProps.lang]}
+        id="modal-form"
+        layout={2}
+      /></Dialog
+    >
     <BackToTop />
     <script
       type="module"
@@ -91,6 +122,6 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
 <style is:global>
   @reference "../styles/global.css";
   button {
-    @apply text-button-size;
+    @apply text-button-size h-auto py-1 text-wrap;
   }
 </style>

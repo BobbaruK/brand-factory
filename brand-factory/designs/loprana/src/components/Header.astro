@@ -18,7 +18,7 @@ interface Props {
 const { componentProps } = Astro.props;
 
 const title: TranslationsType = {
-  en: `<span class="text-primary">Get a 50% trading bonus</span> with your first deposit!`,
+  en: `Get a 50% trading bonus with your first deposit!`,
   it: "",
   tr: "",
   ro: "",
@@ -103,7 +103,7 @@ const button: TranslationsType = {
     class="md:pb-header relative z-20 container space-y-4 pt-4 md:space-y-6 md:pt-6 lg:space-y-8 lg:pt-8"
   >
     <h1
-      class="text-heading1 max-w-[25ch] font-black uppercase"
+      class="text-heading1 text-primary max-w-[25ch] font-black text-balance uppercase"
       set:html={componentProps.features?.includes(Features.showcase)
         ? showcase({
             words: 5,
