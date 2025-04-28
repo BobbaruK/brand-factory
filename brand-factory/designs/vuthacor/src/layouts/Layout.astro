@@ -1,12 +1,16 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
 import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
+import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import "../styles/global.css";
 // Supports weights 200-700
+import { formButtonTranslation } from "@/translations/form-button";
 import "@fontsource-variable/oswald";
+import Form from "../../../../globals/components/Form";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps;
@@ -68,7 +72,17 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    <Dialog> Dialog Content Here! </Dialog>
+    <Dialog>
+      <Form
+        componentProps={componentProps}
+        button={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : formButtonTranslation[componentProps.lang]}
+        id="dialog-form"
+      />
+    </Dialog>
     <BackToTop />
     <script
       type="module"
