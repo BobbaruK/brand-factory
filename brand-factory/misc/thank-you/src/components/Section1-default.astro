@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import image from "../assets/guy.png";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Thank you for your <span class="text-primary">registration!</span>`,
+  it: `Grazie per la tua <span class="text-primary">registrazione!</span>`,
+  tr: `Kaydınız için <span class="text-primary">teşekkür ederiz!</span>`,
+  ro: `Mulțumim pentru <span class="text-primary">înregistrare!</span>`,
+  ar: `شكرًا على <span class="text-primary">تسجيلك!</span>`,
+  de: `Vielen Dank für Ihre <span class="text-primary">Registrierung!</span>`,
+  es: `¡Gracias por su <span class="text-primary">registro!</span>`,
+  sv: `Tack för att du <span class="text-primary">registrerar!</span>`,
+  pt: `Obrigado pela sua <span class="text-primary">inscrição!</span>`,
+  fi: `Kiitos <span class="text-primary">rekisteröitymisestäsi!</span>`,
+  pl: `Dziękujemy za <span class="text-primary">rejestrację!</span>`,
+  hu: `Köszönjük a <span class="text-primary">regisztrációdat!</span>`,
+  th: `ขอบคุณสำหรับ<span class="text-primary">การลงทะเบียนของคุณ!</span>`,
+  ms: `Terima kasih atas <span class="text-primary">pendaftaran anda!</span>`,
+  vi: `Cảm ơn bạn đã <span class="text-primary">đăng ký!</span>`,
+};
+
+const para: TranslationsType = {
+  en: `Your interest means a great deal, and we're excited to connect with you soon. We're committed to providing you with personalized attention and information you might need, so expect a call from our team within the next 24 to 48 working hours.`,
+  it: `Il tuo interesse è molto importante e siamo entusiasti di poterti contattare presto. Ci impegniamo a fornirti attenzione personalizzata e le informazioni di cui potresti aver bisogno, quindi aspettati una chiamata dal nostro team entro le prossime 24-48 ore lavorative.`,
+  tr: `İlginiz bizim için çok değerli ve yakında sizinle iletişime geçmek için sabırsızlanıyoruz. Size kişiselleştirilmiş ilgi ve gerekli bilgileri sağlama taahhüdü veriyoruz, bu yüzden ekibimizden önümüzdeki 24 ila 48 iş saati içinde bir telefon bekleyin.`,
+  ro: `Interesul dvs. înseamnă foarte mult și suntem încântați să ne conectăm în curând. Ne angajăm să vă oferim atenție personalizată și informații de care ați putea avea nevoie, așa că așteptați-vă la un apel din partea echipei noastre în următoarele 24 până la 48 de ore lucrătoare.`,
+  ar: `اهتمامك يعني لنا الكثير ونتطلع إلى التواصل معك قريبًا. نحن ملتزمون بتقديم اهتمام شخصي ومعلومات قد تحتاجها، لذا توقع مكالمة من فريقنا خلال الـ 24 إلى 48 ساعة عمل القادمة.`,
+  de: `Ihr Interesse bedeutet uns sehr viel und wir freuen uns darauf, bald mit Ihnen in Kontakt zu treten. Wir verpflichten uns, Ihnen persönliche Betreuung und alle benötigten Informationen zu bieten. Erwarten Sie daher einen Anruf von unserem Team innerhalb der nächsten 24 bis 48 Arbeitsstunden.`,
+  es: `Su interés significa mucho y estamos entusiasmados de conectarnos con usted pronto. Estamos comprometidos a brindarle la atención personalizada y la información que pueda necesitar, así que espere una llamada de nuestro equipo dentro de las próximas 24 a 48 horas hábiles.`,
+  sv: `Vi uppskattar ditt intresse och ser fram emot att kontakta dig snart. Vi kommer att se till att förse dig med all nödvändig information och svara på dina frågor, så förvänta dig ett samtal från vårt team inom de närmaste 24-48 timmarna.`,
+  pt: `Seu interesse é muito importante para nós e estamos ansiosos para entrar em contato com você em breve. Estamos comprometidos em fornecer atenção personalizada e informações que você possa precisar, então espere uma ligação da nossa equipe dentro das próximas 24 a 48 horas úteis.`,
+  fi: `Kiitos mielenkiinnostasi! Odotamme innolla yhteydenottoa kanssasi. Sitoudumme tarjoamaan sinulle henkilökohtaista huomiota ja tarvittavaa tietoa, joten odota tiimiltämme puhelua seuraavien 24–48 työajan sisällä.`,
+  pl: `Twoje zainteresowanie wiele dla nas znaczy i cieszymy się, że wkrótce będziemy mogli się z Tobą skontaktować. Zależy nam na zapewnieniu spersonalizowanej uwagi i informacji, których możesz potrzebować, więc spodziewaj się telefonu od naszego zespołu w ciągu najbliższych 24 do 48 godzin roboczych.`,
+  hu: `Az érdeklődésed sokat jelent számunkra, és alig várjuk, hogy hamarosan kapcsolatba lépjünk veled. Elkötelezettek vagyunk abban, hogy személyre szabott figyelmet és a szükséges információkat biztosítsunk számodra, ezért számíts egy hívásra a csapatunktól a következő 24-48 munkaórán belül.`,
+  th: `เราขอขอบคุณในความสนใจของคุณ และเราตื่นเต้นที่จะได้ติดต่อคุณในเร็ว ๆ นี้ เรามุ่งมั่นที่จะให้ความสนใจและข้อมูลส่วนบุคคลที่คุณอาจต้องการ ดังนั้นคาดว่าจะมีสายจากทีมงานของเราในอีก 24 ถึง 48 ชั่วโมงทำการข้างหน้า`,
+  ms: `Minat anda sangat bermakna kepada kami dan kami teruja untuk berhubung dengan anda tidak lama lagi. Kami komited untuk memberikan perhatian dan maklumat peribadi yang anda perlukan, jadi jangkakan panggilan daripada pasukan kami dalam masa 24 hingga 48 jam bekerja.`,
+  vi: `Sự quan tâm của bạn có ý nghĩa rất lớn đối với chúng tôi và chúng tôi rất mong được kết nối với bạn sớm. Chúng tôi cam kết cung cấp cho bạn sự quan tâm cá nhân và thông tin cần thiết, vì vậy hãy chờ đợi cuộc gọi từ nhóm của chúng tôi trong vòng 24 đến 48 giờ làm việc tới.`,
+};
+---
+
+<section id="section1" class="py-4 lg:py-10">
+  <div class="container grid place-items-center gap-8">
+    <div
+      class="flex grow flex-col items-center justify-center gap-4 text-center lg:gap-8"
+    >
+      <h1
+        class="text-heading1 leading-tight font-black uppercase"
+        set:html={title[componentProps.lang]}
+      />
+      <p class="text-para-lead" set:html={para[componentProps.lang]} />
+    </div>
+    <div class="relative grid place-items-center lg:w-[400px] lg:min-w-[400px]">
+      <Image
+        src={image}
+        alt="Introduction to trading"
+        class="relative z-10 w-full max-w-[350px] lg:mt-8"
+        widths={[320, 576, image.width]}
+        loading="eager"
+        sizes={`
+          (max-width: 320px) 270px,
+          350px
+        `}
+      />
+    </div>
+  </div>
+</section>

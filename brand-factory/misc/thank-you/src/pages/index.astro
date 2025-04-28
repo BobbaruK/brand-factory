@@ -1,7 +1,8 @@
 ---
-import Section1 from "@/components/Section1.astro";
+import Section1Default from "@/components/Section1-default.astro";
+import Section1V1 from "@/components/Section1-v1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type OracleSignalsSVGVariation } from "../../../../globals/types/brands/logo";
+import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 // import { Features } from "../../../../globals/types/enums";
 import type {
@@ -23,17 +24,18 @@ const registrationType: RegistrationType = "classic";
 
 export interface CustomOptions {
   logoSquare: boolean;
+  designVersion?: "default" | "v1";
 }
 
 const componentProps: ComponentProps<
-  OracleSignalsSVGVariation,
+  TradingAtheneumSVGVariation,
   CustomOptions
 > = {
-  lang: "es",
+  lang: "ar",
   license,
   lpName: "Thank You!",
   brandObj: brandFactory({
-    brand: "oracle-signals",
+    brand: "tradingatheneum",
     license,
     whatsapp: false,
     features,
@@ -45,6 +47,7 @@ const componentProps: ComponentProps<
   registrationType,
   customOptions: {
     logoSquare: false,
+    designVersion: "v1",
   },
   features,
   // fxoroFooter: true,
@@ -52,7 +55,18 @@ const componentProps: ComponentProps<
 ---
 
 <Layout componentProps={componentProps}>
-  <div class="grid h-full place-items-center">
-    <Section1 componentProps={componentProps} />
-  </div>
+  {
+    (componentProps.customOptions?.designVersion === undefined ||
+      componentProps.customOptions?.designVersion === "default") && (
+      <div class="grid h-full place-items-center">
+        <Section1Default componentProps={componentProps} />
+      </div>
+    )
+  }
+
+  {
+    componentProps.customOptions?.designVersion === "v1" && (
+      <Section1V1 componentProps={componentProps} />
+    )
+  }
 </Layout>

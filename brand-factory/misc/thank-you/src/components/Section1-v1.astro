@@ -1,0 +1,128 @@
+---
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import image from "../assets/woman.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Thank you for registering with <span class="text-primary">${componentProps.brandObj.name}!</span>`,
+  it: `Grazie per esserti registrato a <span class="text-primary">${componentProps.brandObj.name}!</span>`,
+  tr: `<span class="text-primary">${componentProps.brandObj.name}</span> ile kaydolduğunuz için teşekkür ederiz!`,
+  ro: `Mulțumim că v-ați înregistrat la <span class="text-primary">${componentProps.brandObj.name}!</span>`,
+  ar: `شكرًا لتسجيلك في <span class="text-primary">${componentProps.brandObj.name}!</span>`,
+  de: `Danke für Ihre Registrierung bei <span class="text-primary">${componentProps.brandObj.name}!</span>`,
+  es: `Gracias por registrarte en <span class="text-primary">${componentProps.brandObj.name}!</span>`,
+  sv: `Tack för att du registrerade dig hos <span class="text-primary">${componentProps.brandObj.name}!</span>`,
+  pt: `Obrigado por se registrar na <span class="text-primary">${componentProps.brandObj.name}!</span>`,
+  fi: `Kiitos, että rekisteröidyit palveluun <span class="text-primary">${componentProps.brandObj.name}!</span>`,
+  pl: `Dziękujemy za rejestrację w <span class="text-primary">${componentProps.brandObj.name}!</span>`,
+  hu: `Köszönjük, hogy regisztráltál a(z) <span class="text-primary">${componentProps.brandObj.name}!</span> oldalra!`,
+  th: `ขอบคุณที่ลงทะเบียนกับ <span class="text-primary">${componentProps.brandObj.name}!</span>`,
+  ms: `Terima kasih kerana mendaftar dengan <span class="text-primary">${componentProps.brandObj.name}!</span>`,
+  vi: `Cảm ơn bạn đã đăng ký tại <span class="text-primary">${componentProps.brandObj.name}!</span>`,
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `Congratulations on taking this important step toward enhancing your trading knowledge. We're here to support you on your journey.`,
+    it: `Congratulazioni per aver compiuto questo importante passo nel migliorare le tue competenze di trading. Siamo qui per supportarti nel tuo percorso.`,
+    tr: `Tebrikler! Ticaret bilginizi geliştirmek için attığınız bu önemli adımda yanınızdayız.`,
+    ro: `Felicitări pentru acest pas important către îmbunătățirea cunoștințelor tale de tranzacționare. Suntem aici să te susținem în această călătorie.`,
+    ar: `تهانينا على اتخاذك هذه الخطوة المهمة لتعزيز معرفتك بالتداول. نحن هنا لدعمك في رحلتك.`,
+    de: `Glückwunsch zu diesem wichtigen Schritt zur Erweiterung Ihres Handelswissens. Wir sind hier, um Sie auf Ihrem Weg zu unterstützen.`,
+    es: `Felicitaciones por dar este importante paso para mejorar tus conocimientos de trading. Estamos aquí para apoyarte en tu camino.`,
+    sv: `Grattis till att du tagit detta viktiga steg mot att förbättra din handelskunskap. Vi är här för att stötta dig på din resa.`,
+    pt: `Parabéns por dar este importante passo para aprimorar seu conhecimento em trading. Estamos aqui para apoiá-lo em sua jornada.`,
+    fi: `Onnittelut tästä tärkeästä askeleesta kaupankäyntitietojesi parantamiseksi. Olemme täällä tukemassa sinua matkallasi.`,
+    pl: `Gratulacje za podjęcie tego ważnego kroku w kierunku poszerzenia wiedzy o handlu. Jesteśmy tutaj, aby Cię wspierać.`,
+    hu: `Gratulálunk, hogy megtetted ezt a fontos lépést a kereskedési tudásod fejlesztése felé. Itt vagyunk, hogy támogassunk ezen az úton.`,
+    th: `ขอแสดงความยินดีที่คุณได้ก้าวสำคัญนี้เพื่อพัฒนาความรู้ด้านการซื้อขายของคุณ เราพร้อมสนับสนุนคุณตลอดเส้นทางนี้`,
+    ms: `Tahniah kerana mengambil langkah penting ini untuk meningkatkan pengetahuan dagangan anda. Kami di sini untuk menyokong anda sepanjang perjalanan ini.`,
+    vi: `Chúc mừng bạn đã thực hiện bước quan trọng này để nâng cao kiến thức giao dịch của mình. Chúng tôi ở đây để hỗ trợ bạn trên hành trình này.`,
+  },
+  {
+    en: `Our team will reach out to you within 1 working day to provide the necessary access to the materials you requested.`,
+    it: `Il nostro team ti contatterà entro 1 giorno lavorativo per fornirti l'accesso ai materiali richiesti.`,
+    tr: `Ekibimiz, talep ettiğiniz materyallere erişim sağlamak için 1 iş günü içinde sizinle iletişime geçecektir.`,
+    ro: `Echipa noastră vă va contacta în termen de 1 zi lucrătoare pentru a vă oferi accesul necesar la materialele solicitate.`,
+    ar: `سيتواصل معك فريقنا خلال يوم عمل واحد لتوفير الوصول إلى المواد التي طلبتها.`,
+    de: `Unser Team wird sich innerhalb eines Arbeitstages mit Ihnen in Verbindung setzen, um Ihnen den Zugang zu den angeforderten Materialien bereitzustellen.`,
+    es: `Nuestro equipo se pondrá en contacto contigo en un plazo de 1 día laborable para proporcionarte el acceso necesario a los materiales solicitados.`,
+    sv: `Vårt team kommer att kontakta dig inom en arbetsdag för att ge dig tillgång till det material du begärt.`,
+    pt: `Nossa equipe entrará em contato com você dentro de 1 dia útil para fornecer o acesso necessário aos materiais solicitados.`,
+    fi: `Tiimimme ottaa sinuun yhteyttä yhden arkipäivän kuluessa tarjotakseen sinulle pyytämäsi materiaalien käyttöoikeuden.`,
+    pl: `Nasz zespół skontaktuje się z Tobą w ciągu 1 dnia roboczego, aby zapewnić dostęp do żądanych materiałów.`,
+    hu: `Csapatunk 1 munkanapon belül felveszi Önnel a kapcsolatot, hogy hozzáférést biztosítson a kért anyagokhoz.`,
+    th: `ทีมงานของเราจะติดต่อคุณภายใน 1 วันทำการเพื่อมอบสิทธิ์เข้าถึงวัสดุที่คุณร้องขอ`,
+    ms: `Pasukan kami akan menghubungi anda dalam masa 1 hari bekerja untuk memberikan akses kepada bahan yang anda minta.`,
+    vi: `Nhóm của chúng tôi sẽ liên hệ với bạn trong vòng 1 ngày làm việc để cung cấp quyền truy cập vào các tài liệu bạn đã yêu cầu.`,
+  },
+  {
+    en: `Stay tuned, and we look forward to helping you grow your skills!`,
+    it: `Resta sintonizzato, non vediamo l'ora di aiutarti a crescere nelle tue competenze!`,
+    tr: `Takipte kalın, becerilerinizi geliştirmenize yardımcı olmayı sabırsızlıkla bekliyoruz!`,
+    ro: `Rămâi alături de noi, abia așteptăm să te ajutăm să îți dezvolți abilitățile!`,
+    ar: `تابعنا، ونتطلع إلى مساعدتك في تطوير مهاراتك!`,
+    de: `Bleiben Sie dran – wir freuen uns darauf, Ihnen beim Ausbau Ihrer Fähigkeiten zu helfen!`,
+    es: `¡Mantente atento, estamos ansiosos por ayudarte a mejorar tus habilidades!`,
+    sv: `Håll dig uppdaterad – vi ser fram emot att hjälpa dig att utveckla dina färdigheter!`,
+    pt: `Fique atento, estamos ansiosos para ajudá-lo a desenvolver suas habilidades!`,
+    fi: `Pysy kuulolla – odotamme innolla auttaaksemme sinua kehittämään taitojasi!`,
+    pl: `Bądź na bieżąco – z niecierpliwością czekamy, aby pomóc Ci rozwinąć swoje umiejętności!`,
+    hu: `Maradj velünk, alig várjuk, hogy segítsünk fejleszteni a készségeidet!`,
+    th: `ติดตามเราไว้ แล้วเราหวังว่าจะได้ช่วยพัฒนาทักษะของคุณ!`,
+    ms: `Teruskan bersama kami, kami tidak sabar untuk membantu anda mengembangkan kemahiran anda!`,
+    vi: `Hãy theo dõi chúng tôi, chúng tôi rất mong được hỗ trợ bạn nâng cao kỹ năng của mình!`,
+  },
+];
+---
+
+<section id="section1" class="h-full overflow-clip">
+  <div
+    class="relative container flex h-full flex-col gap-4 py-4 lg:flex-row lg:py-10"
+  >
+    <div
+      class="flex h-full grow flex-col justify-center gap-4 pb-4 lg:gap-8 lg:pb-10 lg:text-start"
+    >
+      <h1
+        class="text-heading1 leading-tight font-black text-balance"
+        set:html={title[componentProps.lang]}
+      />
+      {
+        paras.map((para, index) => {
+          return (
+            <p
+              class={cn("text-para-lead", {
+                "font-bold": (index + 1) % 2 === 0,
+              })}
+              set:html={para[componentProps.lang]}
+            />
+          );
+        })
+      }
+    </div>
+    <div class="relative grid place-items-center lg:w-[400px] lg:min-w-[400px]">
+      <Image
+        src={image}
+        alt="Introduction to trading"
+        class={cn(
+          "relative left-0 z-10 -mb-20 w-full max-w-[350px] lg:absolute lg:bottom-0 lg:h-auto lg:w-[510px] lg:max-w-none",
+          componentProps.lang === "ar" ? "scale-x-[-1]" : "",
+        )}
+        widths={[320, 576, image.width]}
+        loading="eager"
+        sizes={`
+          (max-width: 320px) 270px,
+          (max-width: 1023px) 350px,
+          350px
+        `}
+      />
+    </div>
+  </div>
+</section>
