@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
-import type { Languages, TranslationsType } from "../../types/translations";
-import "./index.scss";
-import type { ComponentProps } from "../../types/component-props";
 import formFieldsTranslations from "../../translations/formFields";
+import type { ComponentProps } from "../../types/component-props";
+import "./index.scss";
 
 interface Props extends React.HTMLProps<HTMLDivElement> {
   componentProps: ComponentProps;
