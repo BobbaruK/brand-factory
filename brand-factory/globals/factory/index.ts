@@ -49,7 +49,6 @@ export const brandFactory = <T>({
           th: "35725205563",
           ms: "35725205563",
           vi: "35725205563",
-          showcase: "00000000000",
         };
 
       case "fsa":
@@ -69,7 +68,6 @@ export const brandFactory = <T>({
           th: "",
           ms: "",
           vi: "",
-          showcase: "00000000000",
         };
     }
   };
