@@ -16,7 +16,7 @@ export const tradingatheneum = (
   whatsapp: boolean,
   whatsappNumber: () => TranslationsType
 ): BrandArrItem<TradingAtheneumSVGVariation> => ({
-  id: 1,
+  id: 13,
   nameToLower: "tradingatheneum",
   name: "Trading Atheneum",
   typage: {

@@ -7,7 +7,7 @@ export const protraderzone = (
   whatsapp: boolean,
   whatsappNumber: () => TranslationsType
 ): BrandArrItem<ProTraderZoneSVGVariation> => ({
-  id: 8,
+  id: 10,
   nameToLower: "protraderzone",
   name: "ProTradersZone",
   typage: {

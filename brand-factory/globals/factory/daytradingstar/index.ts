@@ -7,7 +7,7 @@ export const daytradingstar = (
   whatsapp: boolean,
   whatsappNumber: () => TranslationsType
 ): BrandArrItem<DayTradingStarSVGVariation> => ({
-  id: 6,
+  id: 2,
   nameToLower: "daytradingstar",
   name: "DayTradingStar",
   typage: {

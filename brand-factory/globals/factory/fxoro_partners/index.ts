@@ -7,7 +7,7 @@ export const fxoro_partners = (
   whatsapp: boolean,
   whatsappNumber: () => TranslationsType
 ): BrandArrItem<FXOROPartnersSVGVariation> => ({
-  id: 5,
+  id: 6,
   nameToLower: "fxoro_partners",
   name: "FXORO",
   typage: {

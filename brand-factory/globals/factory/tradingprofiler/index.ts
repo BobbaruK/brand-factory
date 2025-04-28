@@ -15,7 +15,7 @@ export const tradingprofiler = (
   whatsapp: boolean,
   whatsappNumber: () => TranslationsType
 ): BrandArrItem<TradingProfilerSVGVariation> => ({
-  id: 10,
+  id: 14,
   nameToLower: "tradingprofiler",
   name: "TradingProfiler",
   typage: {

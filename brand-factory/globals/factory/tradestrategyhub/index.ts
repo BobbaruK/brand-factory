@@ -49,7 +49,7 @@ export const tradestrategyhub = (
   };
 
   return {
-    id: 7,
+    id: 12,
     nameToLower: "tradestrategyhub",
     name: "TradeStrategyHub",
     typage: {

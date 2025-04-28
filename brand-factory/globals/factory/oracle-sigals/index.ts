@@ -7,7 +7,7 @@ export const oracleSignals = (
   whatsapp: boolean,
   whatsappNumber: () => TranslationsType
 ): BrandArrItem<OracleSignalsSVGVariation> => ({
-  id: 4,
+  id: 8,
   nameToLower: "oracle-signals",
   name: "Oracle Signals",
   typage: {
