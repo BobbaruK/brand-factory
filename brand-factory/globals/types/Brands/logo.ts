@@ -69,3 +69,7 @@ export type TradingAtheneumSVGVariation = {
 export type OracleSignalsSVGVariation = {
   default: string;
 };
+
+export type ArabTradingProSVGVariation = {
+  default: string;
+};

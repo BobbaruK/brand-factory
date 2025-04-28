@@ -15,6 +15,7 @@ import { tradersacademic } from "./tradersacademic";
 import { tradestrategyhub } from "./tradestrategyhub";
 import { tradingatheneum } from "./trading-atheneum";
 import { tradingprofiler } from "./tradingprofiler";
+import { arabTradingPro } from "./arab-trading-pro";
 
 interface BrandFactory {
   brand: BrandsNames;
@@ -116,6 +117,9 @@ export const brandFactory = <T>({
 
     case "oracle-signals":
       return oracleSignals(whatsapp, whatsappNumber) as BrandArrItem<T>;
+
+    case "arabtradingpro":
+      return arabTradingPro(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
     default:
       return investingtips101(whatsapp, whatsappNumber) as BrandArrItem<T>;
