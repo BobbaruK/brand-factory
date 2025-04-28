@@ -7,6 +7,8 @@ import { type ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { textBy } from "../../../../globals/utils/text-by";
 import bgImage from "../assets/topBG.jpg";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -220,11 +222,19 @@ const formButton = textBy(
         square={componentProps.customOptions?.logoSquare}
       />
       <h1
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 10,
+            })
+          : title[componentProps.lang]}
         class="text-heading1 uppercase md:mt-auto"
       />
       <p
-        set:html={para[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 15,
+            })
+          : para[componentProps.lang]}
         class="text-para-lead font-bold uppercase md:mb-auto"
       />
     </div>
@@ -232,12 +242,20 @@ const formButton = textBy(
       class="formWrapper bg-primary flex flex-col gap-8 px-4 py-5 sm:py-7 md:basis-1/2 md:py-9 lg:basis-1/3 lg:py-10 xl:py-12 2xl:py-14"
     >
       <h2
-        set:html={formTitle[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : formTitle[componentProps.lang]}
         class="text-para-lead text-center uppercase"
       />
       <Form
         componentProps={componentProps}
-        button={formButton[componentProps.lang]}
+        button={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 3,
+            })
+          : formButton[componentProps.lang]}
         id="form1"
       />
     </div>
