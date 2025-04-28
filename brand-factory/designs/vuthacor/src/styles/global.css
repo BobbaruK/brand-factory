@@ -54,6 +54,22 @@
     1rem + 1.25vw,
     2rem
   ); /* 20 - 32 ; 320 - 1280 */
+
+  --spacing-ySpacing: clamp(
+    1rem,
+    0.5833rem + 2.0833vw,
+    2.25rem
+  ); /* 16 - 36 ; 320 - 1280  */
+  --spacing-custom: clamp(
+    1.75rem,
+    1.6667rem + 0.4167vw,
+    2rem
+  ); /* 28 - 32 ; 320 - 1280  */
+  --spacing-space: clamp(
+    1rem,
+    0.5833rem + 2.0833vw,
+    2.25rem
+  ); /* 16 - 36 ; 320 - 1280  */
 }
 
 @theme inline {
@@ -95,17 +111,17 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
+  --primary: oklch(0.46 0.14 300.63);
   --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.79 0.17 69.13);
+  --secondary-foreground: oklch(0.22 0.01 267.96);
   --muted: oklch(0.968 0.007 247.896);
   --muted-foreground: oklch(0.554 0.046 257.417);
   --accent: oklch(0.968 0.007 247.896);
