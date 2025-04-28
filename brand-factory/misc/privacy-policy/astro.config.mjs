@@ -6,7 +6,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/privacy-policy/en/",
+  // base: "/privacy-policy/en/",
+  base: "/privacypolicy/ar/",
   trailingSlash: "ignore",
   integrations: [react()],
 

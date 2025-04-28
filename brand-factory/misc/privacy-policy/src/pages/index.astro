@@ -6,9 +6,10 @@ import Section4 from "@/components/Section4.astro";
 import Section5 from "@/components/Section5.astro";
 import Section6 from "@/components/Section6.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type OracleSignalsSVGVariation } from "../../../../globals/types/brands/logo";
+import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 // import { Features } from "../../../../globals/types/enums";
+import { Features } from "../../../../globals/types/enums";
 import type {
   LandingPageType,
   LicenseType,
@@ -22,7 +23,7 @@ const lpType: LandingPageType = "classic";
 const features = checkFeatures([
   // Features.readyForMail,
   // Features.outbrain,
-  // Features.atheneum,
+  Features.atheneum,
 ]);
 const registrationType: RegistrationType = "classic";
 
@@ -31,20 +32,20 @@ export interface CustomOptions {
 }
 
 const componentProps: ComponentProps<
-  OracleSignalsSVGVariation,
+  TradingAtheneumSVGVariation,
   CustomOptions
 > = {
-  lang: "en",
+  lang: "ar",
   license,
-  lpName: "",
+  lpName: "Privacy Policy",
   brandObj: brandFactory({
-    brand: "oracle-signals",
+    brand: "tradingatheneum",
     license,
     whatsapp: false,
     features,
   }),
   logo: function () {
-    return this.brandObj.images.logoSVG.default;
+    return this.brandObj.images.logoSVG.defaultCustom;
   },
   lpType,
   registrationType,
