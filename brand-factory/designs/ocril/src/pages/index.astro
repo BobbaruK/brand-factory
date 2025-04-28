@@ -3,7 +3,7 @@ import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
+import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -28,12 +28,15 @@ export interface CustomOptions {
   logoSquare: boolean;
 }
 
-const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
+const componentProps: ComponentProps<
+  TradingAtheneumSVGVariation,
+  CustomOptions
+> = {
   lang: "ar",
   license,
   lpName: "Freedom to trade",
   brandObj: brandFactory({
-    brand: "fxoro_global",
+    brand: "tradingatheneum",
     license,
     whatsapp: false,
     features,
@@ -47,7 +50,7 @@ const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
     logoSquare: false,
   },
   features,
-  fxoroFooter: true,
+  // fxoroFooter: true,
 };
 ---
 
