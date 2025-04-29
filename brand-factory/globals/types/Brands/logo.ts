@@ -72,4 +72,6 @@ export type OracleSignalsSVGVariation = {
 
 export type ArabTradingProSVGVariation = {
   default: string;
+  defaultWhite: string;
+  defaultBlack: string;
 };

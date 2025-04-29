@@ -1,7 +1,7 @@
 import type { BrandArrItem } from "../../types/brands";
 import type { ArabTradingProSVGVariation } from "../../types/brands/logo";
 import type { TranslationsType } from "../../types/translations";
-import { defaultLogo } from "./logo";
+import { defaultLogo, logoBlack, logoWhite } from "./logo";
 
 export const arabTradingPro = (
   whatsapp: boolean,
@@ -50,7 +50,9 @@ export const arabTradingPro = (
   images: {
     logoSVG: {
       default: defaultLogo,
+      defaultWhite: logoWhite,
+      defaultBlack: logoBlack,
     },
-    faviconLink: "",
+    faviconLink: "https://arabtradingpro.com/global_assets/imgs/favicon.png",
   },
 });
