@@ -13,7 +13,7 @@ interface Props {
 const { componentProps } = Astro.props;
 
 const title: TranslationsType = {
-  en: `Take your trading to the next level`,
+  en: `Level up your trading game`,
   it: ``,
   tr: ``,
   ro: ``,
@@ -55,7 +55,7 @@ const articles: {
       vi: ``,
     },
     para: {
-      en: `Complete the form on this page to get started with ${componentProps.brandObj.name}.`,
+      en: `Fill out the form on this page to begin your journey with ${componentProps.brandObj.name}.`,
       it: ``,
       tr: ``,
       ro: ``,
@@ -75,7 +75,7 @@ const articles: {
   {
     icon: icon2,
     title: {
-      en: `Personalized guidance`,
+      en: `1-on-1 Guidance`,
       it: ``,
       tr: ``,
       ro: ``,
@@ -92,7 +92,7 @@ const articles: {
       vi: ``,
     },
     para: {
-      en: `Speak with a representative to define and achieve your trading goals.`,
+      en: `Chat with a dedicated officer to define your personal trading goals.`,
       it: ``,
       tr: ``,
       ro: ``,
@@ -112,7 +112,7 @@ const articles: {
   {
     icon: icon3,
     title: {
-      en: `Tailored resources`,
+      en: `Custom Tools & Resources`,
       it: ``,
       tr: ``,
       ro: ``,
@@ -129,7 +129,7 @@ const articles: {
       vi: ``,
     },
     para: {
-      en: `Access expert tools, tips, and support designed for your trading success.`,
+      en: `Gain access to expert tools, tips, and ongoing support tailored for you.`,
       it: ``,
       tr: ``,
       ro: ``,
@@ -167,7 +167,7 @@ const articles: {
       articles.map((article) => (
         <article class="flex flex-col gap-2">
           <div
-            class="size-14 self-center lg:size-16 [&>svg]:h-full [&>svg]:w-full"
+            class="size-22 self-center lg:size-32 [&>svg]:h-full [&>svg]:w-full"
             set:html={article.icon}
           />
           <h3
@@ -181,7 +181,7 @@ const articles: {
             }
           />
           <p
-            class="text-para-lead lg:max-w-[25ch]"
+            class="text-para-lead text-balance lg:max-w-[25ch]"
             set:html={
               componentProps.features?.includes(Features.showcase)
                 ? showcase({
