@@ -1,7 +1,7 @@
 ---
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
+import { type ArabTradingProSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -27,20 +27,20 @@ export interface CustomOptions {
 }
 
 const componentProps: ComponentProps<
-  TradingAtheneumSVGVariation,
+  ArabTradingProSVGVariation,
   CustomOptions
 > = {
   lang: "ar",
   license,
   lpName: "Education",
   brandObj: brandFactory({
-    brand: "tradingatheneum",
+    brand: "arabtradingpro",
     license,
     whatsapp: false,
     features,
   }),
   logo: function () {
-    return this.brandObj.images.logoSVG.defaultCustom;
+    return this.brandObj.images.logoSVG.default;
   },
   lpType,
   registrationType,
