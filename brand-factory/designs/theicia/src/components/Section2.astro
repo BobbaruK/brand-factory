@@ -5,7 +5,9 @@ import { icon3_default, icon3_v2 } from "@/constants/icon3";
 import { icon4_default } from "@/constants/icon4";
 import type { CustomOptions } from "@/pages/index.astro";
 import { Image } from "astro:assets";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import screens from "../assets/screens.png";
 import phone from "../assets/signalskityellowcard.png";
@@ -210,8 +212,12 @@ const bullets: {
   <div class="container flex flex-col gap-8 lg:flex-row">
     <div class="lg:grow">
       <h2
-        set:html={title[componentProps.lang]}
-        class="text-HipsterGuy-heading2 pb-2 text-center font-bold uppercase md:text-start lg:mb-16"
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 10,
+            })
+          : title[componentProps.lang]}
+        class="text-heading2 pb-2 text-center font-bold uppercase md:text-start lg:mb-16"
       />
       <div class="mt-8 grid gap-8 md:grid-cols-2 md:gap-x-4 lg:gap-x-2">
         {
@@ -226,19 +232,30 @@ const bullets: {
               <div
                 class={`${index === 2 && componentProps.customOptions?.designVersion === "v1" ? "md:col-span-2" : ""} flex flex-col items-center gap-2 text-center md:items-start md:text-start [&>svg]:max-h-16 [&>svg]:w-auto`}
               >
-                {/* <Image src={bullet.iconImage} alt="Graph presentation" class="w-10 " widths={[320, bullet.iconImage.width]} sizes={`40px`} /> */}
                 <div
                   set:html={bullet.iconImage}
                   class="[&>svg]:h-14 [&>svg]:w-14"
                 />
                 <div>
                   <h3
-                    set:html={bullet.title[componentProps.lang]}
+                    set:html={
+                      componentProps.features?.includes(Features.showcase)
+                        ? showcase({
+                            words: 2,
+                          })
+                        : bullet.title[componentProps.lang]
+                    }
                     class={`text-heading3 font-bold italic ${componentProps.customOptions?.designVersion !== "v1" || !componentProps.customOptions?.designVersion ? "text-secondary" : ""} ${componentProps.customOptions?.designVersion === "v1" ? "" : ""} lg:max-w-[30ch]`}
                   />
                   {bullet.para[componentProps.lang] && (
                     <p
-                      set:html={bullet.para[componentProps.lang]}
+                      set:html={
+                        componentProps.features?.includes(Features.showcase)
+                          ? showcase({
+                              words: 15,
+                            })
+                          : bullet.para[componentProps.lang]
+                      }
                       class="pe-4"
                     />
                   )}
