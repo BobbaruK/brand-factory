@@ -85,7 +85,7 @@ const formButton: TranslationsType = {
 };
 ---
 
-<section class="relative overflow-hidden text-white">
+<section class="relative overflow-clip text-white">
   <Image
     src={bg}
     alt="Apple Laptop Diploma"
@@ -152,6 +152,7 @@ const formButton: TranslationsType = {
             })
           : formButton[componentProps.lang]}
         id="form1"
+        layout={2}
       />
     </div>
   </div>
@@ -164,13 +165,30 @@ const formButton: TranslationsType = {
     &::before,
     &::after {
       content: "";
-      @apply absolute top-0 bottom-0 z-0 h-full w-full bg-[repeating-linear-gradient(-45deg,var(--color-black),var(--color-black)_1px,var(--color-gray-900)_2px,var(--color-gray-900)_4px)] lg:bg-black/50 lg:bg-none;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        var(--color-black),
+        var(--color-black) 1px,
+        var(--color-gray-900) 2px,
+        var(--color-gray-900) 4px
+      );
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 0;
+      height: 100%;
+      width: 10000px;
+
+      @media (min-width: 1024px) {
+        background-image: none;
+        background-color: oklch(from var(--color-black) l c h / 0.5);
+      }
     }
     &::before {
-      left: -100%;
+      left: -10000px;
     }
     &::after {
-      right: -100%;
+      right: -10000px;
     }
   }
   form.registerForm {
@@ -180,68 +198,6 @@ const formButton: TranslationsType = {
     }
     input[disabled] {
       // color: white;
-    }
-
-    .registerFormInner {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: repeat(4, auto);
-      @container (min-width: 750px) {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-      > .form-control {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        @container (min-width: 750px) {
-          grid-column-start: 1;
-          grid-column-end: 3;
-        }
-
-        &.firstNameWrapper {
-          @container (min-width: 430px) {
-            grid-column-start: 1;
-            grid-column-end: 2;
-          }
-        }
-        &.lastNameWrapper {
-          @container (min-width: 430px) {
-            grid-column-start: 2;
-            grid-column-end: 3;
-          }
-        }
-        &.emailWrapper {
-          @container (min-width: 750px) {
-            grid-column-start: 3;
-            grid-column-end: 4;
-          }
-        }
-        &.countryWrapper {
-          @container (min-width: 750px) {
-            grid-column-start: 1;
-            grid-column-end: 2;
-          }
-        }
-        &.phoneNumberWrapper {
-          @container (min-width: 750px) {
-            grid-column-start: 2;
-            grid-column-end: 3;
-          }
-        }
-        &.agreementWrapper,
-        &.riskEsma {
-          @container (min-width: 750px) {
-            grid-column-start: 1;
-            grid-column-end: 4;
-          }
-        }
-        &.submitButtonWrapper {
-          @container (min-width: 750px) {
-            grid-column-start: 3;
-            grid-column-end: 4;
-            grid-row-start: 2;
-            grid-row-end: 3;
-          }
-        }
-      }
     }
 
     .form-control {
