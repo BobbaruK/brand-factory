@@ -9,8 +9,13 @@ interface Props {
 const { componentProps } = Astro.props;
 ---
 
-<header id="header">
-  <div class="container">
+<header
+  id="header"
+  class={`bg-[repeating-linear-gradient(-45deg,var(--color-black),var(--color-black)_1px,var(--color-gray-900)_2px,var(--color-gray-900)_4px)] bg-black py-5`}
+>
+  <div
+    class="container grid place-items-center text-white lg:place-items-start"
+  >
     <MainLogo
       size={componentProps.brandObj.nameToLower}
       logo={componentProps.logo()}
