@@ -1,0 +1,279 @@
+---
+import { icon1_default, icon1_v1 } from "@/constants/icon1";
+import { icon2_default, icon2_v2 } from "@/constants/icon2";
+import { icon3_default, icon3_v2 } from "@/constants/icon3";
+import { icon4_default } from "@/constants/icon4";
+import type { CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import screens from "../assets/screens.png";
+import phone from "../assets/signalskityellowcard.png";
+
+interface Props {
+  componentProps: ComponentProps<any, CustomOptions>;
+}
+const { componentProps } = Astro.props;
+
+const getIcon = () => {
+  switch (componentProps.customOptions?.designVersion) {
+    case "v1":
+      return { icon1_v1, icon2_v2, icon3_v2 };
+
+    default:
+      return {
+        icon1_default,
+        icon2_default,
+        icon3_default,
+        icon4_default,
+      };
+  }
+};
+
+const icon = getIcon();
+
+const title: TranslationsType = {
+  en: `Trade currencies, stocks, commodities and more with a better understanding of the market.`,
+  it: `Principiante o professionista non importa. Qui trovi le migliori strategie sul Forex`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: `Odkryj narzędzia`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const bullets: {
+  title: TranslationsType;
+  para: TranslationsType;
+  iconImage: string | undefined;
+}[] = [
+  {
+    title: {
+      en: `Webinars`,
+      it: `Formazione interattiva`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `E-BOOK-i`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Discover how to spot trends, recognize the best trading opportunities, perform analysis and much more`,
+      it: `Scopri il linguaggio dei mercati e individua l'andamento delle borse grazie ai nostri webinar, sessioni di trading individuali e video tutorial.`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: "Nawiguj w świecie handlu",
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    iconImage: icon.icon1_default || icon.icon1_v1,
+  },
+  {
+    title: {
+      en: `Video Tutorials`,
+      it: `Esecuzione istantanea`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: "WIDEO",
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Learning about the forex market has never been simpler with our short, easy-to-understand videos`,
+      it: `Comandi di stop loss e take profit semplificati attivabili nel momento in cui entri a mercato.`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: "Wybierz jeden z naszych materiałów wideo, aby zrozumieć ABC handlu w swojej podróży.",
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    iconImage: icon.icon2_default || icon.icon2_v2,
+  },
+  {
+    title: {
+      en: `1-on-1 Instruction`,
+      it: `Account Manager dedicato`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: "W GŁĘBOKIEJ EDUKACJI",
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Build your investing strategy at your own pace with simple, clear and helpful guidance`,
+      it: `Ripensa il tuo modo di fare trading e ottieni maggiori profitti grazie alla guida personalizzata dei nostri esperti.`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: "Wybieraj spośród różnorodnych kursów adresowanych do wszystkich typów traderów",
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    iconImage: icon.icon3_default || icon.icon3_v2,
+  },
+  {
+    title: {
+      en: `Forex Signals`,
+      it: `Segnali di Forex precisi`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Find trading opportunities easily and optimize your experience with multiple signals`,
+      it: `Identifica tutte le opportunità di trading azionario del momento e migliora il tuo portafoglio grazie ad analisi avanzate.`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    iconImage: icon.icon4_default,
+  },
+];
+---
+
+<section id="section1" class="py-9">
+  <div class="container flex flex-col gap-8 lg:flex-row">
+    <div class="lg:grow">
+      <h2
+        set:html={title[componentProps.lang]}
+        class="text-HipsterGuy-heading2 pb-2 text-center font-bold uppercase md:text-start lg:mb-16"
+      />
+      <div class="mt-8 grid gap-8 md:grid-cols-2 md:gap-x-4 lg:gap-x-2">
+        {
+          bullets.map((bullet, index) => {
+            if (
+              !bullet.title[componentProps.lang] ||
+              !bullet.para[componentProps.lang]
+            )
+              return;
+
+            return (
+              <div
+                class={`${index === 2 && componentProps.customOptions?.designVersion === "v1" ? "md:col-span-2" : ""} flex flex-col items-center gap-2 text-center md:items-start md:text-start [&>svg]:max-h-16 [&>svg]:w-auto`}
+              >
+                {/* <Image src={bullet.iconImage} alt="Graph presentation" class="w-10 " widths={[320, bullet.iconImage.width]} sizes={`40px`} /> */}
+                <div
+                  set:html={bullet.iconImage}
+                  class="[&>svg]:h-14 [&>svg]:w-14"
+                />
+                <div>
+                  <h3
+                    set:html={bullet.title[componentProps.lang]}
+                    class={`text-heading3 font-bold italic ${componentProps.customOptions?.designVersion !== "v1" || !componentProps.customOptions?.designVersion ? "text-secondary" : ""} ${componentProps.customOptions?.designVersion === "v1" ? "" : ""} lg:max-w-[30ch]`}
+                  />
+                  {bullet.para[componentProps.lang] && (
+                    <p
+                      set:html={bullet.para[componentProps.lang]}
+                      class="pe-4"
+                    />
+                  )}
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+    <div class="grid place-items-center lg:w-[40%] lg:min-w-[40%]">
+      <Image
+        src={componentProps.lang !== "it" ? phone : screens}
+        alt="Graph presentation"
+        class="w-full max-w-[320px] lg:max-w-full"
+        widths={[
+          320,
+          576,
+          640,
+          768,
+          1024,
+          1280,
+          1536,
+          componentProps.lang !== "it" ? phone.width : screens.width,
+        ]}
+        sizes={`
+          (max-width: 320px) 576px
+          640px
+        `}
+      />
+    </div>
+  </div>
+
+  <style lang="scss">
+    h2 {
+    }
+  </style>
+</section>
