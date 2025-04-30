@@ -6,7 +6,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/lp/corsitrading/v1/es/",
+  // base: "/lp/corsitrading/v1/es/",
+  base: "/lp/corsitrading/v1/it/",
   trailingSlash: "ignore",
   integrations: [react()],
 
