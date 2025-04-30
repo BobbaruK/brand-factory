@@ -4,6 +4,8 @@ import Header from "@/components/Header.astro";
 import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import "../styles/global.css";
+// Supports weights 100-900
+import "@fontsource-variable/asap";
 
 interface Props {
   componentProps: ComponentProps;
@@ -51,6 +53,10 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
           scroll-behavior: auto;
         }
       }
+
+      body {
+        font-family: "Asap Variable", sans-serif;
+      }
     </style>
   </head>
   <body>
@@ -61,7 +67,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    
+
     <BackToTop />
     <script
       type="module"
