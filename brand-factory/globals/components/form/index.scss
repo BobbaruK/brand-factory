@@ -262,11 +262,17 @@ form.registerForm {
 html[dir="rtl"] {
   form.registerForm {
     .form-control {
-      .phone {
-        [type="tel"] {
-          &::placeholder {
-            text-align: end;
+      .input {
+        .phone {
+          [type="tel"] {
+            &::placeholder {
+              text-align: end;
+            }
           }
+        }
+
+        svg {
+          inset: 20% auto auto 10px;
         }
       }
     }
