@@ -1,7 +1,7 @@
 ---
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
+import { type ArabTradingProSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -16,7 +16,7 @@ const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
   // Features.readyForMail,
-  Features.outbrain,
+  // Features.outbrain,
   // Features.atheneum,
   // Features.showcase,
 ]);
@@ -28,14 +28,14 @@ export interface CustomOptions {
 }
 
 const componentProps: ComponentProps<
-  TradingAtheneumSVGVariation,
+  ArabTradingProSVGVariation,
   CustomOptions
 > = {
-  lang: "ar",
+  lang: "it",
   license,
   lpName: "Cometolearn",
   brandObj: brandFactory({
-    brand: "tradingatheneum",
+    brand: "arabtradingpro",
     license,
     whatsapp: false,
     features,
@@ -47,7 +47,7 @@ const componentProps: ComponentProps<
   registrationType,
   customOptions: {
     logoSquare: false,
-    colorScheme: "green",
+    colorScheme: "default",
   },
   features,
   // fxoroFooter: true,

@@ -16,7 +16,7 @@ const { componentProps } = Astro.props;
 
 const title: TranslationsType = {
   en: ``,
-  it: ``,
+  it: `Inizia ad operare in modo Intelligente con 3 semplici passi:`,
   tr: ``,
   ro: ``,
   ar: `اتبع هذه الخطوات الثلاث السهلة وكن تاجرًا خبيرًا:`,
@@ -39,7 +39,7 @@ const bullets: {
   {
     title: {
       en: "",
-      it: "",
+      it: "Ricevi la tua guida gratuita in PDF",
       tr: "",
       ro: "",
       ar: "احصل على دليل PDF المجاني الخاص بك",
@@ -59,7 +59,7 @@ const bullets: {
   {
     title: {
       en: "",
-      it: ``,
+      it: `Ottieni una sessione di formazione gratuita personalizzata con un rappresentante ${componentProps.brandObj.name}`,
       tr: "",
       ro: "",
       ar: "احصل على جلسة تدريب مجانية مع مندوب",
@@ -79,7 +79,7 @@ const bullets: {
   {
     title: {
       en: "",
-      it: ``,
+      it: `Prova la tua conoscenza sul conto Demo Gratuito`,
       tr: "",
       ro: "",
       ar: "اختبر مهاراتك على حساب تجريبي",
@@ -127,7 +127,7 @@ const bullets: {
                       })
                     : bullet.title[componentProps.lang]
                 }
-                class=""
+                class="text-balance"
               />
             </article>
           );
