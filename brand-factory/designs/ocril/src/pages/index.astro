@@ -3,7 +3,7 @@ import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
+import { type ArabTradingProSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -29,14 +29,14 @@ export interface CustomOptions {
 }
 
 const componentProps: ComponentProps<
-  TradingAtheneumSVGVariation,
+  ArabTradingProSVGVariation,
   CustomOptions
 > = {
   lang: "ar",
   license,
   lpName: "Freedom to trade",
   brandObj: brandFactory({
-    brand: "tradingatheneum",
+    brand: "arabtradingpro",
     license,
     whatsapp: false,
     features,
