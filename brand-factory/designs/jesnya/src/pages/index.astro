@@ -24,13 +24,14 @@ const registrationType: RegistrationType = "classic";
 
 export interface CustomOptions {
   logoSquare: boolean;
+  textVersion?: "default" | "older";
 }
 
 const componentProps: ComponentProps<
   ArabTradingProSVGVariation,
   CustomOptions
 > = {
-  lang: "en",
+  lang: "it",
   license,
   lpName: "",
   brandObj: brandFactory({
@@ -46,6 +47,7 @@ const componentProps: ComponentProps<
   registrationType,
   customOptions: {
     logoSquare: false,
+    // textVersion: "older",
   },
   features,
   // fxoroFooter: true,
