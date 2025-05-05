@@ -368,16 +368,20 @@ const formButton: TranslationsType = textBy(
     <div class="flex flex-col gap-4 lg:flex-row">
       <div class="relative flex flex-col gap-6 lg:basis-4/6">
         {
-          paras.map((para) => (
-            <p
-              class="sm:pr-56 md:pr-64"
-              set:html={
-                componentProps.features?.includes(Features.showcase)
-                  ? showcase({ words: 50 })
-                  : para[componentProps.lang]
-              }
-            />
-          ))
+          paras.map((para) => {
+            if (!para[componentProps.lang]) return null;
+
+            return (
+              <p
+                class="sm:pr-56 md:pr-64"
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({ words: 50 })
+                    : para[componentProps.lang]
+                }
+              />
+            );
+          })
         }
         <div class="flex flex-col gap-2">
           <h2
@@ -388,15 +392,19 @@ const formButton: TranslationsType = textBy(
           />
           <ul class="flex list-inside list-disc flex-col gap-4 lg:max-w-[40ch]">
             {
-              list.listItems.map((listItem) => (
-                <li
-                  set:html={
-                    componentProps.features?.includes(Features.showcase)
-                      ? showcase({ words: 10 })
-                      : listItem[componentProps.lang]
-                  }
-                />
-              ))
+              list.listItems.map((listItem) => {
+                if (!listItem[componentProps.lang]) return null;
+
+                return (
+                  <li
+                    set:html={
+                      componentProps.features?.includes(Features.showcase)
+                        ? showcase({ words: 10 })
+                        : listItem[componentProps.lang]
+                    }
+                  />
+                );
+              })
             }
           </ul>
         </div>
