@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import icon1 from "../assets/icon1.png";
 import icon2 from "../assets/icon2.png";
@@ -191,7 +193,11 @@ const bullets: {
   <div class="container flex flex-col gap-8 lg:flex-row">
     <div class="lg:grow">
       <h2
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
         class="font-raleway text-heading2 pb-2 text-center font-extrabold md:max-w-[40ch] md:text-start lg:mb-16"
       />
       <div
@@ -210,12 +216,24 @@ const bullets: {
                 />
                 <div>
                   <h3
-                    set:html={bullet.title[componentProps.lang]}
+                    set:html={
+                      componentProps.features?.includes(Features.showcase)
+                        ? showcase({
+                            words: 2,
+                          })
+                        : bullet.title[componentProps.lang]
+                    }
                     class="font-raleway text-heading3 text-primary font-extrabold lg:max-w-[30ch]"
                   />
                   {bullet.para[componentProps.lang] && (
                     <p
-                      set:html={bullet.para[componentProps.lang]}
+                      set:html={
+                        componentProps.features?.includes(Features.showcase)
+                          ? showcase({
+                              words: 10,
+                            })
+                          : bullet.para[componentProps.lang]
+                      }
                       class="pe-4"
                     />
                   )}

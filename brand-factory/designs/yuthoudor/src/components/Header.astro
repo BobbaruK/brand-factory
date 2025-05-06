@@ -3,7 +3,9 @@ import type { CustomOptions } from "@/pages/index.astro";
 import { Image } from "astro:assets";
 import Form from "../../../../globals/components/form";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import arrrow from "../assets/arrow.png";
 import bitcoinGuy from "../assets/bitcoin.png";
@@ -106,14 +108,29 @@ const formButton: TranslationsType = {
         <div>
           <h1
             class="font-raleway text-heading1 font-extrabold"
-            set:html={title[componentProps.lang]}
+            set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 5,
+                })
+              : title[componentProps.lang]}
           />
-          <p class="text-sm font-bold" set:html={para[componentProps.lang]} />
+          <p
+            class="text-sm font-bold"
+            set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 10,
+                })
+              : para[componentProps.lang]}
+          />
         </div>
         <div class="bg-primary text-primary-foreground rounded-md p-2">
           <Form
             componentProps={componentProps}
-            button={formButton[componentProps.lang]}
+            button={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 2,
+                })
+              : formButton[componentProps.lang]}
             id="form1"
             layout={2}
           />
