@@ -6,6 +6,7 @@ import { icon3 } from "../constants/icon3";
 import type { Bullet } from "../types/bullet";
 import { Features } from "../../../../globals/types/enums";
 import { showcase } from "../../../../globals/features/showcase/text";
+import { icon9 } from "@/constants/icon9";
 
 interface Props {
   componentProps: ComponentProps;
@@ -21,7 +22,7 @@ const bullets: Bullet[] = [
       ro: "",
       ar: "",
       de: "",
-      es: "",
+      es: "Soporte profesional las 24 horas, 5 días a la semana.",
       sv: "",
       pt: "",
       fi: "",
@@ -35,13 +36,33 @@ const bullets: Bullet[] = [
   },
   {
     title: {
+      en: "Certified broker",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "Corredor certificado.",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    svgIcon: icon9,
+  },
+  {
+    title: {
       en: "Training tools",
       it: "",
       tr: "",
       ro: "",
       ar: "",
       de: "",
-      es: "",
+      es: "Herramientas de entrenamiento.",
       sv: "",
       pt: "",
       fi: "",
@@ -61,7 +82,7 @@ const bullets: Bullet[] = [
       ro: "",
       ar: "",
       de: "",
-      es: "",
+      es: "Sin cargos ocultos.",
       sv: "",
       pt: "",
       fi: "",
@@ -80,9 +101,9 @@ const bullets: Bullet[] = [
   <div class="container flex flex-wrap justify-around gap-8">
     {
       bullets.map((bullet) => (
-        <div class="flex flex-col gap-2 text-center">
-          <Fragment set:html={bullet.svgIcon} class="dsa" />
-          <p class="max-w-[20ch]">
+        <div class="flex flex-col items-center gap-2 text-center">
+          <Fragment set:html={bullet.svgIcon} class="" />
+          <p class="max-w-[20ch] text-center text-balance">
             {componentProps.features?.includes(Features.showcase)
               ? showcase({ words: 3 })
               : bullet.title[componentProps.lang]}

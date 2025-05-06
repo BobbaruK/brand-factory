@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { icon10 } from "@/constants/icon10";
 import { icon4 } from "@/constants/icon4";
 import { icon5 } from "@/constants/icon5";
 import { icon6 } from "@/constants/icon6";
@@ -15,11 +16,11 @@ import {
   buttonWrapperLabel,
 } from "@/translations/button-wrapper";
 import type { Bullet } from "@/types/bullet";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import ButtonWrapper from "./Button-Wrapper";
-import { Features } from "../../../../globals/types/enums";
-import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -33,7 +34,7 @@ const title: TranslationsType = {
   ro: "",
   ar: "",
   de: "",
-  es: "",
+  es: `¡Abra su cuenta ${componentProps.brandObj.name} hoy y empiece a operar!`,
   sv: "",
   pt: "",
   fi: "",
@@ -54,7 +55,7 @@ const bulletsRows: Bullet[][] = [
         ro: "",
         ar: "",
         de: "",
-        es: "",
+        es: "Plataformas avanzadas",
         sv: "",
         pt: "",
         fi: "",
@@ -71,7 +72,7 @@ const bulletsRows: Bullet[][] = [
         ro: "",
         ar: "",
         de: "",
-        es: "",
+        es: "Tecnología de intercambio en plataformas fáciles de usar.",
         sv: "",
         pt: "",
         fi: "",
@@ -91,7 +92,7 @@ const bulletsRows: Bullet[][] = [
         ro: "",
         ar: "",
         de: "",
-        es: "",
+        es: "Soporte profesional 24/5",
         sv: "",
         pt: "",
         fi: "",
@@ -108,7 +109,7 @@ const bulletsRows: Bullet[][] = [
         ro: "",
         ar: "",
         de: "",
-        es: "",
+        es: "Un equipo de soporte multilingüe y dedicado.",
         sv: "",
         pt: "",
         fi: "",
@@ -128,7 +129,7 @@ const bulletsRows: Bullet[][] = [
         ro: "",
         ar: "",
         de: "",
-        es: "",
+        es: "100 acciones a su alcance",
         sv: "",
         pt: "",
         fi: "",
@@ -145,7 +146,7 @@ const bulletsRows: Bullet[][] = [
         ro: "",
         ar: "",
         de: "",
-        es: "",
+        es: "Puede operar con acciones de las principales empresas internacionales sin pagar comisiones.",
         sv: "",
         pt: "",
         fi: "",
@@ -161,13 +162,50 @@ const bulletsRows: Bullet[][] = [
   [
     {
       title: {
+        en: "Easy Deposit and Easy withdrawals",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "Depósitos y retiradas fáciles",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      para: {
+        en: "Choose your preferred deposit method and begin trading with the ability to withdraw funds quickly.",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "Elija su método de depósito preferido y comience a operar con la posibilidad de retirar fondos rápidamente.",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      svgIcon: icon10,
+    },
+    {
+      title: {
         en: "Market updates",
         it: "",
         tr: "",
         ro: "",
         ar: "",
         de: "",
-        es: "",
+        es: "Actualizaciones del mercado",
         sv: "",
         pt: "",
         fi: "",
@@ -184,7 +222,7 @@ const bulletsRows: Bullet[][] = [
         ro: "",
         ar: "",
         de: "",
-        es: "",
+        es: "Mantente al día de los últimos movimientos del mercado utilizando nuestras herramientas, seminarios web y noticias.",
         sv: "",
         pt: "",
         fi: "",
@@ -204,7 +242,7 @@ const bulletsRows: Bullet[][] = [
         ro: "",
         ar: "",
         de: "",
-        es: "",
+        es: "Rapidez y eficacia de ejecución",
         sv: "",
         pt: "",
         fi: "",
@@ -221,7 +259,7 @@ const bulletsRows: Bullet[][] = [
         ro: "",
         ar: "",
         de: "",
-        es: "",
+        es: "Disfrute de un tiempo de ejecución ultrarrápido de sus operaciones",
         sv: "",
         pt: "",
         fi: "",
@@ -261,7 +299,7 @@ const bulletsRows: Bullet[][] = [
                 <Card className="h-full">
                   <CardHeader className="text-center  items-center justify-start lg:[&>svg]:h-16 lg:py-20 xl:py-28 flex flex-col space-y-1.5 p-6">
                     {bullet.svgIcon && <Fragment set:html={bullet.svgIcon} />}
-                    <CardTitle className="text-[1rem] text-primary">
+                    <CardTitle className="text-[1rem] text-primary font-extrabold">
                       {componentProps.features?.includes(Features.showcase)
                         ? showcase({ words: 3 })
                         : bullet.title[componentProps.lang]}
@@ -284,6 +322,7 @@ const bulletsRows: Bullet[][] = [
   }
   <div class="container mt-8 grid place-items-center">
     <ButtonWrapper
+      componentProps={componentProps}
       buttonLabel={componentProps.features?.includes(Features.showcase)
         ? showcase({ words: 2 })
         : buttonWrapperLabel[componentProps.lang]}

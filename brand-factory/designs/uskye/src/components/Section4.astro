@@ -21,7 +21,7 @@ const title: TranslationsType = {
   ro: "",
   ar: "",
   de: "",
-  es: "",
+  es: "Invierta en su producto favorito",
   sv: "",
   pt: "",
   fi: "",
@@ -39,7 +39,7 @@ const para: TranslationsType = {
   ro: "",
   ar: "",
   de: "",
-  es: "",
+  es: `Abra una cuenta con ${componentProps.brandObj.name}, y diversifique su cartera invirtiendo en una variedad de productos.`,
   sv: "",
   pt: "",
   fi: "",
@@ -66,6 +66,7 @@ const para: TranslationsType = {
         : para[componentProps.lang]}
     />
     <ButtonWrapper
+      componentProps={componentProps}
       buttonLabel={componentProps.features?.includes(Features.showcase)
         ? showcase({ words: 2 })
         : buttonWrapperLabel[componentProps.lang]}

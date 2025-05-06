@@ -10,6 +10,7 @@ import mobileBrands from "../assets/mobile_brands-mobile.png";
 import Form from "../../../../globals/components/form";
 import { Features } from "../../../../globals/types/enums";
 import { showcase } from "../../../../globals/features/showcase/text";
+import { textBy } from "../../../../globals/utils/text-by";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -17,21 +18,21 @@ interface Props {
 const { componentProps } = Astro.props;
 
 const title: TranslationsType = {
-  en: "",
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "",
-  sv: "",
-  pt: "",
-  fi: "",
+  en: `Trade CFDs on stocks with ${componentProps.brandObj.name} and claim your ${componentProps.customOptions?.bonus ? `$${componentProps.customOptions.bonus}` : ""} bonus*!`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `¡Opera CFDs sobre acciones con ${componentProps.brandObj.name} y reclama tu${componentProps.customOptions?.bonus ? ` bono de $${componentProps.customOptions.bonus}*` : ""}!`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
   pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
 };
 
 const para: TranslationsType = {
@@ -53,13 +54,13 @@ const para: TranslationsType = {
 };
 
 const formButton: TranslationsType = {
-  en: "Start your trading now",
+  en: "Send",
   it: "",
   tr: "",
   ro: "",
   ar: "",
   de: "",
-  es: "",
+  es: "Enviar",
   sv: "",
   pt: "",
   fi: "",
@@ -70,23 +71,63 @@ const formButton: TranslationsType = {
   vi: "Bắt đầu giao dịch ngay",
 };
 
-const formDisclaimer: TranslationsType = {
-  en: `* This offer is subjected to <a href="https://global.fxoro.com/en/terms-and-conditions-lp/" target="_blank" class='underline'>terms and conditions</a>`,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "",
-  sv: "",
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: `* Ưu đãi này tuân thủ các <a href="https://global.fxoro.com/en/terms-and-conditions-lp/" target="_blank" class='underline'>điều khoản và điều kiện</a>`,
-};
+const formDisclaimer: TranslationsType = textBy(
+  {
+    default: {
+      en: `* This offer is subjected to <a href="https://global.fxoro.com/en/15newbonus-terms-and-conditions/?_gl=1*hdhxxm*_gcl_au*MTg1Mzk2NjY3LjE3NDA0ODUzODM." target="_blank" class='underline'>terms and conditions</a>`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `*Esta oferta está sujeta a <a href="https://global.fxoro.com/es/terms-and-conditions-lp/" target="_blank" class='underline'>términos y condiciones</a>`,
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: `* Ưu đãi này tuân thủ các <a href="https://global.fxoro.com/en/terms-and-conditions-lp/" target="_blank" class='underline'>điều khoản và điều kiện</a>`,
+    },
+    "15": {
+      en: `* This offer is subjected to <a href="https://global.fxoro.com/en/15newbonus-terms-and-conditions/?_gl=1*uiyfyd*_gcl_au*MTg1Mzk2NjY3LjE3NDA0ODUzODM." target="_blank" class='underline'>terms and conditions</a>`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `*Esta oferta está sujeta a <a href="https://global.fxoro.com/es/15newbonus-terms-and-conditions/?_gl=1*uiyfyd*_gcl_au*MTg1Mzk2NjY3LjE3NDA0ODUzODM." target="_blank" class='underline'>términos y condiciones</a>`,
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: `* Ưu đãi này tuân thủ các <a href="https://global.fxoro.com/en/terms-and-conditions-lp/" target="_blank" class='underline'>điều khoản và điều kiện</a>`,
+    },
+    "25": {
+      en: `* This offer is subjected to <a href="https://global.fxoro.com/en/bonus25-terms-and-conditions/?_gl=1*1f4b27g*_gcl_au*MTg1Mzk2NjY3LjE3NDA0ODUzODM." target="_blank" class='underline'>terms and conditions</a>`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `*Esta oferta está sujeta a <a href="https://global.fxoro.com/es/bonus25-terms-and-conditions/?_gl=1*1f4b27g*_gcl_au*MTg1Mzk2NjY3LjE3NDA0ODUzODM." target="_blank" class='underline'>términos y condiciones</a>`,
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: `* Ưu đãi này tuân thủ các <a href="https://global.fxoro.com/en/terms-and-conditions-lp/" target="_blank" class='underline'>điều khoản và điều kiện</a>`,
+    },
+  },
+  "bonus",
+  componentProps.customOptions,
+);
 ---
 
 <header id="header" class="relative">
@@ -113,7 +154,7 @@ const formDisclaimer: TranslationsType = {
             set:html={componentProps.features?.includes(Features.showcase)
               ? showcase({ words: 5 })
               : title[componentProps.lang]}
-            class="text-heading1 mb-2 font-medium text-white"
+            class="text-heading1 mb-2 font-medium text-balance text-white"
           />
 
           <p
@@ -175,7 +216,7 @@ const formDisclaimer: TranslationsType = {
         @apply rounded-none border border-gray-400;
       }
       button[type="submit"] {
-        @apply gap-4 rounded-none py-7;
+        @apply gap-4 rounded-none py-7 text-lg uppercase;
       }
     }
   }

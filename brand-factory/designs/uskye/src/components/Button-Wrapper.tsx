@@ -1,6 +1,11 @@
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import { Button } from "./ui/button";
 
 interface Props {
+  componentProps: ComponentProps;
   buttonLabel: string;
   buttonDisclaimer: string;
   hrefTo: string;
@@ -10,6 +15,7 @@ interface Props {
 // TODO: make this component global
 
 const ButtonWrapper = ({
+  componentProps,
   buttonLabel,
   buttonDisclaimer,
   hrefTo,
@@ -18,9 +24,19 @@ const ButtonWrapper = ({
   const el = document.getElementById(hrefTo) as HTMLElement;
 
   return (
-    <div className="flex max-w-[290px] flex-col items-center justify-center gap-2">
+    <ButtonDisclaimer
+      componentProps={componentProps}
+      disclaimer={{
+        active: true,
+        text: componentProps.features?.includes(Features.showcase)
+          ? showcase({ words: 5 })
+          : buttonDisclaimer,
+      }}
+    >
       <Button
-        className="flex h-auto w-full gap-4 rounded-none text-wrap"
+        className={
+          "js-modal-trigger h-auto w-full cursor-pointer p-2 px-16 font-black whitespace-normal uppercase sm:py-6 text-lg"
+        }
         onClick={() => el.scrollIntoView()}
       >
         {whatsapp && (
@@ -37,12 +53,14 @@ const ButtonWrapper = ({
             ></path>
           </svg>
         )}
-        {buttonLabel}
+
+        {componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel}
       </Button>
-      <p className="max-w-[21ch] text-center">
-        <small>{buttonDisclaimer}</small>
-      </p>
-    </div>
+    </ButtonDisclaimer>
   );
 };
 

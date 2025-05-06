@@ -7,7 +7,7 @@ export const buttonWrapperLabel: TranslationsType = {
   ro: "",
   ar: "",
   de: "",
-  es: "",
+  es: "Comience a operar ahora.",
   sv: "",
   pt: "",
   fi: "",
@@ -19,13 +19,13 @@ export const buttonWrapperLabel: TranslationsType = {
 };
 
 export const buttonWrapperDisclaimer: TranslationsType = {
-  en: "*Terms and conditions apply. Trading is risky.",
+  en: "Trading CFD's is risky. You might lose all your invested capital.",
   it: "",
   tr: "",
   ro: "",
   ar: "",
   de: "",
-  es: "",
+  es: "Operar con CFDs es arriesgado. Puede perder todo el capital invertido.",
   sv: "",
   pt: "",
   fi: "",

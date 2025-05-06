@@ -5,7 +5,7 @@ import Section3 from "@/components/Section3.astro";
 import Section4 from "@/components/Section4.astro";
 import Section5 from "@/components/Section5.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
+import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -20,39 +20,38 @@ const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
   // Features.readyForMail,
-  // Features.outbrain,
+  Features.officialTerms,
   // Features.atheneum,
-  Features.showcase,
+  // Features.showcase,
 ]);
 const registrationType: RegistrationType = "classic";
 
 export interface CustomOptions {
   logoSquare: boolean;
+  bonus?: "15" | "25";
 }
 
-const componentProps: ComponentProps<
-  TradingAtheneumSVGVariation,
-  CustomOptions
-> = {
+const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
   lang: "en",
   license,
   lpName: "Home",
   brandObj: brandFactory({
-    brand: "tradingatheneum",
+    brand: "fxoro_global",
     license,
     whatsapp: false,
     features,
   }),
   logo: function () {
-    return this.brandObj.images.logoSVG.defaultCustom;
+    return this.brandObj.images.logoSVG.whiteOrange;
   },
   lpType,
   registrationType,
   customOptions: {
     logoSquare: false,
+    bonus: "25",
   },
   features,
-  // fxoroFooter: true,
+  fxoroFooter: true,
 };
 ---
 
