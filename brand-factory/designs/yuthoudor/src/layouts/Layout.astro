@@ -1,6 +1,8 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
+import "@fontsource-variable/open-sans"; // Supports weights 300-800
+import "@fontsource-variable/raleway"; // Supports weights 100-900
 import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import "../styles/global.css";
@@ -51,6 +53,10 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
           scroll-behavior: auto;
         }
       }
+
+      body {
+        font-family: "Open Sans Variable", sans-serif;
+      }
     </style>
   </head>
   <body>
@@ -61,7 +67,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    
+
     <BackToTop />
     <script
       type="module"
