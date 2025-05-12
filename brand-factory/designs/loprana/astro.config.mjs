@@ -6,7 +6,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/tradingbonus/ar/",
+  // base: "/tradingbonus/ar/",
+  base: "/lp/tradingbonus/ar/",
   trailingSlash: "ignore",
   integrations: [react()],
 
