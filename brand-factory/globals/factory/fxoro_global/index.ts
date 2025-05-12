@@ -32,7 +32,8 @@ export const fxoro_global = (
     ms: `https://my.global.fxoro.com/ms/daftar/`,
     vi: `https://my.global.fxoro.com/vi/dang-ky/`,
   },
-  recaptchaKey: "6LeILoQjAAAAAN_Dsbeu4ncn9Adut_tO3uK4Blnk", // new for fxoroglobal.com 6LeVlMcqAAAAABvFKKQ9jyh5zbSPyiIwcuiAF5eh
+  recaptchaKey: "6LeILoQjAAAAAN_Dsbeu4ncn9Adut_tO3uK4Blnk", // lp.globla.fxoro.com
+  // recaptchaKey: "6LeVlMcqAAAAABvFKKQ9jyh5zbSPyiIwcuiAF5eh", // fxoroglobal.com 
   privacyLink: {
     en: `https://global.fxoro.com/en/privacy-and-security-policy/`,
     it: `https://global.fxoro.com/it/privacy-and-security-policy/`,
