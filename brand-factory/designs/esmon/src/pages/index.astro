@@ -13,7 +13,7 @@ import { checkFeatures } from "../../../../globals/utils/check-features";
 import Layout from "../layouts/Layout.astro";
 
 const license: LicenseType = "fsa";
-const lpType: LandingPageType = "classic";
+const lpType: LandingPageType = "esma";
 const features = checkFeatures([
   // Features.showcase,
   // Features.readyForMail,
@@ -29,7 +29,7 @@ export interface CustomOptions {
 }
 
 const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
-  lang: "es",
+  lang: "en",
   license,
   lpName: "Home",
   brandObj: brandFactory({
@@ -45,7 +45,7 @@ const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
   registrationType,
   customOptions: {
     logoSquare: false,
-    textVs: "A",
+    textVs: "B",
   },
   features,
   fxoroFooter: true,

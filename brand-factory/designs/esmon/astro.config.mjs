@@ -8,8 +8,16 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   // base: "/registration/v4/A/ar/",
   // base: "/registration/v4/B/ar/",
-  base: "/registration/v5/es/",
+  // base: "/registration/v5/es/",
   // base: "/registration/v3/es/",
+  // base: "/lp/registration/v4/A/ar/",
+  // base: "/lp/registration/v4/B/ar/",
+  // base: "/lp/registration/v3/ar/",
+  // base: "/lp/registration/ar/",
+  // base: "/lp/registration/en/",
+  // base: "/lp/registration/es/",
+  // base: "/lp/registration/v2/ar/",
+  base: "/lp/registration/v3/en/",
   trailingSlash: "ignore",
   integrations: [react()],
 
