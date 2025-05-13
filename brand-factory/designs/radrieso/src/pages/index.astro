@@ -20,7 +20,7 @@ const features = checkFeatures([
   // Features.atheneum,
   // Features.showcase,
 ]);
-const registrationType: RegistrationType = "classic";
+const registrationType: RegistrationType = "direct_registration";
 
 export interface CustomOptions {
   logoSquare: boolean;
@@ -30,7 +30,7 @@ const componentProps: ComponentProps<
   FXOROGlobalSVGVariation,
   CustomOptions
 > = {
-  lang: "es",
+  lang: "en",
   license,
   lpName: "Trading Signals",
   brandObj: brandFactory({
