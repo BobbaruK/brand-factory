@@ -1,7 +1,7 @@
 ---
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type ArabTradingProSVGVariation } from "../../../../globals/types/brands/logo";
+import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -27,14 +27,14 @@ export interface CustomOptions {
 }
 
 const componentProps: ComponentProps<
-  ArabTradingProSVGVariation,
+  FXOROGlobalSVGVariation,
   CustomOptions
 > = {
-  lang: "ar",
+  lang: "es",
   license,
   lpName: "Trading Signals",
   brandObj: brandFactory({
-    brand: "arabtradingpro",
+    brand: "fxoro_global",
     license,
     whatsapp: false,
     features,
@@ -48,7 +48,7 @@ const componentProps: ComponentProps<
     logoSquare: false,
   },
   features,
-  // fxoroFooter: true,
+  fxoroFooter: true,
 };
 ---
 
