@@ -24,8 +24,9 @@ const buttonVariants = cva(
         black: "bg-foreground text-background shadow-xs hover:bg-foreground/80",
         white: "bg-background text-foreground shadow-xs hover:bg-background/80",
 
-        orange: "bg-accent-orange text-accent-orange-foreground shadow-xs hover:bg-accent-orange-foreground/80",
-        blue: "bg-background text-foreground shadow-xs hover:bg-background/80",
+        orange:
+          "bg-accent-orange text-accent-orange-foreground shadow-xs hover:bg-accent-orange/80",
+        blue: "bg-accent-blue text-accent-blue-foreground shadow-xs hover:bg-accent-blue/80",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

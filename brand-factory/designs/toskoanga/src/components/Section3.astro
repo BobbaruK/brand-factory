@@ -1,0 +1,260 @@
+---
+import { icon1 } from "@/constants/icon1";
+import { icon2 } from "@/constants/icon2";
+import { icon3 } from "@/constants/icon3";
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import tablet from "../assets/tablet.png";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Why trade bitcoin cfds with ${componentProps.brandObj.name}?`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: `Dlaczego warto handlować cfd na bitcoin z ${componentProps.brandObj.name}?`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `At ${componentProps.brandObj.name}, we believe in creating and consolidating a long-term partnership with our clients. Join us and benefit from: `,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: `W ${componentProps.brandObj.name} wierzymy w budowanie i utrzymywanie długoterminowego partnerstwa z naszymi klientami. Dołącz do nas i skorzystaj z:`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+
+const bullets: {
+  icon: string;
+  title: TranslationsType;
+  para: TranslationsType;
+}[] = [
+  {
+    icon: icon1,
+    title: {
+      en: `Flexibility`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Elastyczności`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Go long or short on Bitcoin and according to market trends.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Otwieraj długie lub krótkie pozycje na Bitcoinie zgodnie z trendami rynkowymi.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: icon2,
+    title: {
+      en: `Innovation`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Innowacji`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Use our state-of-art interface and tools.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Korzystaj z naszej nowoczesnej platformy i zaawansowanych narzędzi.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: icon3,
+    title: {
+      en: `Dedicated app`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Dedykowanej aplikacji`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Stay in control of your investments, from your mobile device.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Miej pełną kontrolę nad swoimi inwestycjami bezpośrednio ze swojego urządzenia mobilnego.`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+];
+
+const buttonLabel: TranslationsType = {
+  en: `Trade with ${componentProps.brandObj.name}`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: `Handluj z ${componentProps.brandObj.name}`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section3" class="section3 pt-y-spacing">
+  <div class="text-paras container flex flex-col gap-6">
+    <h2
+      class="text-heading2 leading-heading2 text-accent-blue font-black text-balance uppercase"
+      set:html={title[componentProps.lang]}
+    />
+
+    {paras.map((para) => <p set:html={para[componentProps.lang]} class="" />)}
+
+    <div
+      class="flex flex-col items-center justify-center gap-4 lg:flex-row lg:items-start"
+    >
+      {
+        bullets.map((bullet) => (
+          <div class="flex w-full flex-col items-center justify-start gap-4 text-center">
+            <div
+              set:html={bullet.icon}
+              class="size-16 [&>svg]:h-full [&>svg]:w-full"
+            />
+            <h3
+              set:html={bullet.title[componentProps.lang] + ":"}
+              class="text-heading3 text-primary font-black"
+            />
+            <p set:html={bullet.para[componentProps.lang]} />
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="grid place-items-center">
+      <ButtonDisclaimer
+        componentProps={componentProps}
+        disclaimer={{
+          active: true,
+        }}
+      >
+        <Button
+          variant={"orange"}
+          className={cn(
+            "js-modal-trigger h-auto w-full max-w-full cursor-pointer py-2 font-black whitespace-normal uppercase md:py-6 lg:px-16",
+          )}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : buttonLabel[componentProps.lang]}
+        />
+      </ButtonDisclaimer>
+    </div>
+
+    <Image
+      src={tablet}
+      alt="Background"
+      class=""
+      widths={[320, 576, 640, 768, 1024, tablet.width]}
+      sizes={`
+        (max-width: 320px) 271px,
+        (max-width: 576px) 526px,
+        (max-width: 640px) 590px,
+        (max-width: 768px) 718px,
+        (max-width: 1024px) 992px,
+        100vw
+      `}
+    />
+  </div>
+</section>
