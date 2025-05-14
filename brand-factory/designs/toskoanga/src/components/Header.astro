@@ -10,6 +10,7 @@ import { ButtonDisclaimer } from "../../../../globals/components/button-disclaim
 import { Button } from "./ui/button";
 import { Features } from "../../../../globals/types/enums";
 import { showcase } from "../../../../globals/features/showcase/text";
+import { glossaryLetter_S } from "../../../../globals/translations/glossary";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -21,7 +22,7 @@ const title: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `عقود الفروقات على البيتكوين: اركب موجة السوق مع ${componentProps.brandObj.name}`,
   de: ``,
   es: ``,
   sv: ``,
@@ -40,7 +41,7 @@ const paras: TranslationsType[] = [
     it: ``,
     tr: ``,
     ro: ``,
-    ar: ``,
+    ar: `وفقًا لمجلة فوربس، كان عام 2024 هو العام الذي "انتقل فيه البيتكوين من استثمار متخصص إلى أصل سائد".`,
     de: ``,
     es: ``,
     sv: ``,
@@ -57,7 +58,7 @@ const paras: TranslationsType[] = [
     it: ``,
     tr: ``,
     ro: ``,
-    ar: ``,
+    ar: `هل أنت مستعد للانضمام إلى هذا الاتجاه؟`,
     de: ``,
     es: ``,
     sv: ``,
@@ -76,7 +77,7 @@ const buttonLabel: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `سجّل الآن لمعرفة المزيد`,
   de: ``,
   es: ``,
   sv: ``,
@@ -149,7 +150,7 @@ const buttonLabel: TranslationsType = {
       </ButtonDisclaimer>
 
       <p class="pt-y-spacing pb-1 text-center text-xs text-balance">
-        Source: <a
+        {glossaryLetter_S.source[componentProps.lang]}: <a
           href="https://www.forbes.com/sites/davidbirnbaum/2024/12/29/2024-the-extraordinary-year-when-bitcoin-went-mainstream/"
           target="_blank">Forbes</a
         >
@@ -159,16 +160,21 @@ const buttonLabel: TranslationsType = {
   <Image
     src={bg}
     alt="Background"
-    class="pointer-events-none top-0 right-auto bottom-0 left-1/2 z-0 mx-auto h-52 w-full object-contain md:absolute md:h-full md:w-1/2 md:object-cover md:object-left"
+    class={cn(
+      "pointer-events-none top-0  bottom-0  z-0 mx-auto h-52 w-full object-contain md:absolute md:h-full md:w-1/2 md:object-cover ",
+      componentProps.lang === "ar"
+        ? "left-auto right-1/2 md:object-right"
+        : "right-auto left-1/2 md:object-left",
+    )}
     widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
     sizes={`
-    (max-width: 320px) 576px,
-    (max-width: 576px) 640px,
-    (max-width: 640px) 768px,
-    (max-width: 768px) 1024px,
-    (max-width: 1024px) 1280px,
-    (max-width: 1280px) 1536px,
-    100vw
-  `}
+      (max-width: 320px) 576px,
+      (max-width: 576px) 640px,
+      (max-width: 640px) 768px,
+      (max-width: 768px) 1024px,
+      (max-width: 1024px) 1280px,
+      (max-width: 1280px) 1536px,
+      100vw
+    `}
   />
 </header>

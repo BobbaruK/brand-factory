@@ -21,23 +21,23 @@ import { useIsMounted, useMediaQuery } from "usehooks-ts";
 import { useEffect, useState } from "react";
 
 const chartData = [
-  // { month: "Jan '24", price: 42_580.5 },
-  // { month: "Feb '24", price: 61_169.3 },
-  // { month: "Mar '24", price: 71_332.0 },
-  // { month: "Apr '24", price: 60_666.6 },
-  // { month: "May '24", price: 67_530.1 },
-  { month: "Jun '24", price: 62_754.3 },
-  { month: "Jul '24", price: 64_626.0 },
-  { month: "Aug '24", price: 58_978.6 },
-  { month: "Sep '24", price: 63_339.2 },
-  { month: "Oct '24", price: 70_281.8 },
-  { month: "Nov '24", price: 96_405.7 },
-  { month: "Dec '24", price: 93_557.2 },
-  { month: "Jan '25", price: 94_536.1 },
-  { month: "Feb '25", price: 84_381.2 },
-  { month: "Mar '25", price: 82_548.8 },
-  { month: "Apr '25", price: 94_184.4 },
-  { month: "May '25", price: 103_699.6 },
+  // { month: "01 '24", price: 42_580.5 },
+  // { month: "02 '24", price: 61_169.3 },
+  // { month: "03 '24", price: 71_332.0 },
+  // { month: "04 '24", price: 60_666.6 },
+  // { month: "05 '24", price: 67_530.1 },
+  { month: "06 '24", price: 62_754.3 },
+  { month: "07 '24", price: 64_626.0 },
+  { month: "08 '24", price: 58_978.6 },
+  { month: "09 '24", price: 63_339.2 },
+  { month: "10 '24", price: 70_281.8 },
+  { month: "11 '24", price: 96_405.7 },
+  { month: "12 '24", price: 93_557.2 },
+  { month: "01 '25", price: 94_536.1 },
+  { month: "02 '25", price: 84_381.2 },
+  { month: "03 '25", price: 82_548.8 },
+  { month: "04 '25", price: 94_184.4 },
+  { month: "05 '25", price: 103_699.6 },
 ];
 
 interface Props {
@@ -69,7 +69,7 @@ export function CustomLineChart({ title }: Props) {
       <CardHeader>
         <CardTitle className="text-heading3 font-black">{title}</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent dir="ltr">
         <ChartContainer
           config={chartConfig}
           className="max-lg:!aspect-auto max-lg:h-[450px]"
