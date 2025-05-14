@@ -2,19 +2,159 @@
 import { type CustomOptions } from "@/pages/index.astro";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Image } from "astro:assets";
+import bg from "../assets/bitcoin.png";
+import { cn } from "@/lib/utils";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { Button } from "./ui/button";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const heading1: TranslationsType = {
+  en: `<span class="text-secondary">Bitcoin CFDS:</span> ride the market waves with ${componentProps.brandObj.name}`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: `<span class="text-secondary">Bitcoin CFD:</span> korzystaj z rynkowych fal z ${componentProps.brandObj.name}`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `According to Forbes, 2024 was the year Bitcoin <span class="italic"> &ldquo;transformed from a niche investment to a mainstream asset&rdquo;</span> *.`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: `Według Forbes, rok 2024 był momentem, kiedy Bitcoin <span class="italic"> &ldquo;przekształcił się z niszowej inwestycji w główny aktyw&rdquo;</span> *.`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `Are you ready to join this trend?`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: `Czy jesteś gotowy dołączyć do tego trendu?`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+
+const buttonLabel: TranslationsType = {
+  en: `Register to learn more`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: `Zarejestruj się, aby dowiedzieć się więcej`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header id="header" class="bg-primary text-primary-foreground relative">
+  <div class="relative z-10">
+    <div class="py-y-spacing container">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+    <div class="pt-y-spacing gap-custom text-para-lead container flex flex-col">
+      <h1
+        class={cn(
+          "text-heading1 leading-heading1 font-black uppercase",
+          componentProps.lang === "pl"
+            ? "max-w-[25ch]"
+            : "max-w-[20ch] text-balance",
+        )}
+        set:html={heading1[componentProps.lang]}
+      />
+
+      {
+        paras.map((para) => (
+          <p set:html={para[componentProps.lang]} class="max-w-[40ch]" />
+        ))
+      }
+      <ButtonDisclaimer
+        componentProps={componentProps}
+        disclaimer={{
+          active: true,
+        }}
+      >
+        <Button
+          variant={"orange"}
+          className={cn(
+            "js-modal-trigger h-auto w-full max-w-full cursor-pointer py-2 font-black whitespace-normal uppercase md:py-6 lg:px-16",
+          )}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : buttonLabel[componentProps.lang]}
+        />
+      </ButtonDisclaimer>
+
+      <p class="pt-y-spacing pb-1 text-center text-xs text-balance">
+        Source: <a
+          href="https://www.forbes.com/sites/davidbirnbaum/2024/12/29/2024-the-extraordinary-year-when-bitcoin-went-mainstream/"
+          target="_blank">Forbes</a
+        >
+      </p>
+    </div>
   </div>
+  <Image
+    src={bg}
+    alt="Background"
+    class="top-0 right-auto bottom-0 left-1/2 z-0 mx-auto h-52 w-full object-contain md:absolute md:h-full md:w-1/2 md:object-cover md:object-left"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
+    sizes={`
+    (max-width: 320px) 576px,
+    (max-width: 576px) 640px,
+    (max-width: 640px) 768px,
+    (max-width: 768px) 1024px,
+    (max-width: 1024px) 1280px,
+    (max-width: 1280px) 1536px,
+    100vw
+  `}
+  />
 </header>

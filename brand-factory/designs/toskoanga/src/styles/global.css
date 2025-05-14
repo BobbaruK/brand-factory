@@ -60,7 +60,7 @@
     0.4318rem + 2.8409vw,
     2.25rem
   ); /* 16 - 36 ; 320 - 1024 */
-  --spacing-gap-custom: clamp(
+  --spacing-custom: clamp(
     1.75rem,
     1.6364rem + 0.5682vw,
     2rem
@@ -110,7 +110,7 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
