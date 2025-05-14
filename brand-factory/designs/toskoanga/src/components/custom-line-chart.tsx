@@ -17,7 +17,8 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { useMediaQuery } from "usehooks-ts";
+import { useIsMounted, useMediaQuery } from "usehooks-ts";
+import { useEffect, useState } from "react";
 
 const chartData = [
   // { month: "Jan '24", price: 42_580.5 },
@@ -44,6 +45,11 @@ interface Props {
 }
 
 export function CustomLineChart({ title }: Props) {
+  const matchesLG = useMediaQuery("(min-width: 1081px)");
+  const showNumbers = useMediaQuery("(min-width: 636px)");
+
+  const [compIsLoaded, setCompIsLoaded] = useState(false);
+
   const chartConfig = {
     price: {
       label: title,
@@ -51,8 +57,12 @@ export function CustomLineChart({ title }: Props) {
     },
   } satisfies ChartConfig;
 
-  const matchesLG = useMediaQuery("(min-width: 1081px)");
-  const showNumbers = useMediaQuery("(min-width: 636px)");
+  useEffect(() => {
+    setCompIsLoaded(true);
+    return () => {};
+  }, [compIsLoaded]);
+
+  if (!compIsLoaded) return null;
 
   return (
     <Card>
@@ -60,8 +70,11 @@ export function CustomLineChart({ title }: Props) {
         <CardTitle className="text-heading3 font-black">{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        {matchesLG ? (
-          <ChartContainer config={chartConfig}>
+        <ChartContainer
+          config={chartConfig}
+          className="max-lg:!aspect-auto max-lg:h-[450px]"
+        >
+          {matchesLG ? (
             <LineChart
               accessibilityLayer
               data={chartData}
@@ -101,13 +114,7 @@ export function CustomLineChart({ title }: Props) {
                 dot={false}
               />
             </LineChart>
-          </ChartContainer>
-        ) : (
-          // <ResponsiveContainer width="95%" height={400}>
-          <ChartContainer
-            config={chartConfig}
-            className="!aspect-auto max-lg:h-[450px]"
-          >
+          ) : (
             <BarChart
               accessibilityLayer
               data={chartData}
@@ -160,9 +167,8 @@ export function CustomLineChart({ title }: Props) {
                 )}
               </Bar>
             </BarChart>
-          </ChartContainer>
-          // </ResponsiveContainer>
-        )}
+          )}
+        </ChartContainer>
       </CardContent>
     </Card>
   );
