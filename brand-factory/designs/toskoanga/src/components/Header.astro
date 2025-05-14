@@ -16,7 +16,7 @@ interface Props {
 }
 const { componentProps } = Astro.props;
 
-const heading1: TranslationsType = {
+const title: TranslationsType = {
   en: `<span class="text-secondary">Bitcoin CFDS:</span> ride the market waves with ${componentProps.brandObj.name}`,
   it: ``,
   tr: ``,
@@ -107,12 +107,26 @@ const buttonLabel: TranslationsType = {
             ? "max-w-[25ch]"
             : "max-w-[20ch] text-balance",
         )}
-        set:html={heading1[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 10,
+              spanClasses: "text-secondary",
+            })
+          : title[componentProps.lang]}
       />
 
       {
         paras.map((para) => (
-          <p set:html={para[componentProps.lang]} class="max-w-[40ch]" />
+          <p
+            set:html={
+              componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 10,
+                  })
+                : para[componentProps.lang]
+            }
+            class="max-w-[40ch]"
+          />
         ))
       }
       <ButtonDisclaimer

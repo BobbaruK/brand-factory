@@ -1,13 +1,15 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
 import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
+import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import "../styles/global.css";
 // Supports weights 100-900
 import "@fontsource-variable/montserrat";
 import Form from "../../../../globals/components/form";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 
 interface Props {
@@ -91,7 +93,11 @@ const formButtonTranslation: TranslationsType = {
     <Dialog>
       <Form
         componentProps={componentProps}
-        button={formButtonTranslation[componentProps.lang]}
+        button={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : formButtonTranslation[componentProps.lang]}
         id="dialog-form"
         layout={2}
       />

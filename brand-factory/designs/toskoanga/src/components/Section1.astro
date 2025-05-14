@@ -1,5 +1,7 @@
 ---
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { CustomLineChart } from "./custom-line-chart";
 
@@ -69,13 +71,37 @@ const chartTitle: TranslationsType = {
   <div class="text-paras container flex flex-col gap-6">
     <h2
       class="text-heading2 text-accent-blue font-black text-balance uppercase"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
     />
 
-    {paras.map((para) => <p set:html={para[componentProps.lang]} class="" />)}
+    {
+      paras.map((para) => (
+        <p
+          set:html={
+            componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 50,
+                })
+              : para[componentProps.lang]
+          }
+          class=""
+        />
+      ))
+    }
 
     <div>
-      <CustomLineChart title={chartTitle[componentProps.lang]} client:load />
+      <CustomLineChart
+        title={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 1,
+            })
+          : chartTitle[componentProps.lang]}
+        client:load
+      />
     </div>
   </div>
 </section>

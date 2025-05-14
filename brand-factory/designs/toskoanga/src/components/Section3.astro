@@ -196,10 +196,27 @@ const buttonLabel: TranslationsType = {
   <div class="text-paras container flex flex-col gap-6">
     <h2
       class="text-heading2 leading-heading2 text-accent-blue font-black text-balance uppercase"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
     />
 
-    {paras.map((para) => <p set:html={para[componentProps.lang]} class="" />)}
+    {
+      paras.map((para) => (
+        <p
+          set:html={
+            componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 15,
+                })
+              : para[componentProps.lang]
+          }
+          class=""
+        />
+      ))
+    }
 
     <div
       class="flex flex-col items-center justify-center gap-4 lg:flex-row lg:items-start"
@@ -212,10 +229,24 @@ const buttonLabel: TranslationsType = {
               class="size-16 [&>svg]:h-full [&>svg]:w-full"
             />
             <h3
-              set:html={bullet.title[componentProps.lang] + ":"}
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 2,
+                    })
+                  : bullet.title[componentProps.lang] + ":"
+              }
               class="text-heading3 text-primary font-black"
             />
-            <p set:html={bullet.para[componentProps.lang]} />
+            <p
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 10,
+                    })
+                  : bullet.para[componentProps.lang]
+              }
+            />
           </div>
         ))
       }

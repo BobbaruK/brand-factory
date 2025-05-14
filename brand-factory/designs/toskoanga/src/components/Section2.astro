@@ -134,13 +134,35 @@ const buttonLabel: TranslationsType = {
   >
     <h2
       class="text-heading2 leading-heading2 font-black text-balance uppercase"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
     />
 
-    {paras.map((para) => <p set:html={para[componentProps.lang]} class="" />)}
+    {
+      paras.map((para) => (
+        <p
+          set:html={
+            componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 30,
+                })
+              : para[componentProps.lang]
+          }
+          class=""
+        />
+      ))
+    }
 
     <ol class="flex flex-col gap-6">
-      {list.map((li) => <p set:html={li[componentProps.lang]} class="" />)}
+      {list.map((li) => <p set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 30,
+            spanClasses: "text-secondary font-black",
+          })
+        : li[componentProps.lang]} class="" />)}
     </ol>
 
     <ButtonDisclaimer
