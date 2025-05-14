@@ -1,7 +1,7 @@
 ---
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type ArabTradingProSVGVariation } from "../../../../globals/types/brands/logo";
+import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -13,12 +13,13 @@ import { checkFeatures } from "../../../../globals/utils/check-features";
 import Layout from "../layouts/Layout.astro";
 
 const license: LicenseType = "fsa";
-const lpType: LandingPageType = "classic";
+const lpType: LandingPageType = "esma";
 const features = checkFeatures([
   // Features.readyForMail,
   // Features.outbrain,
   // Features.atheneum,
   // Features.showcase,
+  // Features.officialTerms
 ]);
 const registrationType: RegistrationType = "classic";
 
@@ -28,14 +29,14 @@ export interface CustomOptions {
 }
 
 const componentProps: ComponentProps<
-  ArabTradingProSVGVariation,
+  FXOROGlobalSVGVariation,
   CustomOptions
 > = {
-  lang: "it",
+  lang: "ar",
   license,
   lpName: "Cometolearn",
   brandObj: brandFactory({
-    brand: "arabtradingpro",
+    brand: "fxoro_global",
     license,
     whatsapp: false,
     features,
@@ -47,10 +48,10 @@ const componentProps: ComponentProps<
   registrationType,
   customOptions: {
     logoSquare: false,
-    colorScheme: "default",
+    colorScheme: "green",
   },
   features,
-  // fxoroFooter: true,
+  fxoroFooter: true,
 };
 ---
 
