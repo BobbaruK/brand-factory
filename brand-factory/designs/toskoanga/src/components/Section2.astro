@@ -1,0 +1,172 @@
+---
+import { Image } from "astro:assets";
+import coins from "../assets/coins.png";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Future perspectives for bitcoin`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: `Perspektywy dla bitcoina`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `As Bitcoin continues to evolve, its future remains a focal point for investors and traders alike. With increasing institutional adoption and regulatory advancements, the digital asset landscape is rapidly changing. Here&apos;s what to watch for:`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: `Bitcoin nadal ewoluuje, a jego przyszłość pozostaje kluczowym punktem zainteresowania inwestorów i traderów. Wraz z rosnącą adopcją instytucjonalną i rozwojem regulacji, krajobraz aktywów cyfrowych zmienia się dynamicznie. Oto, na co warto zwrócić uwagę:`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+
+const list: TranslationsType[] = [
+  {
+    en: `<span class="text-secondary font-black">Market Cycles:</span> With halvings and macroeconomic factors influencing supply and demand, Bitcoin&apos;s long-term outlook remains a topic of interest for traders.`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: `<span class="text-secondary font-black">Cykl rynkowy:</span> Halvingi i czynniki makroekonomiczne wpływają na podaż i popyt, co sprawia, że długoterminowe perspektywy Bitcoina są istotnym tematem dla traderów.`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `<span class="text-secondary font-black">Technological Advancements:</span> Innovations such as the Lightning Network and layer-2 solutions aim to enhance Bitcoin&apos;s scalability and transaction speed.`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: `<span class="text-secondary font-black">Postęp technologiczny:</span> Innowacje, takie jak Lightning Network i rozwiązania warstwy drugiej, mają na celu poprawę skalowalności i szybkości transakcji Bitcoina.`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `<span class="text-secondary font-black">Geopolitical Influence:</span> Economic policies, inflation trends, and global financial stability could play a key role in shaping Bitcoin&apos;s demand.`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: `<span class="text-secondary font-black">Wpływ geopolityczny:</span> Polityka gospodarcza, inflacja i stabilność finansowa na świecie mogą odegrać kluczową rolę w kształtowaniu popytu na Bitcoina.`,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+
+const buttonLabel: TranslationsType = {
+  en: `Trade CFDs on Bitcoin`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: `Handluj CFD na Bitcoin`,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section
+  id="section2"
+  class="section2 bg-primary text-primary-foreground relative"
+>
+  <div
+    class="text-paras py-y-spacing relative z-10 container flex flex-col gap-6 bg-[linear-gradient(180deg,_var(--primary)_0%,_var(--primary)_80%,_rgba(0,0,0,0)_100%)] lg:bg-[linear-gradient(90deg,_rgba(0,0,0,0)_0%,_var(--primary)_10%,_var(--primary)_90%,_rgba(0,0,0,0)_100%)]"
+  >
+    <h2
+      class="text-heading2 leading-heading2 font-black text-balance uppercase"
+      set:html={title[componentProps.lang]}
+    />
+
+    {paras.map((para) => <p set:html={para[componentProps.lang]} class="" />)}
+
+    <ol class="flex flex-col gap-6">
+      {list.map((li) => <p set:html={li[componentProps.lang]} class="" />)}
+    </ol>
+
+    <ButtonDisclaimer
+      componentProps={componentProps}
+      disclaimer={{
+        active: true,
+      }}
+    >
+      <Button
+        variant={"orange"}
+        className={cn(
+          "js-modal-trigger h-auto w-full max-w-full cursor-pointer py-2 font-black whitespace-normal uppercase md:py-6 lg:px-16",
+        )}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+  <Image
+    src={coins}
+    alt="Background"
+    class="absolute top-auto right-0 bottom-0 left-0 z-0 mx-auto h-52 w-full object-cover lg:top-0 lg:right-auto lg:bottom-0 lg:left-1/2 lg:h-full lg:w-1/2 lg:object-left"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, coins.width]}
+    sizes={`100vw`}
+  />
+</section>
