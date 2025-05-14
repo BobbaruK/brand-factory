@@ -5,7 +5,6 @@ import {
   LabelList,
   Line,
   LineChart,
-  ResponsiveContainer,
   XAxis,
   YAxis,
 } from "recharts";
@@ -17,8 +16,8 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { useIsMounted, useMediaQuery } from "usehooks-ts";
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "usehooks-ts";
 
 const chartData = [
   // { month: "01 '24", price: 42_580.5 },
