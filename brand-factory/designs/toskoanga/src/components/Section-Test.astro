@@ -51,15 +51,29 @@ const para: TranslationsType = {
         ? showcase({ words: 50 }) + " " + showcase({ words: 30 })
         : para[componentProps.lang]}
     />
-    <div class="my-4 flex flex-wrap gap-4">
+    <div class="my-4 flex flex-wrap items-center gap-4">
       <Button variant={"default"}>Primary</Button>
       <Button variant={"secondary"}>Secondary</Button>
       <Button variant={"ghost"}>Ghost</Button>
       <Button variant={"link"}>Link</Button>
       <Button variant={"outline"}>Outline</Button>
+      <div
+        class="bg-accent text-accent-foreground grid size-32 place-items-center"
+      >
+        accent
+      </div>
+      <div
+        class="bg-accent-orange text-accent-orange-foreground grid size-32 place-items-center"
+      >
+        accent-orange
+      </div>
+      <div
+        class="bg-accent-blue text-accent-blue-foreground grid size-32 place-items-center"
+      >
+        accent-blue
+      </div>
     </div>
-		<Button className="js-modal-trigger">Open Modal</Button>
-
+    <Button className="js-modal-trigger">Open Modal</Button>
 
     <Form
       componentProps={componentProps}
