@@ -3,7 +3,7 @@ import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
+import { type FXOROSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -14,7 +14,7 @@ import type {
 import { checkFeatures } from "../../../../globals/utils/check-features";
 import Layout from "../layouts/Layout.astro";
 
-const license: LicenseType = "fsa";
+const license: LicenseType = "cysec";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
   // Features.readyForMail,
@@ -28,12 +28,12 @@ export interface CustomOptions {
   logoSquare: boolean;
 }
 
-const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
-  lang: "ar",
+const componentProps: ComponentProps<FXOROSVGVariation, CustomOptions> = {
+  lang: "pl",
   license,
   lpName: "Home",
   brandObj: brandFactory({
-    brand: "fxoro_global",
+    brand: "fxoro",
     license,
     whatsapp: false,
     features,

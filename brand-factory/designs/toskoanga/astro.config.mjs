@@ -11,9 +11,11 @@ export default defineConfig({
   // base: "/bitcoin25/en/",
   // base: "/bitcoin25/es/",
   // base: "/bitcoin25/ar/",
+  base: "/bitcoin25/pl/",
   // base: "/lp/bitcoin25/en/",
   // base: "/lp/bitcoin25/es/",
-  base: "/lp/bitcoin25/ar/",
+  // base: "/lp/bitcoin25/ar/",
+  // base: "/lp/bitcoin25/pl/",
   trailingSlash: "ignore",
   integrations: [react()],
 
