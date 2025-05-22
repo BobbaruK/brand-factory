@@ -12,9 +12,10 @@ import BrandFooterType from "./brand-footer-type.astro";
 
 interface Props {
   componentProps: ComponentProps;
-  footerMetaData?: FooterMetaData
+  footerMetaData?: FooterMetaData;
+  showPrivacy?: boolean
 }
-const { componentProps, footerMetaData } = Astro.props;
+const { componentProps, footerMetaData, showPrivacy = false } = Astro.props;
 
 const translations = footerTranslations(componentProps.brandObj.name);
 
@@ -113,6 +114,9 @@ const feature_showcase = componentProps.features?.includes(Features.showcase);
           )
         }
       </>
+    )}
+    {showPrivacy && (
+      <p><a href={componentProps.brandObj.privacyLink[componentProps.lang]} target="_blank">{glossaryLetter_P.privacyPolicy[componentProps.lang]}</a></p>
     )}
   </div>
 </footer>
