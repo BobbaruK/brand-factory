@@ -4,4 +4,5 @@ export enum Features {
   outbrain = "Outbrain",
   atheneum = "Atheneum",
   officialTerms = "Official Terms and Conditions",
+  policyInFooter = "Policy in footer",
 }
