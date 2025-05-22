@@ -2,6 +2,7 @@
 import BrandFooter from "../../../../globals/components/Footer/brand-footer.astro";
 import FxoroFooter from "../../../../globals/components/Footer/fxoro-footer.astro";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps;
@@ -11,17 +12,22 @@ const { componentProps } = Astro.props;
 
 {
   componentProps.fxoroFooter ? (
+    // TODO: handle style for FxoroFooter
     <FxoroFooter componentProps={componentProps} />
   ) : (
     <BrandFooter
       componentProps={componentProps}
       footerMetaData={componentProps.brandObj.footerMetaData}
+      showPrivacy={
+        componentProps.features?.includes(Features.policyInFooter)
+          ? true
+          : false
+      }
     />
   )
 }
 
 <style is:global>
-  @reference "../styles/global.css";
   .brandFooter {
     padding-block: calc(var(--spacing) * 8);
     background-color: var(--color-stone-700);
@@ -39,12 +45,13 @@ const { componentProps } = Astro.props;
     place-items: center;
   }
 
-  #globalFooter {
+  /* TODO: handle style for FxoroFooter */
+  /* #globalFooter {
     > .modal {
       display: none !important;
     }
     .dfSomething {
-      /* @apply mt-4; */
+      // @apply mt-4;
     }
     .theApps {
       @apply py-4;
@@ -65,5 +72,5 @@ const { componentProps } = Astro.props;
         @apply z-30;
       }
     }
-  }
+  } */
 </style>
