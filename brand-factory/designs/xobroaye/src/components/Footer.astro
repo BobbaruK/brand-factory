@@ -16,6 +16,11 @@ const { componentProps } = Astro.props;
     <BrandFooter
       componentProps={componentProps}
       footerMetaData={componentProps.brandObj.footerMetaData}
+      showPrivacy={
+        componentProps.features?.includes(Features.policyInFooter)
+          ? true
+          : false
+      }
     />
   )
 }
