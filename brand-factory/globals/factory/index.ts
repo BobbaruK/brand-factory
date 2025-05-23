@@ -59,7 +59,7 @@ export const brandFactory = <T>({
           ro: "",
           ar: "",
           de: "",
-          es: "35725205560",
+          es: "573204413884",
           sv: "46790083304",
           pt: "",
           fi: "",
