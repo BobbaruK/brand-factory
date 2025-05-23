@@ -5,29 +5,53 @@ import type { TranslationsType } from "../../../../globals/types/translations";
 import subHeaderBG2 from "../assets/subHeaderBG2.jpg";
 import { Features } from "../../../../globals/types/enums";
 import { showcase } from "../../../../globals/features/showcase/text";
+import { textBy } from "../../../../globals/utils/text-by";
 
 interface Props {
   componentProps: ComponentProps;
 }
 const { componentProps } = Astro.props;
 
-const title: TranslationsType = {
-  en: "",
-  it: `Corso di Trading Online <span class="text-secondary uppercase">Gratuito</span>`,
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: `Cursos de trading <span class="text-secondary uppercase">GRATIS</span>`,
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: "",
+      it: `Corso di Trading Online <span class="text-secondary uppercase">Gratuito</span>`,
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Cursos de trading <span class="text-secondary uppercase">GRATIS</span>`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    meaningfulName: {
+      en: ``,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `Regístrate para obtener acceso a los cursos de trading`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 
 const paras: TranslationsType[] = [
   {
@@ -90,7 +114,7 @@ const paras: TranslationsType[] = [
   <div class="relative z-20 container flex">
     <div class="flex flex-col gap-6 lg:basis-1/2">
       <h1
-        class="text-heading1 lg:bg-primary font-bold text-white"
+        class="text-heading1 lg:bg-primary font-bold text-balance text-white"
         set:html={componentProps.features?.includes(Features.showcase)
           ? showcase({ words: 3, spanClasses: "text-secondary uppercase" })
           : title[componentProps.lang]}

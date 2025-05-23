@@ -4,29 +4,53 @@ import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
 
 interface Props {
   componentProps: ComponentProps;
 }
 const { componentProps } = Astro.props;
 
-const title: TranslationsType = {
-  en: "",
-  it: "Ricevi corso educativo GRATIS",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: `Reciba nuestro kit formativo gratuito`,
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: "",
+      it: "Ricevi corso educativo GRATIS",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Reciba nuestro kit formativo gratuito`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    meaningfulName: {
+      en: ``,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `Reciba nuestro kit formativo`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 
 const formBtn: TranslationsType = {
   en: "",
