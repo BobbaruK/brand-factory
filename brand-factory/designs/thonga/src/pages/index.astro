@@ -1,7 +1,7 @@
 ---
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
+import { type TradersAcademicSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -13,7 +13,7 @@ import { checkFeatures } from "../../../../globals/utils/check-features";
 import Layout from "../layouts/Layout.astro";
 
 const license: LicenseType = "fsa";
-const lpType: LandingPageType = "esma";
+const lpType: LandingPageType = "classic";
 const features = checkFeatures([
   // Features.readyForMail,
   // Features.outbrain,
@@ -25,34 +25,34 @@ const registrationType: RegistrationType = "classic";
 
 export interface CustomOptions {
   logoSquare: boolean;
-  colorScheme: "default" | "green";
+  colorScheme?: "default" | "green";
+  textVersion?: "default" | "meaningfulName";
 }
 
-const componentProps: ComponentProps<
-  FXOROGlobalSVGVariation,
-  CustomOptions
-> = {
-  lang: "ar",
-  license,
-  lpName: "Cometolearn",
-  brandObj: brandFactory({
-    brand: "fxoro_global",
+const componentProps: ComponentProps<TradersAcademicSVGVariation, CustomOptions> =
+  {
+    lang: "es",
     license,
-    whatsapp: false,
+    lpName: "Cometolearn",
+    brandObj: brandFactory({
+      brand: "tradersacademic",
+      license,
+      whatsapp: false,
+      features,
+    }),
+    logo: function () {
+      return this.brandObj.images.logoSVG.default;
+    },
+    lpType,
+    registrationType,
+    customOptions: {
+      logoSquare: false,
+      // colorScheme: "green",
+      textVersion: "meaningfulName",
+    },
     features,
-  }),
-  logo: function () {
-    return this.brandObj.images.logoSVG.default;
-  },
-  lpType,
-  registrationType,
-  customOptions: {
-    logoSquare: false,
-    colorScheme: "green",
-  },
-  features,
-  fxoroFooter: true,
-};
+    // fxoroFooter: true,
+  };
 ---
 
 <Layout componentProps={componentProps}>

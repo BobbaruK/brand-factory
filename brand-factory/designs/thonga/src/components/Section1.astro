@@ -1,100 +1,204 @@
 ---
 import {
-  professionalBlackSection1Icon1,
-  professionalBlackSection1Icon2,
-  professionalBlackSection1Icon3,
+  educationIcon,
+  formIcon,
+  moneyIcon,
+  pdfIcon,
+  twoPeopleIcon,
 } from "@/constants";
+import type { CustomOptions } from "@/pages/index.astro";
 import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
 
 interface Props {
-  componentProps: ComponentProps;
+  componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
 
-const title: TranslationsType = {
-  en: ``,
-  it: `Inizia ad operare in modo Intelligente con 3 semplici passi:`,
-  tr: ``,
-  ro: ``,
-  ar: `اتبع هذه الخطوات الثلاث السهلة وكن تاجرًا خبيرًا:`,
-  de: ``,
-  es: `Comience de manera inteligente, con 3 pasos simples:`,
-  sv: ``,
-  pt: ``,
-  fi: ``,
-  pl: ``,
-  hu: ``,
-  th: ``,
-  ms: ``,
-  vi: ``,
-};
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: ``,
+      it: `Inizia ad operare in modo Intelligente con 3 semplici passi:`,
+      tr: ``,
+      ro: ``,
+      ar: `اتبع هذه الخطوات الثلاث السهلة وكن تاجرًا خبيرًا:`,
+      de: ``,
+      es: `Comience de manera inteligente, con 3 pasos simples:`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    meaningfulName: {
+      en: ``,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `Comienza con inteligencia, en 3 simples pasos:`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 
 const bullets: {
   title: TranslationsType;
   svgIcon: string;
 }[] = [
   {
-    title: {
-      en: "",
-      it: "Ricevi la tua guida gratuita in PDF",
-      tr: "",
-      ro: "",
-      ar: "احصل على دليل PDF المجاني الخاص بك",
-      de: "",
-      es: "Reciba su guía gratuita en PDF",
-      sv: "",
-      pt: "",
-      fi: "",
-      pl: ``,
-      hu: "",
-      th: "",
-      ms: "",
-      vi: "",
-    },
-    svgIcon: professionalBlackSection1Icon1,
+    title: textBy(
+      {
+        default: {
+          en: "",
+          it: "Ricevi la tua guida gratuita in PDF",
+          tr: "",
+          ro: "",
+          ar: "احصل على دليل PDF المجاني الخاص بك",
+          de: "",
+          es: "Reciba su guía gratuita en PDF",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        meaningfulName: {
+          en: ``,
+          it: ``,
+          tr: ``,
+          ro: ``,
+          ar: ``,
+          de: ``,
+          es: `Completa el formulario en esta página`,
+          sv: ``,
+          pt: ``,
+          fi: ``,
+          pl: ``,
+          hu: ``,
+          th: ``,
+          ms: ``,
+          vi: ``,
+        },
+      },
+      "textVersion",
+      componentProps.customOptions,
+    ),
+    svgIcon:
+      componentProps.customOptions?.textVersion === undefined ||
+      componentProps.customOptions?.textVersion === "default"
+        ? pdfIcon
+        : formIcon,
   },
   {
-    title: {
-      en: "",
-      it: `Ottieni una sessione di formazione gratuita personalizzata con un rappresentante ${componentProps.brandObj.name}`,
-      tr: "",
-      ro: "",
-      ar: "احصل على جلسة تدريب مجانية مع مندوب",
-      de: "",
-      es: `Obtenga una sesión de capacitación gratuita y personalizada con un representante de ${componentProps.brandObj.name}`,
-      sv: "",
-      pt: "",
-      fi: "",
-      pl: ``,
-      hu: "",
-      th: "",
-      ms: "",
-      vi: "",
-    },
-    svgIcon: professionalBlackSection1Icon2,
+    title: textBy(
+      {
+        default: {
+          en: "",
+          it: `Ottieni una sessione di formazione gratuita personalizzata con un rappresentante ${componentProps.brandObj.name}`,
+          tr: "",
+          ro: "",
+          ar: "احصل على جلسة تدريب مجانية مع مندوب",
+          de: "",
+          es: `Obtenga una sesión de capacitación gratuita y personalizada con un representante de ${componentProps.brandObj.name}`,
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        meaningfulName: {
+          en: ``,
+          it: ``,
+          tr: ``,
+          ro: ``,
+          ar: ``,
+          de: ``,
+          es: `Recibe una sesión de formación gratuita y personalizada`,
+          sv: ``,
+          pt: ``,
+          fi: ``,
+          pl: ``,
+          hu: ``,
+          th: ``,
+          ms: ``,
+          vi: ``,
+        },
+      },
+      "textVersion",
+      componentProps.customOptions,
+    ),
+    svgIcon: twoPeopleIcon,
   },
   {
-    title: {
-      en: "",
-      it: `Prova la tua conoscenza sul conto Demo Gratuito`,
-      tr: "",
-      ro: "",
-      ar: "اختبر مهاراتك على حساب تجريبي",
-      de: "",
-      es: "Pon a prueba tus conocimientos con una cuenta demo gratuita",
-      sv: "",
-      pt: "",
-      fi: "",
-      pl: ``,
-      hu: "",
-      th: "",
-      ms: "",
-      vi: "",
-    },
-    svgIcon: professionalBlackSection1Icon3,
+    title: textBy(
+      {
+        default: {
+          en: "",
+          it: `Prova la tua conoscenza sul conto Demo Gratuito`,
+          tr: "",
+          ro: "",
+          ar: "اختبر مهاراتك على حساب تجريبي",
+          de: "",
+          es: "Pon a prueba tus conocimientos con una cuenta demo gratuita",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        meaningfulName: {
+          en: ``,
+          it: ``,
+          tr: ``,
+          ro: ``,
+          ar: ``,
+          de: ``,
+          es: `Obtén acceso a nuestros valiosos materiales de formación`,
+          sv: ``,
+          pt: ``,
+          fi: ``,
+          pl: ``,
+          hu: ``,
+          th: ``,
+          ms: ``,
+          vi: ``,
+        },
+      },
+      "textVersion",
+      componentProps.customOptions,
+    ),
+    svgIcon:
+      componentProps.customOptions?.textVersion === undefined ||
+      componentProps.customOptions?.textVersion === "default"
+        ? moneyIcon
+        : educationIcon,
   },
 ];
 ---
@@ -107,7 +211,7 @@ const bullets: {
             words: 10,
           })
         : title[componentProps.lang]}
-      class="text-heading2 text-primary font-extrabold uppercase lg:w-[40ch]"
+      class="text-heading2 text-primary font-extrabold text-balance uppercase lg:w-[40ch]"
     />
 
     <div class="flex flex-col gap-6 md:flex-row lg:gap-8 xl:gap-28">
@@ -117,7 +221,7 @@ const bullets: {
             <article class="md:basis-1/3">
               <div
                 set:html={bullet.svgIcon}
-                class="h-24 w-24 [&>svg]:h-full [&>svg]:w-full"
+                class="mb-2 h-24 w-24 [&>svg]:h-full [&>svg]:w-full"
               />
               <p
                 set:html={
