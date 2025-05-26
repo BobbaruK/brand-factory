@@ -2,7 +2,9 @@
 import CarouselWrapper from "@/components/CarouselWrapper";
 import type { Slide } from "@/types/slide";
 import { Image } from "astro:assets";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import logo01 from "../assets/carousel/01-amazon.png";
 import logo02 from "../assets/carousel/02-american_express.png";
@@ -460,7 +462,11 @@ const slides: Slide[] = [
     <div class="container">
       <h2
         class="text-heading2 font-black uppercase"
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
       />
     </div>
   </div>
@@ -480,7 +486,7 @@ const slides: Slide[] = [
           100vw
         `}
     />
-    <div class="relative z-10 container py-2 overflow-hidden">
+    <div class="relative z-10 container overflow-hidden py-2">
       <CarouselWrapper slides={slides} lang={componentProps.lang} client:load />
     </div>
   </div>

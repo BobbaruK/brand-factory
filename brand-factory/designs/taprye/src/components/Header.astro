@@ -158,11 +158,19 @@ const bottomList: TranslationsType[] = [
         >
           <h1
             class="text-heading1 text-secondary font-black text-balance uppercase"
-            set:html={title[componentProps.lang]}
+            set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 15,
+                })
+              : title[componentProps.lang]}
           />
           <p
             class="text-para-lead text-balance"
-            set:html={para[componentProps.lang]}
+            set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 30,
+                })
+              : para[componentProps.lang]}
           />
 
           <ButtonDisclaimer
@@ -192,7 +200,20 @@ const bottomList: TranslationsType[] = [
         <ul
           class="text-para-lead flex list-inside list-disc flex-wrap items-center justify-around gap-x-6 gap-y-2 text-center font-black"
         >
-          {bottomList.map((li) => <li set:html={li[componentProps.lang]} />)}
+          {
+            bottomList.map((li) => (
+              <li
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 5,
+                        spanClasses: "text-secondary",
+                      })
+                    : li[componentProps.lang]
+                }
+              />
+            ))
+          }
         </ul>
       </div>
     </div>

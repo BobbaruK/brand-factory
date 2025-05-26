@@ -152,7 +152,15 @@ const bullets: {
               <div class="text-background text-[110px]">
                 <SVGMask url={bullet.icon} />
               </div>
-              <p set:html={bullet.para[componentProps.lang]} />
+              <p
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 15,
+                      })
+                    : bullet.para[componentProps.lang]
+                }
+              />
             </div>
           ))
         }
