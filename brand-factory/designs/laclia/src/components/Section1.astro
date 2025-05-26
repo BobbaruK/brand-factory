@@ -96,11 +96,20 @@ const buttonLabel: TranslationsType = {
     </div>
     <h1
       class="text-heading1 text-secondary font-bold uppercase italic"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 3,
+          })
+        : title[componentProps.lang]}
     />
     <p
       class="text-para-lead max-w-[33ch] text-balance"
-      set:html={para[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 30,
+            spanClasses: "text-secondary",
+          })
+        : para[componentProps.lang]}
     />
 
     <ButtonDisclaimer

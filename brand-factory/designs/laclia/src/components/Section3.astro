@@ -5,6 +5,8 @@ import type { TranslationsType } from "../../../../globals/types/translations";
 import metaImage from "../assets/facebook.png";
 import googleImage from "../assets/google.png";
 import microsoftImage from "../assets/windows.png";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps;
@@ -231,7 +233,13 @@ const sections: {
           <div class="container">
             <h2
               class="text-heading2 text-center font-bold"
-              set:html={section.title[componentProps.lang]}
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 3,
+                    })
+                  : section.title[componentProps.lang]
+              }
             />
           </div>
         </div>
@@ -247,7 +255,13 @@ const sections: {
             {section.paras.map((para) => (
               <p
                 class="leading-tight lg:text-[20px]"
-                set:html={para[componentProps.lang]}
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 30,
+                      })
+                    : para[componentProps.lang]
+                }
               />
             ))}
           </div>
