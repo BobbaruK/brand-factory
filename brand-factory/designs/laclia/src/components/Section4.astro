@@ -1,0 +1,60 @@
+---
+import { buttonDisclaimer } from "@/constants/button-disclimer";
+import { cn } from "@/lib/utils";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const buttonLabel: TranslationsType = {
+  en: `Start Trading Now!`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section>
+  <div class="bg-secondary h-8"></div>
+  <div
+    class="z-10 container grid place-items-center gap-4 py-8 md:gap-10 md:py-12 lg:py-16"
+  >
+    <ButtonDisclaimer
+      componentProps={componentProps}
+      disclaimer={{
+        active: true,
+        text: buttonDisclaimer[componentProps.lang],
+      }}
+    >
+      <Button
+        variant="secondary"
+        className={cn(
+          "js-modal-trigger h-auto w-full max-w-full cursor-pointer px-4 py-2 text-sm font-black whitespace-normal md:text-lg",
+        )}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>

@@ -9,6 +9,7 @@ import type { TranslationsType } from "../../../../globals/types/translations";
 import bg from "../assets/bg-desktop.jpg";
 import companyLogos from "../assets/company_logos.png";
 import { Button } from "./ui/button";
+import { buttonDisclaimer } from "@/constants/button-disclimer";
 
 interface Props {
   componentProps: ComponentProps;
@@ -106,6 +107,7 @@ const buttonLabel: TranslationsType = {
       componentProps={componentProps}
       disclaimer={{
         active: true,
+        text: buttonDisclaimer[componentProps.lang],
       }}
     >
       <Button
