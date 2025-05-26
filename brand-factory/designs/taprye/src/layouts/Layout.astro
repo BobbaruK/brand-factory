@@ -7,6 +7,8 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import "../styles/global.css";
 // Supports weights 100-900
 import "@fontsource-variable/montserrat";
+import Form from "../../../../globals/components/form";
+import type { TranslationsType } from "../../../../globals/types/translations";
 
 interface Props {
   componentProps: ComponentProps;
@@ -15,6 +17,24 @@ interface Props {
 const { componentProps } = Astro.props;
 
 const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
+
+const formButtonTranslation: TranslationsType = {
+  en: `Start trading!`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: `¡Comienza a negociar!`,
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
 ---
 
 <!doctype html>
@@ -68,7 +88,13 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    <Dialog> Dialog Content Here! </Dialog>
+    <Dialog>
+      <Form
+        componentProps={componentProps}
+        button={formButtonTranslation[componentProps.lang]}
+        id="form1"
+      />
+    </Dialog>
     <BackToTop />
     <script
       type="module"
