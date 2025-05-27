@@ -21,7 +21,7 @@ const title: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `أخبار مهمة للمشاركة!`,
   de: ``,
   es: ``,
   sv: ``,
@@ -39,7 +39,7 @@ const para: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `تجعل شركة ${componentProps.brandObj.name} الاستثمار أكثر سهولة وفهمًا ، من خلال إطلاق الأسهم ، مما يعني أنه يمكنك الاستثمار في بعض أكبر الشركات الأمريكية مباشرةً من حسابك في ${componentProps.brandObj.name}.`,
   de: ``,
   es: ``,
   sv: ``,
@@ -57,7 +57,7 @@ const buttonLabel: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `ابدأ التداول الآن`,
   de: ``,
   es: ``,
   sv: ``,
@@ -76,7 +76,7 @@ const buttonLabel: TranslationsType = {
     src={bg}
     alt="Background"
     class={cn(
-      "absolute inset-0 z-0 h-full w-full object-cover object-left md:object-center",
+      "absolute inset-0 z-0 h-full w-full object-cover object-left md:object-center pointer-events-none",
       { "-scale-x-100": componentProps.lang === "ar" },
     )}
     widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
@@ -95,12 +95,20 @@ const buttonLabel: TranslationsType = {
       "text-background relative z-10 container flex flex-col items-center justify-center gap-4 py-8 text-center md:items-start md:gap-10 md:py-12 md:text-start lg:py-16",
 
       componentProps.lang === "ar"
-        ? ""
-        : "before:md:-right-[5px] before:lg:right-[120px] before:xl:right-[220px]",
+        ? "before:md:-left-[5px] before:lg:left-[120px] before:xl:left-[220px] before:right-auto before:-scale-x-100"
+        : "before:md:-right-[5px] before:lg:right-[120px] before:xl:right-[220px] before:left-auto",
+      componentProps.lang === "ar"
+        ? "after:left-0 z-[1] after:lg:left-[125px] after:xl:left-[225px] after:right-auto after:-scale-x-100"
+        : "after:right-0 z-[1] after:lg:right-[125px] after:xl:right-[225px] after:left-auto",
     )}
   >
     <div
-      class="bg-secondary absolute top-0 -right-[10000px] z-0 hidden h-full w-[10000px] lg:-right-[9880px] lg:block xl:-right-[9770px]"
+      class={cn(
+        "bg-secondary absolute top-0  z-0 hidden h-full w-[10000px] lg:block ",
+        componentProps.lang === "ar"
+          ? "-left-[10000px] lg:-left-[9880px] xl:-left-[9770px]"
+          : "-right-[10000px] lg:-right-[9880px] xl:-right-[9770px]",
+      )}
     >
     </div>
     <h1
@@ -145,7 +153,7 @@ const buttonLabel: TranslationsType = {
       src={companyLogos}
       alt="Background"
       class={cn(
-        "z-20 md:absolute ",
+        "z-20 md:absolute pointer-events-none",
         componentProps.lang === "ar"
           ? "md:-left-[300px] lg:-left-[200px] xl:-left-[100px]"
           : "md:-right-[300px] lg:-right-[200px] xl:-right-[100px]",
@@ -164,7 +172,7 @@ const buttonLabel: TranslationsType = {
   .container {
     &::before,
     &::after {
-      @apply absolute top-0 bottom-0 left-auto hidden h-full w-[250px] md:block;
+      @apply absolute top-0 bottom-0 hidden h-full w-[250px] md:block;
       -webkit-clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%, 0% 50%);
       clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%, 0% 50%);
       content: "";
@@ -174,7 +182,7 @@ const buttonLabel: TranslationsType = {
       @apply bg-secondary z-[2];
     }
     &::after {
-      @apply bg-background right-0 z-[1] lg:right-[125px] xl:right-[225px];
+      @apply bg-background;
     }
   }
 </style>

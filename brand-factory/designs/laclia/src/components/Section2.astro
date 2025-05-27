@@ -1,13 +1,14 @@
 ---
+import type { CustomOptions } from "@/pages/index.astro";
 import { Image } from "astro:assets";
-import bg from "../assets/phone.png";
-import type { ComponentProps } from "../../../../globals/types/component-props";
-import type { TranslationsType } from "../../../../globals/types/translations";
 import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import bg from "../assets/phone.png";
 
 interface Props {
-  componentProps: ComponentProps;
+  componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
 
@@ -16,7 +17,7 @@ const title: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `اذهب إلى أبعد من ذلك وقم بالوصول إلى البورصات العالمية:`,
   de: ``,
   es: ``,
   sv: ``,
@@ -34,7 +35,7 @@ const para: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `يمكنك أن تكون مستثمرًا طويل الأجل عن طريق شراء أسهم مادية لأي شركة تؤمن بها. يمكنك اختيار شركات من أفضل القطاعات أداءً في الولايات المتحدة ، وسوف ينعكس تطورها بمرور الوقت على قيمة محفظتك.`,
   de: ``,
   es: ``,
   sv: ``,

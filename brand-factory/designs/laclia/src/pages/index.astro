@@ -21,19 +21,20 @@ const features = checkFeatures([
   // Features.readyForMail,
   // Features.outbrain,
   // Features.atheneum,
-  Features.showcase,
+  // Features.showcase,
 ]);
 const registrationType: RegistrationType = "classic";
 
 export interface CustomOptions {
   logoSquare: boolean;
+  faang: "fgm" | "ant";
 }
 
 const componentProps: ComponentProps<
   ArabTradingProSVGVariation,
   CustomOptions
 > = {
-  lang: "es",
+  lang: "ar",
   license,
   lpName: "",
   brandObj: brandFactory({
@@ -49,6 +50,7 @@ const componentProps: ComponentProps<
   registrationType,
   customOptions: {
     logoSquare: false,
+    faang: "ant",
   },
   features,
   // fxoroFooter: true,
