@@ -21,7 +21,7 @@ const title: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `أخبار مهمة للمشاركة!`,
   de: ``,
   es: ``,
   sv: ``,
@@ -39,7 +39,7 @@ const para: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `تقدم لك ${componentProps.brandObj.name} مجموعة متنوعة من أكبر العلامات التجارية الأمريكية في متناول يدك ، بحيث يمكنك الاختيار من بين الأسهم الأكثر شهرة والاستثمار فيها.`,
   de: ``,
   es: ``,
   sv: ``,
@@ -57,7 +57,7 @@ const buttonLabel: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `ابدأ تداول الأسهم`,
   de: ``,
   es: ``,
   sv: ``,
@@ -76,7 +76,7 @@ const bottomList: TranslationsType[] = [
     it: ``,
     tr: ``,
     ro: ``,
-    ar: ``,
+    ar: `اختر الشركة المفضلة لديك`,
     de: ``,
     es: ``,
     sv: ``,
@@ -93,7 +93,7 @@ const bottomList: TranslationsType[] = [
     it: ``,
     tr: ``,
     ro: ``,
-    ar: ``,
+    ar: `حدد مقدار الاستثمار`,
     de: ``,
     es: ``,
     sv: ``,
@@ -110,7 +110,7 @@ const bottomList: TranslationsType[] = [
     it: ``,
     tr: ``,
     ro: ``,
-    ar: ``,
+    ar: `احصل على مشاركاتك`,
     de: ``,
     es: ``,
     sv: ``,
@@ -129,7 +129,10 @@ const bottomList: TranslationsType[] = [
   <Image
     src={bg}
     alt="Background"
-    class="absolute inset-0 z-0 h-full w-full object-cover object-left md:object-center"
+    class={cn(
+      "absolute inset-0 z-0 h-full w-full object-cover object-left md:object-center",
+      { "-scale-x-100": componentProps.lang === "ar" },
+    )}
     widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
     sizes={`
       (max-width: 320px) 576px,

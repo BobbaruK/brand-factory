@@ -9,11 +9,14 @@ import {
 import type { Slide } from "@/types/slide";
 import Autoplay from "embla-carousel-autoplay";
 import { useEffect, useState } from "react";
-import type { Languages } from "../../../../globals/types/translations";
+import type {
+  Languages,
+  TranslationsType,
+} from "../../../../globals/types/translations";
 
 interface Props {
   slides: Slide[];
-  lang: string;
+  lang: Languages;
 }
 
 const CarouselWrapper = ({ slides, lang }: Props) => {
@@ -34,12 +37,33 @@ const CarouselWrapper = ({ slides, lang }: Props) => {
     });
   }, [api]);
 
+  const carouselPages = (): TranslationsType => {
+    return {
+      en: `${current} of ${count}`,
+      it: `${current} di ${count}`,
+      tr: `${count} üzerinden ${current}`,
+      ro: `${current} din ${count}`,
+      ar: `${current} من ${count}`,
+      de: `${current} von ${count}`,
+      es: `${current} de ${count}`,
+      sv: `${current} av ${count}`,
+      pt: `${current} de ${count}`,
+      fi: `${current} / ${count}`,
+      pl: `${current} z ${count}`,
+      hu: `${count}-ból/ből ${current}`,
+      th: `${current} จาก ${count}`,
+      ms: `${current} daripada ${count}`,
+      vi: `${current} trên ${count}`,
+    };
+  };
+
   return (
     <>
       <Carousel
         opts={{
           align: "center",
           loop: true,
+          direction: lang === "ar" ? "rtl" : "ltr",
         }}
         plugins={[
           Autoplay({
@@ -52,7 +76,7 @@ const CarouselWrapper = ({ slides, lang }: Props) => {
         <CarouselContent className="-ml-2 md:-ml-4">
           {slides.map((slide, index) => {
             function createMarkup() {
-              return { __html: slide.para[lang as Languages] };
+              return { __html: slide.para[lang] };
             }
 
             return (
@@ -77,9 +101,10 @@ const CarouselWrapper = ({ slides, lang }: Props) => {
         <CarouselPrevious className="text-secondary hover:bg-secondary/50 absolute top-0 bottom-0 -left-6 h-full w-10 translate-y-0 rounded-none border-transparent bg-transparent" />
         <CarouselNext className="text-secondary hover:bg-secondary/50 absolute top-0 -right-6 bottom-0 h-full w-10 translate-y-0 rounded-none border-transparent bg-transparent" />
       </Carousel>
-      <div className="py-2 text-center">
-        {current} of {count}
-      </div>
+      <div
+        className="py-2 text-center"
+        dangerouslySetInnerHTML={{ __html: carouselPages()[lang] }}
+      />
     </>
   );
 };

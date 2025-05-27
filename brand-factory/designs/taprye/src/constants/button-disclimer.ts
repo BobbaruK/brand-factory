@@ -5,7 +5,7 @@ export const buttonDisclaimer: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `التداول محفوف بالمخاطر`,
   de: ``,
   es: ``,
   sv: ``,

@@ -3,7 +3,7 @@ import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
+import { type ArabTradingProSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -20,7 +20,7 @@ const features = checkFeatures([
   // Features.readyForMail,
   // Features.outbrain,
   // Features.atheneum,
-  Features.showcase,
+  // Features.showcase,
 ]);
 const registrationType: RegistrationType = "classic";
 
@@ -28,18 +28,21 @@ export interface CustomOptions {
   logoSquare: boolean;
 }
 
-const componentProps: ComponentProps<FXOROGlobalSVGVariation, CustomOptions> = {
-  lang: "en",
+const componentProps: ComponentProps<
+  ArabTradingProSVGVariation,
+  CustomOptions
+> = {
+  lang: "ar",
   license,
   lpName: "",
   brandObj: brandFactory({
-    brand: "fxoro_global",
+    brand: "arabtradingpro",
     license,
     whatsapp: false,
     features,
   }),
   logo: function () {
-    return this.brandObj.images.logoSVG.whiteOrange;
+    return this.brandObj.images.logoSVG.default;
   },
   lpType,
   registrationType,
