@@ -1,0 +1,88 @@
+---
+import Form from "../../../../globals/components/form";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Get started with your free training`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: `Fill in the form and gain access to our exclusive trading education. No cost. No pressure. Just knowledge.`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const button: TranslationsType = {
+  en: `Register`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section id="section4" class="section4 grid min-h-dvh place-items-center">
+  <div class="relative z-10 container py-4">
+    <div
+      class="border-secondary mx-auto flex max-w-[760px] flex-col items-center justify-center gap-4 rounded-md border-t-4 p-4 md:gap-6 lg:gap-10 lg:p-6"
+    >
+      <h2
+        set:html={title[componentProps.lang]}
+        class="text-heading2 font-oswald font-medium uppercase"
+      />
+      <p
+        set:html={para[componentProps.lang]}
+        class="max-w-[100ch] text-balance"
+      />
+
+      <Form
+        componentProps={componentProps}
+        button={button[componentProps.lang]}
+        id="section-form"
+        layout={1}
+      />
+    </div>
+  </div>
+</section>
