@@ -2,19 +2,115 @@
 import { type CustomOptions } from "@/pages/index.astro";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Button, buttonVariants } from "./ui/button";
+import { cn } from "@/lib/utils";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const menu: {
+  label: TranslationsType;
+  href: string;
+}[] = [
+  {
+    label: {
+      en: `Home`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    href: "#section1",
+  },
+  {
+    label: {
+      en: `Trading partner`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    href: "#section2",
+  },
+  {
+    label: {
+      en: `Register now`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    href: "#section3",
+  },
+];
 ---
 
-<header id="header">
-  <div class="container">
+<header id="header" class="bg-primary sticky top-0 z-50 w-full py-5 text-white">
+  <div class="container flex items-center justify-between gap-4">
     <MainLogo
       size={componentProps.brandObj.nameToLower}
       logo={componentProps.logo()}
       square={componentProps.customOptions?.logoSquare}
     />
+    <ul class="flex items-center gap-8">
+      {
+        menu.map((menuItem, idx) => {
+          return (
+            <li>
+              <Button
+                asChild
+                variant={idx + 1 === menu.length ? "outline" : "destructive"}
+              >
+                <a
+                  href={menuItem.href}
+                  class={cn(
+                    buttonVariants({
+                      variant: idx + 1 === menu.length ? "outline" : "link",
+                    }),
+                    { "bg-transparent": idx + 1 === menu.length },
+                    "text-white uppercase",
+                  )}
+                >
+                  {menuItem.label[componentProps.lang]}
+                </a>
+              </Button>
+            </li>
+          );
+        })
+      }
+    </ul>
   </div>
 </header>
