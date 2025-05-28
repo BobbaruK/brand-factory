@@ -1,0 +1,81 @@
+---
+import type { ComponentProps } from "../../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../../globals/types/translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: "Privacy Policy",
+  it: "Informativa sulla Privacy",
+  tr: "Gizlilik Politikası",
+  ro: "Politica de Confidențialitate",
+  ar: "سياسة الخصوصية",
+  de: "Datenschutzrichtlinie",
+  es: "Política de Privacidad",
+  sv: "Integritetspolicy",
+  pt: "Política de Privacidade",
+  fi: "Tietosuojakäytäntö",
+  pl: "Polityka Prywatności",
+  hu: "Adatvédelmi Szabályzat",
+  th: "นโยบายความเป็นส่วนตัว",
+  ms: "Dasar Privasi",
+  vi: "Chính sách Bảo mật",
+};
+
+const infoSection1: {
+  paras?: TranslationsType[];
+  list?: TranslationsType[];
+} = {
+  paras: [
+    {
+      en: `This Privacy Policy shall enable the reader (and/or “You”) to receive information regarding the use and processing of data collected during accessing this website. Additionally, the reader shall be informed of the measures taken for protecting such data.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    {
+      en: `This Policy can be changed / amended at any time without prior notification; therefore, readers are strongly advised to frequently visit this page to keep up to date with any changes.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  ],
+};
+---
+
+<section id="section1">
+  <div class="container space-y-4">
+    <h1 set:html={title[componentProps.lang]} class="text-2xl font-medium" />
+
+    {
+      infoSection1.paras?.map((para) => (
+        <p set:html={para[componentProps.lang]} />
+      ))
+    }
+  </div>
+</section>

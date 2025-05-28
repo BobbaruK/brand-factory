@@ -8,7 +8,8 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   // base: "/privacy-policy/en/",
   // base: "/privacypolicy/ar/",
-  base: "/privacypolicy/it/",
+  // base: "/privacypolicy/it/",
+  base: "/privacypolicy/en/",
   trailingSlash: "ignore",
   integrations: [react()],
 

@@ -1,15 +1,21 @@
 ---
-import Section1 from "@/components/Section1.astro";
-import Section2 from "@/components/Section2.astro";
-import Section3 from "@/components/Section3.astro";
-import Section4 from "@/components/Section4.astro";
-import Section5 from "@/components/Section5.astro";
-import Section6 from "@/components/Section6.astro";
+import Section1Default from "@/components/default/Section1.astro";
+import Section2Default from "@/components/default/Section2.astro";
+import Section3Default from "@/components/default/Section3.astro";
+import Section4Default from "@/components/default/Section4.astro";
+import Section5Default from "@/components/default/Section5.astro";
+import Section6Default from "@/components/default/Section6.astro";
+import Section1V1 from "@/components/v1/Section1.astro";
+import Section2V1 from "@/components/v1/Section2.astro";
+import Section3V1 from "@/components/v1/Section3.astro";
+import Section4V1 from "@/components/v1/Section4.astro";
+import Section5V1 from "@/components/v1/Section5.astro";
+import Section6V1 from "@/components/v1/Section6.astro";
+import Section7V1 from "@/components/v1/Section7.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type ArabTradingProSVGVariation } from "../../../../globals/types/brands/logo";
+import { type TradersProfilerSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 // import { Features } from "../../../../globals/types/enums";
-import { Features } from "../../../../globals/types/enums";
 import type {
   LandingPageType,
   LicenseType,
@@ -29,17 +35,18 @@ const registrationType: RegistrationType = "classic";
 
 export interface CustomOptions {
   logoSquare: boolean;
+  version?: "default" | "v1";
 }
 
 const componentProps: ComponentProps<
-  ArabTradingProSVGVariation,
+  TradersProfilerSVGVariation,
   CustomOptions
 > = {
-  lang: "it",
+  lang: "en",
   license,
   lpName: "Privacy Policy",
   brandObj: brandFactory({
-    brand: "arabtradingpro",
+    brand: "tradersprofiler",
     license,
     whatsapp: false,
     features,
@@ -51,6 +58,7 @@ const componentProps: ComponentProps<
   registrationType,
   customOptions: {
     logoSquare: false,
+    version: "v1",
   },
   features,
   // fxoroFooter: true,
@@ -58,12 +66,32 @@ const componentProps: ComponentProps<
 ---
 
 <Layout componentProps={componentProps}>
-  <div class="space-y-6">
-    <Section1 componentProps={componentProps} />
-    <Section2 componentProps={componentProps} />
-    <Section3 componentProps={componentProps} />
-    <Section4 componentProps={componentProps} />
-    <Section5 componentProps={componentProps} />
-    <Section6 componentProps={componentProps} />
+  <div class="space-y-6 py-6">
+    {
+      (componentProps.customOptions?.version === "default" ||
+        componentProps.customOptions?.version === undefined) && (
+        <>
+          <Section1Default componentProps={componentProps} />
+          <Section2Default componentProps={componentProps} />
+          <Section3Default componentProps={componentProps} />
+          <Section4Default componentProps={componentProps} />
+          <Section5Default componentProps={componentProps} />
+          <Section6Default componentProps={componentProps} />
+        </>
+      )
+    }
+    {
+      componentProps.customOptions?.version === "v1" && (
+        <>
+          <Section1V1 componentProps={componentProps} />
+          <Section2V1 componentProps={componentProps} />
+          <Section3V1 componentProps={componentProps} />
+          <Section4V1 componentProps={componentProps} />
+          <Section5V1 componentProps={componentProps} />
+          <Section6V1 componentProps={componentProps} />
+          <Section7V1 componentProps={componentProps} />
+        </>
+      )
+    }
   </div>
 </Layout>

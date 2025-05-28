@@ -1,0 +1,72 @@
+---
+import type { InfoSection } from "@/types/InfoSection";
+import type { ComponentProps } from "../../../../../globals/types/component-props";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const infoSection6: InfoSection = {
+  title: {
+    en: "Use of this Website",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  paras: [
+    {
+      en: "This website can be used by ORO Fintech Limited, for informative and educational purposes and in order to offer to the public training courses and relevant information.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  ],
+  list: [],
+};
+---
+
+<section id="section5">
+  <div class="container space-y-4">
+    <h2
+      set:html={infoSection6.title[componentProps.lang]}
+      class="text-lg font-medium"
+    />
+
+    {
+      infoSection6.paras?.map((para) => (
+        <p set:html={para[componentProps.lang]} class="mb-2" />
+      ))
+    }
+
+    <ul class="list-inside list-disc">
+      {
+        infoSection6.list?.map((li) => (
+          <li set:html={li[componentProps.lang]} class="mb-2" />
+        ))
+      }
+    </ul>
+  </div>
+</section>

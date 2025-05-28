@@ -1,0 +1,123 @@
+---
+import type { InfoSection } from "@/types/InfoSection";
+import type { ComponentProps } from "../../../../../globals/types/component-props";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const infoSection5: InfoSection = {
+  title: {
+    en: "Disclosure of information to third parties",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  paras: [
+    {
+      en: "As part of our business, we might share your personal data with other associated third parties under certain conditions. This transmission/ disclosure can be effected only to trusted third parties, whose purpose is to assist us during the operation of our website or whose line of business aligns with ours and can provide You with further information on the products / services envisaged. Such parties have in place security rules and agree to use any transmitted information confidential. When transferring data, adequate level of protection is maintained.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    {
+      en: "Additionally, we might disclose personal information if this is required for compliance with any regulatory / legal obligation, if we need to enforce our procedures and policies and for the protection of yours/others’ rights, property or safety.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    {
+      en: "Any other non-personal information can be transmitted to any other parties.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    {
+      en: `Before leaving any personal information, please make sure that you have read and understood this <a href="${componentProps.brandObj.privacyLink[componentProps.lang]}" class="font-bold">Privacy Policy</a>.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  ],
+  list: [],
+};
+---
+
+<section id="section5">
+  <div class="container space-y-4">
+    <h2
+      set:html={infoSection5.title[componentProps.lang]}
+      class="text-lg font-medium"
+    />
+
+    {
+      infoSection5.paras?.map((para) => (
+        <p set:html={para[componentProps.lang]} class="mb-2" />
+      ))
+    }
+
+    <ul class="list-inside list-disc">
+      {
+        infoSection5.list?.map((li) => (
+          <li set:html={li[componentProps.lang]} class="mb-2" />
+        ))
+      }
+    </ul>
+  </div>
+</section>

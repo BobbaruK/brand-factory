@@ -1,0 +1,89 @@
+---
+import type { InfoSection } from "@/types/InfoSection";
+import type { ComponentProps } from "../../../../../globals/types/component-props";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const infoSection6: InfoSection = {
+  title: {
+    en: "Third party links/products/ services",
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  paras: [
+    {
+      en: "Through our website, we might offer at our discretion, third party products or services. Please make sure to read the Privacy Policy of such third parties.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    {
+      en: "No responsibility or liability for the content and activities of these third parties can be imposed on us.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  ],
+  list: [],
+};
+---
+
+<section id="section5">
+  <div class="container space-y-4">
+    <h2
+      set:html={infoSection6.title[componentProps.lang]}
+      class="text-lg font-medium"
+    />
+
+    {
+      infoSection6.paras?.map((para) => (
+        <p set:html={para[componentProps.lang]} class="mb-2" />
+      ))
+    }
+
+    <ul class="list-inside list-disc">
+      {
+        infoSection6.list?.map((li) => (
+          <li set:html={li[componentProps.lang]} class="mb-2" />
+        ))
+      }
+    </ul>
+  </div>
+</section>
