@@ -54,6 +54,8 @@
     1rem + 1.25vw,
     2rem
   ); /* 20 - 32 ; 320 - 1280 */
+
+  --font-oswald: "Oswald Variable", sans-serif;
 }
 
 @theme inline {
