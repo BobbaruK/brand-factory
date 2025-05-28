@@ -12,4 +12,5 @@ export type BrandsNames =
   | "fxoro_partners"
   | "tradingatheneum"
   | "oracle-signals"
-  | "arabtradingpro";
+  | "arabtradingpro"
+  | "tradersprofiler";

@@ -75,3 +75,8 @@ export type ArabTradingProSVGVariation = {
   defaultWhite: string;
   defaultBlack: string;
 };
+
+export type TradersProfilerSVGVariation = {
+  default: string;
+  original: string;
+};
