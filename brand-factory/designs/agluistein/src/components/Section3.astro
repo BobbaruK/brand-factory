@@ -13,7 +13,7 @@ interface Props {
 const { componentProps } = Astro.props;
 
 const title: TranslationsType = {
-  en: `Master <span class="text-accent">trading</span> from the ground up`,
+  en: `Start trading smarter, not harder`,
   it: "",
   tr: "",
   ro: "",
@@ -30,26 +30,62 @@ const title: TranslationsType = {
   vi: "",
 };
 
-const para: TranslationsType = {
-  en: `Get the skills and insights you need to trade confidently. Our trading education is built for beginners and sharpened for future pros—no experience required. Whether you're just curious about the markets or aiming to build a serious trading strategy, this guide can support you during you trading journey. With clear explanations, practical tools, and real-world examples, you'll quickly go from learning the basics to understanding how the markets really move.`,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "",
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const paras: TranslationsType[] = [
+  {
+    en: `Our education is not just about theory. It’s built to help you act. From identifying opportunities to managing your trades with discipline, we give you the tools that matter.`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: `You won’t just learn how the markets work—you’ll learn how to work with them. Our program blends foundational knowledge with practical strategies, so you can apply what you learn in real scenarios, whether you're trading stocks, forex, or indices.`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: `Learn on your terms, with content that adapts to your experience level—so whether you're just starting or looking to refine your skills, we’ve got you covered.`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: "",
+    de: "",
+    es: "",
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+];
 
 const button: TranslationsType = {
-  en: `Start Learning Now`,
+  en: `Explore the Program`,
   it: "",
   tr: "",
   ro: "",
@@ -68,8 +104,8 @@ const button: TranslationsType = {
 ---
 
 <section
-  id="section1"
-  class="section1 grid min-h-dvh place-items-center text-white relative"
+  id="section3"
+  class="section3 relative grid min-h-dvh place-items-center text-white"
 >
   <Image
     src={background}
@@ -85,14 +121,18 @@ const button: TranslationsType = {
   <div
     class="relative z-10 container flex flex-col items-center justify-center gap-4 text-center md:gap-6 lg:gap-10"
   >
-    <h1
+    <h2
       set:html={title[componentProps.lang]}
-      class="text-heading1 font-oswald font-medium uppercase"
+      class="text-heading2 font-oswald font-medium uppercase"
     />
-    <p
-      set:html={para[componentProps.lang]}
-      class="max-w-[100ch] text-balance"
-    />
+    {
+      paras.map((para) => (
+        <p
+          set:html={para[componentProps.lang]}
+          class="max-w-[100ch] text-balance"
+        />
+      ))
+    }
 
     <Button asChild>
       <a
