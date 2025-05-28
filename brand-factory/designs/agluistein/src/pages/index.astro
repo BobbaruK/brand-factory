@@ -1,5 +1,6 @@
 ---
 import Section1 from "@/components/Section1.astro";
+import Section2 from "@/components/Section2.astro";
 import { brandFactory } from "../../../../globals/factory";
 import { type TradersProfilerSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
@@ -54,4 +55,5 @@ const componentProps: ComponentProps<
 
 <Layout componentProps={componentProps}>
   <Section1 componentProps={componentProps} />
+  <Section2 componentProps={componentProps} />
 </Layout>

@@ -1,0 +1,186 @@
+---
+import { arrow } from "@/constants/icons/arrow";
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import topBg from "../assets/top-graph.png";
+import bottomBg from "../assets/bottom-graph.png";
+import { icon1 } from "@/constants/icons/icon1";
+import { icon2 } from "@/constants/icons/icon2";
+import { icon3 } from "@/constants/icons/icon3";
+import { icon4 } from "@/constants/icons/icon4";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Knowledge is your best investment`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const para: TranslationsType = {
+  en: `We believe successful trading starts with smart education. Our comprehensive approach gives you the essential tools to understand markets, manage risks, and build your strategy with clarity.`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const bullets: {
+  icon: string;
+  text: TranslationsType;
+}[] = [
+  {
+    icon: icon1,
+    text: {
+      en: `Learn from professional market educators`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: icon2,
+    text: {
+      en: `Live webinars, trading guides & videos`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: icon3,
+    text: {
+      en: `Practice safely with a demo account`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: icon4,
+    text: {
+      en: `Support from real people, not bots`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+];
+---
+
+<section
+  id="section2"
+  class="section2 relative grid min-h-dvh place-items-center"
+>
+  <Image
+    src={topBg}
+    alt="Top graph background"
+    class={cn("absolute top-0 left-0 right-0 z-0 h-auto w-full")}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, topBg.width]}
+    sizes={`100vw`}
+  />
+  <Image
+    src={bottomBg}
+    alt="Bottom graph background"
+    class={cn("absolute bottom-0 left-0 right-0 z-0 h-auto w-full")}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, topBg.width]}
+    sizes={`100vw`}
+  />
+  <div
+    class="relative z-10 container flex flex-col items-center justify-center gap-4 text-center md:gap-6 lg:gap-10"
+  >
+    <h2
+      set:html={title[componentProps.lang]}
+      class="text-heading2 font-oswald font-medium uppercase"
+    />
+
+    <p
+      set:html={para[componentProps.lang]}
+      class="max-w-[100ch] text-balance"
+    />
+
+    <div class="flex flex-wrap items-start justify-around gap-10">
+      {
+        bullets.map((bullet) => (
+          <div class="flex flex-col items-center justify-start gap-4">
+            <div set:html={bullet.icon} class="w-fit [&_svg]:size-20" />
+            <p set:html={bullet.text[componentProps.lang]} />
+          </div>
+        ))
+      }
+    </div>
+
+    <a href={"#section3"} set:html={arrow} />
+  </div>
+</section>

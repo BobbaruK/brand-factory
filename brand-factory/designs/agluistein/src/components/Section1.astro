@@ -1,5 +1,5 @@
 ---
-import { arrow } from "@/constants/iconst/arrow";
+import { arrow } from "@/constants/icons/arrow";
 import { cn } from "@/lib/utils";
 import { Image } from "astro:assets";
 import type { ComponentProps } from "../../../../globals/types/component-props";
@@ -69,7 +69,7 @@ const button: TranslationsType = {
 
 <section
   id="section1"
-  class="section1 grid h-dvh place-items-center text-white"
+  class="section1 grid min-h-dvh place-items-center text-white"
 >
   <Image
     src={background}
@@ -107,6 +107,6 @@ const button: TranslationsType = {
       />
     </Button>
 
-    <a href={"#section2"} class={cn("text-white uppercase")} set:html={arrow} />
+    <a href={"#section2"} set:html={arrow} />
   </div>
 </section>
