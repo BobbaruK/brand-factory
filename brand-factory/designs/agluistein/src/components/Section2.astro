@@ -10,6 +10,8 @@ import { icon1 } from "@/constants/icons/icon1";
 import { icon2 } from "@/constants/icons/icon2";
 import { icon3 } from "@/constants/icons/icon3";
 import { icon4 } from "@/constants/icons/icon4";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps;
@@ -161,12 +163,16 @@ const bullets: {
     class="relative z-10 container flex flex-col items-center justify-center gap-4 text-center md:gap-6 lg:gap-10"
   >
     <h2
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 5 })
+        : title[componentProps.lang]}
       class="text-heading1 text-primary font-bold uppercase"
     />
 
     <p
-      set:html={para[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 30 })
+        : para[componentProps.lang]}
       class="text-para-lead max-w-[100ch] text-balance"
     />
 
@@ -176,7 +182,11 @@ const bullets: {
           <div class="flex flex-col items-center justify-start gap-4">
             <div set:html={bullet.icon} class="w-fit [&_svg]:size-36" />
             <p
-              set:html={bullet.text[componentProps.lang]}
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({ words: 5 })
+                  : bullet.text[componentProps.lang]
+              }
               class="text-para-lead max-w-[15ch] text-balance"
             />
           </div>

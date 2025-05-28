@@ -6,6 +6,8 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import background from "../assets/hero.png";
 import { Button, buttonVariants } from "./ui/button";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps;
@@ -86,12 +88,16 @@ const button: TranslationsType = {
     class="relative z-10 container flex flex-col items-center justify-center gap-8 text-center sm:gap-16 lg:gap-20"
   >
     <h1
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 5, spanClasses: "text-accent" })
+        : title[componentProps.lang]}
       class="text-heading1 font-bold uppercase"
     />
 
     <p
-      set:html={para[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({ words: 50 })
+        : para[componentProps.lang]}
       class="text-para-lead max-w-[100ch] leading-normal font-light text-balance"
     />
 
@@ -104,7 +110,9 @@ const button: TranslationsType = {
           }),
           "uppercase text-para-lead font-bold sm:text-2xl sm:py-4 sm:px-16",
         )}
-        set:html={button[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({ words: 3 })
+          : button[componentProps.lang]}
       />
     </Button>
 

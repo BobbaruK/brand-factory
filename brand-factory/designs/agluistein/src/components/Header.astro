@@ -1,10 +1,12 @@
 ---
+import { cn } from "@/lib/utils";
 import { type CustomOptions } from "@/pages/index.astro";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
+import { showcase } from "../../../../globals/features/showcase/text";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { Button, buttonVariants } from "./ui/button";
-import { cn } from "@/lib/utils";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -131,7 +133,9 @@ const menu: {
                     "text-inherit uppercase md:text-xl",
                   )}
                 >
-                  {menuItem.label[componentProps.lang]}
+                  {componentProps.features?.includes(Features.showcase)
+                    ? showcase({ words: 1 })
+                    : menuItem.label[componentProps.lang]}
                 </a>
               </Button>
             </li>
