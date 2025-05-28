@@ -79,13 +79,17 @@ const menu: {
 ---
 
 <header id="header" class="bg-primary fixed top-0 z-50 w-full py-5 text-white">
-  <div class="container flex items-center justify-between gap-4">
+  <div
+    class="container flex items-center justify-between gap-4 max-sm:flex-col"
+  >
     <MainLogo
       size={componentProps.brandObj.nameToLower}
       logo={componentProps.logo()}
       square={componentProps.customOptions?.logoSquare}
     />
-    <ul class="flex items-center gap-8">
+    <ul
+      class="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 md:gap-x-8"
+    >
       {
         menu.map((menuItem, idx) => {
           return (
