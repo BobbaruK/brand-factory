@@ -13,7 +13,7 @@ interface Props {
 const { componentProps } = Astro.props;
 
 const title: TranslationsType = {
-  en: `Master trading from the ground up`,
+  en: `Master <span class="text-accent">trading</span> from the ground up`,
   it: "",
   tr: "",
   ro: "",
@@ -83,7 +83,7 @@ const button: TranslationsType = {
     loading={"eager"}
   />
   <div
-    class="relative z-10 container flex flex-col items-center justify-center gap-6 text-center"
+    class="relative z-10 container flex flex-col items-center justify-center gap-4 text-center md:gap-6 lg:gap-10"
   >
     <h1
       set:html={title[componentProps.lang]}
@@ -101,7 +101,7 @@ const button: TranslationsType = {
           buttonVariants({
             variant: "secondary",
           }),
-          "text-white uppercase",
+          "text-white uppercase text-heading1",
         )}
         set:html={button[componentProps.lang]}
       />
