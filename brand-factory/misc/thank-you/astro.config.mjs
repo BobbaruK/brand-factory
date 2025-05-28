@@ -8,7 +8,8 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   // base: "/thank-you/es/",
   // base: "/thankyou/ar/",
-  base: "/thankyou/it/",
+  // base: "/thankyou/it/",
+  base: "/thankyou/en/",
   trailingSlash: "ignore",
   integrations: [react()],
 

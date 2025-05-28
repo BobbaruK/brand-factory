@@ -2,7 +2,7 @@
 import Section1Default from "@/components/Section1-default.astro";
 import Section1V1 from "@/components/Section1-v1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type ArabTradingProSVGVariation } from "../../../../globals/types/brands/logo";
+import { type TradersProfilerSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 // import { Features } from "../../../../globals/types/enums";
 import type {
@@ -28,14 +28,14 @@ export interface CustomOptions {
 }
 
 const componentProps: ComponentProps<
-  ArabTradingProSVGVariation,
+  TradersProfilerSVGVariation,
   CustomOptions
 > = {
-  lang: "it",
+  lang: "en",
   license,
   lpName: "Thank You!",
   brandObj: brandFactory({
-    brand: "arabtradingpro",
+    brand: "tradersprofiler",
     license,
     whatsapp: false,
     features,
@@ -47,7 +47,7 @@ const componentProps: ComponentProps<
   registrationType,
   customOptions: {
     logoSquare: false,
-    designVersion: "default",
+    // designVersion: "v1",
   },
   features,
   // fxoroFooter: true,
