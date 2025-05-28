@@ -13,9 +13,9 @@
 @theme {
   --text-heading1: clamp(
     1.125rem,
-    0.6667rem + 2.2917vw,
-    2.5rem
-  ); /* 18 - 40 ; 320 - 1280 */
+    0.5rem + 3.125vw,
+    3rem
+  ); /* 18 - 48 ; 320 - 1280 */
   --text-heading1--line-height: clamp(
     1.25rem,
     0.75rem + 2.5vw,
@@ -46,16 +46,14 @@
 
   --text-para-lead: clamp(
     1rem,
-    0.9167rem + 0.4167vw,
-    1.25rem
-  ); /* 16 - 20 ; 320 - 1280 */
+    0.75rem + 1.25vw,
+    1.75rem
+  ); /* 16 - 28 ; 320 - 1280 */
   --text-para-lead--line-height: clamp(
     1.25rem,
-    1rem + 1.25vw,
-    2rem
-  ); /* 20 - 32 ; 320 - 1280 */
-
-  --font-oswald: "Oswald Variable", sans-serif;
+    0.9167rem + 1.6667vw,
+    2.25rem
+  ); /* 20 - 36 ; 320 - 1280 */
 }
 
 @theme inline {
@@ -98,7 +96,7 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: oklch(0.96 0.04 85.28);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);

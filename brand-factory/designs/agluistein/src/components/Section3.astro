@@ -105,7 +105,7 @@ const button: TranslationsType = {
 
 <section
   id="section3"
-  class="section3 relative grid min-h-dvh place-items-center text-white"
+  class="section3 text-background relative grid min-h-dvh place-items-center py-4"
 >
   <Image
     src={background}
@@ -123,13 +123,13 @@ const button: TranslationsType = {
   >
     <h2
       set:html={title[componentProps.lang]}
-      class="text-heading2 font-oswald font-medium uppercase"
+      class="text-heading1 font-bold uppercase text-accent"
     />
     {
       paras.map((para) => (
         <p
           set:html={para[componentProps.lang]}
-          class="max-w-[100ch] text-balance"
+          class="text-para-lead max-w-[100ch] leading-normal font-light text-balance"
         />
       ))
     }
@@ -141,7 +141,7 @@ const button: TranslationsType = {
           buttonVariants({
             variant: "secondary",
           }),
-          "text-white uppercase text-heading1",
+          "uppercase text-para-lead font-bold sm:text-2xl sm:py-4 sm:px-16",
         )}
         set:html={button[componentProps.lang]}
       />

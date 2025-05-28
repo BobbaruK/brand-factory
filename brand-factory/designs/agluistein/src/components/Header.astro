@@ -98,7 +98,10 @@ const menu: {
 ];
 ---
 
-<header id="header" class="bg-primary lg:sticky top-0 z-50 w-full py-5 text-white">
+<header
+  id="header"
+  class="bg-primary text-background top-0 z-50 w-full py-5 lg:sticky"
+>
   <div
     class="container flex items-center justify-between gap-4 max-sm:flex-col"
   >
@@ -125,7 +128,7 @@ const menu: {
                       variant: idx + 1 === menu.length ? "outline" : "link",
                     }),
                     { "bg-transparent": idx + 1 === menu.length },
-                    "text-white uppercase",
+                    "text-inherit uppercase md:text-xl",
                   )}
                 >
                   {menuItem.label[componentProps.lang]}
