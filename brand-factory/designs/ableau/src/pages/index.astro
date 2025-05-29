@@ -3,7 +3,7 @@ import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradeStrategyHubSVGVariation } from "../../../../globals/types/brands/logo";
+import { type TradersProfilerSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type {
   LandingPageType,
@@ -29,14 +29,14 @@ export interface CustomOptions {
 }
 
 const componentProps: ComponentProps<
-  TradeStrategyHubSVGVariation,
+  TradersProfilerSVGVariation,
   CustomOptions
 > = {
   lang: "es",
   license,
   lpName: "Corsitrading",
   brandObj: brandFactory({
-    brand: "tradestrategyhub",
+    brand: "tradersprofiler",
     license,
     whatsapp: false,
     features,
@@ -48,7 +48,7 @@ const componentProps: ComponentProps<
   registrationType,
   customOptions: {
     logoSquare: false,
-    textVersion: "meaningfulName",
+    // textVersion: "meaningfulName",
   },
   features,
   // fxoroFooter: true,
