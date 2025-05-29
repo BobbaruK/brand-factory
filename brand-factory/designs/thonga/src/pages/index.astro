@@ -1,7 +1,7 @@
 ---
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradersAcademicSVGVariation } from "../../../../globals/types/brands/logo";
+import { type TradersProfilerSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -29,30 +29,32 @@ export interface CustomOptions {
   textVersion?: "default" | "meaningfulName";
 }
 
-const componentProps: ComponentProps<TradersAcademicSVGVariation, CustomOptions> =
-  {
-    lang: "es",
+const componentProps: ComponentProps<
+  TradersProfilerSVGVariation,
+  CustomOptions
+> = {
+  lang: "es",
+  license,
+  lpName: "Cometolearn",
+  brandObj: brandFactory({
+    brand: "tradersprofiler",
     license,
-    lpName: "Cometolearn",
-    brandObj: brandFactory({
-      brand: "tradersacademic",
-      license,
-      whatsapp: false,
-      features,
-    }),
-    logo: function () {
-      return this.brandObj.images.logoSVG.default;
-    },
-    lpType,
-    registrationType,
-    customOptions: {
-      logoSquare: false,
-      // colorScheme: "green",
-      textVersion: "meaningfulName",
-    },
+    whatsapp: false,
     features,
-    // fxoroFooter: true,
-  };
+  }),
+  logo: function () {
+    return this.brandObj.images.logoSVG.default;
+  },
+  lpType,
+  registrationType,
+  customOptions: {
+    logoSquare: false,
+    // colorScheme: "green",
+    textVersion: "meaningfulName",
+  },
+  features,
+  // fxoroFooter: true,
+};
 ---
 
 <Layout componentProps={componentProps}>
