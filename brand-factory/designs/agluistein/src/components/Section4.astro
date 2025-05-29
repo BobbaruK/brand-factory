@@ -68,7 +68,7 @@ const button: TranslationsType = {
 <section id="section4" class="section4 grid min-h-dvh place-items-center">
   <div class="relative z-10 container py-4">
     <div
-      class="border-secondary mx-auto flex max-w-[760px] flex-col items-center justify-center gap-4 rounded-md border-t-4 p-4 md:gap-6 lg:gap-10 lg:p-6"
+      class="mx-auto flex max-w-[760px] flex-col items-center justify-center gap-4 rounded-md p-4 md:gap-6 lg:gap-10 lg:p-6"
     >
       <h2
         set:html={componentProps.features?.includes(Features.showcase)
@@ -131,7 +131,7 @@ const button: TranslationsType = {
         }
       }
       button {
-        @apply text-para-lead font-bold uppercase sm:px-16 sm:py-4 sm:text-2xl;
+        @apply text-para-lead bg-secondary hover:bg-accent hover:text-accent-foreground font-bold uppercase sm:px-16 sm:py-4 sm:text-2xl;
       }
     }
   }

@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { Image } from "astro:assets";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
-import background from "../assets/hero.png";
+import background from "../assets/s3bg.png";
 import { Button, buttonVariants } from "./ui/button";
 import { showcase } from "../../../../globals/features/showcase/text";
 import { Features } from "../../../../globals/types/enums";
@@ -149,7 +149,7 @@ const button: TranslationsType = {
           buttonVariants({
             variant: "secondary",
           }),
-          "uppercase text-para-lead font-bold sm:text-2xl sm:py-4 sm:px-16",
+          "uppercase text-para-lead font-bold sm:text-2xl sm:py-4 sm:px-16 hover:bg-accent hover:text-accent-foreground",
         )}
         set:html={componentProps.features?.includes(Features.showcase)
           ? showcase({ words: 3 })
