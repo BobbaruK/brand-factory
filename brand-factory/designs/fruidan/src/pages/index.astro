@@ -3,7 +3,7 @@ import SectionTest from "@/components/Section-Test.astro";
 import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type OracleSignalsSVGVariation } from "../../../../globals/types/brands/logo";
+import { type TradersProfilerSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -20,40 +20,43 @@ const features = checkFeatures([
   // Features.readyForMail,
   // Features.outbrain,
   // Features.atheneum,
-  Features.showcase,
+  // Features.showcase,
 ]);
 const registrationType: RegistrationType = "classic";
 
 export interface CustomOptions {
   logoSquare: boolean;
+  textVersion?: "default" | "meaningfulName";
 }
 
-const componentProps: ComponentProps<OracleSignalsSVGVariation, CustomOptions> =
-  {
-    lang: "es",
+const componentProps: ComponentProps<
+  TradersProfilerSVGVariation,
+  CustomOptions
+> = {
+  lang: "es",
+  license,
+  lpName: "LiveTradingSignals",
+  brandObj: brandFactory({
+    brand: "tradersprofiler",
     license,
-    lpName: "LiveTradingSignals",
-    brandObj: brandFactory({
-      brand: "oracle-signals",
-      license,
-      whatsapp: false,
-      features,
-    }),
-    logo: function () {
-      return this.brandObj.images.logoSVG.default;
-    },
-    lpType,
-    registrationType,
-    customOptions: {
-      logoSquare: false,
-    },
+    whatsapp: false,
     features,
-    // fxoroFooter: true,
-  };
+  }),
+  logo: function () {
+    return this.brandObj.images.logoSVG.default;
+  },
+  lpType,
+  registrationType,
+  customOptions: {
+    logoSquare: false,
+    textVersion: "meaningfulName",
+  },
+  features,
+  // fxoroFooter: true,
+};
 ---
 
 <Layout componentProps={componentProps}>
-  <!-- <SectionTest componentProps={componentProps} /> -->
   <Section1 componentProps={componentProps} />
   <Section2 componentProps={componentProps} />
 </Layout>
