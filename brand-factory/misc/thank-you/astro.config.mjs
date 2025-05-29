@@ -9,7 +9,8 @@ export default defineConfig({
   // base: "/thank-you/es/",
   // base: "/thankyou/ar/",
   // base: "/thankyou/it/",
-  base: "/thankyou/en/",
+  // base: "/thankyou/en/",
+  base: "/thankyou/es/",
   trailingSlash: "ignore",
   integrations: [react()],
 
