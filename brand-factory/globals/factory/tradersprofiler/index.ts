@@ -10,45 +10,6 @@ export const tradersprofiler = (
   whatsappNumber: () => TranslationsType,
   features?: Features[]
 ): BrandArrItem<TradersProfilerSVGVariation> => {
-  const privacyLinks = (): TranslationsType => {
-    if (!features?.includes(Features.outbrain))
-      return {
-        en: "https://tradersprofiler.com/privacypolicy/en/",
-        it: "https://tradersprofiler.com/privacypolicy/en/",
-        tr: "https://tradersprofiler.com/privacypolicy/en/",
-        ro: "https://tradersprofiler.com/privacypolicy/en/",
-        ar: "https://tradersprofiler.com/privacypolicy/en/",
-        de: "https://tradersprofiler.com/privacypolicy/en/",
-        es: "https://tradersprofiler.com/privacypolicy/en/",
-        sv: "https://tradersprofiler.com/privacypolicy/en/",
-        pt: "https://tradersprofiler.com/privacypolicy/en/",
-        fi: "https://tradersprofiler.com/privacypolicy/en/",
-        pl: "https://tradersprofiler.com/privacypolicy/en/",
-        hu: "https://tradersprofiler.com/privacypolicy/en/",
-        th: "https://tradersprofiler.com/privacypolicy/en/",
-        ms: "https://tradersprofiler.com/privacypolicy/en/",
-        vi: "https://tradersprofiler.com/privacypolicy/en/",
-      };
-
-    return {
-      en: "https://tradersprofiler.com/privacypolicy/ob/en/",
-      it: "https://tradersprofiler.com/privacypolicy/ob/en/",
-      tr: "https://tradersprofiler.com/privacypolicy/ob/en/",
-      ro: "https://tradersprofiler.com/privacypolicy/ob/en/",
-      ar: "https://tradersprofiler.com/privacypolicy/ob/en/",
-      de: "https://tradersprofiler.com/privacypolicy/ob/en/",
-      es: "https://tradersprofiler.com/privacypolicy/ob/en/",
-      sv: "https://tradersprofiler.com/privacypolicy/ob/en/",
-      pt: "https://tradersprofiler.com/privacypolicy/ob/en/",
-      fi: "https://tradersprofiler.com/privacypolicy/ob/en/",
-      pl: "https://tradersprofiler.com/privacypolicy/ob/en/",
-      hu: "https://tradersprofiler.com/privacypolicy/ob/en/",
-      th: "https://tradersprofiler.com/privacypolicy/ob/en/",
-      ms: "https://tradersprofiler.com/privacypolicy/ob/en/",
-      vi: "https://tradersprofiler.com/privacypolicy/ob/en/",
-    };
-  };
-
   return {
     id: 12,
     nameToLower: "tradersprofiler",
@@ -70,8 +31,24 @@ export const tradersprofiler = (
       ms: "https://tradersprofiler.com/thankyou/ms/",
       vi: "https://tradersprofiler.com/thankyou/vi/",
     },
-    recaptchaKey: "",
-    privacyLink: privacyLinks(),
+    recaptchaKey: "6LeNcU4rAAAAAF27YGiKuEBjnKWf9-zSFX7z5BPL",
+    privacyLink: {
+      en: "https://tradersprofiler.com/privacypolicy/en/",
+      it: "https://tradersprofiler.com/privacypolicy/en/",
+      tr: "https://tradersprofiler.com/privacypolicy/en/",
+      ro: "https://tradersprofiler.com/privacypolicy/en/",
+      ar: "https://tradersprofiler.com/privacypolicy/en/",
+      de: "https://tradersprofiler.com/privacypolicy/en/",
+      es: "https://tradersprofiler.com/privacypolicy/en/",
+      sv: "https://tradersprofiler.com/privacypolicy/en/",
+      pt: "https://tradersprofiler.com/privacypolicy/en/",
+      fi: "https://tradersprofiler.com/privacypolicy/en/",
+      pl: "https://tradersprofiler.com/privacypolicy/en/",
+      hu: "https://tradersprofiler.com/privacypolicy/en/",
+      th: "https://tradersprofiler.com/privacypolicy/en/",
+      ms: "https://tradersprofiler.com/privacypolicy/en/",
+      vi: "https://tradersprofiler.com/privacypolicy/en/",
+    },
     whatsapp: whatsapp,
     whatsappNumber: whatsappNumber(),
     images: {
