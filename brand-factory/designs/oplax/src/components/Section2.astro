@@ -1,51 +1,97 @@
 ---
-import { Button } from "@/components/ui/button";
 import Form from "../../../../globals/components/form";
-import type { ComponentProps } from "../../../../globals/types/component-props";
-import type { TranslationsType } from "../../../../globals/types/translations";
-import { Features } from "../../../../globals/types/enums";
 import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
 
 interface Props {
   componentProps: ComponentProps;
 }
 const { componentProps } = Astro.props;
 
-const formTitle: TranslationsType = {
-  en: "",
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: `Reciba señales de trading GRATUITAS`,
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const formTitle: TranslationsType = textBy(
+  {
+    default: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Reciba señales de trading GRATUITAS`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    "2025-06-05-11-50": {
+      en: `Register and account to Receive FREE trading signals`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `Regístrate para recibir señales de trading GRATUITAS`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 
-const formButton: TranslationsType = {
-  en: "",
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: `Suscribirse`,
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const formButton: TranslationsType = textBy(
+  {
+    default: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Suscribirse`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    "2025-06-05-11-50": {
+      en: `Register`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `Registrar`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 
 const list: {
   percent: number;
@@ -55,7 +101,7 @@ const list: {
   {
     percent: 100,
     title: {
-      en: "",
+      en: "Reliability",
       it: "",
       tr: "",
       ro: "",
@@ -71,28 +117,51 @@ const list: {
       ms: "",
       vi: "",
     },
-    para: {
-      en: "",
-      it: "",
-      tr: "",
-      ro: "",
-      ar: "",
-      de: "",
-      es: `Obtenga señales de trading preparadas para usted por analistas profesionales`,
-      sv: ``,
-      pt: "",
-      fi: "",
-      pl: ``,
-      hu: "",
-      th: "",
-      ms: "",
-      vi: "",
-    },
+    para: textBy(
+      {
+        default: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: `Obtenga señales de trading preparadas para usted por analistas profesionales`,
+          sv: ``,
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        "2025-06-05-11-50": {
+          en: `Get trading signals prepared for you by Trading Central, the Industry's leading analysts`,
+          it: ``,
+          tr: ``,
+          ro: ``,
+          ar: ``,
+          de: ``,
+          es: `Recibe señales preparadas para ti por Trading Central, los principales analistas de la industria.`,
+          sv: ``,
+          pt: ``,
+          fi: ``,
+          pl: ``,
+          hu: ``,
+          th: ``,
+          ms: ``,
+          vi: ``,
+        },
+      },
+      "textVersion",
+      componentProps.customOptions,
+    ),
   },
   {
     percent: 92,
     title: {
-      en: "",
+      en: "Precision",
       it: "",
       tr: "",
       ro: "",
@@ -108,28 +177,51 @@ const list: {
       ms: "",
       vi: "",
     },
-    para: {
-      en: ``,
-      it: "",
-      tr: "",
-      ro: "",
-      ar: "",
-      de: "",
-      es: `Puede contar con las señales de ${componentProps.brandObj.name}: con una precisión diaria del 92%.`,
-      sv: ``,
-      pt: "",
-      fi: "",
-      pl: ``,
-      hu: "",
-      th: "",
-      ms: "",
-      vi: "",
-    },
+    para: textBy(
+      {
+        default: {
+          en: ``,
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: `Puede contar con las señales de ${componentProps.brandObj.name}: con una precisión diaria del 92%.`,
+          sv: ``,
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        "2025-06-05-11-50": {
+          en: `With a daily accuracy of 92%.`,
+          it: ``,
+          tr: ``,
+          ro: ``,
+          ar: ``,
+          de: ``,
+          es: `Con una precisión diaria del 92%.`,
+          sv: ``,
+          pt: ``,
+          fi: ``,
+          pl: ``,
+          hu: ``,
+          th: ``,
+          ms: ``,
+          vi: ``,
+        },
+      },
+      "textVersion",
+      componentProps.customOptions,
+    ),
   },
   {
     percent: 100,
     title: {
-      en: "",
+      en: "Free",
       it: "",
       tr: "",
       ro: "",
@@ -145,23 +237,46 @@ const list: {
       ms: "",
       vi: "",
     },
-    para: {
-      en: ``,
-      it: "",
-      tr: "",
-      ro: "",
-      ar: "",
-      de: "",
-      es: `Acceso GRATUITO a señales de trading en tiempo real.`,
-      sv: ``,
-      pt: "",
-      fi: "",
-      pl: ``,
-      hu: "",
-      th: "",
-      ms: "",
-      vi: "",
-    },
+    para: textBy(
+      {
+        default: {
+          en: ``,
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: `Acceso GRATUITO a señales de trading en tiempo real.`,
+          sv: ``,
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        "2025-06-05-11-50": {
+          en: `FREE access to real-time trading signals`,
+          it: ``,
+          tr: ``,
+          ro: ``,
+          ar: ``,
+          de: ``,
+          es: `Acceso GRATUITO a señales de trading en tiempo real.`,
+          sv: ``,
+          pt: ``,
+          fi: ``,
+          pl: ``,
+          hu: ``,
+          th: ``,
+          ms: ``,
+          vi: ``,
+        },
+      },
+      "textVersion",
+      componentProps.customOptions,
+    ),
   },
 ];
 ---
@@ -173,7 +288,7 @@ const list: {
         class="bg-background rounded-md border p-6 pt-0 shadow-xl lg:relative lg:z-20 lg:-mt-20"
       >
         <h2
-          class="text-heading2 mb-4 rounded-b-md bg-gradient-to-t from-stone-300 px-1 py-2 text-center md:mb-8 md:py-4 lg:mb-16"
+          class="text-heading2 mb-4 rounded-b-md bg-gradient-to-t from-stone-300 px-1 py-2 text-center text-balance md:mb-8 md:py-4 lg:mb-16"
           set:html={componentProps.features?.includes(Features.showcase)
             ? showcase({
                 words: 5,

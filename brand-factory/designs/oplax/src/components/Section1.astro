@@ -1,52 +1,100 @@
 ---
 import { Image } from "astro:assets";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
 import stampGreenEN_Image from "../assets/stamp-green-en.png";
 import tablet from "../assets/tablet.png";
-import { Features } from "../../../../globals/types/enums";
-import { showcase } from "../../../../globals/features/showcase/text";
+import type { CustomOptions } from "@/pages/index.astro";
 
 interface Props {
-  componentProps: ComponentProps;
+  componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
 
-const title: TranslationsType = {
-  en: "",
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: `Señales de trading <strong>gratuitas</strong>`,
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `Señales de trading <strong>gratuitas</strong>`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    "2025-06-05-11-50": {
+      en: `Interested to receive Free trading signals?`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `¿Te interesa recibir señales de trading gratuitas?`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 
-const para: TranslationsType = {
-  en: ``,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: `A todo operador le gustaría obtener unos buenos consejos al invertir en los mercados financieros. ${componentProps.brandObj.name} le proporciona señales de trading GRATUITAS fáciles de seguir en tiempo real. Puede acceder a las señales a través de un PC o dispositivo móvil, o recibirlas directamente por SMS.`,
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const para: TranslationsType = textBy(
+  {
+    default: {
+      en: ``,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: `A todo operador le gustaría obtener unos buenos consejos al invertir en los mercados financieros. ${componentProps.brandObj.name} le proporciona señales de trading GRATUITAS fáciles de seguir en tiempo real. Puede acceder a las señales a través de un PC o dispositivo móvil, o recibirlas directamente por SMS.`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    "2025-06-05-11-50": {
+      en: `Every trader would love sound information when investing in the financial markets. ${componentProps.brandObj.name} provides you with FREE, easy-to-follow, real-time trading signals. You can access the signals via a PC or mobile device, or receive them directly via SMS.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `A todo trader le encantaría contar con información fiable al invertir en los mercados financieros. ${componentProps.brandObj.name} te ofrece señales de trading GRATUITAS, fáciles de seguir y en tiempo real. Puedes acceder a las señales desde tu PC o dispositivo móvil, o recibirlas directamente por SMS.`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 
 const stampPic: {
   en: ImageMetadata;
@@ -110,7 +158,7 @@ const stampPic: {
       >
         <div class="flex max-w-[70ch] flex-col gap-4 lg:py-10">
           <h1
-            class="text-heading1 lg:text-foreground leading-tight text-white uppercase"
+            class="text-heading1 lg:text-foreground leading-tight text-balance text-white uppercase"
           >
             <Image
               src={stampPic[componentProps.lang] || stampPic.en}
