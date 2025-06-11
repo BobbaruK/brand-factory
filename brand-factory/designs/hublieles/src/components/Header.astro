@@ -121,6 +121,15 @@ const menuItems: MenuItem[] = [
       logo={componentProps.logo()}
       square={componentProps.customOptions?.logoSquare}
     />
-    <Navbar componentProps={componentProps} menuItems={menuItems} client:load />
+    {
+      componentProps.customOptions?.designVersion !==
+        "payment-authorization" && (
+        <Navbar
+          componentProps={componentProps}
+          menuItems={menuItems}
+          client:load
+        />
+      )
+    }
   </div>
 </header>
