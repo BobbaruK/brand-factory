@@ -1,0 +1,259 @@
+---
+import { CarouselWrapper } from "@/components/carousel-wrapper";
+import { icon5 } from "@/constants/icon5";
+import { icon6 } from "@/constants/icon6";
+import { icon7 } from "@/constants/icon7";
+import type { CarouselSlide } from "@/types/carousel-slides";
+import { Image } from "astro:assets";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import bg from "../assets/s2-bg.png";
+import slide1 from "../assets/slide1.png";
+import slide2 from "../assets/slide2.png";
+import slide3 from "../assets/slide3.png";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Who we are`,
+  it: `Chi siamo`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para1: TranslationsType = {
+  en: `Your gateway to trading excellence. At ${componentProps.brandObj.name}, we unite the best the world can offer:`,
+  it: `La tua porta d'accesso all'eccellenza nel trading. In ${componentProps.brandObj.name}, uniamo il meglio che il mondo può offrire:`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para2: TranslationsType = {
+  en: `Our mission is to empower traders worldwide with the skills and confidence to thrive in any market.`,
+  it: `La nostra missione è quella di offrire ai trader di tutto il mondo le competenze e la sicurezza necessarie per prosperare in qualsiasi mercato.`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const carouselSlides: CarouselSlide[] = [
+  {
+    bgFlip: slide1,
+    title: {
+      en: `Italian Precision and Tradition`,
+      it: `Precisione e Tradizione Italiana`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    description: {
+      en: `Inspired by Italy's rich academic heritage, focusing on discipline and critical thinking.`,
+      it: `Ispirati dal ricco patrimonio accademico italiano, con un focus su disciplina e pensiero critico.`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    icon: icon5,
+  },
+  {
+    bgFlip: slide2,
+    title: {
+      en: `Global Innovation in Trading`,
+      it: `Innovazione Globale nel Trading`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    description: {
+      en: `Leveraging cutting-edge tools and strategies to keep you ahead in the fast-moving financial markets.`,
+      it: `Sfruttando strumenti all'avanguardia e strategie avanzate per mantenerti sempre un passo avanti nei mercati finanziari in continua evoluzione.`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    icon: icon6,
+  },
+  {
+    bgFlip: slide3,
+    title: {
+      en: `Personalized Mentorship`,
+      it: `Mentorship Personalizzata`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    description: {
+      en: `Building lasting relationships between students and teachers for a truly impactful learning experience.`,
+      it: `Creando relazioni durature tra studenti e insegnanti per un’esperienza di apprendimento davvero trasformativa.`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    icon: icon7,
+  },
+];
+
+const buttonLabel: TranslationsType = {
+  en: `Discover more`,
+  it: `Scopri di più`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="about" class="relative py-8 text-white lg:py-16">
+  <Image
+    src={bg}
+    alt="Background"
+    class="absolute inset-0 z-0 h-full w-full object-cover"
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
+    sizes={`100vw`}
+  />
+  <div class="relative z-10 container flex flex-col gap-1 lg:flex-row">
+    <div class="flex flex-col items-start justify-center gap-8 w-full">
+      <h2
+        set:html={title[componentProps.lang]}
+        class="text-heading2 leading-heading2 text-accent font-extrabold text-balance uppercase"
+      />
+
+      <p set:html={para1[componentProps.lang]} class="text-para-lead text-balance" />
+
+      <div class="w-full">
+        <CarouselWrapper
+          slides={carouselSlides}
+          componentProps={componentProps}
+          client:load
+        />
+      </div>
+
+      <p set:html={para2[componentProps.lang]} class="text-para-lead text-balance" />
+
+      <ButtonDisclaimer
+        componentProps={componentProps}
+        disclaimer={{
+          active: false,
+        }}
+      >
+        <Button
+          variant={"secondary"}
+          className={"js-modal-trigger h-auto cursor-pointer gap-4 px-16 py-4 text-lg font-bold text-white uppercase md:px-20 md:py-6 lg:text-2xl"}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : buttonLabel[componentProps.lang]}
+        />
+      </ButtonDisclaimer>
+    </div>
+  </div>
+</section>
