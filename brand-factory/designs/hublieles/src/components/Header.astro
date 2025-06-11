@@ -1,20 +1,126 @@
 ---
-import { type CustomOptions } from "@/pages/index.astro";
+import { Navbar } from "@/components/navbar";
+import type { MenuItem } from "@/types/menu-items";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
-import { type ComponentProps } from "../../../../globals/types/component-props";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { CustomOptions } from "../pages/index.astro";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const menuItems: MenuItem[] = [
+  {
+    label: {
+      en: `Home`,
+      it: `Home`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    scrollTo: "#home",
+  },
+  {
+    label: {
+      en: `About`,
+      it: `Chi siamo`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    scrollTo: "#about",
+  },
+  {
+    label: {
+      en: `Courses`,
+      it: `Corsi`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    scrollTo: "#courses",
+  },
+  {
+    label: {
+      en: `Webinars`,
+      it: `Webinar`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    scrollTo: "#webinars",
+  },
+  {
+    label: {
+      en: `Testimonials`,
+      it: `Testimonianze`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    scrollTo: "#testimonials",
+  },
+];
 ---
 
-<header id="header">
-  <div class="container">
+<header class="text bg-primary text-primary-foreground py-4">
+  <div class="container flex flex-wrap items-center justify-between">
     <MainLogo
       size={componentProps.brandObj.nameToLower}
       logo={componentProps.logo()}
       square={componentProps.customOptions?.logoSquare}
     />
+    <Navbar componentProps={componentProps} menuItems={menuItems} client:load />
   </div>
 </header>
