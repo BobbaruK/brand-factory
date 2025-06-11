@@ -1,0 +1,150 @@
+---
+import { Image } from "astro:assets";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import laptopDude from "../assets/laptopdude.png";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Interactive online webinars`,
+  it: `Webinar online interattivi`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para1: TranslationsType = {
+  en: `Engage with our mentors during live online webinars. Whether it’s learning a new strategy or understanding the latest market trend, our webinars offer real-time Q&A sessions for instant feedback and approach topics ranging from foundational knowledge to advanced strategies.`,
+  it: `Interagisci con i nostri mentori durante i webinar in diretta. Che si tratti di apprendere una nuova strategia o di comprendere le ultime tendenze di mercato, i nostri webinar offrono sessioni di Q&A in tempo reale per un feedback immediato e coprono argomenti che spaziano dalle basi alle strategie avanzate.`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para2: TranslationsType = {
+  en: `Join now, to be able to participate in our webinars and ensure every session is engaging, personal, and effective.`,
+  it: `Unisciti subito per partecipare ai nostri webinar e assicurarti sessioni coinvolgenti, personalizzate ed efficaci.`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const buttonLabel: TranslationsType = {
+  en: `Join now`,
+  it: `Partecipa ora`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section
+  id="webinars"
+  class="bg-primary text-primary-foreground relative overflow-hidden py-8 xl:py-16"
+>
+  <div class="relative z-10 container flex flex-col gap-1 xl:flex-row">
+    <div class="flex flex-col items-start justify-center gap-8 xl:max-w-[90ch]">
+      <h2
+        set:html={title[componentProps.lang]}
+        class="leading-heading2 text-heading2 text-accent font-extrabold text-balance uppercase"
+      />
+      <p
+        set:html={para1[componentProps.lang]}
+        class="text-para-lead text-balance"
+      />
+
+      <p
+        set:html={para2[componentProps.lang]}
+        class="text-para-lead text-balance"
+      />
+
+      <ButtonDisclaimer
+        componentProps={componentProps}
+        disclaimer={{
+          active: false,
+        }}
+      >
+        <Button
+          variant={"secondary"}
+          className={"js-modal-trigger h-auto cursor-pointer gap-4 px-16 py-4 text-lg font-bold text-white uppercase md:px-20 md:py-6 lg:text-2xl"}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : buttonLabel[componentProps.lang]}
+        />
+      </ButtonDisclaimer>
+    </div>
+    <div class="relative grow">
+      <Image
+        src={laptopDude}
+        alt="Background"
+        class="bottom-0 -mb-20 w-full max-w-[350px] xl:absolute xl:h-[560px] xl:w-auto xl:max-w-none"
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, laptopDude.width]}
+        sizes={`
+        (max-width: 640px) 640px,
+        100vw
+      `}
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  ul {
+    counter-reset: bullet;
+  }
+
+  li::before {
+    counter-increment: bullet;
+    content: counter(bullet) ". ";
+  }
+</style>
