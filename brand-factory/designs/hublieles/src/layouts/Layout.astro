@@ -8,6 +8,8 @@ import "../styles/global.css";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/700.css";
 import "@fontsource/poppins/800.css";
+import Form from "../../../../globals/components/form";
+import type { TranslationsType } from "../../../../globals/types/translations";
 
 interface Props {
   componentProps: ComponentProps;
@@ -16,6 +18,24 @@ interface Props {
 const { componentProps } = Astro.props;
 
 const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
+
+export const formButtonTranslation: TranslationsType = {
+  en: `Discover more`,
+  it: "Scopri di più",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: ``,
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
 ---
 
 <!doctype html>
@@ -69,7 +89,13 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    <Dialog> Dialog Content Here! </Dialog>
+    <Dialog>
+      <Form
+        componentProps={componentProps}
+        button={formButtonTranslation[componentProps.lang]}
+        id="modal-form"
+      />
+    </Dialog>
     <BackToTop />
     <script
       type="module"
