@@ -1,0 +1,559 @@
+---
+import { Image } from "astro:assets";
+import Form from "../../../../globals/components/form";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import user1 from "../assets/user1.png";
+import user2 from "../assets/user2.png";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { Button } from "./ui/button";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Choose your educational package`,
+  it: `Scegli il tuo pacchetto educativo`,
+  tr: `Eğitim paketini seçin`,
+  ro: `Alege pachetul educațional`,
+  ar: `اختر حزمتك التعليمية`,
+  de: `Wähle dein Bildungspaket`,
+  es: `Elige tu paquete educativo`,
+  sv: `Välj ditt utbildningspaket`,
+  pt: `Escolha seu pacote educacional`,
+  fi: `Valitse koulutuspakettisi`,
+  pl: `Wybierz swój pakiet edukacyjny`,
+  hu: `Válassza ki oktatási csomagját`,
+  th: `เลือกแพ็กเกจการศึกษา`,
+  ms: `Pilih pakej pendidikan anda`,
+  vi: `Chọn gói đào tạo của bạn`,
+};
+
+const cards: {
+  title: TranslationsType;
+  para: TranslationsType;
+  list: TranslationsType[];
+  price: TranslationsType;
+}[] = [
+  {
+    title: {
+      en: `Starter Package`,
+      it: `Pacchetto Iniziale`,
+      tr: `Başlangıç Paketi`,
+      ro: `Pachet pentru Începători`,
+      ar: `الباقة المبتدئة`,
+      de: `Starter-Paket`,
+      es: `Paquete Inicial`,
+      sv: `Startpaket`,
+      pt: `Pacote Inicial`,
+      fi: `Aloituspaketti`,
+      pl: `Pakiet Startowy`,
+      hu: `Kezdő Csomag`,
+      th: `แพ็กเกจเริ่มต้น`,
+      ms: `Pakej Permulaan`,
+      vi: `Gói Khởi Đầu`,
+    },
+    para: {
+      en: `Perfect for beginners starting their trading journey.`,
+      it: `Perfetto per i principianti che iniziano il loro percorso di trading.`,
+      tr: `Yatırım yolculuğuna yeni başlayanlar için mükemmel.`,
+      ro: `Perfect pentru începătorii care își încep călătoria în trading.`,
+      ar: `مثالي للمبتدئين الذين يبدؤون رحلتهم في التداول.`,
+      de: `Perfekt für Anfänger, die ihre Trading-Reise beginnen.`,
+      es: `Perfecto para principiantes que comienzan su camino en el trading.`,
+      sv: `Perfekt för nybörjare som påbörjar sin tradingresa.`,
+      pt: `Perfeito para iniciantes começando sua jornada no trading.`,
+      fi: `Täydellinen aloitteleville treidaajille.`,
+      pl: `Idealny dla początkujących rozpoczynających swoją przygodę z tradingiem.`,
+      hu: `Tökéletes kezdők számára, akik most indulnak el a kereskedés világában.`,
+      th: `เหมาะสำหรับผู้เริ่มต้นที่เพิ่งเริ่มต้นเส้นทางการเทรดของตน`,
+      ms: `Sesuai untuk pemula yang baru memulakan perjalanan perdagangan mereka.`,
+      vi: `Hoàn hảo cho người mới bắt đầu hành trình giao dịch.`,
+    },
+    list: [
+      {
+        en: `Access to 2 live webinars per month`,
+        it: `Accesso a 2 webinar dal vivo al mese`,
+        tr: `Ayda 2 canlı webinara erişim`,
+        ro: `Acces la 2 webinarii live pe lună`,
+        ar: `الوصول إلى ندوتين مباشرتين شهريًا`,
+        de: `Zugang zu 2 Live-Webinaren pro Monat`,
+        es: `Acceso a 2 seminarios web en vivo por mes`,
+        sv: `Tillgång till 2 livewebbinarier per månad`,
+        pt: `Acesso a 2 webinars ao vivo por mês`,
+        fi: `Pääsy kahteen live-webinaariin kuukaudessa`,
+        pl: `Dostęp do 2 webinariów na żywo miesięcznie`,
+        hu: `Hozzáférés havi 2 élő webinárhoz`,
+        th: `เข้าถึงสัมมนาออนไลน์สด 2 ครั้งต่อเดือน`,
+        ms: `Akses kepada 2 webinar langsung setiap bulan`,
+        vi: `Truy cập 2 hội thảo trực tuyến trực tiếp mỗi tháng`,
+      },
+      {
+        en: `Weekly market movers & alerts`,
+        it: `Movimenti di mercato settimanali e avvisi`,
+        tr: `Haftalık piyasa hareketleri ve uyarılar`,
+        ro: `Mișcări și alerte săptămânale ale pieței`,
+        ar: `تحركات وتنبيهات السوق الأسبوعية`,
+        de: `Wöchentliche Marktbewegungen & Alarme`,
+        es: `Movimientos del mercado semanales y alertas`,
+        sv: `Veckovisa marknadsrörelser och varningar`,
+        pt: `Movimentações e alertas semanais do mercado`,
+        fi: `Viikoittaiset markkinaliikkeet ja hälytykset`,
+        pl: `Cotygodniowe ruchy rynkowe i alerty`,
+        hu: `Heti piaci mozgások és figyelmeztetések`,
+        th: `การเคลื่อนไหวของตลาดและการแจ้งเตือนรายสัปดาห์`,
+        ms: `Pergerakan pasaran mingguan dan makluman`,
+        vi: `Biến động thị trường và cảnh báo hàng tuần`,
+      },
+      {
+        en: `Introductory trading signals`,
+        it: `Segnali di trading introduttivi`,
+        tr: `Tanıtıcı işlem sinyalleri`,
+        ro: `Semnale de tranzacționare introductive`,
+        ar: `إشارات تداول تمهيدية`,
+        de: `Einführende Handelssignale`,
+        es: `Señales de trading introductorias`,
+        sv: `Introduktionshandelssignaler`,
+        pt: `Sinais de trading introdutórios`,
+        fi: `Johdantokauppasignaalit`,
+        pl: `Wstępne sygnały handlowe`,
+        hu: `Bevezető kereskedési jelzések`,
+        th: `สัญญาณการเทรดเบื้องต้น`,
+        ms: `Isyarat dagangan permulaan`,
+        vi: `Tín hiệu giao dịch sơ cấp`,
+      },
+      {
+        en: `Email support`,
+        it: `Supporto via email`,
+        tr: `E-posta desteği`,
+        ro: `Suport prin email`,
+        ar: `دعم عبر البريد الإلكتروني`,
+        de: `E-Mail-Support`,
+        es: `Soporte por correo electrónico`,
+        sv: `E-postsupport`,
+        pt: `Suporte por e-mail`,
+        fi: `Sähköpostituki`,
+        pl: `Wsparcie e-mailowe`,
+        hu: `E-mailes támogatás`,
+        th: `การสนับสนุนทางอีเมล`,
+        ms: `Sokongan e-mel`,
+        vi: `Hỗ trợ qua email`,
+      },
+    ],
+    price: {
+      en: `99 SAR/month`,
+      it: `99 SAR/mese`,
+      tr: `Aylık 99 SAR`,
+      ro: `99 SAR/lună`,
+      ar: `99 ريال/شهر`,
+      de: `99 SAR/Monat`,
+      es: `99 SAR/mes`,
+      sv: `99 SAR/månad`,
+      pt: `99 SAR/mês`,
+      fi: `99 SAR/kk`,
+      pl: `99 SAR/miesiąc`,
+      hu: `99 SAR/hónap`,
+      th: `99 ริยาล/เดือน`,
+      ms: `99 SAR/sebulan`,
+      vi: `99 SAR/tháng`,
+    },
+  },
+  {
+    title: {
+      en: `Professional Package`,
+      it: `Pacchetto Professionale`,
+      tr: `Profesyonel Paket`,
+      ro: `Pachet Profesional`,
+      ar: `الباقة الاحترافية`,
+      de: `Professionelles Paket`,
+      es: `Paquete Profesional`,
+      sv: `Professionellt Paket`,
+      pt: `Pacote Profissional`,
+      fi: `Ammattipaketti`,
+      pl: `Pakiet Profesjonalny`,
+      hu: `Professzionális Csomag`,
+      th: `แพ็กเกจมืออาชีพ`,
+      ms: `Pakej Profesional`,
+      vi: `Gói Chuyên Nghiệp`,
+    },
+    para: {
+      en: `For growing traders ready to take the next step.`,
+      it: `Per trader in crescita pronti a fare il passo successivo.`,
+      tr: `Bir sonraki adımı atmaya hazır gelişen yatırımcılar için.`,
+      ro: `Pentru traderii în dezvoltare pregătiți să facă următorul pas.`,
+      ar: `للمتداولين المتقدمين المستعدين للانتقال إلى المستوى التالي.`,
+      de: `Für fortgeschrittene Trader, die den nächsten Schritt machen wollen.`,
+      es: `Para traders en crecimiento listos para dar el siguiente paso.`,
+      sv: `För växande traders som är redo att ta nästa steg.`,
+      pt: `Para traders em crescimento prontos para dar o próximo passo.`,
+      fi: `Kasvaville treidaajille, jotka ovat valmiita seuraavaan askeleeseen.`,
+      pl: `Dla rozwijających się traderów gotowych na kolejny krok.`,
+      hu: `Fejlődő kereskedőknek, akik készen állnak a következő lépésre.`,
+      th: `สำหรับนักเทรดที่กำลังเติบโตและพร้อมสำหรับก้าวต่อไป`,
+      ms: `Untuk pedagang yang sedang berkembang dan bersedia mengambil langkah seterusnya.`,
+      vi: `Dành cho nhà giao dịch đang phát triển và sẵn sàng bước tiếp.`,
+    },
+    list: [
+      {
+        en: `Unlimited webinars`,
+        it: `Webinar illimitati`,
+        tr: `Sınırsız webinar`,
+        ro: `Webinarii nelimitate`,
+        ar: `ندوات غير محدودة`,
+        de: `Unbegrenzte Webinare`,
+        es: `Webinars ilimitados`,
+        sv: `Obegränsade webbinarier`,
+        pt: `Webinars ilimitados`,
+        fi: `Rajoittamattomat webinaarit`,
+        pl: `Nieograniczony dostęp do webinarów`,
+        hu: `Korlátlan webinárium hozzáférés`,
+        th: `สัมมนาออนไลน์ไม่จำกัดจำนวน`,
+        ms: `Webinar tanpa had`,
+        vi: `Hội thảo trực tuyến không giới hạn`,
+      },
+      {
+        en: `Daily trading signals`,
+        it: `Segnali di trading giornalieri`,
+        tr: `Günlük işlem sinyalleri`,
+        ro: `Semnale de tranzacționare zilnice`,
+        ar: `إشارات تداول يومية`,
+        de: `Tägliche Handelssignale`,
+        es: `Señales de trading diarias`,
+        sv: `Dagliga handelssignaler`,
+        pt: `Sinais de trading diários`,
+        fi: `Päivittäiset kaupankäyntisignaalit`,
+        pl: `Codzienne sygnały handlowe`,
+        hu: `Napi kereskedési jelzések`,
+        th: `สัญญาณการเทรดรายวัน`,
+        ms: `Isyarat dagangan harian`,
+        vi: `Tín hiệu giao dịch hàng ngày`,
+      },
+      {
+        en: `Market movers & instant alerts`,
+        it: `Movimenti di mercato e avvisi istantanei`,
+        tr: `Piyasa hareketleri ve anlık uyarılar`,
+        ro: `Mișcări de piață și alerte instant`,
+        ar: `محركات السوق والتنبيهات الفورية`,
+        de: `Marktbewegungen & Sofortalarm`,
+        es: `Movimientos del mercado y alertas instantáneas`,
+        sv: `Marknadsrörelser & omedelbara varningar`,
+        pt: `Movimentações do mercado e alertas instantâneos`,
+        fi: `Markkinaliikkeet ja välittömät hälytykset`,
+        pl: `Ruchy rynkowe i natychmiastowe alerty`,
+        hu: `Piaci mozgások és azonnali riasztások`,
+        th: `การเคลื่อนไหวของตลาดและการแจ้งเตือนทันที`,
+        ms: `Pergerakan pasaran & makluman segera`,
+        vi: `Biến động thị trường & cảnh báo tức thì`,
+      },
+      {
+        en: `1-on-1 class (monthly) with an expert mentor`,
+        it: `Lezione individuale (mensile) con un mentore esperto`,
+        tr: `Aylık birebir ders uzman bir mentorla`,
+        ro: `Sesiune 1-la-1 (lunară) cu un mentor expert`,
+        ar: `حصة فردية (شهريًا) مع خبير`,
+        de: `Monatliche 1-zu-1-Sitzung mit einem erfahrenen Mentor`,
+        es: `Clase 1 a 1 (mensual) con un mentor experto`,
+        sv: `1-mot-1-lektion (månatligen) med expertmentor`,
+        pt: `Aula individual (mensal) com um mentor especialista`,
+        fi: `Yksilöllinen oppitunti (kuukausittain) asiantuntijan kanssa`,
+        pl: `Indywidualna sesja (miesięczna) z doświadczonym mentorem`,
+        hu: `Havi 1 az 1-ben konzultáció szakértő mentorral`,
+        th: `เรียนตัวต่อตัว (รายเดือน) กับเมนเทอร์ผู้เชี่ยวชาญ`,
+        ms: `Kelas 1-ke-1 (bulanan) dengan mentor pakar`,
+        vi: `Lớp học 1-1 (hàng tháng) với cố vấn chuyên gia`,
+      },
+      {
+        en: `Priority email & chat support`,
+        it: `Supporto prioritario via email e chat`,
+        tr: `Öncelikli e-posta ve sohbet desteği`,
+        ro: `Suport prioritar prin email și chat`,
+        ar: `دعم عبر البريد والدردشة بأولوية`,
+        de: `Priorisierter E-Mail- & Chat-Support`,
+        es: `Soporte prioritario por correo y chat`,
+        sv: `Prioriterad e-post- och chattstöd`,
+        pt: `Suporte prioritário por e-mail e chat`,
+        fi: `Etusijainen sähköposti- ja chat-tuki`,
+        pl: `Priorytetowe wsparcie przez e-mail i czat`,
+        hu: `Elsőbbségi email- és csevegéstámogatás`,
+        th: `การสนับสนุนทางอีเมลและแชทแบบเร่งด่วน`,
+        ms: `Sokongan e-mel & chat keutamaan`,
+        vi: `Hỗ trợ ưu tiên qua email & trò chuyện`,
+      },
+    ],
+    price: {
+      en: `249 SAR/month`,
+      it: `249 SAR/mese`,
+      tr: `Aylık 249 SAR`,
+      ro: `249 SAR/lună`,
+      ar: `249 ريال/شهر`,
+      de: `249 SAR/Monat`,
+      es: `249 SAR/mes`,
+      sv: `249 SAR/månad`,
+      pt: `249 SAR/mês`,
+      fi: `249 SAR/kk`,
+      pl: `249 SAR/miesiąc`,
+      hu: `249 SAR/hónap`,
+      th: `249 ริยาล/เดือน`,
+      ms: `249 SAR/sebulan`,
+      vi: `249 SAR/tháng`,
+    },
+  },
+  {
+    title: {
+      en: `Elite Package`,
+      it: `Pacchetto Elite`,
+      tr: `Elit Paket`,
+      ro: `Pachet Elite`,
+      ar: `الباقة النخبة`,
+      de: `Elite-Paket`,
+      es: `Paquete Elite`,
+      sv: `Elitepaket`,
+      pt: `Pacote Elite`,
+      fi: `Elite-paketti`,
+      pl: `Pakiet Elite`,
+      hu: `Elite Csomag`,
+      th: `แพ็กเกจอีลิท`,
+      ms: `Pakej Elite`,
+      vi: `Gói Elite`,
+    },
+    para: {
+      en: `Comprehensive support for ambitious and advanced traders.`,
+      it: `Supporto completo per trader ambiziosi e avanzati.`,
+      tr: `Hırslı ve gelişmiş yatırımcılar için kapsamlı destek.`,
+      ro: `Suport cuprinzător pentru traderi ambițioși și avansați.`,
+      ar: `دعم شامل للمتداولين الطموحين والمتقدمين.`,
+      de: `Umfassende Unterstützung für ehrgeizige und fortgeschrittene Trader.`,
+      es: `Soporte integral para traders ambiciosos y avanzados.`,
+      sv: `Omfattande stöd för ambitiösa och avancerade traders.`,
+      pt: `Apoio abrangente para traders ambiciosos e avançados.`,
+      fi: `Kattava tuki kunnianhimoisille ja edistyneille treidaajille.`,
+      pl: `Kompleksowe wsparcie dla ambitnych i zaawansowanych traderów.`,
+      hu: `Átfogó támogatás ambíciózus és haladó kereskedőknek.`,
+      th: `การสนับสนุนครบวงจรสำหรับนักเทรดที่ทะเยอทะยานและมีประสบการณ์`,
+      ms: `Sokongan menyeluruh untuk pedagang ambisius dan lanjutan.`,
+      vi: `Hỗ trợ toàn diện cho trader tham vọng và nâng cao.`,
+    },
+    list: [
+      {
+        en: `All benefits from Professional Package`,
+        it: `Tutti i benefici del Pacchetto Professionale`,
+        tr: `Profesyonel Paketin tüm faydaları`,
+        ro: `Toate beneficiile din Pachetul Profesional`,
+        ar: `جميع فوائد الباقة الاحترافية`,
+        de: `Alle Vorteile des Professional-Pakets`,
+        es: `Todos los beneficios del Paquete Profesional`,
+        sv: `Alla fördelar från Professionellt Paket`,
+        pt: `Todos os benefícios do Pacote Profissional`,
+        fi: `Kaikki edut Professional-paketista`,
+        pl: `Wszystkie korzyści z Pakietu Profesjonalnego`,
+        hu: `Minden előny a Professzionális csomagból`,
+        th: `ประโยชน์ทั้งหมดจากแพ็กเกจ Professional`,
+        ms: `Semua manfaat dari Pakej Profesional`,
+        vi: `Tất cả lợi ích từ Gói Professional`,
+      },
+      {
+        en: `Weekly 1-on-1 classes`,
+        it: `Lezioni individuali settimanali`,
+        tr: `Haftalık birebir dersler`,
+        ro: `Cursuri unu-la-unu săptămânale`,
+        ar: `حصص واحد لواحد أسبوعية`,
+        de: `Wöchentliche Einzelunterrichtseinheiten`,
+        es: `Clases 1 a 1 semanales`,
+        sv: `Veckovisa 1‑mot‑1-lektioner`,
+        pt: `Aulas 1 a 1 semanais`,
+        fi: `Viikoittaiset yksilötunnit`,
+        pl: `Cotygodniowe zajęcia 1 na 1`,
+        hu: `Heti 1 az 1‑ben órák`,
+        th: `คลาสตัวต่อตัวรายสัปดาห์`,
+        ms: `Kelas 1‑lawan‑1 mingguan`,
+        vi: `Lớp 1-1 hàng tuần`,
+      },
+      {
+        en: `Exclusive VIP webinars`,
+        it: `Webinar VIP esclusivi`,
+        tr: `Özel VIP webinarlar`,
+        ro: `Webinarii VIP exclusive`,
+        ar: `ندوات VIP حصرية`,
+        de: `Exklusive VIP-Webinare`,
+        es: `Webinars VIP exclusivos`,
+        sv: `Exklusiva VIP-webbinarier`,
+        pt: `Webinars VIP exclusivos`,
+        fi: `Yksinoikeudella VIP-webinaarit`,
+        pl: `Ekskluzywne webinary VIP`,
+        hu: `Exkluzív VIP-webináriumok`,
+        th: `เว็บบินาร์ VIP พิเศษ`,
+        ms: `Webinar VIP eksklusif`,
+        vi: `Hội thảo VIP độc quyền`,
+      },
+      {
+        en: `Priority access to new tools & insights`,
+        it: `Accesso prioritario a nuovi strumenti e approfondimenti`,
+        tr: `Yeni araçlara ve analizlere öncelikli erişim`,
+        ro: `Acces prioritar la instrumente și analize noi`,
+        ar: `إمكانية الوصول ذات الأولوية إلى أدوات ورؤى جديدة`,
+        de: `Priorisierter Zugriff auf neue Tools & Insights`,
+        es: `Acceso prioritario a nuevas herramientas e ideas`,
+        sv: `Prioriterad åtkomst till nya verktyg och insikter`,
+        pt: `Acesso prioritário a novas ferramentas e insights`,
+        fi: `Ensimmäisenä uusiin työkaluihin ja näkemyksiin`,
+        pl: `Priorytetowy dostęp do nowych narzędzi i analiz`,
+        hu: `Elsőbbségi hozzáférés új eszközökhöz és elemzésekhez`,
+        th: `เข้าถึงเครื่องมือและข้อมูลเชิงลึกใหม่ก่อนใคร`,
+        ms: `Akses keutamaan kepada alat & pandangan baharu`,
+        vi: `Truy cập ưu tiên vào công cụ & phân tích mới`,
+      },
+      {
+        en: `Personalized strategy sessions`,
+        it: `Sessioni strategiche personalizzate`,
+        tr: `Kişiselleştirilmiş strateji oturumları`,
+        ro: `Sesiuni de strategie personalizate`,
+        ar: `جلسات استراتيجية مخصصة`,
+        de: `Personalisierte Strategiesitzungen`,
+        es: `Sesiones de estrategia personalizadas`,
+        sv: `Personliga strategisessioner`,
+        pt: `Sessões de estratégia personalizadas`,
+        fi: `Räätälöidyt strategiasessiot`,
+        pl: `Spersonalizowane sesje strategiczne`,
+        hu: `Személyre szabott stratégiai ülések`,
+        th: `เซสชันกลยุทธ์เฉพาะบุคคล`,
+        ms: `Sesi strategi diperibadikan`,
+        vi: `Buổi chiến lược cá nhân hóa`,
+      },
+    ],
+    price: {
+      en: `499 SAR/month`,
+      it: `499 SAR/mese`,
+      tr: `Aylık 499 SAR`,
+      ro: `499 SAR/lună`,
+      ar: `499 ريال/شهر`,
+      de: `499 SAR/Monat`,
+      es: `499 SAR/mes`,
+      sv: `499 SAR/månad`,
+      pt: `499 SAR/mês`,
+      fi: `499 SAR/kk`,
+      pl: `499 SAR/miesiąc`,
+      hu: `499 SAR/hónap`,
+      th: `499 ริยาล/เดือน`,
+      ms: `499 SAR/sebulan`,
+      vi: `499 SAR/tháng`,
+    },
+  },
+];
+
+const cta: TranslationsType = {
+  en: `Ready to invest in your skills? <br /> Choose your package and unlock your trading potential.`,
+  it: `Pronto a investire nelle tue competenze? <br /> Scegli il tuo pacchetto e libera il tuo potenziale nel trading.`,
+  tr: `Becerilerine yatırım yapmaya hazır mısın? <br /> Paketini seç ve yatırım potansiyelini ortaya çıkar.`,
+  ro: `Ești gata să investești în abilitățile tale? <br /> Alege pachetul tău și descoperă-ți potențialul în trading.`,
+  ar: `هل أنت مستعد للاستثمار في مهاراتك؟ <br /> اختر الحزمة الخاصة بك واكتشف إمكاناتك في التداول.`,
+  de: `Bereit, in deine Fähigkeiten zu investieren? <br /> Wähle dein Paket und entfessle dein Trading-Potenzial.`,
+  es: `¿Listo para invertir en tus habilidades? <br /> Elige tu paquete y desbloquea tu potencial de trading.`,
+  sv: `Redo att investera i dina färdigheter? <br /> Välj ditt paket och lås upp din tradingpotential.`,
+  pt: `Pronto para investir nas suas habilidades? <br /> Escolha seu pacote e libere seu potencial de trading.`,
+  fi: `Valmis sijoittamaan taitoihisi? <br /> Valitse pakettisi ja vapauta kaupankäyntipotentiaalisi.`,
+  pl: `Gotowy, aby zainwestować w swoje umiejętności? <br /> Wybierz swój pakiet i uwolnij swój potencjał tradingowy.`,
+  hu: `Készen állsz, hogy befektess a képességeidbe? <br /> Válaszd ki a csomagodat, és hozd ki a legtöbbet a kereskedésből.`,
+  th: `พร้อมลงทุนในทักษะของคุณแล้วหรือยัง? <br /> เลือกแพ็กเกจของคุณและปลดล็อกศักยภาพในการเทรดของคุณ`,
+  ms: `Sedia untuk melabur dalam kemahiran anda? <br /> Pilih pakej anda dan buka potensi dagangan anda.`,
+  vi: `Sẵn sàng đầu tư vào kỹ năng của bạn chưa? <br /> Chọn gói của bạn và khai phá tiềm năng giao dịch của bạn.`,
+};
+
+const buttonLabel: TranslationsType = {
+  en: `Select your package`,
+  it: `Seleziona il tuo pacchetto`,
+  tr: `Paketinizi seçin`,
+  ro: `Selectează pachetul tău`,
+  ar: `اختر حزمتك`,
+  de: `Wähle dein Paket`,
+  es: `Selecciona tu paquete`,
+  sv: `Välj ditt paket`,
+  pt: `Selecione seu pacote`,
+  fi: `Valitse pakettisi`,
+  pl: `Wybierz swój pakiet`,
+  hu: `Válassza ki csomagját`,
+  th: `เลือกแพ็กเกจของคุณ`,
+  ms: `Pilih pakej anda`,
+  vi: `Chọn gói của bạn`,
+};
+---
+
+<section id="testimonials" class="relative py-8 lg:py-16">
+  <div class="relative z-10 container flex flex-col gap-1 lg:flex-row">
+    <div class="flex w-full flex-col items-start justify-center gap-8">
+      <h2
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
+        class="text-heading2 leading-heading2 text-primary font-extrabold text-balance uppercase"
+      />
+
+      <div class="flex w-full flex-wrap items-stretch gap-8">
+        {
+          cards.map((card) => (
+            <Card className="grow js-modal-trigger cursor-pointer">
+              <CardHeader>
+                <CardTitle className="text-heading3">
+                  {card.title[componentProps.lang]}
+                </CardTitle>
+                <CardDescription>
+                  {card.para[componentProps.lang]}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="my-auto">
+                <ol class="list-inside list-disc">
+                  {card.list.map((li) => (
+                    <li set:html={li[componentProps.lang]} />
+                  ))}
+                </ol>
+              </CardContent>
+              <CardFooter className="items-center justify-center mt-auto">
+                <p
+                  set:html={card.price[componentProps.lang]}
+                  class="text-center"
+                />
+              </CardFooter>
+            </Card>
+          ))
+        }
+      </div>
+
+      <p set:html={cta[componentProps.lang]} class="text-para-lead font-bold" />
+
+      <ButtonDisclaimer
+        componentProps={componentProps}
+        disclaimer={{
+          active: false,
+        }}
+      >
+        <Button
+          variant={"secondary"}
+          className={"js-modal-trigger h-auto cursor-pointer gap-4 px-16 py-4 text-lg font-bold text-white uppercase md:px-20 md:py-6 lg:text-2xl"}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : buttonLabel[componentProps.lang]}
+        />
+      </ButtonDisclaimer>
+    </div>
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  @reference "../styles/global.css";
+</style>

@@ -4,6 +4,7 @@ import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
 import Section4 from "@/components/Section4.astro";
 import Section5 from "@/components/Section5.astro";
+import Section5PA from "@/components/Section5-PA.astro";
 import { brandFactory } from "../../../../globals/factory";
 import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
@@ -21,6 +22,7 @@ import Layout from "../layouts/Layout.astro";
 
 export interface CustomOptions {
   logoSquare: boolean;
+  designVersion?: "default" | "payment-authorization";
 }
 
 /**
@@ -28,12 +30,12 @@ export interface CustomOptions {
  */
 type Logo = TradingAtheneumSVGVariation;
 const brand: BrandsNames = "tradingatheneum";
-const lpName = "";
-const lang: Languages = "en";
+const lpName = "Home";
+const lang: Languages = "ar";
 const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
-  Features.showcase,
+  // Features.showcase,
   // Features.readyForMail,
   Features.outbrain,
   // Features.atheneum,
@@ -45,6 +47,7 @@ const whatsapp = false;
 const fxoroFooter: boolean = false;
 const customOptions: CustomOptions = {
   logoSquare: false,
+  designVersion: "payment-authorization",
 };
 // ===============================
 
@@ -74,5 +77,12 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
   <Section2 componentProps={componentProps} />
   <Section3 componentProps={componentProps} />
   <Section4 componentProps={componentProps} />
-  <Section5 componentProps={componentProps} />
+  {
+    componentProps.customOptions?.designVersion === undefined ||
+    componentProps.customOptions?.designVersion === "default" ? (
+      <Section5 componentProps={componentProps} />
+    ) : (
+      <Section5PA componentProps={componentProps} />
+    )
+  }
 </Layout>

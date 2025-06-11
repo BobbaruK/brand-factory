@@ -5,7 +5,9 @@ import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
 import laptopDude from "../assets/laptopdude.png";
+import laptopDudeAr from "../assets/laptopdude-ar.png";
 import { Button } from "./ui/button";
 
 interface Props {
@@ -13,77 +15,169 @@ interface Props {
 }
 const { componentProps } = Astro.props;
 
-const title: TranslationsType = {
-  en: `Interactive online webinars`,
-  it: `Webinar online interattivi`,
-  tr: ``,
-  ro: ``,
-  ar: ``,
-  de: ``,
-  es: ``,
-  sv: ``,
-  pt: ``,
-  fi: ``,
-  pl: ``,
-  hu: ``,
-  th: ``,
-  ms: ``,
-  vi: ``,
-};
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: `Interactive online webinars`,
+      it: `Webinar online interattivi`,
+      tr: `Etkileşimli çevrimiçi web seminerleri`,
+      ro: `Webinarii online interactive`,
+      ar: `ندوات تفاعلية عبر الإنترنت`,
+      de: `Interaktive Online-Webinare`,
+      es: `Webinarios en línea interactivos`,
+      sv: `Interaktiva onlinewebbinarier`,
+      pt: `Webinars online interativos`,
+      fi: `Interaktiiviset verkkoseminaarit`,
+      pl: `Interaktywne webinaria online`,
+      hu: `Interaktív online webináriumok`,
+      th: `เว็บบินาร์ออนไลน์แบบโต้ตอบ`,
+      ms: `Webinar dalam talian interaktif`,
+      vi: `Hội thảo trực tuyến tương tác`,
+    },
+    "payment-authorization": {
+      en: `Interactive webinars & live sessions`,
+      it: `Webinar interattivi e sessioni dal vivo`,
+      tr: `Etkileşimli web seminerleri ve canlı oturumlar`,
+      ro: `Webinarii interactive și sesiuni live`,
+      ar: `ندوات تفاعلية وجلسات مباشرة`,
+      de: `Interaktive Webinare & Live-Sessions`,
+      es: `Webinarios interactivos y sesiones en vivo`,
+      sv: `Interaktiva webbinarier och livesessioner`,
+      pt: `Webinars interativos e sessões ao vivo`,
+      fi: `Interaktiiviset webinaarit ja live-istunnot`,
+      pl: `Interaktywne webinaria i sesje na żywo`,
+      hu: `Interaktív webináriumok és élő események`,
+      th: `เว็บบินาร์และเซสชันสดแบบโต้ตอบ`,
+      ms: `Webinar interaktif & sesi langsung`,
+      vi: `Hội thảo trực tuyến tương tác & các buổi phát trực tiếp`,
+    },
+  },
+  "designVersion",
+  componentProps.customOptions,
+);
 
-const para1: TranslationsType = {
-  en: `Engage with our mentors during live online webinars. Whether it’s learning a new strategy or understanding the latest market trend, our webinars offer real-time Q&A sessions for instant feedback and approach topics ranging from foundational knowledge to advanced strategies.`,
-  it: `Interagisci con i nostri mentori durante i webinar in diretta. Che si tratti di apprendere una nuova strategia o di comprendere le ultime tendenze di mercato, i nostri webinar offrono sessioni di Q&A in tempo reale per un feedback immediato e coprono argomenti che spaziano dalle basi alle strategie avanzate.`,
-  tr: ``,
-  ro: ``,
-  ar: ``,
-  de: ``,
-  es: ``,
-  sv: ``,
-  pt: ``,
-  fi: ``,
-  pl: ``,
-  hu: ``,
-  th: ``,
-  ms: ``,
-  vi: ``,
-};
+const para1: TranslationsType = textBy(
+  {
+    default: {
+      en: `Engage with our mentors during live online webinars. Whether it’s learning a new strategy or understanding the latest market trend, our webinars offer real-time Q&A sessions for instant feedback and approach topics ranging from foundational knowledge to advanced strategies.`,
+      it: `Interagisci con i nostri mentori durante i webinar in diretta. Che si tratti di apprendere una nuova strategia o di comprendere le ultime tendenze di mercato, i nostri webinar offrono sessioni di Q&A in tempo reale per un feedback immediato e coprono argomenti che spaziano dalle basi alle strategie avanzate.`,
+      tr: `Deneyimli mentorlarımızın yönettiği canlı çevrimiçi web seminerlerimize katılın. Temelleri öğrenmek ya da ileri stratejilere derinlemesine dalmak istiyorsanız, oturumlarımız etkileşimli, ilgi çekici ve anında geri bildirim için tasarlanmıştır. Soru-Cevaplara katılın, piyasa trendlerinden haberdar olun ve gerçek etki yaratan bir eğitim deneyimi yaşayın.`,
+      ro: `Participă la webinarii online live conduse de mentori experimentați. Fie că vrei să stăpânești bazele sau să aprofundezi strategii avansate, sesiunile noastre sunt interactive, captivante și concepute pentru feedback instantaneu. Participă la sesiuni de întrebări și răspunsuri, fii la curent cu tendințele pieței și experimentează o educație cu adevărat impactantă.`,
+      ar: `انضم إلى ندواتنا التفاعلية المباشرة عبر الإنترنت التي يقودها مرشدون ذوو خبرة. سواء أردت إتقان الأساسيات أو الغوص في استراتيجيات متقدمة، جلساتنا تفاعلية وجذابة ومصممة لتقديم ردود فعل فورية. شارك في جلسات الأسئلة والأجوبة، وابق على اطلاع باتجاهات السوق، واختبر تعليمًا يحدث فرقًا حقيقيًا.`,
+      de: `Nehmen Sie an unseren Live-Online-Webinaren teil, die von erfahrenen Mentoren geleitet werden. Egal, ob Sie die Grundlagen beherrschen oder tief in fortgeschrittene Strategien eintauchen möchten, unsere Sitzungen sind interaktiv, ansprechend und auf sofortiges Feedback ausgelegt. Nehmen Sie an Fragen-und-Antworten teil, bleiben Sie über Markttrends informiert und erleben Sie Bildung, die einen echten Unterschied macht.`,
+      es: `Únete a nuestros webinars en línea en vivo dirigidos por mentores experimentados. Ya sea que quieras dominar lo básico o profundizar en estrategias avanzadas, nuestras sesiones son interactivas, atractivas y diseñadas para brindar retroalimentación instantánea. Participa en preguntas y respuestas, mantente al día con las tendencias del mercado y experimenta una educación que realmente impacta.`,
+      sv: `Delta i våra live online-webbinarier som leds av erfarna mentorer. Oavsett om du vill behärska grunderna eller fördjupa dig i avancerade strategier är våra sessioner interaktiva, engagerande och utformade för omedelbar feedback. Delta i frågestunder, håll dig uppdaterad om marknadstrender och upplev utbildning som verkligen gör skillnad.`,
+      pt: `Participe dos nossos webinars online ao vivo conduzidos por mentores experientes. Quer dominar o básico ou aprofundar-se em estratégias avançadas, nossas sessões são interativas, envolventes e projetadas para feedback instantâneo. Participe de perguntas e respostas, mantenha-se atualizado sobre as tendências do mercado e experimente uma educação que realmente faz a diferença.`,
+      fi: `Osallistu kokeneiden mentorien vetämiin live-verkkoseminaareihimme. Haluatpa hallita perusteet tai syventyä edistyneisiin strategioihin, istuntomme ovat interaktiivisia, mukaansatempaavia ja suunniteltu tarjoamaan välitöntä palautetta. Osallistu kysymys- ja vastaussessioihin, pysy ajan tasalla markkinatrendeistä ja koe koulutus, joka todella vaikuttaa.`,
+      pl: `Dołącz do naszych webinarów online na żywo prowadzonych przez doświadczonych mentorów. Niezależnie od tego, czy chcesz opanować podstawy, czy zagłębić się w zaawansowane strategie, nasze sesje są interaktywne, angażujące i zaprojektowane tak, aby zapewnić natychmiastową informację zwrotną. Weź udział w sesjach pytań i odpowiedzi, bądź na bieżąco z trendami rynkowymi i doświadcz edukacji, która naprawdę robi różnicę.`,
+      hu: `Vegyen részt élő online webinárjainkon, amelyeket tapasztalt mentorok vezetnek. Akár az alapokat szeretné elsajátítani, akár mélyebben belemerülni a fejlett stratégiákba, az üléseink interaktívak, lebilincselők, és azonnali visszacsatolásra tervezték őket. Vegyen részt kérdezz-felelek szekciókon, maradjon naprakész a piaci trendekkel, és élje át az oktatást, amely valódi hatást gyakorol.`,
+      th: `เข้าร่วมเว็บบินาร์ออนไลน์สดของเราที่นำโดยที่ปรึกษาที่มีประสบการณ์ ไม่ว่าคุณจะต้องการเรียนรู้พื้นฐานหรือเจาะลึกกลยุทธ์ขั้นสูง เซสชันของเราเป็นแบบโต้ตอบ น่าสนใจ และออกแบบมาเพื่อรับข้อเสนอแนะทันที เข้าร่วมถามตอบ ติดตามเทรนด์ตลาด และสัมผัสประสบการณ์การศึกษาที่สร้างผลกระทบจริง ๆ`,
+      ms: `Sertai webinar dalam talian langsung kami yang dikendalikan oleh mentor berpengalaman. Sama ada anda ingin menguasai asas-asas atau mendalami strategi lanjutan, sesi kami adalah interaktif, menarik, dan direka untuk maklum balas segera. Sertai sesi soal jawab, kekal terkini dengan tren pasaran, dan alami pendidikan yang memberi impak sebenar.`,
+      vi: `Tham gia các hội thảo trực tuyến trực tiếp do các cố vấn giàu kinh nghiệm dẫn dắt. Cho dù bạn muốn làm chủ các kiến thức cơ bản hay đi sâu vào các chiến lược nâng cao, các buổi học của chúng tôi đều mang tính tương tác, hấp dẫn và được thiết kế để phản hồi tức thì. Tham gia hỏi đáp, cập nhật các xu hướng thị trường và trải nghiệm giáo dục tạo nên sự khác biệt thực sự.`,
+    },
+    "payment-authorization": {
+      en: `Join our live online webinars led by experienced mentors. Whether you want to master the basics or dive deep into advanced strategies, our sessions are interactive, engaging, and designed for instant feedback. Participate in Q&A, stay up-to-date on market trends, and experience education that makes a real impact.`,
+      it: `Partecipa ai nostri webinar online dal vivo condotti da mentor esperti. Che tu voglia padroneggiare le basi o approfondire strategie avanzate, le nostre sessioni sono interattive, coinvolgenti e progettate per un feedback immediato. Partecipa alle sessioni di domande e risposte, resta aggiornato sulle tendenze di mercato e vivi un'esperienza formativa che fa davvero la differenza.`,
+      tr: `Deneyimli mentorlar tarafından yönetilen canlı çevrimiçi web seminerlerimize katılın. Temelleri öğrenmek veya ileri stratejilere derinlemesine dalmak istiyorsanız, oturumlarımız etkileşimli, ilgi çekici ve anında geri bildirim için tasarlanmıştır. Soru-cevaplara katılın, piyasa trendlerini takip edin ve gerçek bir etki yaratan eğitimi deneyimleyin.`,
+      ro: `Alăturați-vă webinariilor noastre online live conduse de mentori experimentați. Fie că doriți să stăpâniți elementele de bază sau să aprofundați strategii avansate, sesiunile noastre sunt interactive, captivante și concepute pentru feedback instant. Participați la sesiuni de întrebări și răspunsuri, rămâneți la curent cu tendințele pieței și experimentați o educație cu impact real.`,
+      ar: `انضم إلى ندواتنا التفاعلية المباشرة عبر الإنترنت التي يقودها مرشدون ذوو خبرة. سواء أردت إتقان الأساسيات أو الغوص في استراتيجيات متقدمة، جلساتنا تفاعلية وجذابة ومصممة لتقديم ردود فعل فورية. شارك في جلسات الأسئلة والأجوبة، وابقَ على اطلاع باتجاهات السوق، واختبر تعليماً يحدث فرقاً حقيقياً.`,
+      de: `Nehmen Sie an unseren Live-Online-Webinaren teil, die von erfahrenen Mentoren geleitet werden. Ob Sie die Grundlagen meistern oder in fortgeschrittene Strategien eintauchen möchten, unsere Sitzungen sind interaktiv, ansprechend und auf sofortiges Feedback ausgelegt. Nehmen Sie an Fragen und Antworten teil, bleiben Sie über Markttrends informiert und erleben Sie eine Bildung, die einen echten Unterschied macht.`,
+      es: `Únase a nuestros webinars en línea en vivo dirigidos por mentores experimentados. Ya sea que quiera dominar lo básico o profundizar en estrategias avanzadas, nuestras sesiones son interactivas, atractivas y diseñadas para brindar retroalimentación instantánea. Participe en preguntas y respuestas, manténgase al día con las tendencias del mercado y experimente una educación que realmente impacta.`,
+      sv: `Delta i våra live-webbinarier online som leds av erfarna mentorer. Oavsett om du vill behärska grunderna eller fördjupa dig i avancerade strategier är våra sessioner interaktiva, engagerande och utformade för omedelbar feedback. Delta i frågestunder, håll dig uppdaterad om marknadstrender och upplev utbildning som verkligen gör skillnad.`,
+      pt: `Participe dos nossos webinars online ao vivo conduzidos por mentores experientes. Quer dominar o básico ou mergulhar em estratégias avançadas, nossas sessões são interativas, envolventes e projetadas para feedback instantâneo. Participe de perguntas e respostas, mantenha-se atualizado sobre as tendências do mercado e experimente uma educação que faz uma verdadeira diferença.`,
+      fi: `Osallistu kokeneiden mentorien vetämiin live-verkkoseminaareihimme. Haluatpa hallita perusteet tai sukeltaa syvälle edistyneisiin strategioihin, istuntomme ovat interaktiivisia, mukaansatempaavia ja suunniteltu tarjoamaan välitöntä palautetta. Osallistu kysymys- ja vastaussessioihin, pysy ajan tasalla markkinatrendeistä ja koe koulutus, jolla on todellinen vaikutus.`,
+      pl: `Dołącz do naszych webinariów online na żywo prowadzonych przez doświadczonych mentorów. Niezależnie od tego, czy chcesz opanować podstawy, czy zgłębić zaawansowane strategie, nasze sesje są interaktywne, angażujące i zaprojektowane tak, aby zapewnić natychmiastową informację zwrotną. Weź udział w sesjach pytań i odpowiedzi, bądź na bieżąco z trendami rynkowymi i doświadcz edukacji, która naprawdę robi różnicę.`,
+      hu: `Csatlakozzon élő online webinárjainkhoz, amelyeket tapasztalt mentorok vezetnek. Akár az alapokat szeretné elsajátítani, akár mélyebben belemerülni a fejlett stratégiákba, az üléseink interaktívak, lebilincselők, és azonnali visszacsatolásra tervezték őket. Vegyen részt kérdés-felelet szekciókon, maradjon naprakész a piaci trendekkel, és élvezze az oktatást, amely valódi hatást gyakorol.`,
+      th: `เข้าร่วมเว็บบินาร์ออนไลน์สดของเราที่นำโดยที่ปรึกษาที่มีประสบการณ์ ไม่ว่าคุณจะต้องการเรียนรู้พื้นฐานหรือเจาะลึกกลยุทธ์ขั้นสูง เซสชันของเราเป็นแบบโต้ตอบ น่าสนใจ และออกแบบมาเพื่อรับข้อเสนอแนะทันที เข้าร่วมถามตอบ ติดตามเทรนด์ตลาด และสัมผัสประสบการณ์การศึกษาที่สร้างผลกระทบจริง ๆ`,
+      ms: `Sertai webinar dalam talian langsung kami yang dikendalikan oleh mentor berpengalaman. Sama ada anda ingin menguasai asas atau mendalami strategi lanjutan, sesi kami adalah interaktif, menarik, dan direka untuk maklum balas segera. Sertai sesi soal jawab, kekal terkini dengan tren pasaran, dan alami pendidikan yang memberi impak sebenar.`,
+      vi: `Tham gia các hội thảo trực tuyến trực tiếp do các cố vấn giàu kinh nghiệm dẫn dắt. Cho dù bạn muốn làm chủ những điều cơ bản hay đi sâu vào các chiến lược nâng cao, các buổi học của chúng tôi đều mang tính tương tác, hấp dẫn và được thiết kế để phản hồi tức thì. Tham gia hỏi đáp, cập nhật xu hướng thị trường và trải nghiệm giáo dục tạo nên sự khác biệt thực sự.`,
+    },
+  },
+  "designVersion",
+  componentProps.customOptions,
+);
 
-const para2: TranslationsType = {
-  en: `Join now, to be able to participate in our webinars and ensure every session is engaging, personal, and effective.`,
-  it: `Unisciti subito per partecipare ai nostri webinar e assicurarti sessioni coinvolgenti, personalizzate ed efficaci.`,
-  tr: ``,
-  ro: ``,
-  ar: ``,
-  de: ``,
-  es: ``,
-  sv: ``,
-  pt: ``,
-  fi: ``,
-  pl: ``,
-  hu: ``,
-  th: ``,
-  ms: ``,
-  vi: ``,
-};
+const para2: TranslationsType = textBy(
+  {
+    default: {
+      en: `Join now, to be able to participate in our webinars and ensure every session is engaging, personal, and effective.`,
+      it: `Unisciti subito per partecipare ai nostri webinar e assicurarti sessioni coinvolgenti, personalizzate ed efficaci.`,
+      tr: `Şimdi katılın, webinarlarımıza katılabilmek ve her oturumun ilgi çekici, kişisel ve etkili olmasını sağlamak için.`,
+      ro: `Înscrie-te acum pentru a putea participa la webinariile noastre și pentru a te asigura că fiecare sesiune este captivantă, personală și eficientă.`,
+      ar: `انضم الآن لتتمكن من المشاركة في ندواتنا عبر الإنترنت وضمان أن تكون كل جلسة جذابة وشخصية وفعالة.`,
+      de: `Melden Sie sich jetzt an, um an unseren Webinaren teilnehmen zu können und sicherzustellen, dass jede Sitzung ansprechend, persönlich und effektiv ist.`,
+      es: `Únete ahora para poder participar en nuestros webinars y asegurar que cada sesión sea atractiva, personal y efectiva.`,
+      sv: `Gå med nu för att kunna delta i våra webbinarier och säkerställa att varje session är engagerande, personlig och effektiv.`,
+      pt: `Junte-se agora para poder participar dos nossos webinars e garantir que cada sessão seja envolvente, pessoal e eficaz.`,
+      fi: `Liity nyt, jotta voit osallistua webinaareihimme ja varmistaa, että jokainen sessio on mukaansatempaava, henkilökohtainen ja tehokas.`,
+      pl: `Dołącz teraz, aby móc uczestniczyć w naszych webinarach i mieć pewność, że każda sesja jest angażująca, osobista i skuteczna.`,
+      hu: `Csatlakozz most, hogy részt vehess webinárjainkon, és biztosítsd, hogy minden alkalom érdekes, személyes és hatékony legyen.`,
+      th: `สมัครตอนนี้เพื่อเข้าร่วมเว็บบินาร์ของเราและทำให้แต่ละเซสชันน่าสนใจ เป็นส่วนตัว และได้ผลจริง`,
+      ms: `Sertai sekarang untuk dapat menyertai webinar kami dan memastikan setiap sesi menarik, peribadi, dan berkesan.`,
+      vi: `Tham gia ngay để có thể tham gia các hội thảo trực tuyến của chúng tôi và đảm bảo mỗi buổi đều hấp dẫn, cá nhân và hiệu quả.`,
+    },
+    "payment-authorization": {
+      en: `Don’t miss your chance to join our growing community of traders and learners in the GCC.`,
+      it: `Non perdere l'opportunità di unirti alla nostra crescente comunità di trader e studenti nel GCC.`,
+      tr: `GCC'deki büyüyen trader ve öğrenen topluluğumuza katılma şansını kaçırmayın.`,
+      ro: `Nu rata șansa de a te alătura comunității noastre în creștere de traderi și cursanți din GCC.`,
+      ar: `لا تفوت فرصتك للانضمام إلى مجتمعنا المتنامي من المتداولين والمتعلمين في دول مجلس التعاون الخليجي.`,
+      de: `Verpassen Sie nicht Ihre Chance, unserer wachsenden Gemeinschaft von Händlern und Lernenden im GCC beizutreten.`,
+      es: `No pierdas la oportunidad de unirte a nuestra creciente comunidad de traders y aprendices en el GCC.`,
+      sv: `Missa inte chansen att gå med i vår växande gemenskap av handlare och elever i GCC.`,
+      pt: `Não perca a chance de se juntar à nossa crescente comunidade de traders e aprendizes no GCC.`,
+      fi: `Älä jätä väliin tilaisuutta liittyä kasvavaan GCC:n kauppiaiden ja oppijoiden yhteisöömme.`,
+      pl: `Nie przegap swojej szansy, aby dołączyć do naszej rosnącej społeczności traderów i uczniów w GCC.`,
+      hu: `Ne hagyd ki a lehetőséget, hogy csatlakozz a GCC növekvő kereskedői és tanulói közösségéhez.`,
+      th: `อย่าพลาดโอกาสเข้าร่วมชุมชนผู้เทรดและผู้เรียนที่กำลังเติบโตของเราใน GCC`,
+      ms: `Jangan lepaskan peluang anda untuk menyertai komuniti peniaga dan pelajar kami yang semakin berkembang di GCC.`,
+      vi: `Đừng bỏ lỡ cơ hội tham gia cộng đồng trader và người học ngày càng phát triển của chúng tôi tại GCC.`,
+    },
+  },
+  "designVersion",
+  componentProps.customOptions,
+);
 
-const buttonLabel: TranslationsType = {
-  en: `Join now`,
-  it: `Partecipa ora`,
-  tr: ``,
-  ro: ``,
-  ar: ``,
-  de: ``,
-  es: ``,
-  sv: ``,
-  pt: ``,
-  fi: ``,
-  pl: ``,
-  hu: ``,
-  th: ``,
-  ms: ``,
-  vi: ``,
-};
+const buttonLabel: TranslationsType = textBy(
+  {
+    default: {
+      en: `Join now`,
+      it: `Partecipa ora`,
+      tr: `Şimdi katıl`,
+      ro: `Înscrie-te acum`,
+      ar: `انضم الآن`,
+      de: `Jetzt teilnehmen`,
+      es: `Únete ahora`,
+      sv: `Gå med nu`,
+      pt: `Junte-se agora`,
+      fi: `Liity nyt`,
+      pl: `Dołącz teraz`,
+      hu: `Csatlakozz most`,
+      th: `เข้าร่วมตอนนี้`,
+      ms: `Sertai sekarang`,
+      vi: `Tham gia ngay`,
+    },
+    "payment-authorization": {
+      en: `Join now`,
+      it: `Partecipa ora`,
+      tr: `Şimdi katıl`,
+      ro: `Înscrie-te acum`,
+      ar: `انضم الآن`,
+      de: `Jetzt teilnehmen`,
+      es: `Únete ahora`,
+      sv: `Gå med nu`,
+      pt: `Junte-se agora`,
+      fi: `Liity nyt`,
+      pl: `Dołącz teraz`,
+      hu: `Csatlakozz most`,
+      th: `เข้าร่วมตอนนี้`,
+      ms: `Sertai sekarang`,
+      vi: `Tham gia ngay`,
+    },
+  },
+  "designVersion",
+  componentProps.customOptions,
+);
 ---
 
 <section
@@ -137,7 +231,7 @@ const buttonLabel: TranslationsType = {
     </div>
     <div class="relative grow">
       <Image
-        src={laptopDude}
+        src={componentProps.lang === "ar" ? laptopDudeAr : laptopDude}
         alt="Background"
         class="bottom-0 -mb-20 w-full max-w-[350px] xl:absolute xl:h-[560px] xl:w-auto xl:max-w-none"
         widths={[320, 576, 640, 768, 1024, 1280, 1536, laptopDude.width]}
