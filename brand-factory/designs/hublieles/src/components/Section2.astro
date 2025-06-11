@@ -220,13 +220,24 @@ const buttonLabel: TranslationsType = {
     sizes={`100vw`}
   />
   <div class="relative z-10 container flex flex-col gap-1 lg:flex-row">
-    <div class="flex flex-col items-start justify-center gap-8 w-full">
+    <div class="flex w-full flex-col items-start justify-center gap-8">
       <h2
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 3,
+            })
+          : title[componentProps.lang]}
         class="text-heading2 leading-heading2 text-accent font-extrabold text-balance uppercase"
       />
 
-      <p set:html={para1[componentProps.lang]} class="text-para-lead text-balance" />
+      <p
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 15,
+            })
+          : para1[componentProps.lang]}
+        class="text-para-lead text-balance"
+      />
 
       <div class="w-full">
         <CarouselWrapper
@@ -236,7 +247,14 @@ const buttonLabel: TranslationsType = {
         />
       </div>
 
-      <p set:html={para2[componentProps.lang]} class="text-para-lead text-balance" />
+      <p
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 15,
+            })
+          : para2[componentProps.lang]}
+        class="text-para-lead text-balance"
+      />
 
       <ButtonDisclaimer
         componentProps={componentProps}

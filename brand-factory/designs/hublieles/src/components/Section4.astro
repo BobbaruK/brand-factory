@@ -93,16 +93,28 @@ const buttonLabel: TranslationsType = {
   <div class="relative z-10 container flex flex-col gap-1 xl:flex-row">
     <div class="flex flex-col items-start justify-center gap-8 xl:max-w-[90ch]">
       <h2
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
         class="leading-heading2 text-heading2 text-accent font-extrabold text-balance uppercase"
       />
       <p
-        set:html={para1[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 30,
+            })
+          : para1[componentProps.lang]}
         class="text-para-lead text-balance"
       />
 
       <p
-        set:html={para2[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 15,
+            })
+          : para2[componentProps.lang]}
         class="text-para-lead text-balance"
       />
 

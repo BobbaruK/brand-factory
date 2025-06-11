@@ -3,7 +3,9 @@ import { icon1 } from "@/constants/icon1";
 import { icon2 } from "@/constants/icon2";
 import { icon3 } from "@/constants/icon3";
 import { icon4 } from "@/constants/icon4";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 
 interface Props {
@@ -156,11 +158,19 @@ const para2: TranslationsType = {
   <div class="relative z-10 container flex flex-col gap-1 lg:flex-row">
     <div class="flex flex-col items-start justify-center gap-8">
       <h2
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
         class="text-heading2 leading-heading2 text-primary font-extrabold text-balance uppercase"
       />
       <p
-        set:html={para1[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 15,
+            })
+          : para1[componentProps.lang]}
         class="text-para-lead text-balance"
       />
 
@@ -169,14 +179,26 @@ const para2: TranslationsType = {
           bullets.map((bullet) => (
             <li class="text-para-lead text-primary flex items-center gap-2 font-extrabold uppercase">
               <div set:html={bullet.icon} class="text-secondary" />
-              <span set:html={bullet.label[componentProps.lang]} />
+              <span
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 3,
+                      })
+                    : bullet.label[componentProps.lang]
+                }
+              />
             </li>
           ))
         }
       </ul>
 
       <p
-        set:html={para2[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 30,
+            })
+          : para2[componentProps.lang]}
         class="text-para-lead text-balance"
       />
     </div>

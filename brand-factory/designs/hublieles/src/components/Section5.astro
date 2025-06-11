@@ -5,6 +5,8 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import user1 from "../assets/user1.png";
 import user2 from "../assets/user2.png";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -101,7 +103,11 @@ const buttonLabel: TranslationsType = {
   <div class="relative z-10 container flex flex-col gap-1 lg:flex-row">
     <div class="flex flex-col items-start justify-center gap-8">
       <h2
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
         class="text-heading2 leading-heading2 text-primary font-extrabold text-balance uppercase"
       />
 
@@ -130,9 +136,22 @@ const buttonLabel: TranslationsType = {
               />
               <div>
                 <span class="text-primary italic">
-                  "{user.testimonial[componentProps.lang]}"
+                  "
+                  {componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 15,
+                      })
+                    : user.testimonial[componentProps.lang]}
+                  "
                 </span>
-                <span class="font-bold">&mdash; {user.name}</span>
+                <span class="font-bold">
+                  &mdash;{" "}
+                  {componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 2,
+                      })
+                    : user.name}
+                </span>
               </div>
             </li>
           ))

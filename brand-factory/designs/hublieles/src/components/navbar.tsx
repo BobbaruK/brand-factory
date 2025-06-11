@@ -8,7 +8,9 @@ import type { CustomOptions } from "@/pages/index.astro";
 import type { MenuItem } from "@/types/menu-items";
 import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import { BurgerIcon } from "./burger-icon";
 
 interface Props {
@@ -41,7 +43,11 @@ export const Navbar = ({ componentProps, menuItems }: Props) => {
                   href={item.scrollTo}
                   className="hover:text-accent text-lg uppercase"
                 >
-                  {item.label[componentProps.lang]}
+                  {componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 1,
+                      })
+                    : item.label[componentProps.lang]}
                 </a>
               </li>
               {index < menuItems.length - 1 && <li>/</li>}

@@ -6,7 +6,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import type { CarouselSlide } from "@/types/carousel-slides";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   slides: CarouselSlide[];
@@ -18,7 +20,7 @@ export function CarouselWrapper({ slides, componentProps }: Props) {
     <Carousel className="flex flex-row items-center gap-2">
       <CarouselPrevious className="static hidden sm:flex lg:hidden" />
       <div className="w-full">
-        <CarouselContent className="-ml-2 md:-ml-4 py-14">
+        <CarouselContent className="-ml-2 py-14 md:-ml-4">
           {slides.map((slide, index) => (
             <CarouselItem
               className="pl-2 md:basis-1/2 md:pl-4 lg:basis-1/3"
@@ -38,10 +40,18 @@ export function CarouselWrapper({ slides, componentProps }: Props) {
                         />
 
                         <h3 className="text-accent text-center font-extrabold uppercase">
-                          {slide.title[componentProps.lang]}
+                          {componentProps.features?.includes(Features.showcase)
+                            ? showcase({
+                                words: 5,
+                              })
+                            : slide.title[componentProps.lang]}
                         </h3>
                         <p className="my-auto text-center text-pretty">
-                          {slide.description[componentProps.lang]}
+                          {componentProps.features?.includes(Features.showcase)
+                            ? showcase({
+                                words: 15,
+                              })
+                            : slide.description[componentProps.lang]}
                         </p>
                       </div>
                     </div>
@@ -51,7 +61,13 @@ export function CarouselWrapper({ slides, componentProps }: Props) {
                         <img
                           className="inset-0 z-0 h-full w-full cursor-pointer rounded-xl object-cover"
                           src={slide.bgFlip.src}
-                          alt={slide.title[componentProps.lang]}
+                          alt={
+                            componentProps.features?.includes(Features.showcase)
+                              ? showcase({
+                                  words: 3,
+                                })
+                              : slide.title[componentProps.lang]
+                          }
                           width={320}
                           height={320}
                         />
@@ -65,12 +81,16 @@ export function CarouselWrapper({ slides, componentProps }: Props) {
                         />
 
                         <h3 className="text-accent text-center text-[24px] font-extrabold uppercase [text-shadow:_2px_2px_0_rgb(0_0_0_/_90%)] md:text-[32px]">
-                          {slide.title[componentProps.lang]}
+                          {componentProps.features?.includes(Features.showcase)
+                            ? showcase({
+                                words: 3,
+                              })
+                            : slide.title[componentProps.lang]}
                         </h3>
                       </div>
                       <div className="absolute -right-[1px] bottom-0 z-20 size-20 text-red-500">
-                        <div className="[clip-path:_polygon(100%_0,_0%_100%,_100%_100%)] absolute -right-[1px] bottom-0 z-0 size-10 bg-white"></div>{" "}
-                        <div className="[clip-path:_polygon(100%_0,_0%_100%,_100%_100%)] absolute -right-[1px] bottom-0 z-10 size-14 bg-white/50"></div>
+                        <div className="absolute -right-[1px] bottom-0 z-0 size-10 bg-white [clip-path:_polygon(100%_0,_0%_100%,_100%_100%)]"></div>{" "}
+                        <div className="absolute -right-[1px] bottom-0 z-10 size-14 bg-white/50 [clip-path:_polygon(100%_0,_0%_100%,_100%_100%)]"></div>
                       </div>
                     </div>
                   </div>
