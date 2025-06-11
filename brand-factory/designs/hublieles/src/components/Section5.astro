@@ -1,0 +1,219 @@
+---
+import { Image } from "astro:assets";
+import Form from "../../../../globals/components/form";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import user1 from "../assets/user1.png";
+import user2 from "../assets/user2.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Courses tailored for every trader`,
+  it: `Corsi su misura per ogni trader`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const users: {
+  name: string;
+  testimonial: TranslationsType;
+  avatar: ImageMetadata;
+}[] = [
+  {
+    name: "Luca P.",
+    testimonial: {
+      en: `${componentProps.brandObj.name} gave me the tools to succeed in global markets. Highly recommended!`,
+      it: `Trading Atheneum mi ha fornito gli strumenti per avere successo nei mercati globali. Altamente raccomandato!`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    avatar: user1,
+  },
+  {
+    name: "Giulia T.",
+    testimonial: {
+      en: `The personalized mentorship was transformative—it felt like a journey tailored to me.`,
+      it: `La mentorship personalizzata è stata trasformativa: è sembrato un percorso costruito su misura per me.`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    avatar: user2,
+  },
+];
+
+const buttonLabel: TranslationsType = {
+  en: `Discover more`,
+  it: `Scopri di più`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="testimonials" class="relative py-8 lg:py-16">
+  <div class="relative z-10 container flex flex-col gap-1 lg:flex-row">
+    <div class="flex flex-col items-start justify-center gap-8">
+      <h2
+        set:html={title[componentProps.lang]}
+        class="text-heading2 leading-heading2 text-primary font-extrabold text-balance uppercase"
+      />
+
+      <ul class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        {
+          users.map((user) => (
+            <li class="text-para flex items-center justify-start gap-4 leading-tight">
+              <Image
+                src={user.avatar}
+                alt="Background"
+                class=""
+                widths={[
+                  320,
+                  576,
+                  640,
+                  768,
+                  1024,
+                  1280,
+                  1536,
+                  user.avatar.width,
+                ]}
+                sizes={`
+                  (max-width: 640px) 640px,
+                  100vw
+                `}
+              />
+              <div>
+                <span class="text-primary italic">
+                  "{user.testimonial[componentProps.lang]}"
+                </span>
+                <span class="font-bold">&mdash; {user.name}</span>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+
+      <Form
+        componentProps={componentProps}
+        button={buttonLabel[componentProps.lang]}
+        id="section-form"
+      />
+    </div>
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  @reference "../styles/global.css";
+
+  form.registerForm {
+    @apply mx-auto max-w-[650px];
+    input,
+    select {
+      @apply text-slate-800;
+    }
+    input[disabled] {
+      // color: white;
+    }
+
+    .registerFormInner {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, auto);
+      // @container (min-width: 750px) {
+      //   grid-template-columns: 1fr 1fr 1fr;
+      // }
+      > .form-control {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        &.firstNameWrapper,
+        &.emailWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+          }
+        }
+        &.lastNameWrapper,
+        &.countryWrapper {
+          @container (min-width: 430px) {
+            grid-column-start: 2;
+            grid-column-end: 3;
+          }
+        }
+      }
+    }
+
+    .form-control {
+      label {
+        font-size: 1rem;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        // border: medium none;
+        // max-width: 100%;
+        // padding: 5px 15px;
+        // transition: 350ms;
+        // width: 100%;
+
+        @apply text-lg lg:text-2xl;
+
+        @apply h-12 text-black;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      button {
+        @apply bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground flex h-20 gap-4 text-lg text-white uppercase lg:text-2xl;
+      }
+    }
+  }
+</style>
