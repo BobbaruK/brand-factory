@@ -50,10 +50,10 @@
     1.5rem
   ); /* 16 - 24 ; 320 - 1280 */
   --text-para-lead--line-height: clamp(
-    1.25rem,
-    1.0833rem + 0.8333vw,
-    1.75rem
-  ); /* 20 - 28 ; 320 - 1280 */
+    1.5rem,
+    1.25rem + 1.25vw,
+    2.25rem
+  ); /* 24 - 36 ; 320 - 1280 */
 }
 
 @theme inline {
