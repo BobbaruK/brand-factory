@@ -1,0 +1,198 @@
+---
+import { icon1 } from "@/constants/icon1";
+import { icon2 } from "@/constants/icon2";
+import { icon3 } from "@/constants/icon3";
+import { icon4 } from "@/constants/icon4";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Courses tailored for every trader`,
+  it: `Corsi su misura per ogni trader`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para1: TranslationsType = {
+  en: `Whether you're just beginning or an experienced trader, we offer courses designed to meet your needs:`,
+  it: `Che tu sia un principiante o un trader esperto, offriamo corsi progettati per soddisfare le tue esigenze:`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const bullets: {
+  label: TranslationsType;
+  icon: string;
+}[] = [
+  {
+    icon: icon1,
+    label: {
+      en: `Foundations of Trading`,
+      it: `Fondamenti di Trading`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: icon2,
+    label: {
+      en: `Advanced Market Strategies`,
+      it: `Strategie Avanzate di Mercato`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: icon3,
+    label: {
+      en: `Forex Mastery`,
+      it: `Forex Mastery`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: icon4,
+    label: {
+      en: `VIP Mentorship`,
+      it: `Mentorship VIP`,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+];
+
+const para2: TranslationsType = {
+  en: `All of this for you to stay ahead with market insights and take confident decisions. And, even more, we provide daily updates and actionable insights to help you stay ahead, coming to you support with daily market analysis, pro trading signals and economic calendars.`,
+  it: `Tutto questo per permetterti di rimanere sempre aggiornato sulle tendenze del mercato e prendere decisioni con fiducia. Inoltre, forniamo aggiornamenti giornalieri e insight pratici, tra cui analisi di mercato, segnali di trading professionali e calendari economici.`,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="courses" class="relative py-8 lg:py-16">
+  <div class="relative z-10 container flex flex-col gap-1 lg:flex-row">
+    <div class="flex flex-col items-start justify-center gap-8">
+      <h2
+        set:html={title[componentProps.lang]}
+        class="text-heading2 leading-heading2 text-primary font-extrabold text-balance uppercase"
+      />
+      <p
+        set:html={para1[componentProps.lang]}
+        class="text-para-lead text-balance"
+      />
+
+      <ul class="grid w-full grid-cols-1 gap-5 md:grid-cols-2 md:gap-10">
+        {
+          bullets.map((bullet) => (
+            <li class="text-para-lead text-primary flex items-center gap-2 font-extrabold uppercase">
+              <div set:html={bullet.icon} class="text-secondary" />
+              <span set:html={bullet.label[componentProps.lang]} />
+            </li>
+          ))
+        }
+      </ul>
+
+      <p
+        set:html={para2[componentProps.lang]}
+        class="text-para-lead text-balance"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  @reference "../styles/global.css";
+
+  ul {
+    counter-reset: bullet;
+  }
+
+  li::before {
+    counter-increment: bullet;
+    content: counter(bullet) ". ";
+    @apply size-6 min-w-6;
+  }
+</style>
