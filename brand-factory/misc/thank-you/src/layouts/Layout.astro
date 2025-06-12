@@ -1,18 +1,40 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-import type { ComponentProps } from "../../../../globals/types/component-props";
-import "../styles/global.css";
+import type { CustomOptions } from "@/pages/index.astro";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/900.css";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import "../styles/global.css";
 
 interface Props {
-  componentProps: ComponentProps;
+  componentProps: ComponentProps<any, CustomOptions>;
 }
 
 const { componentProps } = Astro.props;
 
 const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
+
+const cssVars = () => {
+  switch (componentProps.customOptions?.designVersion) {
+    case "brand":
+      return {
+        primary: "oklch(0.29 0.08 268.25)",
+        primaryForeground: "oklch(0.98 0 0)",
+        secondary: "oklch(0.82 0.17 77.68)",
+        secondaryForeground: "oklch(0.208 0.042 265.755)",
+      };
+
+    default:
+      return {
+        primary: "oklch(0.38 0.14 293.59)",
+        primaryForeground: "oklch(0.984 0.003 247.858)",
+        secondary: "oklch(0.37 0.04 223.65)",
+        secondaryForeground: "oklch(0.98 0 0)",
+      };
+  }
+};
+const vars = cssVars();
 ---
 
 <!doctype html>
@@ -57,10 +79,24 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
   </body>
 </html>
 
-<style>
+<style
+  define:vars={{
+    primaryV: vars.primary,
+    primaryForegroundV: vars.primaryForeground,
+    secondaryV: vars.secondary,
+    secondaryForegroundV: vars.secondaryForeground,
+  }}
+>
   #site-wrapper {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
+  }
+
+  :root {
+    --primary: var(--primaryV);
+    --primary-foreground: var(--primaryForegroundV);
+    --secondary: var(--secondaryV);
+    --secondary-foreground: var(--secondaryForegroundV);
   }
 </style>
