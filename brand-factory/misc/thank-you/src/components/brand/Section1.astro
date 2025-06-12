@@ -1,0 +1,143 @@
+---
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../../globals/types/translations";
+import image from "../../assets/brand/man.png";
+import { Button } from "../ui/button";
+import { Features } from "../../../../../globals/types/enums";
+import { showcase } from "../../../../../globals/features/showcase/text";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Thank you for registering!`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `In order to provide you access to the tools and features you have registered for, a practice account has been open for you with our trusted partner, FXORO Global.`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `You can start exploring your account right away by clicking the button below:`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+
+const buttonLabel: TranslationsType = {
+  en: `Check trading tools`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section1" class="h-full overflow-clip">
+  <div
+    class="relative container flex h-full flex-col gap-4 py-4 lg:flex-row lg:py-10"
+  >
+    <div
+      class="flex h-full grow flex-col justify-center gap-4 pb-4 lg:gap-8 lg:pb-10 lg:text-start"
+    >
+      <h1
+        class="text-heading1 leading-tight font-black text-balance uppercase"
+        set:html={title[componentProps.lang]}
+      />
+
+      {
+        paras.map((para, index) => {
+          return (
+            <p
+              class={cn("text-para-lead", {
+                "font-bold": (index + 1) % 2 === 0,
+              })}
+              set:html={para[componentProps.lang]}
+            />
+          );
+        })
+      }
+
+      <Button
+        variant={"secondary"}
+        className={"js-modal-trigger h-auto cursor-pointer gap-4 px-16 py-4 text-lg font-bold text-white uppercase md:px-20 md:py-6 lg:text-2xl"}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+    </div>
+    <div class="relative grid place-items-center lg:w-[500px] lg:min-w-[500px]">
+      <Image
+        src={image}
+        alt="Introduction to trading"
+        class={cn(
+          "relative left-0 z-10 -mb-20 w-full max-w-[450px] lg:absolute lg:bottom-0 lg:h-auto lg:w-[610px] lg:max-w-none",
+          componentProps.lang === "ar" ? "scale-x-[-1]" : "",
+        )}
+        widths={[320, 576, image.width]}
+        loading="eager"
+        sizes={`
+          (max-width: 320px) 270px,
+          (max-width: 1023px) 350px,
+          350px
+        `}
+      />
+    </div>
+  </div>
+</section>

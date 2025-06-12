@@ -1,43 +1,61 @@
 ---
-import Section1Default from "@/components/Section1-default.astro";
-import Section1V1 from "@/components/Section1-v1.astro";
+import Section1Brand from "@/components/brand/Section1.astro";
+import Section1Default from "@/components/default/Section1.astro";
+import Section1V1 from "@/components/v1/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradersProfilerSVGVariation } from "../../../../globals/types/brands/logo";
+import { type ArabTradingProSVGVariation } from "../../../../globals/types/brands/logo";
+import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
-// import { Features } from "../../../../globals/types/enums";
+import { Features } from "../../../../globals/types/enums";
 import type {
   LandingPageType,
   LicenseType,
   RegistrationType,
 } from "../../../../globals/types/lp-params-type";
+import type { Languages } from "../../../../globals/types/translations";
 import { checkFeatures } from "../../../../globals/utils/check-features";
+import { fxoroFooter as fxoroFooterFn } from "../../../../globals/utils/fxoro-footer";
 import Layout from "../layouts/Layout.astro";
-
-const license: LicenseType = "fsa";
-const lpType: LandingPageType = "classic";
-const features = checkFeatures([
-  // Features.readyForMail,
-  // Features.outbrain,
-  // Features.atheneum,
-]);
-const registrationType: RegistrationType = "classic";
 
 export interface CustomOptions {
   logoSquare: boolean;
-  designVersion?: "default" | "v1";
+  designVersion?: "default" | "v1" | "brand";
 }
 
-const componentProps: ComponentProps<
-  TradersProfilerSVGVariation,
-  CustomOptions
-> = {
-  lang: "es",
+/**
+ * Landing page's main variables
+ */
+type Logo = ArabTradingProSVGVariation;
+const brand: BrandsNames = "arabtradingpro";
+const lpName = "";
+const lang: Languages = "en";
+const license: LicenseType = "fsa";
+const lpType: LandingPageType = "classic";
+const features = checkFeatures([
+  // Features.showcase,
+  // Features.readyForMail,
+  Features.outbrain,
+  // Features.atheneum,
+  // Features.officialTerms,
+  // Features.policyInFooter,
+]);
+const registrationType: RegistrationType = "classic";
+const whatsapp = false;
+const fxoroFooter: boolean = false;
+const customOptions: CustomOptions = {
+  logoSquare: false,
+  designVersion: "brand",
+};
+// ===============================
+
+const componentProps: ComponentProps<Logo, CustomOptions> = {
+  lang,
   license,
-  lpName: "Thank You!",
+  lpName,
   brandObj: brandFactory({
-    brand: "tradersprofiler",
+    brand,
     license,
-    whatsapp: false,
+    whatsapp,
     features,
   }),
   logo: function () {
@@ -45,12 +63,9 @@ const componentProps: ComponentProps<
   },
   lpType,
   registrationType,
-  customOptions: {
-    logoSquare: false,
-    // designVersion: "v1",
-  },
+  customOptions,
   features,
-  // fxoroFooter: true,
+  fxoroFooter: fxoroFooterFn(brand, fxoroFooter),
 };
 ---
 
@@ -67,6 +82,12 @@ const componentProps: ComponentProps<
   {
     componentProps.customOptions?.designVersion === "v1" && (
       <Section1V1 componentProps={componentProps} />
+    )
+  }
+
+  {
+    componentProps.customOptions?.designVersion === "brand" && (
+      <Section1Brand componentProps={componentProps} />
     )
   }
 </Layout>
