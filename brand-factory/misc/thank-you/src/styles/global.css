@@ -47,6 +47,9 @@
     0.828rem + 0.8602vw,
     1.5rem
   ); /* 16 - 24 ; 320 - 1250 */
+
+  --font-poppins: "Poppins", sans-serif;
+  --font-montserrat: "Montserrat Variable", sans-serif;
 }
 
 :root {

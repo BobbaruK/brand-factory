@@ -4,8 +4,11 @@ import Header from "@/components/Header.astro";
 import type { CustomOptions } from "@/pages/index.astro";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/900.css";
+// Supports weights 100-900
+import "@fontsource-variable/montserrat";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import "../styles/global.css";
+import { cn } from "@/lib/utils";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -15,7 +18,7 @@ const { componentProps } = Astro.props;
 
 const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
 
-const cssVars = () => {
+const cssVarsFN = () => {
   switch (componentProps.customOptions?.designVersion) {
     case "brand":
       return {
@@ -34,7 +37,19 @@ const cssVars = () => {
       };
   }
 };
-const vars = cssVars();
+const cssVars = cssVarsFN();
+
+const fontFamFN = () => {
+  switch (componentProps.customOptions?.designVersion) {
+
+    case "brand":
+      return "font-montserrat";
+
+    default:
+      return "font-poppins";
+  }
+};
+const fontFamily = fontFamFN();
 ---
 
 <!doctype html>
@@ -63,11 +78,11 @@ const vars = cssVars();
     <title>{componentProps.lpName} | {componentProps.brandObj.name}</title>
     <style is:global>
       body {
-        font-family: "Poppins", sans-serif;
+        /* font-family: "Poppins", sans-serif; */
       }
     </style>
   </head>
-  <body>
+  <body class={cn(fontFamily)}>
     <div id="site-wrapper">
       <Header componentProps={componentProps} />
       <main>
@@ -81,10 +96,10 @@ const vars = cssVars();
 
 <style
   define:vars={{
-    primaryV: vars.primary,
-    primaryForegroundV: vars.primaryForeground,
-    secondaryV: vars.secondary,
-    secondaryForegroundV: vars.secondaryForeground,
+    primaryV: cssVars.primary,
+    primaryForegroundV: cssVars.primaryForeground,
+    secondaryV: cssVars.secondary,
+    secondaryForegroundV: cssVars.secondaryForeground,
   }}
 >
   #site-wrapper {
