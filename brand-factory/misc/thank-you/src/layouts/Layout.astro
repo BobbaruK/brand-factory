@@ -41,7 +41,6 @@ const cssVars = cssVarsFN();
 
 const fontFamFN = () => {
   switch (componentProps.customOptions?.designVersion) {
-
     case "brand":
       return "font-montserrat";
 
@@ -76,11 +75,6 @@ const fontFamily = fontFamFN();
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{componentProps.lpName} | {componentProps.brandObj.name}</title>
-    <style is:global>
-      body {
-        /* font-family: "Poppins", sans-serif; */
-      }
-    </style>
   </head>
   <body class={cn(fontFamily)}>
     <div id="site-wrapper">

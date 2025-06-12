@@ -3,7 +3,7 @@ import Section1Brand from "@/components/brand/Section1.astro";
 import Section1Default from "@/components/default/Section1.astro";
 import Section1V1 from "@/components/v1/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type ArabTradingProSVGVariation } from "../../../../globals/types/brands/logo";
+import { type OracleSignalsSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
@@ -25,10 +25,10 @@ export interface CustomOptions {
 /**
  * Landing page's main variables
  */
-type Logo = ArabTradingProSVGVariation;
-const brand: BrandsNames = "arabtradingpro";
+type Logo = OracleSignalsSVGVariation;
+const brand: BrandsNames = "oracle-signals";
 const lpName = "";
-const lang: Languages = "en";
+const lang: Languages = "vi";
 const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
