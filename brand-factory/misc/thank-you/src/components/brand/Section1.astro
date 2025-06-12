@@ -7,6 +7,8 @@ import image from "../../assets/brand/man.png";
 import { Button } from "../ui/button";
 import { Features } from "../../../../../globals/types/enums";
 import { showcase } from "../../../../../globals/features/showcase/text";
+import { MAIL_ICON } from "../../constants/mail-icon";
+import { PHONE_ICON } from "../../constants/phone-icon";
 
 interface Props {
   componentProps: ComponentProps;
@@ -85,6 +87,70 @@ const buttonLabel: TranslationsType = {
   ms: ``,
   vi: ``,
 };
+
+const list: {
+  icon: string;
+  label: TranslationsType;
+}[] = [
+  {
+    icon: MAIL_ICON,
+    label: {
+      en: `You will also find an email from FXORO Global with all your registration details, so you can access them anytime.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: PHONE_ICON,
+    label: {
+      en: `To ensure everything is set up smoothly, one of our representatives will be reaching out to you within the next 24-48 hours.`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+];
+
+const cta: TranslationsType = {
+  en: `We are excited to help you take the first step in your trading journey!`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
 ---
 
 <section id="section1" class="h-full overflow-clip">
@@ -103,7 +169,7 @@ const buttonLabel: TranslationsType = {
         paras.map((para, index) => {
           return (
             <p
-              class={cn("text-para-lead", {
+              class={cn("text-para-lead text-balance", {
                 "font-bold": (index + 1) % 2 === 0,
               })}
               set:html={para[componentProps.lang]}
@@ -113,14 +179,36 @@ const buttonLabel: TranslationsType = {
       }
 
       <Button
-        variant={"secondary"}
-        className={"js-modal-trigger h-auto cursor-pointer gap-4 px-16 py-4 text-lg font-bold text-white uppercase md:px-20 md:py-6 lg:text-2xl"}
+        variant={"accent-orange"}
+        className={"border-primary h-auto w-fit cursor-pointer gap-4 border-2 px-16 py-4 text-lg font-bold text-white uppercase md:px-20 md:py-6 lg:text-2xl xl:text-4xl"}
         set:html={componentProps.features?.includes(Features.showcase)
           ? showcase({
               words: 2,
             })
           : buttonLabel[componentProps.lang]}
       />
+
+      {
+        list.length > 0 && (
+          <ul class="flex flex-col gap-4">
+            {list.map((item) => (
+              <li class="text-para-lead flex items-center gap-4 py-2">
+                <div set:html={item.icon} class="w-fit [&_svg]:size-16" />
+                <div>{item.label[componentProps.lang]}</div>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+
+      {
+        cta[componentProps.lang] && (
+          <p
+            set:html={cta[componentProps.lang]}
+            class="text-primary text-para-lead font-bold text-balance"
+          />
+        )
+      }
     </div>
     <div class="relative grid place-items-center lg:w-[500px] lg:min-w-[500px]">
       <Image
