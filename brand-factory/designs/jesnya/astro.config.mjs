@@ -6,7 +6,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/lp/forexbeginner/v1/it/",
+  // base: "/lp/forexbeginner/v1/it/",
+  base: "/lp/forexbeginner/v1/es/",
   trailingSlash: "ignore",
   integrations: [react()],
 
