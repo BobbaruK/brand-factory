@@ -3,7 +3,7 @@ import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradeStrategyHubSVGVariation } from "../../../../globals/types/brands/logo";
+import { type TradersAcademicSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
@@ -19,14 +19,14 @@ import Layout from "../layouts/Layout.astro";
 
 export interface CustomOptions {
   logoSquare: boolean;
-  textVersion?: "default" | "meaningfulName";
+  textVersion?: "default" | "meaningfulName" | "anotherMeaningfulName";
 }
 
 /**
  * Landing page's main variables
  */
-type Logo = TradeStrategyHubSVGVariation;
-const brand: BrandsNames = "tradestrategyhub";
+type Logo = TradersAcademicSVGVariation;
+const brand: BrandsNames = "tradersacademic";
 const lpName = "";
 const lang: Languages = "es";
 const license: LicenseType = "fsa";
@@ -44,7 +44,7 @@ const whatsapp = false;
 const fxoroFooter: boolean = false;
 const customOptions: CustomOptions = {
   logoSquare: false,
-  textVersion: "meaningfulName",
+  // textVersion: "anotherMeaningfulName",
 };
 // ===============================
 
