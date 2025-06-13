@@ -115,7 +115,11 @@ export const brandFactory = <T>({
       return tradingatheneum(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
     case "oracle-signals":
-      return oracleSignals(whatsapp, whatsappNumber) as BrandArrItem<T>;
+      return oracleSignals({
+        license,
+        whatsapp,
+        whatsappNumber,
+      }) as BrandArrItem<T>;
 
     case "arabtradingpro":
       return arabTradingPro(whatsapp, whatsappNumber) as BrandArrItem<T>;
