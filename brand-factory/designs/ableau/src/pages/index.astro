@@ -3,42 +3,59 @@ import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradersProfilerSVGVariation } from "../../../../globals/types/brands/logo";
+import { type OracleSignalsSVGVariation } from "../../../../globals/types/brands/logo";
+import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type {
   LandingPageType,
   LicenseType,
   RegistrationType,
 } from "../../../../globals/types/lp-params-type";
+import type { Languages } from "../../../../globals/types/translations";
 import { checkFeatures } from "../../../../globals/utils/check-features";
+import { fxoroFooter as fxoroFooterFn } from "../../../../globals/utils/fxoro-footer";
 import Layout from "../layouts/Layout.astro";
-
-const license: LicenseType = "fsa";
-const lpType: LandingPageType = "classic";
-const features = checkFeatures([
-  // Features.readyForMail,
-  // Features.outbrain,
-  // Features.atheneum,
-  // Features.showcase,
-]);
-const registrationType: RegistrationType = "classic";
 
 export interface CustomOptions {
   logoSquare: boolean;
   textVersion?: "default" | "meaningfulName";
 }
 
-const componentProps: ComponentProps<
-  TradersProfilerSVGVariation,
-  CustomOptions
-> = {
-  lang: "es",
+/**
+ * Landing page's main variables
+ */
+type Logo = OracleSignalsSVGVariation;
+const brand: BrandsNames = "oracle-signals";
+const lpName = "";
+const lang: Languages = "es";
+const license: LicenseType = "fsa";
+const lpType: LandingPageType = "classic";
+const features = checkFeatures([
+  // Features.showcase,
+  // Features.readyForMail,
+  Features.outbrain,
+  // Features.atheneum,
+  // Features.officialTerms,
+  // Features.policyInFooter,
+]);
+const registrationType: RegistrationType = "direct_registration";
+const whatsapp = false;
+const fxoroFooter: boolean = false;
+const customOptions: CustomOptions = {
+  logoSquare: false,
+  textVersion: "meaningfulName",
+};
+// ===============================
+
+const componentProps: ComponentProps<Logo, CustomOptions> = {
+  lang,
   license,
-  lpName: "Corsitrading",
+  lpName,
   brandObj: brandFactory({
-    brand: "tradersprofiler",
+    brand,
     license,
-    whatsapp: false,
+    whatsapp,
     features,
   }),
   logo: function () {
@@ -46,12 +63,9 @@ const componentProps: ComponentProps<
   },
   lpType,
   registrationType,
-  customOptions: {
-    logoSquare: false,
-    // textVersion: "meaningfulName",
-  },
+  customOptions,
   features,
-  // fxoroFooter: true,
+  fxoroFooter: fxoroFooterFn(brand, fxoroFooter),
 };
 ---
 
