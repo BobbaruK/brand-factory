@@ -13,42 +13,60 @@ import Section5V1 from "@/components/v1/Section5.astro";
 import Section6V1 from "@/components/v1/Section6.astro";
 import Section7V1 from "@/components/v1/Section7.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradersProfilerSVGVariation } from "../../../../globals/types/brands/logo";
+import { type OracleSignalsSVGVariation } from "../../../../globals/types/brands/logo";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 // import { Features } from "../../../../globals/types/enums";
+import type { BrandsNames } from "../../../../globals/types/brands/names";
+import { Features } from "../../../../globals/types/enums";
 import type {
-  LandingPageType,
-  LicenseType,
-  RegistrationType,
+LandingPageType,
+LicenseType,
+RegistrationType,
 } from "../../../../globals/types/lp-params-type";
+import type { Languages } from "../../../../globals/types/translations";
 import { checkFeatures } from "../../../../globals/utils/check-features";
+import { fxoroFooter as fxoroFooterFn } from "../../../../globals/utils/fxoro-footer";
 import Layout from "../layouts/Layout.astro";
-
-const license: LicenseType = "fsa";
-const lpType: LandingPageType = "classic";
-const features = checkFeatures([
-  // Features.readyForMail,
-  // Features.outbrain,
-  // Features.atheneum,
-]);
-const registrationType: RegistrationType = "classic";
 
 export interface CustomOptions {
   logoSquare: boolean;
   version?: "default" | "v1";
 }
 
-const componentProps: ComponentProps<
-  TradersProfilerSVGVariation,
-  CustomOptions
-> = {
-  lang: "en",
+/**
+ * Landing page's main variables
+ */
+type Logo = OracleSignalsSVGVariation;
+const brand: BrandsNames = "oracle-signals";
+const lpName = "";
+const lang: Languages = "es";
+const license: LicenseType = "fsa";
+const lpType: LandingPageType = "classic";
+const features = checkFeatures([
+  // Features.showcase,
+  // Features.readyForMail,
+  // Features.outbrain,
+  // Features.atheneum,
+  // Features.officialTerms,
+  // Features.policyInFooter,
+]);
+const registrationType: RegistrationType = "direct_registration";
+const whatsapp = false;
+const fxoroFooter: boolean = false;
+const customOptions: CustomOptions = {
+  logoSquare: false,
+  version: "v1",
+};
+// ===============================
+
+const componentProps: ComponentProps<Logo, CustomOptions> = {
+  lang,
   license,
-  lpName: "Privacy Policy",
+  lpName,
   brandObj: brandFactory({
-    brand: "tradersprofiler",
+    brand,
     license,
-    whatsapp: false,
+    whatsapp,
     features,
   }),
   logo: function () {
@@ -56,12 +74,9 @@ const componentProps: ComponentProps<
   },
   lpType,
   registrationType,
-  customOptions: {
-    logoSquare: false,
-    version: "v1",
-  },
+  customOptions,
   features,
-  // fxoroFooter: true,
+  fxoroFooter: fxoroFooterFn(brand, fxoroFooter),
 };
 ---
 
