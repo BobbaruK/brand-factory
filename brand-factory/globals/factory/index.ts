@@ -93,11 +93,12 @@ export const brandFactory = <T>({
       return daytradingstar(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
     case "tradestrategyhub":
-      return tradestrategyhub(
+      return tradestrategyhub({
+        license,
+        features,
         whatsapp,
         whatsappNumber,
-        features
-      ) as BrandArrItem<T>;
+      }) as BrandArrItem<T>;
 
     case "protraderzone":
       return protraderzone(whatsapp, whatsappNumber) as BrandArrItem<T>;
