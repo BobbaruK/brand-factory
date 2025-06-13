@@ -81,7 +81,11 @@ export const brandFactory = <T>({
       return tradersacademic(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
     case "facoltaditrading":
-      return facoltaditrading(whatsapp, whatsappNumber) as BrandArrItem<T>;
+      return facoltaditrading({
+        license,
+        whatsapp,
+        whatsappNumber,
+      }) as BrandArrItem<T>;
 
     case "fxoro":
       return fxoro(whatsapp, whatsappNumber) as BrandArrItem<T>;

@@ -1,31 +1,82 @@
 import type { BrandArrItem } from "../../types/brands";
 import type { FacoltaDiTradingSVGVariation } from "../../types/brands/logo";
+import type { LicenseType } from "../../types/lp-params-type";
 import type { TranslationsType } from "../../types/translations";
 import { defaultLogo } from "./logos/defaultLogo";
 
-export const facoltaditrading = (
-  whatsapp: boolean,
-  whatsappNumber: () => TranslationsType
-): BrandArrItem<FacoltaDiTradingSVGVariation> => ({
+export const facoltaditrading = ({
+  license,
+  whatsapp,
+  whatsappNumber,
+}: {
+  license: LicenseType;
+  whatsapp: boolean;
+  whatsappNumber: () => TranslationsType;
+}): BrandArrItem<FacoltaDiTradingSVGVariation> => ({
   id: 3,
   nameToLower: "facoltaditrading",
   name: "Facoltà Di Trading",
   typage: {
-    en: `https://facoltaditrading.com/thank-you/en`,
-    it: `https://facoltaditrading.com/thank-you/en`,
-    tr: `https://facoltaditrading.com/thank-you/en`,
-    ro: `https://facoltaditrading.com/thank-you/en`,
-    ar: `https://facoltaditrading.com/thank-you/en`,
-    de: `https://facoltaditrading.com/thank-you/en`,
-    es: `https://facoltaditrading.com/thank-you/en`,
-    sv: `https://facoltaditrading.com/thank-you/en`,
-    pt: `https://facoltaditrading.com/thank-you/en`,
-    fi: `https://facoltaditrading.com/thank-you/en`,
-    pl: `https://facoltaditrading.com/thank-you/en`,
-    hu: `https://facoltaditrading.com/thank-you/en`,
-    th: `https://facoltaditrading.com/thank-you/en`,
-    ms: `https://facoltaditrading.com/thank-you/en`,
-    vi: `https://facoltaditrading.com/thank-you/en`,
+    en:
+      license === "fsa"
+        ? `https://facoltaditrading.com/thankyou/dr/en/`
+        : `https://facoltaditrading.com/thank-you/en/`,
+    it:
+      license === "fsa"
+        ? `https://facoltaditrading.com/thankyou/dr/it/`
+        : `https://facoltaditrading.com/thank-you/it/`,
+    tr:
+      license === "fsa"
+        ? `https://facoltaditrading.com/thankyou/dr/tr/`
+        : `https://facoltaditrading.com/thank-you/tr/`,
+    ro:
+      license === "fsa"
+        ? `https://facoltaditrading.com/thankyou/dr/ro/`
+        : `https://facoltaditrading.com/thank-you/ro/`,
+    ar:
+      license === "fsa"
+        ? `https://facoltaditrading.com/thankyou/dr/ar/`
+        : `https://facoltaditrading.com/thank-you/ar/`,
+    de:
+      license === "fsa"
+        ? `https://facoltaditrading.com/thankyou/dr/de/`
+        : `https://facoltaditrading.com/thank-you/de/`,
+    es:
+      license === "fsa"
+        ? `https://facoltaditrading.com/thankyou/dr/es/`
+        : `https://facoltaditrading.com/thank-you/es/`,
+    sv:
+      license === "fsa"
+        ? `https://facoltaditrading.com/thankyou/dr/sv/`
+        : `https://facoltaditrading.com/thank-you/sv/`,
+    pt:
+      license === "fsa"
+        ? `https://facoltaditrading.com/thankyou/dr/pt/`
+        : `https://facoltaditrading.com/thank-you/pt/`,
+    fi:
+      license === "fsa"
+        ? `https://facoltaditrading.com/thankyou/dr/fi/`
+        : `https://facoltaditrading.com/thank-you/fi/`,
+    pl:
+      license === "fsa"
+        ? `https://facoltaditrading.com/thankyou/dr/pl/`
+        : `https://facoltaditrading.com/thank-you/pl/`,
+    hu:
+      license === "fsa"
+        ? `https://facoltaditrading.com/thankyou/dr/hu/`
+        : `https://facoltaditrading.com/thank-you/hu/`,
+    th:
+      license === "fsa"
+        ? `https://facoltaditrading.com/thankyou/dr/th/`
+        : `https://facoltaditrading.com/thank-you/th/`,
+    ms:
+      license === "fsa"
+        ? `https://facoltaditrading.com/thankyou/dr/ms/`
+        : `https://facoltaditrading.com/thank-you/ms/`,
+    vi:
+      license === "fsa"
+        ? `https://facoltaditrading.com/thankyou/dr/vi/`
+        : `https://facoltaditrading.com/thank-you/vi/`,
   },
   recaptchaKey: "6LfWLIQjAAAAADF97_A4hqRnyD3EmZ-XLXDXgIVa",
   privacyLink: {
