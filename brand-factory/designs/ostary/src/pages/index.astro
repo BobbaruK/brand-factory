@@ -3,8 +3,10 @@ import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
 import Section4 from "@/components/Section4.astro";
+import Section4Short from "@/components/short/Section4.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
+import { type FacoltaDiTradingSVGVariation } from "../../../../globals/types/brands/logo";
+import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -12,52 +14,77 @@ import type {
   LicenseType,
   RegistrationType,
 } from "../../../../globals/types/lp-params-type";
+import type { Languages } from "../../../../globals/types/translations";
 import { checkFeatures } from "../../../../globals/utils/check-features";
+import { fxoroFooter as fxoroFooterFn } from "../../../../globals/utils/fxoro-footer";
 import Layout from "../layouts/Layout.astro";
-
-const license: LicenseType = "fsa";
-const lpType: LandingPageType = "classic";
-const features = checkFeatures([
-  // Features.readyForMail,
-  // Features.outbrain,
-  // Features.atheneum,
-  Features.showcase,
-]);
-const registrationType: RegistrationType = "classic";
 
 export interface CustomOptions {
   logoSquare: boolean;
+  version?: "default" | "short";
 }
 
-const componentProps: ComponentProps<
-  TradingAtheneumSVGVariation,
-  CustomOptions
-> = {
-  lang: "sv",
+/**
+ * Landing page's main variables
+ */
+type Logo = FacoltaDiTradingSVGVariation;
+const brand: BrandsNames = "facoltaditrading";
+const lpName = "";
+const lang: Languages = "es";
+const license: LicenseType = "fsa";
+const lpType: LandingPageType = "classic";
+const features = checkFeatures([
+  // Features.showcase,
+  // Features.readyForMail,
+  Features.outbrain,
+  // Features.atheneum,
+  // Features.officialTerms,
+  // Features.policyInFooter,
+]);
+const registrationType: RegistrationType = "classic";
+const whatsapp = false;
+const fxoroFooter: boolean = false;
+const customOptions: CustomOptions = {
+  logoSquare: false,
+  version: "short",
+};
+// ===============================
+
+const componentProps: ComponentProps<Logo, CustomOptions> = {
+  lang,
   license,
-  lpName: "Amazon World",
+  lpName,
   brandObj: brandFactory({
-    brand: "tradingatheneum",
+    brand,
     license,
-    whatsapp: false,
+    whatsapp,
     features,
   }),
   logo: function () {
-    return this.brandObj.images.logoSVG.defaultCustom;
+    return this.brandObj.images.logoSVG.default;
   },
   lpType,
   registrationType,
-  customOptions: {
-    logoSquare: false,
-  },
+  customOptions,
   features,
-  // fxoroFooter: true,
+  fxoroFooter: fxoroFooterFn(brand, fxoroFooter),
 };
 ---
 
 <Layout componentProps={componentProps}>
   <Section1 componentProps={componentProps} />
-  <Section2 componentProps={componentProps} />
+  {
+    (componentProps.customOptions?.version === undefined ||
+      componentProps.customOptions?.version === "default") && (
+      <Section2 componentProps={componentProps} />
+    )
+  }
   <Section3 componentProps={componentProps} />
-  <Section4 componentProps={componentProps} />
+  {
+    componentProps.customOptions?.version === "short" ? (
+      <Section4Short componentProps={componentProps} />
+    ) : (
+      <Section4 componentProps={componentProps} />
+    )
+  }
 </Layout>
