@@ -1,4 +1,4 @@
-import type { TranslationsType } from "../../../../globals/types/Translations";
+import type { TranslationsType } from "../../../../globals/types/translations";
 
 export const formButtonTranslation: TranslationsType = {
   en: `Join our network`,
