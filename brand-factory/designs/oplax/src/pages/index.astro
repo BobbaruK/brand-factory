@@ -2,7 +2,7 @@
 import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type OracleSignalsSVGVariation } from "../../../../globals/types/brands/logo";
+import { type TradeStrategyHubSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
@@ -24,8 +24,8 @@ export interface CustomOptions {
 /**
  * Landing page's main variables
  */
-type Logo = OracleSignalsSVGVariation;
-const brand: BrandsNames = "oracle-signals";
+type Logo = TradeStrategyHubSVGVariation;
+const brand: BrandsNames = "tradestrategyhub";
 const lpName = "";
 const lang: Languages = "es";
 const license: LicenseType = "fsa";
@@ -38,7 +38,7 @@ const features = checkFeatures([
   // Features.officialTerms,
   // Features.policyInFooter,
 ]);
-const registrationType: RegistrationType = "direct_registration";
+const registrationType: RegistrationType = "classic";
 const whatsapp = false;
 const fxoroFooter: boolean = false;
 const customOptions: CustomOptions = {
