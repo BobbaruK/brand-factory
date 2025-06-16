@@ -1,20 +1,197 @@
 ---
+import { cn } from "@/lib/utils";
 import { type CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import Form from "../../../../globals/components/form";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import bgMobile from "../assets/background.jpg";
+import blueShirt from "../assets/blue-shirt.png";
+import { FORM_BUTTON } from "../constants/form-button";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Unlock your trading power with <span class="text-secondary">ai signals</span>`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: ``,
+  de: "",
+  es: `Desbloquea tu potencial de trading con <span class="text-secondary">señales de ia</span>`,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `AI technology is transforming how smart traders make decisions. With lightning-fast data analysis and real-time market scanning, AI-generated signals give you a competitive edge. `,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: ``,
+    de: "",
+    es: `La tecnología de IA está transformando la manera en que los traders inteligentes toman decisiones. Con un análisis de datos ultrarrápido y un escaneo del mercado en tiempo real, las señales generadas por IA te dan una ventaja competitiva.`,
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+  {
+    en: `Stop guessing — start using powerful, top-tier signals trusted by professionals worldwide. Whether you're a beginner or experienced trader, our AI helps you trade smarter, not harder.`,
+    it: "",
+    tr: "",
+    ro: "",
+    ar: ``,
+    de: "",
+    es: `Deja de adivinar: empieza a utilizar potentes señales de primer nivel en las que confían profesionales de todo el mundo. Ya seas principiante o trader experimentado, nuestra IA te ayuda a operar de manera más inteligente, no más difícil.`,
+    sv: ``,
+    pt: "",
+    fi: "",
+    pl: ``,
+    hu: "",
+    th: "",
+    ms: "",
+    vi: "",
+  },
+];
+
+const formTitle: TranslationsType = {
+  en: `Explore AI Trading Tools`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: ``,
+  de: "",
+  es: `Explora las herramientas de trading con IA`,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header id="header" class="relative">
+  <Image
+    src={bgMobile}
+    alt="Background"
+    class={cn(
+      "absolute inset-0 z-0 h-full w-full object-cover object-left pointer-events-none",
+      componentProps.lang === "ar" ? "scale-[-1] " : "",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, bgMobile.width]}
+    sizes={`100vw`}
+    loading={"eager"}
+  />
+
+  <div class="relative z-10 text-white">
+    <div class="py-custom-spacing text-para-lead container">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+
+    <div
+      class="pb-custom-spacing container flex flex-col max-lg:gap-10 lg:flex-row"
+    >
+      <div class="gap-custom-spacing flex basis-6/12 flex-col justify-center">
+        <h1
+          set:html={title[componentProps.lang]}
+          class="text-heading1 font-black text-balance uppercase"
+        />
+
+        {
+          paras.map((para) => (
+            <p
+              set:html={para[componentProps.lang]}
+              class="text-para-lead text-balance lg:max-w-[50ch]"
+            />
+          ))
+        }
+      </div>
+      <div class="flex basis-6/12 flex-col 2xl:basis-4/12">
+        <h3
+          set:html={formTitle[componentProps.lang]}
+          class="bg-primary text-primary-foreground w-full p-2 text-center font-black text-balance"
+        />
+        <div class="text-foreground bg-white p-4">
+          <Form
+            componentProps={componentProps}
+            button={FORM_BUTTON[componentProps.lang]}
+            id="section-form"
+            layout={2}
+          />
+        </div>
+      </div>
+    </div>
   </div>
+
+  <Image
+    src={blueShirt}
+    alt="Blue shirt man"
+    class={cn(
+      "w-custom-image absolute end-0 bottom-0 z-0 h-auto max-2xl:hidden",
+      componentProps.lang === "ar" ? "scale-x-[-1] " : "",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, blueShirt.width]}
+    sizes={`
+      (max-width: 1535px) 0px,
+      1920px
+    `}
+  />
 </header>
+
+<style lang="scss" is:global>
+  @reference "../styles/global.css";
+
+  form.registerForm {
+    input,
+    select {
+      @apply text-slate-800;
+    }
+    input[disabled] {
+      // color: white;
+    }
+
+    .form-control {
+      label {
+        font-size: 1rem;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        // @apply h-12 text-black;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      button {
+        @apply bg-secondary hover:bg-primary uppercase;
+      }
+    }
+  }
+</style>
