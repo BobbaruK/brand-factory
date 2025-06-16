@@ -115,7 +115,11 @@ export const brandFactory = <T>({
       return piutrading(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
     case "tradingprofiler":
-      return tradingprofiler(whatsapp, whatsappNumber) as BrandArrItem<T>;
+      return tradingprofiler({
+        license,
+        whatsapp,
+        whatsappNumber,
+      }) as BrandArrItem<T>;
 
     case "fxoro_partners":
       return fxoro_partners(whatsapp, whatsappNumber) as BrandArrItem<T>;
