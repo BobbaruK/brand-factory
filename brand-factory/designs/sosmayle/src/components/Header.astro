@@ -159,7 +159,7 @@ const formTitle: TranslationsType = {
                   words: 2,
                 })
               : FORM_BUTTON[componentProps.lang]}
-            id="section-form"
+            id="header-form"
             layout={2}
           />
         </div>
@@ -171,7 +171,7 @@ const formTitle: TranslationsType = {
     src={blueShirt}
     alt="Blue shirt man"
     class={cn(
-      "w-custom-image absolute end-0 bottom-0 z-0 h-auto max-2xl:hidden",
+      "w-custom-image absolute end-0 bottom-0 z-0 h-auto max-2xl:hidden pointer-events-none",
       componentProps.lang === "ar" ? "scale-x-[-1] " : "",
     )}
     widths={[320, 576, 640, 768, 1024, 1280, 1536, blueShirt.width]}
