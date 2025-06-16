@@ -1,0 +1,55 @@
+---
+import { cn } from "@/lib/utils";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const buttonLabel: TranslationsType = {
+  en: `Activate`,
+  it: "",
+  tr: "",
+  ro: "",
+  ar: ``,
+  de: "",
+  es: `Activar`,
+  sv: ``,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+---
+
+<section id="section1" class="section1 py-custom-spacing">
+  <div class="container grid place-items-center">
+    <ButtonDisclaimer
+      componentProps={componentProps}
+      disclaimer={{
+        active: true,
+      }}
+    >
+      <Button
+        variant="secondary"
+        className={cn(
+          "js-modal-trigger h-auto w-full max-w-full cursor-pointer px-8 py-2 text-lg font-bold whitespace-normal md:text-2xl",
+        )}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>

@@ -1,5 +1,6 @@
 ---
 import Section1 from "@/components/Section1.astro";
+import Section2 from "@/components/Section2.astro";
 import { brandFactory } from "../../../../globals/factory";
 import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
@@ -25,7 +26,7 @@ export interface CustomOptions {
 type Logo = TradingAtheneumSVGVariation;
 const brand: BrandsNames = "tradingatheneum";
 const lpName = "";
-const lang: Languages = "en";
+const lang: Languages = "es";
 const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
@@ -36,7 +37,7 @@ const features = checkFeatures([
   // Features.officialTerms,
   // Features.policyInFooter,
 ]);
-const registrationType: RegistrationType = "classic";
+const registrationType: RegistrationType = "direct_registration";
 const whatsapp = false;
 const fxoroFooter: boolean = false;
 const customOptions: CustomOptions = {
@@ -67,4 +68,5 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
 
 <Layout componentProps={componentProps}>
   <Section1 componentProps={componentProps} />
+  <Section2 componentProps={componentProps} />
 </Layout>
