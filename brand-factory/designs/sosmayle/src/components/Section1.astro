@@ -1,7 +1,9 @@
 ---
 import { ICON_1, ICON_2, ICON_3, ICON_4 } from "@/constants/icons";
 import { cn } from "@/lib/utils";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 
 interface Props {
@@ -117,7 +119,11 @@ const bullets: {
 <section id="section1" class="section1 pt-custom-spacing overflow-clip">
   <div class="space-y-custom-spacing container">
     <h2
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
       class="text-heading2 text-center font-black text-balance uppercase"
     />
     <div class="flex flex-wrap items-stretch gap-y-4">
@@ -142,7 +148,13 @@ const bullets: {
                 )}
               >
                 <p
-                  set:html={bullet.label[componentProps.lang]}
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({
+                          words: 5,
+                        })
+                      : bullet.label[componentProps.lang]
+                  }
                   class="max-w-[20ch] text-center text-balance"
                 />
               </div>

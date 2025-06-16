@@ -9,6 +9,8 @@ import type { TranslationsType } from "../../../../globals/types/translations";
 import bgMobile from "../assets/background.jpg";
 import blueShirt from "../assets/blue-shirt.png";
 import { FORM_BUTTON } from "../constants/form-button";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -116,14 +118,25 @@ const formTitle: TranslationsType = {
     >
       <div class="gap-custom-spacing flex basis-6/12 flex-col justify-center">
         <h1
-          set:html={title[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 10,
+                spanClasses: "text-secondary",
+              })
+            : title[componentProps.lang]}
           class="text-heading1 font-black text-balance uppercase"
         />
 
         {
           paras.map((para) => (
             <p
-              set:html={para[componentProps.lang]}
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 30,
+                    })
+                  : para[componentProps.lang]
+              }
               class="text-para-lead text-balance lg:max-w-[50ch]"
             />
           ))
@@ -131,13 +144,21 @@ const formTitle: TranslationsType = {
       </div>
       <div class="flex basis-6/12 flex-col 2xl:basis-4/12">
         <h3
-          set:html={formTitle[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 5,
+              })
+            : formTitle[componentProps.lang]}
           class="bg-primary text-primary-foreground w-full p-2 text-center font-black text-balance"
         />
         <div class="text-foreground bg-white p-4">
           <Form
             componentProps={componentProps}
-            button={FORM_BUTTON[componentProps.lang]}
+            button={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 2,
+                })
+              : FORM_BUTTON[componentProps.lang]}
             id="section-form"
             layout={2}
           />
