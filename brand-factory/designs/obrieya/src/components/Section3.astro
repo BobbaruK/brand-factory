@@ -1,0 +1,190 @@
+---
+import { ICON_1, ICON_2, ICON_3, ICON_4 } from "@/constants/icons";
+import { cn } from "@/lib/utils";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `What you get when you subscribe`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Qué obtienes cuando te suscribes`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const bullets: {
+  icon: string;
+  label: TranslationsType;
+}[] = [
+  {
+    icon: ICON_1,
+    label: {
+      en: `Professional trading signals tailored for energy and metals`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: `Señales de trading profesionales enfocadas en energía y metales`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: ICON_2,
+    label: {
+      en: `Access to educational resources to improve your trading knowledge`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: `Acceso a recursos educativos para mejorar tus conocimientos de trading`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: ICON_3,
+    label: {
+      en: `A demo trading account to practice your new skills`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: `Una cuenta demo para practicar tus nuevas habilidades`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: ICON_4,
+    label: {
+      en: `1-on-1 training sessions with industry professionals`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: `Sesiones de formación 1-a-1 con profesionales del sector`,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+];
+
+const buttonLabel: TranslationsType = {
+  en: `Subscribe`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Suscribirse`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section3" class="section3 py-custom-spacing">
+  <div class="space-y-custom-spacing container">
+    <h2
+      set:html={title[componentProps.lang]}
+      class="text-heading2 text-center font-black text-balance uppercase"
+    />
+
+    <div class="flex flex-wrap items-stretch gap-y-4">
+      {
+        bullets.map((bullet, index) => (
+          <div class="flex grow flex-col gap-4">
+            <div
+              set:html={bullet.icon}
+              class="grid place-items-center [&_svg]:size-16 min-md:[&_svg]:size-24"
+            />
+            <div class={cn("relative grid h-full place-items-center p-2")}>
+              <p
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 5,
+                      })
+                    : bullet.label[componentProps.lang]
+                }
+                class="max-w-[20ch] text-center text-balance"
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <ButtonDisclaimer
+      componentProps={componentProps}
+      disclaimer={{
+        active: true,
+      }}
+      className="mx-auto"
+    >
+      <Button
+        className={cn(
+          "js-modal-trigger h-auto w-full max-w-full cursor-pointer px-8 py-4 font-bold whitespace-normal uppercase",
+        )}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>
