@@ -70,11 +70,22 @@ const buttonLabel: TranslationsType = {
 <section id="section1" class="section1 py-custom-spacing">
   <div class="space-y-custom-spacing container">
     <h2
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
       class="text-heading2 text-center font-black text-balance uppercase"
     />
 
-    <p set:html={para[componentProps.lang]} class="text-para-lead" />
+    <p
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 50,
+          })
+        : para[componentProps.lang]}
+      class="text-para-lead"
+    />
 
     <ButtonDisclaimer
       componentProps={componentProps}
@@ -85,7 +96,7 @@ const buttonLabel: TranslationsType = {
     >
       <Button
         className={cn(
-          "js-modal-trigger h-auto w-full max-w-full cursor-pointer px-8 py-4 font-bold whitespace-normal uppercase",
+          "js-modal-trigger h-auto w-full max-w-full cursor-pointer px-8 py-4 text-lg font-bold whitespace-normal uppercase xl:w-[350px]",
         )}
         set:html={componentProps.features?.includes(Features.showcase)
           ? showcase({

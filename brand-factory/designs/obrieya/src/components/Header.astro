@@ -1,14 +1,16 @@
 ---
+import { FORM_BUTTON } from "@/constants/form-button";
+import { cn } from "@/lib/utils";
 import { type CustomOptions } from "@/pages/index.astro";
-import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
-import { type ComponentProps } from "../../../../globals/types/component-props";
 import { Image } from "astro:assets";
+import Form from "../../../../globals/components/form";
+import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { type ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
 import background from "../assets/background.png";
 import man from "../assets/man.png";
-import { cn } from "@/lib/utils";
-import Form from "../../../../globals/components/form";
-import type { TranslationsType } from "../../../../globals/types/translations";
-import { FORM_BUTTON } from "@/constants/form-button";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -133,7 +135,7 @@ const formTitle: TranslationsType = {
     src={background}
     alt="Background"
     class={cn(
-      "absolute inset-0 z-0 h-full w-full object-cover object-left pointer-events-none",
+      "absolute inset-0 z-0 h-full w-full object-cover pointer-events-none",
       componentProps.lang === "ar" ? "scale-[-1] " : "",
     )}
     widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
@@ -149,67 +151,96 @@ const formTitle: TranslationsType = {
         square={componentProps.customOptions?.logoSquare}
       />
     </div>
-    <div
-      class="pb-custom-spacing gap-y-custom-spacing container flex flex-wrap"
-    >
+
+    <div class="container flex flex-wrap">
       <div
-        class="gap-custom-spacing flex flex-col justify-center lg:w-8/12 xl:w-4/12"
+        class="gap-custom-spacing pb-custom-spacing lg:pb-custom-spacing order-1 flex flex-col justify-center lg:w-8/12 xl:w-5/12"
       >
         <h1
-          set:html={title[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 5,
+              })
+            : title[componentProps.lang]}
           class="text-heading1 font-black text-balance uppercase"
         />
 
         <p
-          set:html={list.title[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 5,
+              })
+            : list.title[componentProps.lang]}
           class="text-para-lead font-black"
         />
 
-        {
-          list.data.length > 0 && (
-            <ul class="text-para-lead gap-custom-spacing flex flex-col">
-              {list.data.map((item, index) => (
-                <li class="flex items-center gap-2 text-balance">
-                  <span
-                    set:html={index + 1 + "/"}
-                    class="text-heading1 min-w-6 font-bold text-white md:min-w-10 lg:min-w-14"
-                  />
-                  <span set:html={item[componentProps.lang]} />
-                </li>
-              ))}
-            </ul>
-          )
-        }
+        <ul class="text-para-lead gap-custom-spacing flex flex-col xl:pe-28">
+          {
+            list.data.map((item, index) => (
+              <li class="flex items-center gap-2 text-balance">
+                <span
+                  set:html={index + 1 + "/"}
+                  class="text-heading1 min-w-6 font-bold text-white md:min-w-10 lg:min-w-14"
+                />
+                <span
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({
+                          words: 10,
+                        })
+                      : item[componentProps.lang]
+                  }
+                />
+              </li>
+            ))
+          }
+        </ul>
       </div>
 
-      <div class="hidden lg:block lg:w-4/12 xl:w-4/12">
+      <div
+        class="relative order-3 flex w-full items-end justify-center lg:order-2 lg:w-4/12 xl:w-3/12"
+      >
         <Image
           src={man}
           alt="Man"
           class={cn(
-            "pointer-events-none scale-x-[-1] -mb-10 relative -z-10 xl:scale-x-[1] xl:-bottom-10",
-            componentProps.lang === "ar" ? "scale-x-[-1] " : "",
-            { "xl:-bottom-28": componentProps.lang === "es" },
+            "pointer-events-none max-lg:max-w-[350px] block w-full h-auto xl:absolute xl:-start-28 xl:w-[440px] xl:max-w-none -z-10",
+            componentProps.lang === "ar"
+              ? "lg:scale-x-[1] xl:scale-x-[-1] "
+              : "lg:scale-x-[-1] xl:scale-x-[1] ",
+            // { "xl:-bottom-28": componentProps.lang === "es" },
           )}
           widths={[320, 576, 640, 768, 1024, 1280, 1536, man.width]}
           sizes={`
-            (max-width: 1023px) 0px,
-            416px
+            (max-width: 320px) 273px,
+            (max-width: 1023px) 350px,
+            (max-width: 1280px) 410px,
+            440px
           `}
           loading={"eager"}
         />
       </div>
 
-      <div class="flex w-full flex-col bg-white text-black xl:w-4/12">
+      <div
+        class="lg:pb-custom-spacing order-2 flex w-full flex-col lg:order-3 xl:w-4/12"
+      >
         <div
-          class="text-heading3 bg-black p-1 text-center font-black text-white uppercase"
-          set:html={formTitle[componentProps.lang]}
+          class="text-heading3 bg-black p-1 py-2 text-center font-black text-white uppercase"
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 3,
+              })
+            : formTitle[componentProps.lang]}
         />
 
-        <div class="p-4">
+        <div class="bg-white p-4 text-black xl:px-8">
           <Form
             componentProps={componentProps}
-            button={FORM_BUTTON[componentProps.lang]}
+            button={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 2,
+                })
+              : FORM_BUTTON[componentProps.lang]}
             id="section-form"
             layout={2}
           />

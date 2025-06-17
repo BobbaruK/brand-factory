@@ -139,13 +139,17 @@ const buttonLabel: TranslationsType = {
 <section id="section3" class="section3 py-custom-spacing">
   <div class="space-y-custom-spacing container">
     <h2
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
       class="text-heading2 text-center font-black text-balance uppercase"
     />
 
     <div class="flex flex-wrap items-stretch gap-y-4">
       {
-        bullets.map((bullet, index) => (
+        bullets.map((bullet) => (
           <div class="flex grow flex-col gap-4">
             <div
               set:html={bullet.icon}
@@ -156,7 +160,7 @@ const buttonLabel: TranslationsType = {
                 set:html={
                   componentProps.features?.includes(Features.showcase)
                     ? showcase({
-                        words: 5,
+                        words: 10,
                       })
                     : bullet.label[componentProps.lang]
                 }
@@ -177,7 +181,7 @@ const buttonLabel: TranslationsType = {
     >
       <Button
         className={cn(
-          "js-modal-trigger h-auto w-full max-w-full cursor-pointer px-8 py-4 font-bold whitespace-normal uppercase",
+          "js-modal-trigger h-auto w-full max-w-full cursor-pointer px-8 py-4 text-lg font-bold whitespace-normal uppercase xl:w-[350px]",
         )}
         set:html={componentProps.features?.includes(Features.showcase)
           ? showcase({
