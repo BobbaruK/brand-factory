@@ -1,0 +1,78 @@
+---
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Image } from "astro:assets";
+import barrel from "../assets/oil-gold.png";
+import { cn } from "@/lib/utils";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Commodities: Where the action is`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Materias primas: Donde está la acción`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: `Commodities CFDs offer a world of opportunities—driven by supply, demand, and global events. From the surging energy sector to the ever-relevant mining industry, trading oil, gas, gold, or copper gives you exposure to real economic forces. With the right tools and data, you can catch the wave of these dynamic markets.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Los CFDs sobre materias primas ofrecen un mundo de oportunidades, impulsadas por la oferta, la demanda y los acontecimientos globales. Desde el creciente sector energético hasta la siempre relevante industria minera, operar con petróleo, gas, oro o cobre te da exposición a fuerzas económicas reales. Con las herramientas y los datos adecuados, puedes aprovechar la ola de estos mercados dinámicos.`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section2" class="section2 py-custom-spacing bg-black text-white">
+  <div class="space-y-custom-spacing container">
+    <h2
+      set:html={title[componentProps.lang]}
+      class="text-heading2 text-center font-black text-balance uppercase"
+    />
+
+    <div class="gap-y-custom-spacing flex flex-wrap">
+      <div class="min-lg:w-8/12">
+        <p set:html={para[componentProps.lang]} class="text-para-lead" />
+      </div>
+      <div class="relative grid grow place-items-center">
+        <Image
+          src={barrel}
+          alt="Gold and oil barrel"
+          class={cn(
+            "max-lg:max-w-[300px] w-full lg:absolute lg:-bottom-10 lg:w-[650px] lg:max-w-none start-0",
+          )}
+          widths={[320, 576, 640, 768, 1024, 1280, 1536, barrel.width]}
+          sizes={`
+            (max-width: 1023px) 300px,
+            650px
+          `}
+          loading={"eager"}
+        />
+      </div>
+    </div>
+  </div>
+</section>

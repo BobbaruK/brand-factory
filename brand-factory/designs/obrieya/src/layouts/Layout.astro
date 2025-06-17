@@ -64,7 +64,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
     </style>
   </head>
   <body>
-    <div id="site-wrapper">
+    <div id="site-wrapper" class="overflow-x-clip">
       <Header componentProps={componentProps} />
       <main>
         <slot />
