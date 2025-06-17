@@ -2,19 +2,253 @@
 import { type CustomOptions } from "@/pages/index.astro";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import { Image } from "astro:assets";
+import background from "../assets/background.png";
+import man from "../assets/man.png";
+import { cn } from "@/lib/utils";
+import Form from "../../../../globals/components/form";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { FORM_BUTTON } from "@/constants/form-button";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Trade smarter <span class="text-white">with signals</span>`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Opera con inteligencia gracias <span class="text-white">a las señales</span>`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const list: {
+  title: TranslationsType;
+  data: TranslationsType[];
+} = {
+  title: {
+    en: `3 Easy Steps to Get Started:`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: `3 pasos sencillos para comenzar:`,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  data: [
+    {
+      en: `<span class="text-white font-bold">Register for free</span> and activate your account`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `<span class="text-white font-bold">Regístrate gratis</span> y activa tu cuenta`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    {
+      en: `<span class="text-white font-bold">Educate yourself</span> with insights into the world of commodity trading`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `<span class="text-white font-bold">Infórmate</span> con conocimientos sobre el mundo del trading de materias primas`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    {
+      en: `<span class="text-white font-bold">Start trading</span> with insights from professionals`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `<span class="text-white font-bold">Comienza a operar</span> con las ideas de profesionales`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  ],
+};
+
+const formTitle: TranslationsType = {
+  en: `Trade with signals`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Opere con señales`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header id="header" class="relative overflow-clip">
+  <Image
+    src={background}
+    alt="Background"
+    class={cn(
+      "absolute inset-0 z-0 h-full w-full object-cover object-left pointer-events-none",
+      componentProps.lang === "ar" ? "scale-[-1] " : "",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+    loading={"eager"}
+  />
+
+  <div class="relative z-10">
+    <div class="py-custom-spacing container">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+    <div
+      class="pb-custom-spacing gap-y-custom-spacing container flex flex-wrap"
+    >
+      <div
+        class="gap-custom-spacing flex flex-col justify-center lg:w-8/12 xl:w-4/12"
+      >
+        <h1
+          set:html={title[componentProps.lang]}
+          class="text-heading1 font-black text-balance uppercase"
+        />
+
+        <p
+          set:html={list.title[componentProps.lang]}
+          class="text-para-lead font-black"
+        />
+
+        {
+          list.data.length > 0 && (
+            <ul class="text-para-lead gap-custom-spacing flex flex-col">
+              {list.data.map((item, index) => (
+                <li class="flex items-center gap-2">
+                  <span
+                    set:html={index + 1 + "/"}
+                    class="text-heading1 min-w-6 font-bold text-white md:min-w-10 lg:min-w-14"
+                  />
+                  <span set:html={item[componentProps.lang]} />
+                </li>
+              ))}
+            </ul>
+          )
+        }
+      </div>
+
+      <div class="hidden lg:block lg:w-4/12 xl:w-4/12">
+        <Image
+          src={man}
+          alt="Man"
+          class={cn(
+            "pointer-events-none scale-x-[-1] -mb-10 relative -z-10 xl:scale-x-[1] xl:-bottom-10",
+            componentProps.lang === "ar" ? "scale-x-[-1] " : "",
+          )}
+          widths={[320, 576, 640, 768, 1024, 1280, 1536, man.width]}
+          sizes={`
+            (max-width: 1535px) 0px,
+            1920px
+          `}
+          loading={"eager"}
+        />
+      </div>
+
+      <div class="flex w-full flex-col bg-white text-black xl:w-4/12">
+        <div
+          class="text-heading3 bg-black p-1 text-center font-black text-white uppercase"
+          set:html={formTitle[componentProps.lang]}
+        />
+
+        <div class="p-4">
+          <Form
+            componentProps={componentProps}
+            button={FORM_BUTTON[componentProps.lang]}
+            id="section-form"
+            layout={2}
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </header>
+
+<style lang="scss" is:global>
+  @reference "../styles/global.css";
+
+  form.registerForm {
+    input,
+    select {
+      @apply text-slate-800;
+    }
+    input[disabled] {
+      // color: white;
+    }
+
+    .form-control {
+      label {
+        font-size: 1rem;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        // @apply h-12 text-black;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      button {
+        @apply text-lg uppercase;
+      }
+    }
+  }
+</style>

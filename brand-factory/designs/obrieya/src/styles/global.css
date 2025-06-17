@@ -65,6 +65,8 @@
     1rem + 1.25vw,
     2rem
   ); /* 20 - 32 ; 320 - 1280 */
+
+  --spacing-custom-spacing: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
 }
 
 @theme inline {

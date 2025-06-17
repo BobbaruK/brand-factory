@@ -1,14 +1,15 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
+import { FORM_BUTTON } from "@/constants/form-button";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/poppins/900.css";
 import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
+import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
+import Form from "../../../../globals/components/form";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import "../styles/global.css";
-import "@fontsource/poppins/400.css";
-import "@fontsource/poppins/900.css";
-import Form from "../../../../globals/components/form";
-import type { TranslationsType } from "../../../../globals/types/translations";
 
 interface Props {
   componentProps: ComponentProps;
@@ -17,24 +18,6 @@ interface Props {
 const { componentProps } = Astro.props;
 
 const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
-
-const formButton: TranslationsType = {
-  en: `Register & Get Signals`,
-  it: ``,
-  tr: ``,
-  ro: ``,
-  ar: ``,
-  de: ``,
-  es: `Regístrate y recibe señales`,
-  sv: ``,
-  pt: ``,
-  fi: ``,
-  pl: ``,
-  hu: ``,
-  th: ``,
-  ms: ``,
-  vi: ``,
-};
 ---
 
 <!doctype html>
@@ -91,7 +74,7 @@ const formButton: TranslationsType = {
     <Dialog>
       <Form
         componentProps={componentProps}
-        button={formButton[componentProps.lang]}
+        button={FORM_BUTTON[componentProps.lang]}
         id="modal-form"
         layout={2}
       />
