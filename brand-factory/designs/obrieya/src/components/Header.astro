@@ -169,7 +169,7 @@ const formTitle: TranslationsType = {
           list.data.length > 0 && (
             <ul class="text-para-lead gap-custom-spacing flex flex-col">
               {list.data.map((item, index) => (
-                <li class="flex items-center gap-2">
+                <li class="flex items-center gap-2 text-balance">
                   <span
                     set:html={index + 1 + "/"}
                     class="text-heading1 min-w-6 font-bold text-white md:min-w-10 lg:min-w-14"
@@ -189,11 +189,12 @@ const formTitle: TranslationsType = {
           class={cn(
             "pointer-events-none scale-x-[-1] -mb-10 relative -z-10 xl:scale-x-[1] xl:-bottom-10",
             componentProps.lang === "ar" ? "scale-x-[-1] " : "",
+            { "xl:-bottom-28": componentProps.lang === "es" },
           )}
           widths={[320, 576, 640, 768, 1024, 1280, 1536, man.width]}
           sizes={`
-            (max-width: 1535px) 0px,
-            1920px
+            (max-width: 1023px) 0px,
+            416px
           `}
           loading={"eager"}
         />
