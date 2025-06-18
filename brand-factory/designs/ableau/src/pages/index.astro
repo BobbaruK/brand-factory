@@ -19,7 +19,7 @@ import Layout from "../layouts/Layout.astro";
 
 export interface CustomOptions {
   logoSquare: boolean;
-  textVersion?: "default" | "meaningfulName" | "anotherMeaningfulName";
+  textVersion?: "meaningfulName" | "anotherMeaningfulName" | "betterMeaningfulName";
 }
 
 /**
@@ -44,7 +44,7 @@ const whatsapp = false;
 const fxoroFooter: boolean = false;
 const customOptions: CustomOptions = {
   logoSquare: false,
-  // textVersion: "anotherMeaningfulName",
+  textVersion: "betterMeaningfulName",
 };
 // ===============================
 

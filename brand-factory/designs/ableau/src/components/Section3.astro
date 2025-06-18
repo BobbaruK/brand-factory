@@ -1,17 +1,15 @@
 ---
-import { Button } from "@/components/ui/button";
-import Form from "../../../../globals/components/form";
+import { Image } from "astro:assets";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
 import icon1 from "../assets/icon_1.png";
 import icon2 from "../assets/icon_2.png";
 import icon3 from "../assets/icon_3.png";
 import icon4 from "../assets/icon_4.png";
 import phone from "../assets/phone.png";
-import { Image } from "astro:assets";
-import { Features } from "../../../../globals/types/enums";
-import { showcase } from "../../../../globals/features/showcase/text";
-import { textBy } from "../../../../globals/utils/text-by";
 
 interface Props {
   componentProps: ComponentProps;
@@ -451,6 +449,23 @@ const bullets: {
           th: ``,
           ms: ``,
           vi: ``,
+        },
+        betterMeaningfulName: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "Señales de Forex",
+          sv: ``,
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
         },
       },
       "textVersion",
