@@ -1,29 +1,33 @@
 import type { TranslationsType } from "../types/translations";
 
 /**
- * Selects a translation variant from a provided object based on a key from custom options.
+ * Returns a set of translations based on a variant key from custom options.
  *
- * This generic function is useful when you have multiple translation variants (e.g., "default", "carousel", etc.)
- * and want to dynamically select the correct one depending on the value of a key from a configuration object (like `customOptions`).
+ * @template Options - A record describing available custom options (e.g., { textVersion: "variantKey" }).
+ * @template K - A specific key within the `Options` type to use as the variant selector.
+ * @template VariantKey - The union of string values expected for the variant key.
  *
- * @template Options - The shape of the options object (e.g., `{ asideType?: "default" | "carousel" }`).
- * @template K - The name of the key in `Options` used to determine which translation variant to select.
- * @template VariantKey - The possible values that the selected key (`K`) can have, which must match the keys in the `obj` parameter.
+ * @param obj - An object mapping variant keys (including `"default"`) to translation sets.
+ *              The `"default"` key is **required** and used as a fallback if the selected variant is not found.
  *
- * @param obj - An object where each key corresponds to a variant name (like "default" or "carousel") and its value is a `TranslationsType` object.
- * @param key - The name of the key in `customOptions` whose value will be used to select the translation variant.
- * @param customOptions - An optional configuration object that may contain the key `K` whose value determines the selected variant.
+ * @param key - The key within `customOptions` whose value will be used to select the translation variant.
  *
- * @returns The corresponding `TranslationsType` for the selected variant, or an empty object if no match is found.
+ * @param customOptions - An optional object containing custom flags or settings, such as a variant name.
+ *
+ * @returns A translation object (`TranslationsType`) corresponding to the selected variant,
+ *          or `obj.default` if no valid variant is found.
  *
  * @example
- * const options = { asideType: "carousel" };
- * const translations = {
- *   default: { en: "Default text" },
- *   carousel: { en: "Carousel text" },
- * };
- * const result = textBy(translations, "asideType", options);
- * // result -> { en: "Carousel text" }
+ * const translations = textBy(
+ *   {
+ *     default: { en: "Hello", es: "Hola" },
+ *     short:   { en: "Hi", es: "Ey" }
+ *   },
+ *   "textVersion",
+ *   { textVersion: "short" }
+ * );
+ *
+ * // returns: { en: "Hi", es: "Ey" }
  */
 
 export const textBy = <
@@ -31,10 +35,12 @@ export const textBy = <
   K extends keyof Options,
   VariantKey extends string = NonNullable<Options[K]>
 >(
-  obj: Record<VariantKey, TranslationsType>,
+  obj: Record<"default" | VariantKey, TranslationsType>,
   key: K,
   customOptions?: Options
 ): TranslationsType => {
-  const variant = customOptions?.[key] ?? "default";
-  return obj[variant as VariantKey] ?? {};
+  const variant = customOptions?.[key];
+  return (
+    (variant && variant in obj ? obj[variant as VariantKey] : obj.default) ?? {}
+  );
 };
