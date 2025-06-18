@@ -14,9 +14,9 @@ export default defineConfig({
   // base: "/thankyou/dr/en/",
   // base: "/thankyou/dr/ro/",
   // base: "/thankyou/dr/ar/",
-  base: "/thankyou/dr/es/",
+  // base: "/thankyou/dr/es/",
   // base: "/thankyou/dr/pt/",
-  // base: "/thankyou/dr/vi/",
+  base: "/thankyou/dr/vi/",
   trailingSlash: "ignore",
   integrations: [react()],
 

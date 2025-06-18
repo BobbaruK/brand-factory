@@ -85,6 +85,16 @@ const fontFamily = fontFamFN();
       <Footer componentProps={componentProps} />
     </div>
     <script type="module" src="/assets/js/tagmanager.js" is:inline></script>
+
+    {
+      componentProps.customOptions?.designVersion === "brand" && (
+        <script
+          type="module"
+          src="https://assets.smartsupporthub.com/js/bundle/alm.js"
+          is:inline
+        />
+      )
+    }
   </body>
 </html>
 

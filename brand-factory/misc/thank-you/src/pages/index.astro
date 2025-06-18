@@ -19,7 +19,7 @@ import Layout from "../layouts/Layout.astro";
 
 export interface CustomOptions {
   logoSquare: boolean;
-  designVersion?: "default" | "v1" | "brand";
+  designVersion?: "v1" | "brand";
 }
 
 /**
@@ -28,7 +28,7 @@ export interface CustomOptions {
 type Logo = TradingProfilerSVGVariation;
 const brand: BrandsNames = "tradingprofiler";
 const lpName = "";
-const lang: Languages = "es";
+const lang: Languages = "vi";
 const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
@@ -71,8 +71,7 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
 
 <Layout componentProps={componentProps}>
   {
-    (componentProps.customOptions?.designVersion === undefined ||
-      componentProps.customOptions?.designVersion === "default") && (
+    componentProps.customOptions?.designVersion === undefined && (
       <div class="grid h-full place-items-center">
         <Section1Default componentProps={componentProps} />
       </div>
