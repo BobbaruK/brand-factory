@@ -1,0 +1,200 @@
+---
+import { ICON_1, ICON_2, ICON_3, ICON_4 } from "@/constants/icons";
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import phones from "../assets/phones.png";
+import { ICON_5 } from "@/constants/icons/icon5";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `What you'll receive with trading central`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const bullets: {
+  icon: string;
+  label: TranslationsType;
+}[] = [
+  {
+    icon: ICON_1,
+    label: {
+      en: `<span class="text-secondary">Technical Views:</span> Actionable technical analysis updated throughout the day`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: ICON_2,
+    label: {
+      en: `<span class="text-secondary">Alpha Generation:</span> Daily trading ideas from quantitative models`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: ICON_3,
+    label: {
+      en: `<span class="text-secondary">Market Buzz:</span> AI-powered sentiment and news analytics`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: ICON_4,
+    label: {
+      en: `<span class="text-secondary">Newsletter:</span> Curated market summaries delivered to your inbox`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: ICON_5,
+    label: {
+      en: `<span class="text-secondary">Web TV:</span> Video updates featuring market trends and insights`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+];
+---
+
+<section
+  id="section2"
+  class="section2 py-custom-spacing bg-primary text-primary-foreground overflow-x-clip"
+>
+  <div class="space-y-custom-spacing container">
+    <h2
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+      class="text-heading2 font-black text-balance uppercase"
+    />
+
+    <div class="gap-y-custom-spacing flex flex-wrap">
+      <div class="min-lg:w-7/12">
+        <ul class="flex flex-col gap-6">
+          {
+            bullets.map((bullet) => (
+              <li class="flex items-center gap-4">
+                <div
+                  set:html={bullet.icon}
+                  class="grid place-items-center [&_svg]:size-16"
+                />
+                <div class={cn("relative grid h-full place-items-center p-2")}>
+                  <p
+                    set:html={
+                      componentProps.features?.includes(Features.showcase)
+                        ? showcase({
+                            words: 10,
+                          })
+                        : bullet.label[componentProps.lang]
+                    }
+                    class="font-semibold text-balance"
+                  />
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="relative grid grow place-items-center">
+        <Image
+          src={phones}
+          alt="Phones"
+          class={cn(
+            "max-lg:max-w-[350px] w-full lg:absolute lg:w-[650px] lg:max-w-none start-0 pointer-events-none",
+          )}
+          widths={[320, 576, 640, 768, 1024, 1280, 1536, phones.width]}
+          sizes={`
+            (max-width: 1023px) 350px,
+            650px
+          `}
+          loading={"eager"}
+        />
+      </div>
+    </div>
+  </div>
+</section>
