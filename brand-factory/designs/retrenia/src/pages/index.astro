@@ -1,7 +1,7 @@
 ---
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
+import { type FXOROSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
@@ -22,8 +22,8 @@ export interface CustomOptions {
 /**
  * Landing page's main variables
  */
-type Logo = TradingAtheneumSVGVariation;
-const brand: BrandsNames = "tradingatheneum";
+type Logo = FXOROSVGVariation;
+const brand: BrandsNames = "fxoro";
 const lpName = "";
 const lang: Languages = "en";
 const license: LicenseType = "cysec";
@@ -66,5 +66,5 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
 ---
 
 <Layout componentProps={componentProps}>
-  <Section1 componentProps={componentProps} />
+  <!-- <Section1 componentProps={componentProps} /> -->
 </Layout>
