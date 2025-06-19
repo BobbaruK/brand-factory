@@ -1,0 +1,118 @@
+---
+import { cn } from "@/lib/utils";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Trade smart with ${componentProps.brandObj.name}`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `Open an account, activate it, and start using Trading Central's award-winning tools—completely free. Your edge in the markets starts with informed decisions.`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+
+const buttonLabel: TranslationsType = {
+  en: `Open your account`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section1" class="section1 py-custom-spacing">
+  <div class="space-y-custom-spacing container">
+    <h2
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+      class="text-heading2 font-black text-balance uppercase"
+    />
+
+    {
+      paras.map((para) => (
+        <p
+          set:html={
+            componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 50,
+                })
+              : para[componentProps.lang]
+          }
+          class="text-para-lead"
+        />
+      ))
+    }
+
+    <ButtonDisclaimer
+      componentProps={componentProps}
+      disclaimer={{
+        active: true,
+      }}
+      className="mx-auto"
+    >
+      <Button
+        variant={"secondary"}
+        className={cn(
+          "js-modal-trigger h-auto w-full max-w-full cursor-pointer px-8 py-4 text-lg font-black whitespace-normal uppercase xl:w-[350px]",
+        )}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>
