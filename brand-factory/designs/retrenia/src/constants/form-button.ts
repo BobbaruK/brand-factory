@@ -2,7 +2,7 @@ import type { TranslationsType } from "../../../../globals/types/translations";
 
 export const FORM_BUTTON: TranslationsType = {
   en: `Get access`,
-  it: ``,
+  it: `Ottieni accesso`,
   tr: ``,
   ro: ``,
   ar: ``,

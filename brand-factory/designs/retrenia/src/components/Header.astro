@@ -19,7 +19,7 @@ const { componentProps } = Astro.props;
 
 const title: TranslationsType = {
   en: `Smart trading starts here`,
-  it: ``,
+  it: `Il trading intelligente inizia qui`,
   tr: ``,
   ro: ``,
   ar: ``,
@@ -36,8 +36,8 @@ const title: TranslationsType = {
 };
 
 const para: TranslationsType = {
-  en: `Unlock daily insights, technical analysis, trading signals and educational tools with ${componentProps.brandObj.name}'s exclusive access to Trading Central.`,
-  it: ``,
+  en: `<span class="font-bold">Unlock daily insights, technical analysis, trading signals and educational tools with ${componentProps.brandObj.name}'s exclusive access to Trading Central</span>. Once you activate your account, you'll benefit from a world-class suite of market intelligence—all at no additional cost.`,
+  it: `Sblocca analisi giornaliere, segnali operativi, strumenti formativi e analisi tecniche grazie all’accesso esclusivo di ${componentProps.brandObj.name} a Trading Central. Una volta attivato il tuo account, avrai accesso a una suite di strumenti d’intelligenza di mercato di livello mondiale—senza costi aggiuntivi.`,
   tr: ``,
   ro: ``,
   ar: ``,
@@ -59,7 +59,7 @@ const list: {
 } = {
   title: {
     en: `Why traders choose us:`,
-    it: ``,
+    it: `Perché i trader ci scelgono:`,
     tr: ``,
     ro: ``,
     ar: ``,
@@ -77,7 +77,7 @@ const list: {
   data: [
     {
       en: `<span class="text-white font-bold">Reliable</span> technical indicators`,
-      it: ``,
+      it: `Indicatori tecnici <span class="font-bold">affidabili</span>`,
       tr: ``,
       ro: ``,
       ar: ``,
@@ -94,7 +94,7 @@ const list: {
     },
     {
       en: `<span class="text-white font-bold">Accurate trading</span> signals backed by data`,
-      it: ``,
+      it: `Segnali di trading <span class="font-bold">precisi</span> basati sui dati`,
       tr: ``,
       ro: ``,
       ar: ``,
@@ -111,7 +111,7 @@ const list: {
     },
     {
       en: `<span class="text-white font-bold">Free</span> access to Trading Central with account activation`,
-      it: ``,
+      it: `Accesso <span class="font-bold">gratuito</span> a Trading Central con l’attivazione dell’account`,
       tr: ``,
       ro: ``,
       ar: ``,
@@ -131,7 +131,7 @@ const list: {
 
 const formTitle: TranslationsType = {
   en: `Subscribe to ${componentProps.brandObj.name} and trading central`,
-  it: ``,
+  it: `Iscriviti a ${componentProps.brandObj.name} e Trading Central`,
   tr: ``,
   ro: ``,
   ar: ``,
@@ -298,7 +298,7 @@ const formTitle: TranslationsType = {
         }
       }
       button {
-        @apply text-lg uppercase !font-black;
+        @apply text-lg !font-black uppercase;
       }
     }
   }
