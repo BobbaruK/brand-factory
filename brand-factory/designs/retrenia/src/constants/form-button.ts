@@ -8,7 +8,7 @@ export const FORM_BUTTON: TranslationsType = {
   ar: ``,
   de: ``,
   es: ``,
-  sv: ``,
+  sv: `Få tillgång`,
   pt: ``,
   fi: ``,
   pl: `Uzyskaj dostęp`,
