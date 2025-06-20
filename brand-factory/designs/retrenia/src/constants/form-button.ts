@@ -11,7 +11,7 @@ export const FORM_BUTTON: TranslationsType = {
   sv: ``,
   pt: ``,
   fi: ``,
-  pl: ``,
+  pl: `Uzyskaj dostęp`,
   hu: ``,
   th: ``,
   ms: ``,
