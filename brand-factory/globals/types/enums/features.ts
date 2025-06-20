@@ -5,4 +5,5 @@ export enum Features {
   atheneum = "Atheneum",
   officialTerms = "Official Terms and Conditions",
   policyInFooter = "Policy in footer",
+  type5 = "Type 5",
 }
