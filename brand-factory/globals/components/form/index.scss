@@ -172,6 +172,10 @@ form.registerForm {
       &:not(.agreement) {
         display: none;
       }
+      &.risk {
+        display: block;
+        text-wrap: balance;
+      }
     }
 
     input[type="text"],

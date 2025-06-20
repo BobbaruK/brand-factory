@@ -254,10 +254,11 @@ const Form = ({ componentProps, id, button, layout, ...restProps }: Props) => {
         </div>
 
         {(componentProps.lpType === "esma" ||
-          componentProps.features?.includes(Features.outbrain)) && (
+          componentProps.features?.includes(Features.outbrain) ||
+          componentProps.license) && (
           <div className="form-control riskEsma">
             <div className="field">
-              <label className="agreement">
+              <label className="agreement risk">
                 {componentProps.license === "cysec"
                   ? translations.riskESMA_CYSEC[componentProps.lang]
                   : translations.riskESMA_FSA[componentProps.lang]}
@@ -277,6 +278,22 @@ function FormCheckBoxes({
   id,
   translations,
 }: Omit<Props & { translations: FormTranslations }, "button">) {
+  if (componentProps.license === "cysec")
+    return (
+      <>
+        <FormCheckBox
+          id={id}
+          label={translations.agreeClassicShort[componentProps.lang]}
+          classLabel="agreementClassic"
+        />
+        <FormCheckBox
+          id={id}
+          label={translations.agreeClassicShortCYSEC[componentProps.lang]}
+          classLabel="agreementClassicFSA"
+        />
+      </>
+    );
+
   if (componentProps.features?.includes(Features.showcase))
     return (
       <FormCheckBox
@@ -313,6 +330,22 @@ function FormCheckBoxes({
         <FormCheckBox
           id={id}
           label={translations.agree2ESMA[componentProps.lang]}
+          classLabel="agreementClassicFSA"
+        />
+      </>
+    );
+
+  if (componentProps.features?.includes(Features.type5))
+    return (
+      <>
+        <FormCheckBox
+          id={id}
+          label={translations.agreeContact[componentProps.lang]}
+          classLabel="agreementClassic"
+        />
+        <FormCheckBox
+          id={id}
+          label={translations.agree2AltESMA[componentProps.lang]}
           classLabel="agreementClassicFSA"
         />
       </>
