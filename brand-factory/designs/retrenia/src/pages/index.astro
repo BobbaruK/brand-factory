@@ -26,7 +26,7 @@ export interface CustomOptions {
 type Logo = FXOROSVGVariation;
 const brand: BrandsNames = "fxoro";
 const lpName = "";
-const lang: Languages = "sv";
+const lang: Languages = "pl";
 const license: LicenseType = "cysec";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
@@ -40,6 +40,7 @@ const features = checkFeatures([
 const registrationType: RegistrationType = "classic";
 const whatsapp = false;
 const fxoroFooter: boolean = false;
+const drThankYou: boolean = false;
 const customOptions: CustomOptions = {
   logoSquare: false,
 };
@@ -54,6 +55,7 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
     license,
     whatsapp,
     features,
+    drThankYou,
   }),
   logo: function () {
     return this.brandObj.images.logoSVG.default;
