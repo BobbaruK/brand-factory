@@ -169,9 +169,9 @@ export const brandFactory = <T>({
     case "tradestrategyhub":
       return tradestrategyhub({
         license,
-        features,
         whatsapp,
         whatsappNumber,
+        drThankYou,
       }) as BrandArrItem<T>;
 
     case "tradingprofiler":

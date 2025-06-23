@@ -7,80 +7,64 @@ import { defaultLogo } from "./logos/defaultLogo";
 
 export const tradestrategyhub = ({
   license,
-  features,
   whatsapp,
   whatsappNumber,
+  drThankYou,
 }: {
   license: LicenseType;
-  features?: Features[];
   whatsapp: boolean;
   whatsappNumber: () => TranslationsType;
+  drThankYou: boolean;
 }): BrandArrItem<TradeStrategyHubSVGVariation> => {
   return {
-    id: 12,
     nameToLower: "tradestrategyhub",
     name: "TradeStrategyHub",
     typage: {
-      en:
-        license === "fsa"
-          ? `https://tradestrategyhub.com/thankyou/dr/en/`
-          : `https://tradestrategyhub.com/thank-you/en/`,
-      it:
-        license === "fsa"
-          ? `https://tradestrategyhub.com/thankyou/dr/it/`
-          : `https://tradestrategyhub.com/thank-you/it/`,
-      tr:
-        license === "fsa"
-          ? `https://tradestrategyhub.com/thankyou/dr/tr/`
-          : `https://tradestrategyhub.com/thank-you/tr/`,
-      ro:
-        license === "fsa"
-          ? `https://tradestrategyhub.com/thankyou/dr/ro/`
-          : `https://tradestrategyhub.com/thank-you/ro/`,
-      ar:
-        license === "fsa"
-          ? `https://tradestrategyhub.com/thankyou/dr/ar/`
-          : `https://tradestrategyhub.com/thank-you/ar/`,
-      de:
-        license === "fsa"
-          ? `https://tradestrategyhub.com/thankyou/dr/de/`
-          : `https://tradestrategyhub.com/thank-you/de/`,
-      es:
-        license === "fsa"
-          ? `https://tradestrategyhub.com/thankyou/dr/es/`
-          : `https://tradestrategyhub.com/thank-you/es/`,
-      sv:
-        license === "fsa"
-          ? `https://tradestrategyhub.com/thankyou/dr/sv/`
-          : `https://tradestrategyhub.com/thank-you/sv/`,
-      pt:
-        license === "fsa"
-          ? `https://tradestrategyhub.com/thankyou/dr/pt/`
-          : `https://tradestrategyhub.com/thank-you/pt/`,
-      fi:
-        license === "fsa"
-          ? `https://tradestrategyhub.com/thankyou/dr/fi/`
-          : `https://tradestrategyhub.com/thank-you/fi/`,
-      pl:
-        license === "fsa"
-          ? `https://tradestrategyhub.com/thankyou/dr/pl/`
-          : `https://tradestrategyhub.com/thank-you/pl/`,
-      hu:
-        license === "fsa"
-          ? `https://tradestrategyhub.com/thankyou/dr/hu/`
-          : `https://tradestrategyhub.com/thank-you/hu/`,
-      th:
-        license === "fsa"
-          ? `https://tradestrategyhub.com/thankyou/dr/th/`
-          : `https://tradestrategyhub.com/thank-you/th/`,
-      ms:
-        license === "fsa"
-          ? `https://tradestrategyhub.com/thankyou/dr/ms/`
-          : `https://tradestrategyhub.com/thank-you/ms/`,
-      vi:
-        license === "fsa"
-          ? `https://tradestrategyhub.com/thankyou/dr/vi/`
-          : `https://tradestrategyhub.com/thank-you/vi/`,
+      en: drThankYou
+        ? `https://tradestrategyhub.com/thankyou/dr/en/`
+        : `https://tradestrategyhub.com/thank-you/en/`,
+      it: drThankYou
+        ? `https://tradestrategyhub.com/thankyou/dr/it/`
+        : `https://tradestrategyhub.com/thank-you/it/`,
+      tr: drThankYou
+        ? `https://tradestrategyhub.com/thankyou/dr/tr/`
+        : `https://tradestrategyhub.com/thank-you/tr/`,
+      ro: drThankYou
+        ? `https://tradestrategyhub.com/thankyou/dr/ro/`
+        : `https://tradestrategyhub.com/thank-you/ro/`,
+      ar: drThankYou
+        ? `https://tradestrategyhub.com/thankyou/dr/ar/`
+        : `https://tradestrategyhub.com/thank-you/ar/`,
+      de: drThankYou
+        ? `https://tradestrategyhub.com/thankyou/dr/de/`
+        : `https://tradestrategyhub.com/thank-you/de/`,
+      es: drThankYou
+        ? `https://tradestrategyhub.com/thankyou/dr/es/`
+        : `https://tradestrategyhub.com/thank-you/es/`,
+      sv: drThankYou
+        ? `https://tradestrategyhub.com/thankyou/dr/sv/`
+        : `https://tradestrategyhub.com/thank-you/sv/`,
+      pt: drThankYou
+        ? `https://tradestrategyhub.com/thankyou/dr/pt/`
+        : `https://tradestrategyhub.com/thank-you/pt/`,
+      fi: drThankYou
+        ? `https://tradestrategyhub.com/thankyou/dr/fi/`
+        : `https://tradestrategyhub.com/thank-you/fi/`,
+      pl: drThankYou
+        ? `https://tradestrategyhub.com/thankyou/dr/pl/`
+        : `https://tradestrategyhub.com/thank-you/pl/`,
+      hu: drThankYou
+        ? `https://tradestrategyhub.com/thankyou/dr/hu/`
+        : `https://tradestrategyhub.com/thank-you/hu/`,
+      th: drThankYou
+        ? `https://tradestrategyhub.com/thankyou/dr/th/`
+        : `https://tradestrategyhub.com/thank-you/th/`,
+      ms: drThankYou
+        ? `https://tradestrategyhub.com/thankyou/dr/ms/`
+        : `https://tradestrategyhub.com/thank-you/ms/`,
+      vi: drThankYou
+        ? `https://tradestrategyhub.com/thankyou/dr/vi/`
+        : `https://tradestrategyhub.com/thank-you/vi/`,
     },
     recaptchaKey: "6LeapJgpAAAAABjc0UySawSAB6zKqRNwbqFiMbUk",
     privacyLink: {
