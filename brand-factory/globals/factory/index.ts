@@ -155,6 +155,7 @@ export const brandFactory = <T>({
         license,
         whatsapp,
         whatsappNumber,
+        drThankYou,
       }) as BrandArrItem<T>;
 
     case "tradestrategyhub":
@@ -179,6 +180,11 @@ export const brandFactory = <T>({
       return tradersprofiler(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
     default:
-      return investingtips101(whatsapp, whatsappNumber) as BrandArrItem<T>;
+      return investingtips101({
+        license,
+        whatsapp,
+        whatsappNumber,
+        drThankYou,
+      }) as BrandArrItem<T>;
   }
 };

@@ -8,75 +8,61 @@ export const tradersacademic = ({
   license,
   whatsapp,
   whatsappNumber,
+  drThankYou,
 }: {
   license: LicenseType;
   whatsapp: boolean;
   whatsappNumber: () => TranslationsType;
+  drThankYou: boolean;
 }): BrandArrItem<TradersAcademicSVGVariation> => ({
-  id: 11,
   nameToLower: "tradersacademic",
   name: "Traders Academic",
   typage: {
-    en:
-      license === "fsa"
-        ? `https://tradersacademic.com/thankyou/dr/en/`
-        : `https://tradersacademic.com/thank-you/en/`,
-    it:
-      license === "fsa"
-        ? `https://tradersacademic.com/thankyou/dr/it/`
-        : `https://tradersacademic.com/thank-you/it/`,
-    tr:
-      license === "fsa"
-        ? `https://tradersacademic.com/thankyou/dr/tr/`
-        : `https://tradersacademic.com/thank-you/tr/`,
-    ro:
-      license === "fsa"
-        ? `https://tradersacademic.com/thankyou/dr/ro/`
-        : `https://tradersacademic.com/thank-you/ro/`,
-    ar:
-      license === "fsa"
-        ? `https://tradersacademic.com/thankyou/dr/ar/`
-        : `https://tradersacademic.com/thank-you/ar/`,
-    de:
-      license === "fsa"
-        ? `https://tradersacademic.com/thankyou/dr/de/`
-        : `https://tradersacademic.com/thank-you/de/`,
-    es:
-      license === "fsa"
-        ? `https://tradersacademic.com/thankyou/dr/es/`
-        : `https://tradersacademic.com/thank-you/es/`,
-    sv:
-      license === "fsa"
-        ? `https://tradersacademic.com/thankyou/dr/sv/`
-        : `https://tradersacademic.com/thank-you/sv/`,
-    pt:
-      license === "fsa"
-        ? `https://tradersacademic.com/thankyou/dr/pt/`
-        : `https://tradersacademic.com/thank-you/pt/`,
-    fi:
-      license === "fsa"
-        ? `https://tradersacademic.com/thankyou/dr/fi/`
-        : `https://tradersacademic.com/thank-you/fi/`,
-    pl:
-      license === "fsa"
-        ? `https://tradersacademic.com/thankyou/dr/pl/`
-        : `https://tradersacademic.com/thank-you/pl/`,
-    hu:
-      license === "fsa"
-        ? `https://tradersacademic.com/thankyou/dr/hu/`
-        : `https://tradersacademic.com/thank-you/hu/`,
-    th:
-      license === "fsa"
-        ? `https://tradersacademic.com/thankyou/dr/th/`
-        : `https://tradersacademic.com/thank-you/th/`,
-    ms:
-      license === "fsa"
-        ? `https://tradersacademic.com/thankyou/dr/ms/`
-        : `https://tradersacademic.com/thank-you/ms/`,
-    vi:
-      license === "fsa"
-        ? `https://tradersacademic.com/thankyou/dr/vi/`
-        : `https://tradersacademic.com/thank-you/vi/`,
+    en: drThankYou
+      ? `https://tradersacademic.com/thankyou/dr/en/`
+      : `https://tradersacademic.com/thank-you/en/`,
+    it: drThankYou
+      ? `https://tradersacademic.com/thankyou/dr/it/`
+      : `https://tradersacademic.com/thank-you/it/`,
+    tr: drThankYou
+      ? `https://tradersacademic.com/thankyou/dr/tr/`
+      : `https://tradersacademic.com/thank-you/tr/`,
+    ro: drThankYou
+      ? `https://tradersacademic.com/thankyou/dr/ro/`
+      : `https://tradersacademic.com/thank-you/ro/`,
+    ar: drThankYou
+      ? `https://tradersacademic.com/thankyou/dr/ar/`
+      : `https://tradersacademic.com/thank-you/ar/`,
+    de: drThankYou
+      ? `https://tradersacademic.com/thankyou/dr/de/`
+      : `https://tradersacademic.com/thank-you/de/`,
+    es: drThankYou
+      ? `https://tradersacademic.com/thankyou/dr/es/`
+      : `https://tradersacademic.com/thank-you/es/`,
+    sv: drThankYou
+      ? `https://tradersacademic.com/thankyou/dr/sv/`
+      : `https://tradersacademic.com/thank-you/sv/`,
+    pt: drThankYou
+      ? `https://tradersacademic.com/thankyou/dr/pt/`
+      : `https://tradersacademic.com/thank-you/pt/`,
+    fi: drThankYou
+      ? `https://tradersacademic.com/thankyou/dr/fi/`
+      : `https://tradersacademic.com/thank-you/fi/`,
+    pl: drThankYou
+      ? `https://tradersacademic.com/thankyou/dr/pl/`
+      : `https://tradersacademic.com/thank-you/pl/`,
+    hu: drThankYou
+      ? `https://tradersacademic.com/thankyou/dr/hu/`
+      : `https://tradersacademic.com/thank-you/hu/`,
+    th: drThankYou
+      ? `https://tradersacademic.com/thankyou/dr/th/`
+      : `https://tradersacademic.com/thank-you/th/`,
+    ms: drThankYou
+      ? `https://tradersacademic.com/thankyou/dr/ms/`
+      : `https://tradersacademic.com/thank-you/ms/`,
+    vi: drThankYou
+      ? `https://tradersacademic.com/thankyou/dr/vi/`
+      : `https://tradersacademic.com/thank-you/vi/`,
   },
   recaptchaKey: "6LcF02QjAAAAADxEES9rYjPPlDNRwJiAOmDwSnUA",
   privacyLink: {
