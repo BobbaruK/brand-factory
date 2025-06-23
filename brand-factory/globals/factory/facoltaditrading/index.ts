@@ -8,75 +8,61 @@ export const facoltaditrading = ({
   license,
   whatsapp,
   whatsappNumber,
+  drThankYou,
 }: {
   license: LicenseType;
   whatsapp: boolean;
   whatsappNumber: () => TranslationsType;
+  drThankYou: boolean;
 }): BrandArrItem<FacoltaDiTradingSVGVariation> => ({
-  id: 3,
   nameToLower: "facoltaditrading",
   name: "Facoltà Di Trading",
   typage: {
-    en:
-      license === "fsa"
-        ? `https://facoltaditrading.com/thankyou/dr/en/`
-        : `https://facoltaditrading.com/thank-you/en/`,
-    it:
-      license === "fsa"
-        ? `https://facoltaditrading.com/thankyou/dr/it/`
-        : `https://facoltaditrading.com/thank-you/it/`,
-    tr:
-      license === "fsa"
-        ? `https://facoltaditrading.com/thankyou/dr/tr/`
-        : `https://facoltaditrading.com/thank-you/tr/`,
-    ro:
-      license === "fsa"
-        ? `https://facoltaditrading.com/thankyou/dr/ro/`
-        : `https://facoltaditrading.com/thank-you/ro/`,
-    ar:
-      license === "fsa"
-        ? `https://facoltaditrading.com/thankyou/dr/ar/`
-        : `https://facoltaditrading.com/thank-you/ar/`,
-    de:
-      license === "fsa"
-        ? `https://facoltaditrading.com/thankyou/dr/de/`
-        : `https://facoltaditrading.com/thank-you/de/`,
-    es:
-      license === "fsa"
-        ? `https://facoltaditrading.com/thankyou/dr/es/`
-        : `https://facoltaditrading.com/thank-you/es/`,
-    sv:
-      license === "fsa"
-        ? `https://facoltaditrading.com/thankyou/dr/sv/`
-        : `https://facoltaditrading.com/thank-you/sv/`,
-    pt:
-      license === "fsa"
-        ? `https://facoltaditrading.com/thankyou/dr/pt/`
-        : `https://facoltaditrading.com/thank-you/pt/`,
-    fi:
-      license === "fsa"
-        ? `https://facoltaditrading.com/thankyou/dr/fi/`
-        : `https://facoltaditrading.com/thank-you/fi/`,
-    pl:
-      license === "fsa"
-        ? `https://facoltaditrading.com/thankyou/dr/pl/`
-        : `https://facoltaditrading.com/thank-you/pl/`,
-    hu:
-      license === "fsa"
-        ? `https://facoltaditrading.com/thankyou/dr/hu/`
-        : `https://facoltaditrading.com/thank-you/hu/`,
-    th:
-      license === "fsa"
-        ? `https://facoltaditrading.com/thankyou/dr/th/`
-        : `https://facoltaditrading.com/thank-you/th/`,
-    ms:
-      license === "fsa"
-        ? `https://facoltaditrading.com/thankyou/dr/ms/`
-        : `https://facoltaditrading.com/thank-you/ms/`,
-    vi:
-      license === "fsa"
-        ? `https://facoltaditrading.com/thankyou/dr/vi/`
-        : `https://facoltaditrading.com/thank-you/vi/`,
+    en: drThankYou
+      ? `https://facoltaditrading.com/thankyou/dr/en/`
+      : `https://facoltaditrading.com/thank-you/en/`,
+    it: drThankYou
+      ? `https://facoltaditrading.com/thankyou/dr/it/`
+      : `https://facoltaditrading.com/thank-you/it/`,
+    tr: drThankYou
+      ? `https://facoltaditrading.com/thankyou/dr/tr/`
+      : `https://facoltaditrading.com/thank-you/tr/`,
+    ro: drThankYou
+      ? `https://facoltaditrading.com/thankyou/dr/ro/`
+      : `https://facoltaditrading.com/thank-you/ro/`,
+    ar: drThankYou
+      ? `https://facoltaditrading.com/thankyou/dr/ar/`
+      : `https://facoltaditrading.com/thank-you/ar/`,
+    de: drThankYou
+      ? `https://facoltaditrading.com/thankyou/dr/de/`
+      : `https://facoltaditrading.com/thank-you/de/`,
+    es: drThankYou
+      ? `https://facoltaditrading.com/thankyou/dr/es/`
+      : `https://facoltaditrading.com/thank-you/es/`,
+    sv: drThankYou
+      ? `https://facoltaditrading.com/thankyou/dr/sv/`
+      : `https://facoltaditrading.com/thank-you/sv/`,
+    pt: drThankYou
+      ? `https://facoltaditrading.com/thankyou/dr/pt/`
+      : `https://facoltaditrading.com/thank-you/pt/`,
+    fi: drThankYou
+      ? `https://facoltaditrading.com/thankyou/dr/fi/`
+      : `https://facoltaditrading.com/thank-you/fi/`,
+    pl: drThankYou
+      ? `https://facoltaditrading.com/thankyou/dr/pl/`
+      : `https://facoltaditrading.com/thank-you/pl/`,
+    hu: drThankYou
+      ? `https://facoltaditrading.com/thankyou/dr/hu/`
+      : `https://facoltaditrading.com/thank-you/hu/`,
+    th: drThankYou
+      ? `https://facoltaditrading.com/thankyou/dr/th/`
+      : `https://facoltaditrading.com/thank-you/th/`,
+    ms: drThankYou
+      ? `https://facoltaditrading.com/thankyou/dr/ms/`
+      : `https://facoltaditrading.com/thank-you/ms/`,
+    vi: drThankYou
+      ? `https://facoltaditrading.com/thankyou/dr/vi/`
+      : `https://facoltaditrading.com/thank-you/vi/`,
   },
   recaptchaKey: "6LfWLIQjAAAAADF97_A4hqRnyD3EmZ-XLXDXgIVa",
   privacyLink: {
