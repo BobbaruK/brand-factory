@@ -1,5 +1,6 @@
 import type { BrandArrItem } from "../../types/brands";
 import type { TradingAtheneumSVGVariation } from "../../types/brands/logo";
+import type { LicenseType } from "../../types/lp-params-type";
 import type { TranslationsType } from "../../types/translations";
 import {
   defaultCustom,
@@ -12,11 +13,17 @@ import {
   squareLogo,
 } from "./logos";
 
-export const tradingatheneum = (
-  whatsapp: boolean,
-  whatsappNumber: () => TranslationsType
-): BrandArrItem<TradingAtheneumSVGVariation> => ({
-  id: 13,
+export const tradingatheneum = ({
+  license,
+  whatsapp,
+  whatsappNumber,
+  drThankYou,
+}: {
+  license: LicenseType;
+  whatsapp: boolean;
+  whatsappNumber: () => TranslationsType;
+  drThankYou: boolean;
+}): BrandArrItem<TradingAtheneumSVGVariation> => ({
   nameToLower: "tradingatheneum",
   name: "Trading Atheneum",
   typage: {

@@ -1,6 +1,5 @@
 import type { BrandArrItem } from "../../types/brands";
 import type { TradeStrategyHubSVGVariation } from "../../types/brands/logo";
-import { Features } from "../../types/enums";
 import type { LicenseType } from "../../types/lp-params-type";
 import { type TranslationsType } from "../../types/translations";
 import { defaultLogo } from "./logos/defaultLogo";

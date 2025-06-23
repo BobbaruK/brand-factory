@@ -174,15 +174,20 @@ export const brandFactory = <T>({
         drThankYou,
       }) as BrandArrItem<T>;
 
+    case "tradingatheneum":
+      return tradingatheneum({
+        license,
+        whatsapp,
+        whatsappNumber,
+        drThankYou,
+      }) as BrandArrItem<T>;
+
     case "tradingprofiler":
       return tradingprofiler({
         license,
         whatsapp,
         whatsappNumber,
       }) as BrandArrItem<T>;
-
-    case "tradingatheneum":
-      return tradingatheneum(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
     default:
       return investingtips101({
