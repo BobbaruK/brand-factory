@@ -23,6 +23,7 @@ interface BrandFactory {
   license: LicenseType;
   whatsapp: boolean;
   features?: Features[];
+  drThankYou?: boolean; // Direct Registration Thank you
 }
 
 export const brandFactory = <T>({
@@ -30,6 +31,7 @@ export const brandFactory = <T>({
   license,
   whatsapp,
   features,
+  drThankYou = false,
 }: BrandFactory): BrandArrItem<T> => {
   const whatsappNumber = () => {
     switch (license) {
@@ -74,6 +76,14 @@ export const brandFactory = <T>({
   };
 
   switch (brand) {
+    case "arabtradingpro":
+      return arabTradingPro({
+        license,
+        whatsapp,
+        whatsappNumber,
+        drThankYou,
+      }) as BrandArrItem<T>;
+
     case "investingtips101":
       return investingtips101(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
@@ -133,9 +143,6 @@ export const brandFactory = <T>({
         whatsapp,
         whatsappNumber,
       }) as BrandArrItem<T>;
-
-    case "arabtradingpro":
-      return arabTradingPro(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
     case "tradersprofiler":
       return tradersprofiler(whatsapp, whatsappNumber) as BrandArrItem<T>;
