@@ -3,11 +3,13 @@ import type { FXOROPartnersSVGVariation } from "../../types/brands/logo";
 import type { TranslationsType } from "../../types/translations";
 import { defaultLogo, whiteGold } from "./logos";
 
-export const fxoro_partners = (
-  whatsapp: boolean,
-  whatsappNumber: () => TranslationsType
-): BrandArrItem<FXOROPartnersSVGVariation> => ({
-  id: 6,
+export const fxoro_partners = ({
+  whatsapp,
+  whatsappNumber,
+}: {
+  whatsapp: boolean;
+  whatsappNumber: () => TranslationsType;
+}): BrandArrItem<FXOROPartnersSVGVariation> => ({
   nameToLower: "fxoro_partners",
   name: "FXORO",
   typage: {

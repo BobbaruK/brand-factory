@@ -112,6 +112,12 @@ export const brandFactory = <T>({
         whatsappNumber,
       }) as BrandArrItem<T>;
 
+    case "fxoro_partners":
+      return fxoro_partners({
+        whatsapp,
+        whatsappNumber,
+      }) as BrandArrItem<T>;
+
     case "investingtips101":
       return investingtips101(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
@@ -142,9 +148,6 @@ export const brandFactory = <T>({
         whatsapp,
         whatsappNumber,
       }) as BrandArrItem<T>;
-
-    case "fxoro_partners":
-      return fxoro_partners(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
     case "tradingatheneum":
       return tradingatheneum(whatsapp, whatsappNumber) as BrandArrItem<T>;
