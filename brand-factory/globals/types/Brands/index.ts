@@ -5,7 +5,6 @@ import type { TranslationsType } from "../translations";
 import type { BrandsNames } from "./names";
 
 export interface BrandArrItem<TSVGLogoVariations> {
-  id: number;
   nameToLower: BrandsNames;
   name: string;
   typage: TranslationsType;
