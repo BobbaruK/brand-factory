@@ -2,6 +2,7 @@ import { type BrandArrItem } from "../types/brands";
 import { type BrandsNames } from "../types/brands/names";
 import type { Features } from "../types/enums";
 import type { LicenseType } from "../types/lp-params-type";
+import { arabTradingPro } from "./arab-trading-pro";
 import { daytradingstar } from "./daytradingstar";
 import { facoltaditrading } from "./facoltaditrading";
 import { fxoro } from "./fxoro";
@@ -12,11 +13,10 @@ import { oracleSignals } from "./oracle-sigals";
 import { piutrading } from "./piutrading";
 import { protraderzone } from "./protraderzone";
 import { tradersacademic } from "./tradersacademic";
+import { tradersprofiler } from "./tradersprofiler";
 import { tradestrategyhub } from "./tradestrategyhub";
 import { tradingatheneum } from "./trading-atheneum";
 import { tradingprofiler } from "./tradingprofiler";
-import { arabTradingPro } from "./arab-trading-pro";
-import { tradersprofiler } from "./tradersprofiler";
 
 interface BrandFactory {
   brand: BrandsNames;
@@ -158,6 +158,14 @@ export const brandFactory = <T>({
         drThankYou,
       }) as BrandArrItem<T>;
 
+    case "tradersprofiler":
+      return tradersprofiler({
+        license,
+        whatsapp,
+        whatsappNumber,
+        drThankYou,
+      }) as BrandArrItem<T>;
+
     case "tradestrategyhub":
       return tradestrategyhub({
         license,
@@ -175,9 +183,6 @@ export const brandFactory = <T>({
 
     case "tradingatheneum":
       return tradingatheneum(whatsapp, whatsappNumber) as BrandArrItem<T>;
-
-    case "tradersprofiler":
-      return tradersprofiler(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
     default:
       return investingtips101({

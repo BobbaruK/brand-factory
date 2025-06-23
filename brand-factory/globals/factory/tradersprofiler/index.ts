@@ -1,17 +1,22 @@
 import type { BrandArrItem } from "../../types/brands";
 import type { TradersProfilerSVGVariation } from "../../types/brands/logo";
-import { Features } from "../../types/enums";
+import type { LicenseType } from "../../types/lp-params-type";
 import { type TranslationsType } from "../../types/translations";
 import { defaultLogo } from "./logos/default";
 import { original } from "./logos/original";
 
-export const tradersprofiler = (
-  whatsapp: boolean,
-  whatsappNumber: () => TranslationsType,
-  features?: Features[]
-): BrandArrItem<TradersProfilerSVGVariation> => {
+export const tradersprofiler = ({
+  license,
+  whatsapp,
+  whatsappNumber,
+  drThankYou,
+}: {
+  license: LicenseType;
+  whatsapp: boolean;
+  whatsappNumber: () => TranslationsType;
+  drThankYou: boolean;
+}): BrandArrItem<TradersProfilerSVGVariation> => {
   return {
-    id: 12,
     nameToLower: "tradersprofiler",
     name: "Traders Profiler",
     typage: {
