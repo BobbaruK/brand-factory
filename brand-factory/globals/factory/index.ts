@@ -126,6 +126,14 @@ export const brandFactory = <T>({
         drThankYou,
       }) as BrandArrItem<T>;
 
+    case "oracle-signals":
+      return oracleSignals({
+        license,
+        whatsapp,
+        whatsappNumber,
+        drThankYou,
+      }) as BrandArrItem<T>;
+
     case "tradersacademic":
       return tradersacademic({
         license,
@@ -156,13 +164,6 @@ export const brandFactory = <T>({
 
     case "tradingatheneum":
       return tradingatheneum(whatsapp, whatsappNumber) as BrandArrItem<T>;
-
-    case "oracle-signals":
-      return oracleSignals({
-        license,
-        whatsapp,
-        whatsappNumber,
-      }) as BrandArrItem<T>;
 
     case "tradersprofiler":
       return tradersprofiler(whatsapp, whatsappNumber) as BrandArrItem<T>;
