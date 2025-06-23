@@ -1,13 +1,20 @@
 import type { BrandArrItem } from "../../types/brands";
 import type { PiuTradingSVGVariation } from "../../types/brands/logo";
+import type { LicenseType } from "../../types/lp-params-type";
 import type { TranslationsType } from "../../types/translations";
 import { blackGreen, defaultLogo } from "./logos";
 
-export const piutrading = (
-  whatsapp: boolean,
-  whatsappNumber: () => TranslationsType
-): BrandArrItem<PiuTradingSVGVariation> => ({
-  id: 9,
+export const piutrading = ({
+  license,
+  whatsapp,
+  whatsappNumber,
+  drThankYou,
+}: {
+  license: LicenseType;
+  whatsapp: boolean;
+  whatsappNumber: () => TranslationsType;
+  drThankYou: boolean;
+}): BrandArrItem<PiuTradingSVGVariation> => ({
   nameToLower: "piutrading",
   name: "Più Trading",
   typage: {

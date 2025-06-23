@@ -134,6 +134,14 @@ export const brandFactory = <T>({
         drThankYou,
       }) as BrandArrItem<T>;
 
+    case "piutrading":
+      return piutrading({
+        license,
+        whatsapp,
+        whatsappNumber,
+        drThankYou,
+      }) as BrandArrItem<T>;
+
     case "tradersacademic":
       return tradersacademic({
         license,
@@ -151,9 +159,6 @@ export const brandFactory = <T>({
 
     case "protraderzone":
       return protraderzone(whatsapp, whatsappNumber) as BrandArrItem<T>;
-
-    case "piutrading":
-      return piutrading(whatsapp, whatsappNumber) as BrandArrItem<T>;
 
     case "tradingprofiler":
       return tradingprofiler({
