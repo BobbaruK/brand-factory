@@ -1,13 +1,20 @@
 import type { BrandArrItem } from "../../types/brands";
 import type { DayTradingStarSVGVariation } from "../../types/brands/logo";
+import type { LicenseType } from "../../types/lp-params-type";
 import type { TranslationsType } from "../../types/translations";
 import { defaultLogo } from "./logos/defaultLogo";
 
-export const daytradingstar = (
-  whatsapp: boolean,
-  whatsappNumber: () => TranslationsType
-): BrandArrItem<DayTradingStarSVGVariation> => ({
-  id: 2,
+export const daytradingstar = ({
+  license,
+  whatsapp,
+  whatsappNumber,
+  drThankYou,
+}: {
+  license: LicenseType;
+  whatsapp: boolean;
+  whatsappNumber: () => TranslationsType;
+  drThankYou: boolean;
+}): BrandArrItem<DayTradingStarSVGVariation> => ({
   nameToLower: "daytradingstar",
   name: "DayTradingStar",
   typage: {
