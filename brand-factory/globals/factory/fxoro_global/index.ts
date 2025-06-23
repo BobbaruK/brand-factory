@@ -8,11 +8,13 @@ import {
   whiteOrangeLogo,
 } from "./logos";
 
-export const fxoro_global = (
-  whatsapp: boolean,
-  whatsappNumber: () => TranslationsType
-): BrandArrItem<FXOROGlobalSVGVariation> => ({
-  id: 5,
+export const fxoro_global = ({
+  whatsapp,
+  whatsappNumber,
+}: {
+  whatsapp: boolean;
+  whatsappNumber: () => TranslationsType;
+}): BrandArrItem<FXOROGlobalSVGVariation> => ({
   nameToLower: "fxoro_global",
   name: "FXORO Global",
   typage: {
