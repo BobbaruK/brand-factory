@@ -1,13 +1,20 @@
 import type { BrandArrItem } from "../../types/brands";
 import type { Investingtips101SVGVariation } from "../../types/brands/logo";
+import type { LicenseType } from "../../types/lp-params-type";
 import type { TranslationsType } from "../../types/translations";
 import { defaultLogo } from "./logos";
 
-export const investingtips101 = (
-  whatsapp: boolean,
-  whatsappNumber: () => TranslationsType
-): BrandArrItem<Investingtips101SVGVariation> => ({
-  id: 7,
+export const investingtips101 = ({
+  license,
+  whatsapp,
+  whatsappNumber,
+  drThankYou,
+}: {
+  license: LicenseType;
+  whatsapp: boolean;
+  whatsappNumber: () => TranslationsType;
+  drThankYou: boolean;
+}): BrandArrItem<Investingtips101SVGVariation> => ({
   nameToLower: "investingtips101",
   name: "Investing Tips 101",
   typage: {
