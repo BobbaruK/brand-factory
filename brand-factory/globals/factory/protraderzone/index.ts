@@ -1,13 +1,20 @@
 import type { BrandArrItem } from "../../types/brands";
 import type { ProTraderZoneSVGVariation } from "../../types/brands/logo";
+import type { LicenseType } from "../../types/lp-params-type";
 import type { TranslationsType } from "../../types/translations";
 import { darkBlueOrange, defaultLogo, whiteOrange } from "./logos";
 
-export const protraderzone = (
-  whatsapp: boolean,
-  whatsappNumber: () => TranslationsType
-): BrandArrItem<ProTraderZoneSVGVariation> => ({
-  id: 10,
+export const protraderzone = ({
+  license,
+  whatsapp,
+  whatsappNumber,
+  drThankYou,
+}: {
+  license: LicenseType;
+  whatsapp: boolean;
+  whatsappNumber: () => TranslationsType;
+  drThankYou: boolean;
+}): BrandArrItem<ProTraderZoneSVGVariation> => ({
   nameToLower: "protraderzone",
   name: "ProTradersZone",
   typage: {
