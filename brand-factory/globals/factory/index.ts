@@ -187,6 +187,7 @@ export const brandFactory = <T>({
         license,
         whatsapp,
         whatsappNumber,
+        drThankYou,
       }) as BrandArrItem<T>;
 
     default:

@@ -16,75 +16,61 @@ export const tradingprofiler = ({
   license,
   whatsapp,
   whatsappNumber,
+  drThankYou,
 }: {
   license: LicenseType;
   whatsapp: boolean;
   whatsappNumber: () => TranslationsType;
+  drThankYou: boolean;
 }): BrandArrItem<TradingProfilerSVGVariation> => ({
-  id: 14,
   nameToLower: "tradingprofiler",
   name: "TradingProfiler",
   typage: {
-    en:
-      license === "fsa"
-        ? `https://tradingprofiler.com/thankyou/dr/en/`
-        : `https://tradingprofiler.com/thank-you/en/`,
-    it:
-      license === "fsa"
-        ? `https://tradingprofiler.com/thankyou/dr/it/`
-        : `https://tradingprofiler.com/thank-you/it/`,
-    tr:
-      license === "fsa"
-        ? `https://tradingprofiler.com/thankyou/dr/tr/`
-        : `https://tradingprofiler.com/thank-you/tr/`,
-    ro:
-      license === "fsa"
-        ? `https://tradingprofiler.com/thankyou/dr/ro/`
-        : `https://tradingprofiler.com/thank-you/ro/`,
-    ar:
-      license === "fsa"
-        ? `https://tradingprofiler.com/thankyou/dr/ar/`
-        : `https://tradingprofiler.com/thank-you/ar/`,
-    de:
-      license === "fsa"
-        ? `https://tradingprofiler.com/thankyou/dr/de/`
-        : `https://tradingprofiler.com/thank-you/de/`,
-    es:
-      license === "fsa"
-        ? `https://tradingprofiler.com/thankyou/dr/es/`
-        : `https://tradingprofiler.com/thank-you/es/`,
-    sv:
-      license === "fsa"
-        ? `https://tradingprofiler.com/thankyou/dr/sv/`
-        : `https://tradingprofiler.com/thank-you/sv/`,
-    pt:
-      license === "fsa"
-        ? `https://tradingprofiler.com/thankyou/dr/pt/`
-        : `https://tradingprofiler.com/thank-you/pt/`,
-    fi:
-      license === "fsa"
-        ? `https://tradingprofiler.com/thankyou/dr/fi/`
-        : `https://tradingprofiler.com/thank-you/fi/`,
-    pl:
-      license === "fsa"
-        ? `https://tradingprofiler.com/thankyou/dr/pl/`
-        : `https://tradingprofiler.com/thank-you/pl/`,
-    hu:
-      license === "fsa"
-        ? `https://tradingprofiler.com/thankyou/dr/hu/`
-        : `https://tradingprofiler.com/thank-you/hu/`,
-    th:
-      license === "fsa"
-        ? `https://tradingprofiler.com/thankyou/dr/th/`
-        : `https://tradingprofiler.com/thank-you/th/`,
-    ms:
-      license === "fsa"
-        ? `https://tradingprofiler.com/thankyou/dr/ms/`
-        : `https://tradingprofiler.com/thank-you/ms/`,
-    vi:
-      license === "fsa"
-        ? `https://tradingprofiler.com/thankyou/dr/vi/`
-        : `https://tradingprofiler.com/thank-you/vi/`,
+    en: drThankYou
+      ? `https://tradingprofiler.com/thankyou/dr/en/`
+      : `https://tradingprofiler.com/thank-you/en/`,
+    it: drThankYou
+      ? `https://tradingprofiler.com/thankyou/dr/it/`
+      : `https://tradingprofiler.com/thank-you/it/`,
+    tr: drThankYou
+      ? `https://tradingprofiler.com/thankyou/dr/tr/`
+      : `https://tradingprofiler.com/thank-you/tr/`,
+    ro: drThankYou
+      ? `https://tradingprofiler.com/thankyou/dr/ro/`
+      : `https://tradingprofiler.com/thank-you/ro/`,
+    ar: drThankYou
+      ? `https://tradingprofiler.com/thankyou/dr/ar/`
+      : `https://tradingprofiler.com/thank-you/ar/`,
+    de: drThankYou
+      ? `https://tradingprofiler.com/thankyou/dr/de/`
+      : `https://tradingprofiler.com/thank-you/de/`,
+    es: drThankYou
+      ? `https://tradingprofiler.com/thankyou/dr/es/`
+      : `https://tradingprofiler.com/thank-you/es/`,
+    sv: drThankYou
+      ? `https://tradingprofiler.com/thankyou/dr/sv/`
+      : `https://tradingprofiler.com/thank-you/sv/`,
+    pt: drThankYou
+      ? `https://tradingprofiler.com/thankyou/dr/pt/`
+      : `https://tradingprofiler.com/thank-you/pt/`,
+    fi: drThankYou
+      ? `https://tradingprofiler.com/thankyou/dr/fi/`
+      : `https://tradingprofiler.com/thank-you/fi/`,
+    pl: drThankYou
+      ? `https://tradingprofiler.com/thankyou/dr/pl/`
+      : `https://tradingprofiler.com/thank-you/pl/`,
+    hu: drThankYou
+      ? `https://tradingprofiler.com/thankyou/dr/hu/`
+      : `https://tradingprofiler.com/thank-you/hu/`,
+    th: drThankYou
+      ? `https://tradingprofiler.com/thankyou/dr/th/`
+      : `https://tradingprofiler.com/thank-you/th/`,
+    ms: drThankYou
+      ? `https://tradingprofiler.com/thankyou/dr/ms/`
+      : `https://tradingprofiler.com/thank-you/ms/`,
+    vi: drThankYou
+      ? `https://tradingprofiler.com/thankyou/dr/vi/`
+      : `https://tradingprofiler.com/thank-you/vi/`,
   },
   recaptchaKey: "6LekLYQjAAAAAC8K5qL3_1vgESa_o0ms2fGzTGny",
   privacyLink: {
