@@ -3,7 +3,7 @@ import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradingProfilerSVGVariation } from "../../../../globals/types/brands/logo";
+import { type OracleSignalsSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
@@ -25,17 +25,18 @@ export interface CustomOptions {
   textVersion?:
     | "meaningfulName"
     | "anotherMeaningfulName"
-    | "betterMeaningfulName";
+    | "betterMeaningfulName"
+    | "greaterMeaningfulName";
 }
 
 /**
  * Landing page's main variables
  */
-type Logo = TradingProfilerSVGVariation;
-const brand: BrandsNames = "tradingprofiler";
+type Logo = OracleSignalsSVGVariation;
+const brand: BrandsNames = "oracle-signals";
 const lpName = "";
 const metaDescription: TranslationsType = {
-  en: "asd",
+  en: "",
   it: "",
   tr: "",
   ro: "",
@@ -68,7 +69,7 @@ const fxoroFooter: boolean = false;
 const drThankYou: boolean = false;
 const customOptions: CustomOptions = {
   logoSquare: false,
-  textVersion: "betterMeaningfulName",
+  textVersion: "greaterMeaningfulName",
 };
 // ===============================
 
@@ -81,6 +82,7 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
     license,
     whatsapp,
     features,
+    drThankYou,
   }),
   logo: function () {
     return this.brandObj.images.logoSVG.default;
