@@ -10,7 +10,10 @@ import type {
   LicenseType,
   RegistrationType,
 } from "../../../../globals/types/lp-params-type";
-import type { Languages } from "../../../../globals/types/translations";
+import type {
+  Languages,
+  TranslationsType,
+} from "../../../../globals/types/translations";
 import { checkFeatures } from "../../../../globals/utils/check-features";
 import { fxoroFooter as fxoroFooterFn } from "../../../../globals/utils/fxoro-footer";
 import Layout from "../layouts/Layout.astro";
@@ -18,15 +21,35 @@ import Layout from "../layouts/Layout.astro";
 export interface CustomOptions {
   logoSquare: boolean;
   colorScheme?: "default" | "green";
-  textVersion?: "default" | "meaningfulName";
+  textVersion?: "default" | "meaningfulName" | "anotherMeaningfulName";
 }
 
+/**
+ * Landing page's main variables
+ */
 /**
  * Landing page's main variables
  */
 type Logo = TradersAcademicSVGVariation;
 const brand: BrandsNames = "tradersacademic";
 const lpName = "";
+const metaDescription: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
 const lang: Languages = "es";
 const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
@@ -41,10 +64,11 @@ const features = checkFeatures([
 const registrationType: RegistrationType = "classic";
 const whatsapp = false;
 const fxoroFooter: boolean = false;
+const drThankYou: boolean = true;
 const customOptions: CustomOptions = {
   logoSquare: false,
   // colorScheme: "green",
-  textVersion: "meaningfulName",
+  textVersion: "anotherMeaningfulName",
 };
 // ===============================
 
@@ -57,6 +81,7 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
     license,
     whatsapp,
     features,
+    drThankYou,
   }),
   logo: function () {
     return this.brandObj.images.logoSVG.default;
