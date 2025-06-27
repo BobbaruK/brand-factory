@@ -2,107 +2,224 @@
 import { arrow } from "@/constants/icons/arrow";
 import { cn } from "@/lib/utils";
 import { Image } from "astro:assets";
-import type { ComponentProps } from "../../../../globals/types/component-props";
-import type { TranslationsType } from "../../../../globals/types/translations";
-import background from "../assets/s3bg.png";
-import { Button, buttonVariants } from "./ui/button";
 import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import background from "../assets/s3bg.png";
+import backgroundPink from "../assets/s3bg-pink.png";
+import { Button, buttonVariants } from "./ui/button";
 
 interface Props {
   componentProps: ComponentProps;
 }
 const { componentProps } = Astro.props;
 
-const title: TranslationsType = {
-  en: `Start trading smarter, not harder`,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "",
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: `Start trading smarter, not harder`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    meaningfulName: {
+      en: `Trade smarter, with purpose`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 
 const paras: TranslationsType[] = [
-  {
-    en: `Our education is not just about theory. It’s built to help you act. From identifying opportunities to managing your trades with discipline, we give you the tools that matter.`,
-    it: "",
-    tr: "",
-    ro: "",
-    ar: "",
-    de: "",
-    es: "",
-    sv: ``,
-    pt: "",
-    fi: "",
-    pl: ``,
-    hu: "",
-    th: "",
-    ms: "",
-    vi: "",
-  },
-  {
-    en: `You won’t just learn how the markets work—you’ll learn how to work with them. Our program blends foundational knowledge with practical strategies, so you can apply what you learn in real scenarios, whether you're trading stocks, forex, or indices.`,
-    it: "",
-    tr: "",
-    ro: "",
-    ar: "",
-    de: "",
-    es: "",
-    sv: ``,
-    pt: "",
-    fi: "",
-    pl: ``,
-    hu: "",
-    th: "",
-    ms: "",
-    vi: "",
-  },
-  {
-    en: `Learn on your terms, with content that adapts to your experience level—so whether you're just starting or looking to refine your skills, we’ve got you covered.`,
-    it: "",
-    tr: "",
-    ro: "",
-    ar: "",
-    de: "",
-    es: "",
-    sv: ``,
-    pt: "",
-    fi: "",
-    pl: ``,
-    hu: "",
-    th: "",
-    ms: "",
-    vi: "",
-  },
+  textBy(
+    {
+      default: {
+        en: `Our education is not just about theory. It’s built to help you act. From identifying opportunities to managing your trades with discipline, we give you the tools that matter.`,
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: ``,
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      meaningfulName: {
+        en: `This isn’t just theory—it’s action-oriented education. From spotting market opportunities to managing your trades with discipline, we provide the resources that matter.`,
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: ``,
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "textVersion",
+    componentProps.customOptions,
+  ),
+  textBy(
+    {
+      default: {
+        en: `You won’t just learn how the markets work—you’ll learn how to work with them. Our program blends foundational knowledge with practical strategies, so you can apply what you learn in real scenarios, whether you're trading stocks, forex, or indices.`,
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: ``,
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      meaningfulName: {
+        en: `You won’t just study how markets operate—you’ll learn how to trade with them effectively. Our training combines key principles with hands-on tactics, so you can apply what you’ve learned in real scenarios, whether you’re trading forex, stocks, or indices.`,
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: ``,
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "textVersion",
+    componentProps.customOptions,
+  ),
+  textBy(
+    {
+      default: {
+        en: `Learn on your terms, with content that adapts to your experience level—so whether you're just starting or looking to refine your skills, we’ve got you covered.`,
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: ``,
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      meaningfulName: {
+        en: `Learn at your own pace, with content that adapts to your level. Whether you're starting from scratch or sharpening your current skills, we’re here to support your growth.`,
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: ``,
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "textVersion",
+    componentProps.customOptions,
+  ),
 ];
 
-const button: TranslationsType = {
-  en: `Explore the Program`,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "",
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const button: TranslationsType = textBy(
+  {
+    default: {
+      en: `Explore the Program`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    meaningfulName: {
+      en: `Explore the training`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 ---
 
 <section
@@ -110,10 +227,12 @@ const button: TranslationsType = {
   class="section3 text-background relative grid min-h-dvh place-items-center py-4"
 >
   <Image
-    src={background}
+    src={componentProps.customOptions?.colorScheme === "pink"
+      ? backgroundPink
+      : background}
     alt="Background"
     class={cn(
-      "absolute inset-0 z-0 h-full w-full object-cover",
+      "absolute inset-0 z-0 h-full w-full object-cover pointer-events-none",
       componentProps.lang === "ar" ? "scale-[-1] " : "",
     )}
     widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
@@ -128,6 +247,12 @@ const button: TranslationsType = {
         ? showcase({ words: 5 })
         : title[componentProps.lang]}
       class="text-heading1 text-accent font-bold uppercase"
+      style={{
+        color:
+          componentProps.customOptions?.colorScheme === "pink"
+            ? "var(--secondary)"
+            : "inherit",
+      }}
     />
     {
       paras.map((para) => (
@@ -147,9 +272,12 @@ const button: TranslationsType = {
         href={"#section4"}
         class={cn(
           buttonVariants({
-            variant: "secondary",
+            variant:
+              componentProps.customOptions?.colorScheme === "pink"
+                ? "white"
+                : "secondary",
           }),
-          "uppercase text-para-lead font-bold sm:text-2xl sm:py-4 sm:px-16 hover:bg-accent hover:text-accent-foreground",
+          "uppercase text-para-lead text-secondary-foreground font-bold sm:text-2xl sm:py-4 sm:px-16 hover:bg-accent hover:text-accent-foreground",
         )}
         set:html={componentProps.features?.includes(Features.showcase)
           ? showcase({ words: 3 })

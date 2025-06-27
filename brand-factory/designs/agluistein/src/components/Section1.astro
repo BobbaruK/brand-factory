@@ -1,72 +1,144 @@
 ---
 import { arrow } from "@/constants/icons/arrow";
 import { cn } from "@/lib/utils";
+import type { CustomOptions } from "@/pages/index.astro";
 import { Image } from "astro:assets";
-import type { ComponentProps } from "../../../../globals/types/component-props";
-import type { TranslationsType } from "../../../../globals/types/translations";
-import background from "../assets/hero.png";
-import { Button, buttonVariants } from "./ui/button";
 import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import background from "../assets/hero.png";
+import backgroundPink from "../assets/hero-pink.png";
+import { Button, buttonVariants } from "./ui/button";
 
 interface Props {
-  componentProps: ComponentProps;
+  componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
 
-const title: TranslationsType = {
-  en: `Master <span class="text-accent">trading</span> from the ground up`,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "",
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: `Master <span class="text-accent">trading</span> from the ground up`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    meaningfulName: {
+      en: `Trading from the ground up`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 
-const para: TranslationsType = {
-  en: `Get the skills and insights you need to trade confidently. Our trading education is built for beginners and sharpened for future pros—no experience required. Whether you're just curious about the markets or aiming to build a serious trading strategy, this guide can support you during you trading journey. With clear explanations, practical tools, and real-world examples, you'll quickly go from learning the basics to understanding how the markets really move.`,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "",
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const para: TranslationsType = textBy(
+  {
+    default: {
+      en: `Get the skills and insights you need to trade confidently. Our trading education is built for beginners and sharpened for future pros—no experience required. Whether you're just curious about the markets or aiming to build a serious trading strategy, this guide can support you during you trading journey. With clear explanations, practical tools, and real-world examples, you'll quickly go from learning the basics to understanding how the markets really move.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    meaningfulName: {
+      en: `Gain the confidence and skills you need to start trading with purpose. Our education is designed for beginners and refined to support your growth into a confident trader — no prior experience is needed. Whether you're exploring the financial markets for the first time or looking to create a solid strategy, this training will guide you every step of the way. With straightforward lessons, useful tools, and real-market examples, you'll quickly move from basic concepts to truly understanding market behavior.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 
-const button: TranslationsType = {
-  en: `Start Learning Now`,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "",
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const button: TranslationsType = textBy(
+  {
+    default: {
+      en: `Start Learning Now`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    meaningfulName: {
+      en: `Start learning today`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 ---
 
 <section
@@ -74,10 +146,12 @@ const button: TranslationsType = {
   class="section1 text-background relative grid min-h-dvh place-items-center py-4"
 >
   <Image
-    src={background}
+    src={componentProps.customOptions?.colorScheme === "pink"
+      ? backgroundPink
+      : background}
     alt="Background"
     class={cn(
-      "absolute inset-0 z-0 h-full w-full object-cover",
+      "absolute inset-0 z-0 h-full w-full object-cover pointer-events-none",
       componentProps.lang === "ar" ? "scale-[-1] " : "",
     )}
     widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
@@ -91,7 +165,13 @@ const button: TranslationsType = {
       set:html={componentProps.features?.includes(Features.showcase)
         ? showcase({ words: 5, spanClasses: "text-accent" })
         : title[componentProps.lang]}
-      class="text-heading1 font-bold uppercase"
+      class={cn("text-heading1 font-bold uppercase ")}
+      style={{
+        color:
+          componentProps.customOptions?.colorScheme === "pink"
+            ? "var(--secondary)"
+            : "inherit",
+      }}
     />
 
     <p
@@ -106,9 +186,12 @@ const button: TranslationsType = {
         href={"#section4"}
         class={cn(
           buttonVariants({
-            variant: "secondary",
+            variant:
+              componentProps.customOptions?.colorScheme === "pink"
+                ? "white"
+                : "secondary",
           }),
-          "uppercase text-para-lead font-bold sm:text-2xl sm:py-4 sm:px-16 hover:bg-accent hover:text-accent-foreground",
+          "uppercase text-para-lead text-secondary-foreground font-bold sm:text-2xl sm:py-4 sm:px-16 hover:bg-accent hover:text-accent-foreground",
         )}
         set:html={componentProps.features?.includes(Features.showcase)
           ? showcase({ words: 3 })

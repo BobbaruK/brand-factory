@@ -4,65 +4,135 @@ import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
 
 interface Props {
   componentProps: ComponentProps;
 }
 const { componentProps } = Astro.props;
 
-const title: TranslationsType = {
-  en: `Get started with your free training`,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "",
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: `Get started with your free training`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    meaningfulName: {
+      en: `Access your free training now`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 
-const para: TranslationsType = {
-  en: `Fill in the form and gain access to our exclusive trading education. No cost. No pressure. Just knowledge.`,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "",
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const para: TranslationsType = textBy(
+  {
+    default: {
+      en: `Fill in the form and gain access to our exclusive trading education. No cost. No pressure. Just knowledge.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    meaningfulName: {
+      en: `Complete the short form to unlock your exclusive access to our trading course—completely free, with no obligations. Just practical, useful knowledge.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 
-const button: TranslationsType = {
-  en: `Register`,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "",
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const button: TranslationsType = textBy(
+  {
+    default: {
+      en: `Register`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    meaningfulName: {
+      en: `Register today`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 ---
 
 <section id="section4" class="section4 grid min-h-dvh place-items-center">
@@ -75,6 +145,12 @@ const button: TranslationsType = {
           ? showcase({ words: 5 })
           : title[componentProps.lang]}
         class="text-heading1 text-accent text-center leading-normal font-bold uppercase"
+        style={{
+          color:
+            componentProps.customOptions?.colorScheme === "pink"
+              ? "var(--primary)"
+              : "inherit",
+        }}
       />
       <p
         set:html={componentProps.features?.includes(Features.showcase)
@@ -131,7 +207,7 @@ const button: TranslationsType = {
         }
       }
       button {
-        @apply text-para-lead bg-secondary hover:bg-accent hover:text-accent-foreground font-bold uppercase sm:px-16 sm:py-4 sm:text-2xl;
+        @apply text-para-lead bg-secondary hover:bg-accent hover:text-accent-foreground text-secondary-foreground font-bold uppercase sm:px-16 sm:py-4 sm:text-2xl;
       }
     }
   }

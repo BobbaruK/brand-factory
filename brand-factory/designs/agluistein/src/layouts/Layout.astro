@@ -35,6 +35,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
   data-wanumber={componentProps.brandObj.whatsapp
     ? componentProps.brandObj.whatsappNumber[lang]
     : false}
+  data-colorscheme={componentProps.customOptions?.colorScheme}
 >
   <head>
     <meta charset="utf-8" />
@@ -98,5 +99,16 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
+  }
+</style>
+
+<style is:global define:vars={{}}>
+  html[data-colorscheme="pink"] {
+    --background: oklch(0.97 0 0);
+
+    --primary: oklch(0.5 0.06 311.78);
+    --primary-foreground: oklch(0.93 0 0);
+    --secondary: oklch(0.86 0.19 110.77);
+    --secondary-foreground: oklch(0.12 0.03 21.05);
   }
 </style>

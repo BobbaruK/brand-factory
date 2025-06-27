@@ -1,142 +1,290 @@
 ---
 import { arrow } from "@/constants/icons/arrow";
-import { cn } from "@/lib/utils";
-import { Image } from "astro:assets";
-import type { ComponentProps } from "../../../../globals/types/component-props";
-import type { TranslationsType } from "../../../../globals/types/translations";
-import topBg from "../assets/top-graph.png";
-import bottomBg from "../assets/bottom-graph.png";
 import { icon1 } from "@/constants/icons/icon1";
+import { icon1Pink } from "@/constants/icons/icon1-pink";
 import { icon2 } from "@/constants/icons/icon2";
+import { icon2Pink } from "@/constants/icons/icon2-pink";
 import { icon3 } from "@/constants/icons/icon3";
+import { icon3Pink } from "@/constants/icons/icon3-pink";
 import { icon4 } from "@/constants/icons/icon4";
+import { icon4Pink } from "@/constants/icons/icon4-pink";
+import { cn } from "@/lib/utils";
+import type { CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
 import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import bottomBg from "../assets/bottom-graph.png";
+import topBg from "../assets/top-graph.png";
 
 interface Props {
-  componentProps: ComponentProps;
+  componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
 
-const title: TranslationsType = {
-  en: `Knowledge is your best investment`,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "",
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: `Knowledge is your best investment`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    meaningfulName: {
+      en: `Education is the smartest investment`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 
-const para: TranslationsType = {
-  en: `We believe successful trading starts with smart education. Our comprehensive approach gives you the essential tools to understand markets, manage risks, and build your strategy with clarity.`,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "",
-  sv: ``,
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
+const para: TranslationsType = textBy(
+  {
+    default: {
+      en: `We believe successful trading starts with smart education. Our comprehensive approach gives you the essential tools to understand markets, manage risks, and build your strategy with clarity.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    meaningfulName: {
+      en: `We believe every successful trader starts with strong knowledge. Our all-in-one approach gives you the core tools to grasp how markets work, manage risks effectively, and build your trading plan with confidence.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: ``,
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "textVersion",
+  componentProps.customOptions,
+);
 
 const bullets: {
   icon: string;
   text: TranslationsType;
 }[] = [
   {
-    icon: icon1,
-    text: {
-      en: `Learn from professional market educators`,
-      it: "",
-      tr: "",
-      ro: "",
-      ar: "",
-      de: "",
-      es: "",
-      sv: ``,
-      pt: "",
-      fi: "",
-      pl: ``,
-      hu: "",
-      th: "",
-      ms: "",
-      vi: "",
-    },
+    icon:
+      componentProps.customOptions?.colorScheme === "pink" ? icon1Pink : icon1,
+    text: textBy(
+      {
+        default: {
+          en: `Learn from professional market educators`,
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: ``,
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        meaningfulName: {
+          en: `Learn directly from experienced trading professionals`,
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: ``,
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "textVersion",
+      componentProps.customOptions,
+    ),
   },
   {
-    icon: icon2,
-    text: {
-      en: `Live webinars, trading guides & videos`,
-      it: "",
-      tr: "",
-      ro: "",
-      ar: "",
-      de: "",
-      es: "",
-      sv: ``,
-      pt: "",
-      fi: "",
-      pl: ``,
-      hu: "",
-      th: "",
-      ms: "",
-      vi: "",
-    },
+    icon:
+      componentProps.customOptions?.colorScheme === "pink" ? icon2Pink : icon2,
+    text: textBy(
+      {
+        default: {
+          en: `Live webinars, trading guides & videos`,
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: ``,
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        meaningfulName: {
+          en: `Access live webinars, expert guides, and video lessons`,
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: ``,
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "textVersion",
+      componentProps.customOptions,
+    ),
   },
   {
-    icon: icon3,
-    text: {
-      en: `Practice safely with a demo account`,
-      it: "",
-      tr: "",
-      ro: "",
-      ar: "",
-      de: "",
-      es: "",
-      sv: ``,
-      pt: "",
-      fi: "",
-      pl: ``,
-      hu: "",
-      th: "",
-      ms: "",
-      vi: "",
-    },
+    icon:
+      componentProps.customOptions?.colorScheme === "pink" ? icon3Pink : icon3,
+    text: textBy(
+      {
+        default: {
+          en: `Practice safely with a demo account`,
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: ``,
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        meaningfulName: {
+          en: `Practice risk-free with a demo account`,
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: ``,
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "textVersion",
+      componentProps.customOptions,
+    ),
   },
   {
-    icon: icon4,
-    text: {
-      en: `Support from real people, not bots`,
-      it: "",
-      tr: "",
-      ro: "",
-      ar: "",
-      de: "",
-      es: "",
-      sv: ``,
-      pt: "",
-      fi: "",
-      pl: ``,
-      hu: "",
-      th: "",
-      ms: "",
-      vi: "",
-    },
+    icon:
+      componentProps.customOptions?.colorScheme === "pink" ? icon4Pink : icon4,
+    text: textBy(
+      {
+        default: {
+          en: `Support from real people, not bots`,
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: ``,
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        meaningfulName: {
+          en: `Get help from real people—not automated systems`,
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: ``,
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "textVersion",
+      componentProps.customOptions,
+    ),
   },
 ];
 ---
@@ -148,7 +296,9 @@ const bullets: {
   <Image
     src={topBg}
     alt="Top graph background"
-    class={cn("absolute top-0 left-0 right-0 z-0 h-auto w-full")}
+    class={cn(
+      "absolute top-0 left-0 right-0 z-0 h-auto w-full pointer-events-none",
+    )}
     widths={[320, 576, 640, 768, 1024, 1280, 1536, topBg.width]}
     sizes={`100vw`}
   />
