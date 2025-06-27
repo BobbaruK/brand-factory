@@ -1,20 +1,20 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-import type { CustomOptions } from "@/pages/index.astro";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/900.css";
-// Supports weights 100-900
-import "@fontsource-variable/montserrat";
-import type { ComponentProps } from "../../../../globals/types/component-props";
-import "../styles/global.css";
 import { cn } from "@/lib/utils";
+import "@fontsource-variable/montserrat"; // Supports weights 100-900
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import "../styles/global.css";
 
 interface Props {
-  componentProps: ComponentProps<any, CustomOptions>;
+  componentProps: ComponentProps;
+  metaDescription: TranslationsType;
 }
 
-const { componentProps } = Astro.props;
+const { componentProps, metaDescription } = Astro.props;
 
 const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
 
@@ -74,7 +74,21 @@ const fontFamily = fontFamFN();
     />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{componentProps.lpName} | {componentProps.brandObj.name}</title>
+    <title>
+      {
+        componentProps.lpName
+          ? componentProps.lpName + " | " + componentProps.brandObj.name
+          : componentProps.brandObj.name
+      }
+    </title>
+    {
+      metaDescription[componentProps.lang] && (
+        <meta
+          name="description"
+          content={metaDescription[componentProps.lang]}
+        />
+      )
+    }
   </head>
   <body class={cn(fontFamily)}>
     <div id="site-wrapper">

@@ -3,7 +3,7 @@ import Section1Brand from "@/components/brand/Section1.astro";
 import Section1Default from "@/components/default/Section1.astro";
 import Section1V1 from "@/components/v1/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradingProfilerSVGVariation } from "../../../../globals/types/brands/logo";
+import { type TradeNavigatorSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
@@ -12,7 +12,10 @@ import type {
   LicenseType,
   RegistrationType,
 } from "../../../../globals/types/lp-params-type";
-import type { Languages } from "../../../../globals/types/translations";
+import type {
+  Languages,
+  TranslationsType,
+} from "../../../../globals/types/translations";
 import { checkFeatures } from "../../../../globals/utils/check-features";
 import { fxoroFooter as fxoroFooterFn } from "../../../../globals/utils/fxoro-footer";
 import Layout from "../layouts/Layout.astro";
@@ -25,10 +28,27 @@ export interface CustomOptions {
 /**
  * Landing page's main variables
  */
-type Logo = TradingProfilerSVGVariation;
-const brand: BrandsNames = "tradingprofiler";
+type Logo = TradeNavigatorSVGVariation;
+const brand: BrandsNames = "trade-navigator";
 const lpName = "";
-const lang: Languages = "vi";
+const metaDescription: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+const lang: Languages = "es";
 const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
@@ -37,11 +57,12 @@ const features = checkFeatures([
   Features.outbrain,
   // Features.atheneum,
   // Features.officialTerms,
-  // Features.policyInFooter,
+  Features.policyInFooter,
 ]);
 const registrationType: RegistrationType = "classic";
 const whatsapp = false;
 const fxoroFooter: boolean = false;
+const drThankYou: boolean = false;
 const customOptions: CustomOptions = {
   logoSquare: false,
   designVersion: "brand",
@@ -57,6 +78,7 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
     license,
     whatsapp,
     features,
+    drThankYou,
   }),
   logo: function () {
     return this.brandObj.images.logoSVG.default;
@@ -69,7 +91,7 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
 };
 ---
 
-<Layout componentProps={componentProps}>
+<Layout componentProps={componentProps} metaDescription={metaDescription}>
   {
     componentProps.customOptions?.designVersion === undefined && (
       <div class="grid h-full place-items-center">
