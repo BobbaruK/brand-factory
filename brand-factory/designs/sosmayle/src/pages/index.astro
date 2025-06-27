@@ -2,7 +2,7 @@
 import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type FacoltaDiTradingSVGVariation } from "../../../../globals/types/brands/logo";
+import { type TradeNavigatorSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
@@ -11,7 +11,10 @@ import type {
   LicenseType,
   RegistrationType,
 } from "../../../../globals/types/lp-params-type";
-import type { Languages } from "../../../../globals/types/translations";
+import type {
+  Languages,
+  TranslationsType,
+} from "../../../../globals/types/translations";
 import { checkFeatures } from "../../../../globals/utils/check-features";
 import { fxoroFooter as fxoroFooterFn } from "../../../../globals/utils/fxoro-footer";
 import Layout from "../layouts/Layout.astro";
@@ -22,10 +25,29 @@ export interface CustomOptions {
 
 /**
  * Landing page's main variables
+ *//**
+ * Landing page's main variables
  */
-type Logo = FacoltaDiTradingSVGVariation;
-const brand: BrandsNames = "facoltaditrading";
-const lpName = "AI Signals";
+type Logo = TradeNavigatorSVGVariation;
+const brand: BrandsNames = "trade-navigator";
+const lpName = "";
+const metaDescription: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
 const lang: Languages = "es";
 const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
@@ -40,6 +62,7 @@ const features = checkFeatures([
 const registrationType: RegistrationType = "classic";
 const whatsapp = false;
 const fxoroFooter: boolean = false;
+const drThankYou: boolean = true;
 const customOptions: CustomOptions = {
   logoSquare: false,
 };
@@ -54,6 +77,7 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
     license,
     whatsapp,
     features,
+    drThankYou,
   }),
   logo: function () {
     return this.brandObj.images.logoSVG.default;
@@ -66,7 +90,7 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
 };
 ---
 
-<Layout componentProps={componentProps}>
+<Layout componentProps={componentProps} metaDescription={metaDescription}>
   <Section1 componentProps={componentProps} />
   <Section2 componentProps={componentProps} />
 </Layout>
