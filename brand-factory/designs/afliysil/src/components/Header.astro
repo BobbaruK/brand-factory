@@ -1,20 +1,305 @@
 ---
+import { FORM_BUTTON } from "@/constants/form-button";
+import { cn } from "@/lib/utils";
 import { type CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import Form from "../../../../globals/components/form";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
+import { showcase } from "../../../../globals/features/showcase/text";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import background from "../assets/background.png";
+import man from "../assets/man.png";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Open your ${componentProps.brandObj.name} trading account in minutes`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: ``,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const list: {
+  title: TranslationsType;
+  data: TranslationsType[];
+} = {
+  title: {
+    en: ``,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  data: [
+    {
+      en: ``,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    {
+      en: ``,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    {
+      en: ``,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  ],
+};
+
+const formTitle: TranslationsType = {
+  en: ``,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header id="header" class="relative overflow-clip">
+  <Image
+    src={background}
+    alt="Background"
+    class={cn(
+      "absolute inset-0 z-0 h-full w-full object-cover pointer-events-none",
+      componentProps.lang === "ar" ? "scale-[-1] " : "",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+    loading={"eager"}
+  />
+
+  <div class="relative z-10">
+    <div class="py-custom-spacing container text-white">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+
+    <div class="container flex flex-wrap">
+      <div
+        class="gap-custom-spacing pb-custom-spacing lg:pb-custom-spacing order-1 flex flex-col justify-center text-white lg:w-8/12 xl:w-5/12"
+      >
+        <h1
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 5,
+              })
+            : title[componentProps.lang]}
+          class="text-heading1 text-secondary font-black text-balance uppercase"
+        />
+
+        <p
+          set:html={para[componentProps.lang]}
+          class="text-para-lead font-semibold"
+        />
+
+        <div class="flex flex-col gap-6">
+          <p
+            set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 5,
+                })
+              : list.title[componentProps.lang]}
+            class="text-para-lead font-semibold"
+          />
+
+          <ul
+            class="text-para-lead marker:text-secondary marker:text-heading2 flex list-outside list-decimal flex-col gap-6 ps-8 marker:font-bold xl:pe-28"
+          >
+            {
+              list.data.map((item) => (
+                <li
+                  class="text-balance"
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({
+                          words: 10,
+                        })
+                      : item[componentProps.lang]
+                  }
+                />
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="relative order-3 flex w-full items-end justify-center lg:order-2 lg:w-4/12 xl:w-3/12"
+      >
+        <Image
+          src={man}
+          alt="Man"
+          class={cn(
+            "pointer-events-none max-lg:max-w-[350px] block w-full h-auto xl:absolute xl:-start-28 xl:w-[440px] xl:max-w-none -z-10 scale-x-[-1]",
+            // componentProps.lang === "ar"
+            //   ? "lg:scale-x-[1] xl:scale-x-[-1] "
+            //   : "lg:scale-x-[-1] xl:scale-x-[1] ",
+            // { "xl:-bottom-28": componentProps.lang === "es" },
+          )}
+          widths={[320, 576, 640, 768, 1024, 1280, 1536, man.width]}
+          sizes={`
+            (max-width: 320px) 273px,
+            (max-width: 1023px) 350px,
+            (max-width: 1280px) 410px,
+            440px
+          `}
+          loading={"eager"}
+        />
+      </div>
+
+      <div class="lg:pb-custom-spacing order-2 w-full lg:order-3 xl:w-4/12">
+        <div class="flex w-full flex-col bg-white p-4 text-black xl:px-8">
+          <div
+            class="text-heading3 bg-white pb-4 text-center font-black uppercase"
+            set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 3,
+                })
+              : formTitle[componentProps.lang]}
+          />
+          <Form
+            componentProps={componentProps}
+            button={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 2,
+                })
+              : FORM_BUTTON[componentProps.lang]}
+            id="section-form"
+            layout={2}
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </header>
+
+<style lang="scss" is:global>
+  @reference "../styles/global.css";
+
+  form.registerForm {
+    input,
+    select {
+      @apply text-slate-800;
+    }
+    input[disabled] {
+      // color: white;
+    }
+
+    .form-control {
+      label {
+        font-size: 1rem;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        // @apply h-12 text-black;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      button {
+        @apply text-lg !font-black uppercase;
+      }
+    }
+  }
+</style>
