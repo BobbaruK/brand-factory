@@ -13,4 +13,5 @@ export type BrandsNames =
   | "tradingatheneum"
   | "oracle-signals"
   | "arabtradingpro"
-  | "tradersprofiler";
+  | "tradersprofiler"
+  | "trade-navigator";

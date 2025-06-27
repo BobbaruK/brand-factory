@@ -12,6 +12,7 @@ import { investingtips101 } from "./investingtips101";
 import { oracleSignals } from "./oracle-sigals";
 import { piutrading } from "./piutrading";
 import { protraderzone } from "./protraderzone";
+import { tradeNavigator } from "./trade-navigator";
 import { tradersacademic } from "./tradersacademic";
 import { tradersprofiler } from "./tradersprofiler";
 import { tradestrategyhub } from "./tradestrategyhub";
@@ -144,6 +145,14 @@ export const brandFactory = <T>({
 
     case "protraderzone":
       return protraderzone({
+        license,
+        whatsapp,
+        whatsappNumber,
+        drThankYou,
+      }) as BrandArrItem<T>;
+
+    case "trade-navigator":
+      return tradeNavigator({
         license,
         whatsapp,
         whatsappNumber,

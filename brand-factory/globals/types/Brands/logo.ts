@@ -1,8 +1,10 @@
-export type Investingtips101SVGVariation = {
+export type ArabTradingProSVGVariation = {
   default: string;
+  defaultWhite: string;
+  defaultBlack: string;
 };
 
-export type TradersAcademicSVGVariation = {
+export type DayTradingStarSVGVariation = {
   default: string;
 };
 
@@ -14,11 +16,6 @@ export type FXOROSVGVariation = {
   default: string;
 };
 
-export type FXOROPartnersSVGVariation = {
-  default: string;
-  whiteOrange: string;
-};
-
 export type FXOROGlobalSVGVariation = {
   default: string;
   blackOrange: string;
@@ -26,12 +23,22 @@ export type FXOROGlobalSVGVariation = {
   white: string;
 };
 
-export type DayTradingStarSVGVariation = {
+export type FXOROPartnersSVGVariation = {
+  default: string;
+  whiteOrange: string;
+};
+
+export type Investingtips101SVGVariation = {
   default: string;
 };
 
-export type TradeStrategyHubSVGVariation = {
+export type OracleSignalsSVGVariation = {
   default: string;
+};
+
+export type PiuTradingSVGVariation = {
+  default: string;
+  blackGreen: string;
 };
 
 export type ProTraderZoneSVGVariation = {
@@ -40,19 +47,21 @@ export type ProTraderZoneSVGVariation = {
   whiteOrange: string;
 };
 
-export type PiuTradingSVGVariation = {
+export type TradeNavigatorSVGVariation = {
   default: string;
-  blackGreen: string;
 };
 
-export type TradingProfilerSVGVariation = {
+export type TradersAcademicSVGVariation = {
   default: string;
-  defaultColorBlack: string;
-  defaultColorWhite: string;
-  defaultColorBlackStrokeBlack: string;
-  defaultColorBlackStrokeWhite: string;
-  squareColorBlack: string;
-  squareColorWhite: string;
+};
+
+export type TradersProfilerSVGVariation = {
+  default: string;
+  original: string;
+};
+
+export type TradeStrategyHubSVGVariation = {
+  default: string;
 };
 
 export type TradingAtheneumSVGVariation = {
@@ -66,17 +75,12 @@ export type TradingAtheneumSVGVariation = {
   squareCustom: string;
 };
 
-export type OracleSignalsSVGVariation = {
+export type TradingProfilerSVGVariation = {
   default: string;
-};
-
-export type ArabTradingProSVGVariation = {
-  default: string;
-  defaultWhite: string;
-  defaultBlack: string;
-};
-
-export type TradersProfilerSVGVariation = {
-  default: string;
-  original: string;
+  defaultColorBlack: string;
+  defaultColorWhite: string;
+  defaultColorBlackStrokeBlack: string;
+  defaultColorBlackStrokeWhite: string;
+  squareColorBlack: string;
+  squareColorWhite: string;
 };

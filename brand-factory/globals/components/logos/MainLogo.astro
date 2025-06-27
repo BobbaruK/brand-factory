@@ -26,6 +26,22 @@ interface LogoCSSVars {
 
 const cssVars = (): LogoCSSVars => {
   switch (size) {
+    case "arabtradingpro":
+      return {
+        sm: {
+          width: 150,
+          height: 30,
+        },
+        lg: {
+          width: 200,
+          height: 40,
+        },
+        square: {
+          sm: 70,
+          lg: 100,
+        },
+      };
+
     case "daytradingstar":
       return {
         sm: {
@@ -74,6 +90,22 @@ const cssVars = (): LogoCSSVars => {
         },
       };
 
+    case "fxoro_partners":
+      return {
+        sm: {
+          width: 141,
+          height: 50,
+        },
+        lg: {
+          width: 161,
+          height: 56,
+        },
+        square: {
+          sm: 70,
+          lg: 100,
+        },
+      };
+
     case "investingtips101":
       return {
         sm: {
@@ -83,6 +115,22 @@ const cssVars = (): LogoCSSVars => {
         lg: {
           width: 200,
           height: 69,
+        },
+      };
+
+    case "oracle-signals":
+      return {
+        sm: {
+          width: 150,
+          height: 28,
+        },
+        lg: {
+          width: 180,
+          height: 34,
+        },
+        square: {
+          sm: 70,
+          lg: 100,
         },
       };
 
@@ -110,6 +158,18 @@ const cssVars = (): LogoCSSVars => {
         },
       };
 
+    case "trade-navigator":
+      return {
+        sm: {
+          width: 130,
+          height: 25,
+        },
+        lg: {
+          width: 210,
+          height: 39,
+        },
+      };
+
     case "tradersacademic":
       return {
         sm: {
@@ -122,6 +182,18 @@ const cssVars = (): LogoCSSVars => {
         },
       };
 
+    case "tradersprofiler":
+      return {
+        sm: {
+          width: 50,
+          height: 37,
+        },
+        lg: {
+          width: 70,
+          height: 52,
+        },
+      };
+
     case "tradestrategyhub":
       return {
         sm: {
@@ -131,38 +203,6 @@ const cssVars = (): LogoCSSVars => {
         lg: {
           width: 200,
           height: 76,
-        },
-      };
-
-    case "tradingprofiler":
-      return {
-        sm: {
-          width: 150,
-          height: 51,
-        },
-        lg: {
-          width: 200,
-          height: 68,
-        },
-        square: {
-          sm: 70,
-          lg: 100,
-        },
-      };
-
-    case "fxoro_partners":
-      return {
-        sm: {
-          width: 141,
-          height: 50,
-        },
-        lg: {
-          width: 161,
-          height: 56,
-        },
-        square: {
-          sm: 70,
-          lg: 100,
         },
       };
 
@@ -182,47 +222,19 @@ const cssVars = (): LogoCSSVars => {
         },
       };
 
-    case "oracle-signals":
+    case "tradingprofiler":
       return {
         sm: {
           width: 150,
-          height: 28,
-        },
-        lg: {
-          width: 180,
-          height: 34,
-        },
-        square: {
-          sm: 70,
-          lg: 100,
-        },
-      };
-
-    case "arabtradingpro":
-      return {
-        sm: {
-          width: 150,
-          height: 30,
+          height: 51,
         },
         lg: {
           width: 200,
-          height: 40,
+          height: 68,
         },
         square: {
           sm: 70,
           lg: 100,
-        },
-      };
-
-    case "tradersprofiler":
-      return {
-        sm: {
-          width: 50,
-          height: 37,
-        },
-        lg: {
-          width: 70,
-          height: 52,
         },
       };
 
@@ -264,14 +276,13 @@ const logoHeightLG = square ? logoWidthLG : exposedCssVars.lg.height + "px";
     max-height: 100%;
   }
 
-  
   @media (min-width: 768px) {
     .logoWrapper {
       width: var(--logoWidthLG);
       height: var(--logoHeightLG);
     }
   }
-  
+
   .logoWrapper > svg {
     max-width: 100%;
     width: 100%;
