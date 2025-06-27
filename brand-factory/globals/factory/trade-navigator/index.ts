@@ -64,7 +64,7 @@ export const tradeNavigator = ({
       ? `https://trade-navigator.com/thank-you/dr/vi/`
       : `https://trade-navigator.com/thank-you/vi/`,
   },
-  recaptchaKey: "",
+  recaptchaKey: "6Lc4gW8rAAAAAK3hsxGTx6LP-Ew4Qyjueo2ZjW9p",
   privacyLink: {
     en: "https://trade-navigator.com/privacy-policy/en/",
     it: "https://trade-navigator.com/privacy-policy/it/",
@@ -88,6 +88,6 @@ export const tradeNavigator = ({
     logoSVG: {
       default: defaultLogo,
     },
-    faviconLink: "https://tradersacademic.com/global_assets/imgs/favicon.svg",
+    faviconLink: "https://trade-navigator.com/global_assets/imgs/favicon.png",
   },
 });
