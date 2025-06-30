@@ -1,0 +1,180 @@
+---
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import background from "../assets/bgs2.png";
+import icon1 from "../assets/icon1.png";
+import icon2 from "../assets/icon2.png";
+import icon3 from "../assets/icon3.png";
+import type { TranslationsType } from "../../../../globals/types/translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const bullets: {
+  icon: ImageMetadata;
+  title: TranslationsType;
+  para: TranslationsType;
+}[] = [
+  {
+    icon: icon1,
+    title: {
+      en: `Trade with complete transparency`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Competitive pricing and expert support to execute your trades quickly and easily`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: icon2,
+    title: {
+      en: `Tight spreads from as little as 0.6 pips`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Real-time updates on major economic events and chart movements`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: icon3,
+    title: {
+      en: `Multilingual customer service`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `24/7 support tailored to your language and needs`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+];
+---
+
+<section
+  id="section2"
+  class="section2 py-custom-spacing bg-primary text-primary-foreground relative"
+>
+  <Image
+    src={background}
+    alt="Background"
+    class={cn(
+      "absolute inset-0 z-0 h-full w-full object-cover pointer-events-none",
+      componentProps.lang === "ar" ? "scale-[-1] " : "",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+    loading={"eager"}
+  />
+  <div
+    class="max-lg:gap-custom-spacing relative z-10 container flex flex-wrap items-start justify-around gap-4"
+  >
+    {
+      bullets.map((bullet) => (
+        <div class="lg:gap-custom-spacing flex items-center gap-2 max-lg:w-full lg:flex-col lg:text-center">
+          <Image
+            src={bullet.icon}
+            alt="Bullet Icon"
+            class={cn("size-24 lg:size-40")}
+            widths={[320, 576, 640, 768, 1024, 1280, 1536, bullet.icon.width]}
+            sizes={`
+              (max-width: 1080px) 96px,
+              160px
+            `}
+          />
+          <div class="gap2 flex flex-col lg:items-center lg:gap-4">
+            <h3
+              set:html={bullet.title[componentProps.lang]}
+              class="text-heading3 font-black text-balance uppercase lg:max-w-[25ch]"
+            />
+            <p
+              set:html={bullet.para[componentProps.lang]}
+              class="text-para-lead lg:max-w-[25ch]"
+            />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
