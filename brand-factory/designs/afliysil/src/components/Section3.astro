@@ -4,7 +4,7 @@ import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { Image } from "astro:assets";
 import phone from "../assets/phone.png";
 import man from "../assets/business-man.png";
@@ -51,7 +51,7 @@ const para: TranslationsType = {
   vi: ``,
 };
 
-const formButton: TranslationsType = {
+const buttonLabel: TranslationsType = {
   en: `Download now`,
   it: ``,
   tr: ``,
@@ -93,10 +93,20 @@ const formButton: TranslationsType = {
         />
       </div>
 
-      <ButtonDisclaimer componentProps={componentProps} client:load>
-        <Button
-          variant={"accent"}
-          className={"js-modal-trigger w-full cursor-pointer p-6 font-black uppercase"}
+      <ButtonDisclaimer
+        componentProps={componentProps}
+        disclaimer={{
+          active: false,
+        }}
+        client:load
+      >
+        <a
+          href="https://fxoro.com/app"
+          target="_blank"
+          class={cn(
+            buttonVariants({ variant: "accent" }),
+            "w-full cursor-pointer p-6 font-black uppercase",
+          )}
           style={{
             fontSize: "var(--text-para-lead)",
           }}
@@ -104,7 +114,7 @@ const formButton: TranslationsType = {
             ? showcase({
                 words: 2,
               })
-            : formButton[componentProps.lang]}
+            : buttonLabel[componentProps.lang]}
         />
       </ButtonDisclaimer>
     </div>
@@ -127,7 +137,9 @@ const formButton: TranslationsType = {
           alt="Man"
           class={cn(
             "max-w-[230px] max-sm:w-full -mb-[100px] max-sm:mx-auto object-contain  relative  max-sm:hidden",
-            componentProps.lang === "ar" ? "-start-[25px]" : "scale-x-[-1] -start-[55px]",
+            componentProps.lang === "ar"
+              ? "-start-[25px]"
+              : "scale-x-[-1] -start-[55px]",
           )}
           widths={[320, 576, 640, 768, 1024, 1280, 1536, man.width]}
           sizes={`
