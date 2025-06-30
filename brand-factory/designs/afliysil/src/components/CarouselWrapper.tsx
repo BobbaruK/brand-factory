@@ -81,10 +81,10 @@ const CarouselWrapper = ({ slides, lang }: Props) => {
 
             return (
               <CarouselItem className="pl-2 md:pl-4 xl:basis-1/3" key={index}>
-                <div className="flex h-full flex-col items-center justify-center gap-4 max-md:text-center">
+                <div className="flex flex-col items-center justify-center gap-4 max-md:text-center">
                   <p
                     dangerouslySetInnerHTML={createMarkup()}
-                    className="relative text-lg text-balance md:before:text-7xl md:before:leading-0 md:before:content-['\2022'] md:before:relative md:before:-top-2 flex gap-2 items-center"
+                    className="relative flex items-center gap-2 text-lg text-balance md:before:relative md:before:-top-2 md:before:text-7xl md:before:leading-0 md:before:content-['\2022']"
                   />
                 </div>
               </CarouselItem>
