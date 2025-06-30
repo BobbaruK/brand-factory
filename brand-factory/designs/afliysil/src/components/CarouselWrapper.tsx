@@ -65,27 +65,32 @@ const CarouselWrapper = ({ slides, lang }: Props) => {
           loop: true,
           direction: lang === "ar" ? "rtl" : "ltr",
         }}
-        plugins={[
-          Autoplay({
-            delay: 5000,
-          }),
-        ]}
+        plugins={
+          [
+            // Autoplay({
+            //   delay: 5000,
+            // }),
+          ]
+        }
         // setApi={setApi}
         className="relative"
       >
         <CarouselContent className="-ml-2 md:-ml-4">
           {slides.map((slide, index) => {
             function createMarkup() {
-              return { __html: slide[lang] };
+              return { __html: `<p>${slide[lang]}</p>` };
             }
 
             return (
               <CarouselItem className="pl-2 md:pl-4 xl:basis-1/3" key={index}>
-                <div className="flex flex-col items-center justify-center gap-4 max-md:text-center">
-                  <p
-                    dangerouslySetInnerHTML={createMarkup()}
+                <div
+                  className="flex items-center justify-center gap-4 text-lg text-balance max-md:text-center md:before:relative md:before:-top-2 md:before:text-7xl md:before:leading-0 md:before:content-['\2022'] h-full"
+                  dangerouslySetInnerHTML={createMarkup()}
+                >
+                  {/* <p
+                    
                     className="relative flex items-center gap-2 text-lg text-balance md:before:relative md:before:-top-2 md:before:text-7xl md:before:leading-0 md:before:content-['\2022']"
-                  />
+                  /> */}
                 </div>
               </CarouselItem>
             );
