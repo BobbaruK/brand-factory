@@ -1,0 +1,132 @@
+---
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Button } from "./ui/button";
+import { Image } from "astro:assets";
+import phone from "../assets/phone.png";
+import man from "../assets/business-man.png";
+import { cn } from "@/lib/utils";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Trade anywhere, anytime`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: `Download the FXORO Trading App and stay connected with real-time market notifications and instant trading access.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const formButton: TranslationsType = {
+  en: `Download now`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section3" class="section3 overflow-clip">
+  <div class="container flex max-lg:flex-wrap">
+    <div class="space-y-custom-spacing py-custom-spacing lg:w-6/12">
+      <div class="space-y-4">
+        <h2
+          set:html={title[componentProps.lang]}
+          class="text-heading2 font-black text-balance uppercase"
+        />
+
+        <p
+          set:html={para[componentProps.lang]}
+          class="text-para-lead text-balance"
+        />
+      </div>
+
+      <ButtonDisclaimer componentProps={componentProps} client:load>
+        <Button
+          variant={"accent"}
+          className={"js-modal-trigger w-full cursor-pointer p-6 font-black uppercase"}
+          style={{
+            fontSize: "var(--text-para-lead)",
+          }}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : formButton[componentProps.lang]}
+        />
+      </ButtonDisclaimer>
+    </div>
+    <div class="relative grow">
+      <div class="flex max-lg:mx-auto sm:w-fit">
+        <Image
+          src={phone}
+          alt="phone Icon"
+          class={cn(
+            "max-w-[350px] max-sm:w-full -mb-60 max-sm:mx-auto relative z-10",
+          )}
+          widths={[320, 576, 640, 768, 1024, 1280, 1536, phone.width]}
+          sizes={`
+            (max-width: 320px) 273px,
+            350px
+          `}
+        />
+        <Image
+          src={man}
+          alt="Man"
+          class={cn(
+            "max-w-[230px] max-sm:w-full -mb-[100px] max-sm:mx-auto object-contain scale-x-[-1] relative -start-[55px] max-sm:hidden",
+          )}
+          widths={[320, 576, 640, 768, 1024, 1280, 1536, man.width]}
+          sizes={`
+            (max-width: 320px) 273px,
+            300px
+          `}
+        />
+      </div>
+    </div>
+  </div>
+</section>
