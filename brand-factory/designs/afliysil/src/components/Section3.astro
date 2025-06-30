@@ -75,12 +75,20 @@ const formButton: TranslationsType = {
     <div class="space-y-custom-spacing py-custom-spacing lg:w-6/12">
       <div class="space-y-4">
         <h2
-          set:html={title[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 5,
+              })
+            : title[componentProps.lang]}
           class="text-heading2 font-black text-balance uppercase"
         />
 
         <p
-          set:html={para[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 15,
+              })
+            : para[componentProps.lang]}
           class="text-para-lead text-balance"
         />
       </div>

@@ -7,6 +7,8 @@ import icon1 from "../assets/icon1.png";
 import icon2 from "../assets/icon2.png";
 import icon3 from "../assets/icon3.png";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps;
@@ -165,11 +167,19 @@ const bullets: {
           />
           <div class="gap2 flex flex-col lg:items-center lg:gap-4">
             <h3
-              set:html={bullet.title[componentProps.lang]}
+              set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 3,
+                })
+              : bullet.title[componentProps.lang]}
               class="text-heading3 font-black text-balance uppercase lg:max-w-[25ch]"
             />
             <p
-              set:html={bullet.para[componentProps.lang]}
+              set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 10,
+                })
+              : bullet.para[componentProps.lang]}
               class="text-para-lead lg:max-w-[25ch]"
             />
           </div>
