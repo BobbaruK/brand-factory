@@ -199,19 +199,19 @@ const list: {
       </div>
 
       <div
-        class="bg-secondary text-primary relative z-10 order-3 overflow-hidden py-2 lg:hidden shadow-[0_0_0_100vmax_var(--secondary)] [clip-path:inset(0_-100vmax)] mt-4"  
+        class="bg-secondary text-primary relative z-10 order-3 mt-4 overflow-hidden py-2 shadow-[0_0_0_100vmax_var(--secondary)] [clip-path:inset(0_-100vmax)] lg:hidden"
       >
-        <div class="container">
-          <CarouselWrapper
-            slides={list.data}
-            lang={componentProps.lang}
-            client:load
-          />
-        </div>
+        <CarouselWrapper
+          slides={list.data}
+          lang={componentProps.lang}
+          client:load
+        />
       </div>
     </div>
 
-    <div class="bg-secondary text-primary relative z-10 overflow-hidden py-2 hidden lg:block">
+    <div
+      class="bg-secondary text-primary relative z-10 hidden overflow-hidden py-2 lg:block"
+    >
       <div class="container">
         <CarouselWrapper
           slides={list.data}

@@ -81,18 +81,18 @@ const CarouselWrapper = ({ slides, lang }: Props) => {
 
             return (
               <CarouselItem className="pl-2 md:pl-4 xl:basis-1/3" key={index}>
-                <div className="flex h-full flex-col items-center justify-center gap-4 text-center">
+                <div className="flex h-full flex-col items-center justify-center gap-4 max-md:text-center">
                   <p
                     dangerouslySetInnerHTML={createMarkup()}
-                    className="relative ps-8 text-lg text-balance before:absolute before:start-0 before:top-[50%] before:me-2 before:-translate-y-[6px] before:text-7xl before:leading-0 before:content-['\2022']"
+                    className="relative text-lg text-balance md:before:text-7xl md:before:leading-0 md:before:content-['\2022'] md:before:relative md:before:-top-2 flex gap-2 items-center"
                   />
                 </div>
               </CarouselItem>
             );
           })}
         </CarouselContent>
-        <CarouselPrevious className="text-secondary hover:bg-secondary/50 absolute top-0 bottom-0 -left-6 h-full w-10 translate-y-0 rounded-none border-transparent bg-transparent" />
-        <CarouselNext className="text-secondary hover:bg-secondary/50 absolute top-0 -right-6 bottom-0 h-full w-10 translate-y-0 rounded-none border-transparent bg-transparent" />
+        {/* <CarouselPrevious className="text-secondary hover:bg-secondary/50 absolute top-0 bottom-0 -left-6 h-full w-10 translate-y-0 rounded-none border-transparent bg-transparent" />
+        <CarouselNext className="text-secondary hover:bg-secondary/50 absolute top-0 -right-6 bottom-0 h-full w-10 translate-y-0 rounded-none border-transparent bg-transparent" /> */}
       </Carousel>
       {/* <div
         className="py-2 text-center"
