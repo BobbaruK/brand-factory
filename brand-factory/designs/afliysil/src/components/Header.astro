@@ -11,6 +11,9 @@ import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import background from "../assets/background.png";
 import man from "../assets/man.png";
+import arabicMan from "../assets/arabic-man.png";
+import CarouselWrapper from "./CarouselWrapper";
+import type { Slide } from "@/types/slide";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -22,27 +25,9 @@ const title: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `افتح حساب التداول الخاص بك مع ${componentProps.brandObj.name} خلال دقائق`,
   de: ``,
-  es: ``,
-  sv: ``,
-  pt: ``,
-  fi: ``,
-  pl: ``,
-  hu: ``,
-  th: ``,
-  ms: ``,
-  vi: ``,
-};
-
-const para: TranslationsType = {
-  en: ``,
-  it: ``,
-  tr: ``,
-  ro: ``,
-  ar: ``,
-  de: ``,
-  es: ``,
+  es: `Abre tu cuenta de trading ${componentProps.brandObj.name} en minutos`,
   sv: ``,
   pt: ``,
   fi: ``,
@@ -58,13 +43,13 @@ const list: {
   data: TranslationsType[];
 } = {
   title: {
-    en: ``,
+    en: `Diversify your portfolio with access to 500+ assets. All on one powerful platform.`,
     it: ``,
     tr: ``,
     ro: ``,
-    ar: ``,
+    ar: `نوّع محفظتك بالوصول إلى أكثر من 500 أصل — عبر منصة قوية واحدة.`,
     de: ``,
-    es: ``,
+    es: `Diversifica tu portafolio con acceso a más de 500 activos. Todo en una plataforma potente.`,
     sv: ``,
     pt: ``,
     fi: ``,
@@ -76,13 +61,13 @@ const list: {
   },
   data: [
     {
-      en: ``,
+      en: `Trusted by over 1M traders world-wide`,
       it: ``,
       tr: ``,
       ro: ``,
-      ar: ``,
+      ar: `موثوق من أكثر من مليون متداول حول العالم`,
       de: ``,
-      es: ``,
+      es: `Con la confianza de más de 1 millón de traders en todo el mundo`,
       sv: ``,
       pt: ``,
       fi: ``,
@@ -93,13 +78,13 @@ const list: {
       vi: ``,
     },
     {
-      en: ``,
+      en: `Fully regulated & secure platform`,
       it: ``,
       tr: ``,
       ro: ``,
-      ar: ``,
+      ar: `منصة منظمة وآمنة بالكامل`,
       de: ``,
-      es: ``,
+      es: `Plataforma totalmente regulada y segura`,
       sv: ``,
       pt: ``,
       fi: ``,
@@ -110,13 +95,13 @@ const list: {
       vi: ``,
     },
     {
-      en: ``,
+      en: `13+ years of market expertise `,
       it: ``,
       tr: ``,
       ro: ``,
-      ar: ``,
+      ar: `أكثر من 13 سنة من الخبرة في السوق`,
       de: ``,
-      es: ``,
+      es: `Más de 13 años de experiencia en el mercado`,
       sv: ``,
       pt: ``,
       fi: ``,
@@ -127,24 +112,6 @@ const list: {
       vi: ``,
     },
   ],
-};
-
-const formTitle: TranslationsType = {
-  en: ``,
-  it: ``,
-  tr: ``,
-  ro: ``,
-  ar: ``,
-  de: ``,
-  es: ``,
-  sv: ``,
-  pt: ``,
-  fi: ``,
-  pl: ``,
-  hu: ``,
-  th: ``,
-  ms: ``,
-  vi: ``,
 };
 ---
 
@@ -183,11 +150,6 @@ const formTitle: TranslationsType = {
           class="text-heading1 text-secondary font-black text-balance uppercase"
         />
 
-        <p
-          set:html={para[componentProps.lang]}
-          class="text-para-lead font-semibold"
-        />
-
         <div class="flex flex-col gap-6">
           <p
             set:html={componentProps.features?.includes(Features.showcase)
@@ -197,40 +159,18 @@ const formTitle: TranslationsType = {
               : list.title[componentProps.lang]}
             class="text-para-lead font-semibold"
           />
-
-          <ul
-            class="text-para-lead marker:text-secondary marker:text-heading2 flex list-outside list-decimal flex-col gap-6 ps-8 marker:font-bold xl:pe-28"
-          >
-            {
-              list.data.map((item) => (
-                <li
-                  class="text-balance"
-                  set:html={
-                    componentProps.features?.includes(Features.showcase)
-                      ? showcase({
-                          words: 10,
-                        })
-                      : item[componentProps.lang]
-                  }
-                />
-              ))
-            }
-          </ul>
         </div>
       </div>
 
       <div
-        class="relative order-3 flex w-full items-end justify-center lg:order-2 lg:w-4/12 xl:w-3/12"
+        class="relative order-4 flex w-full items-end justify-center lg:order-2 lg:w-4/12 xl:w-3/12"
       >
         <Image
-          src={man}
+          src={componentProps.lang === "ar" ? arabicMan : man}
           alt="Man"
           class={cn(
-            "pointer-events-none max-lg:max-w-[350px] block w-full h-auto xl:absolute xl:-start-28 xl:w-[440px] xl:max-w-none -z-10 scale-x-[-1]",
-            // componentProps.lang === "ar"
-            //   ? "lg:scale-x-[1] xl:scale-x-[-1] "
-            //   : "lg:scale-x-[-1] xl:scale-x-[1] ",
-            // { "xl:-bottom-28": componentProps.lang === "es" },
+            "pointer-events-none max-lg:max-w-[350px] block w-full h-auto xl:absolute  xl:w-[440px] xl:max-w-none -z-10 scale-x-[-1]",
+            componentProps.lang === "ar" ? "xl:-start-10" : "xl:-start-28",
           )}
           widths={[320, 576, 640, 768, 1024, 1280, 1536, man.width]}
           sizes={`
@@ -244,15 +184,7 @@ const formTitle: TranslationsType = {
       </div>
 
       <div class="lg:pb-custom-spacing order-2 w-full lg:order-3 xl:w-4/12">
-        <div class="flex w-full flex-col bg-white p-4 text-black xl:px-8">
-          <div
-            class="text-heading3 bg-white pb-4 text-center font-black uppercase"
-            set:html={componentProps.features?.includes(Features.showcase)
-              ? showcase({
-                  words: 3,
-                })
-              : formTitle[componentProps.lang]}
-          />
+        <div class="flex w-full flex-col bg-white p-4 text-black xl:p-8">
           <Form
             componentProps={componentProps}
             button={componentProps.features?.includes(Features.showcase)
@@ -264,6 +196,28 @@ const formTitle: TranslationsType = {
             layout={2}
           />
         </div>
+      </div>
+
+      <div
+        class="bg-secondary text-primary relative z-10 order-3 overflow-hidden py-2 lg:hidden shadow-[0_0_0_100vmax_var(--secondary)] [clip-path:inset(0_-100vmax)] mt-4"  
+      >
+        <div class="container">
+          <CarouselWrapper
+            slides={list.data}
+            lang={componentProps.lang}
+            client:load
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-secondary text-primary relative z-10 overflow-hidden py-2 hidden lg:block">
+      <div class="container">
+        <CarouselWrapper
+          slides={list.data}
+          lang={componentProps.lang}
+          client:load
+        />
       </div>
     </div>
   </div>
@@ -298,7 +252,7 @@ const formTitle: TranslationsType = {
         }
       }
       button {
-        @apply text-lg !font-black uppercase;
+        @apply bg-accent hover:bg-primary text-lg !font-black uppercase;
       }
     }
   }
