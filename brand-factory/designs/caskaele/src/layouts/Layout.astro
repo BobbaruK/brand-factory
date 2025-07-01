@@ -7,6 +7,9 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import "../styles/global.css";
 import "@fontsource-variable/montserrat"; // Supports weights 100-900
+import Form from "../../../../globals/components/form";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 interface Props {
   componentProps: ComponentProps;
   metaDescription: TranslationsType;
@@ -15,6 +18,24 @@ interface Props {
 const { componentProps, metaDescription } = Astro.props;
 
 const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
+
+const formButton: TranslationsType = {
+  en: `Claim now`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `اطلبه الآن`,
+  de: ``,
+  es: `Solicítalo ahora`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
 ---
 
 <!doctype html>
@@ -82,7 +103,18 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    <Dialog> Dialog Content Here! </Dialog>
+    <Dialog>
+      <Form
+        componentProps={componentProps}
+        button={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : formButton[componentProps.lang]}
+        id="modal-form"
+        layout={2}
+      />
+    </Dialog>
     <BackToTop />
     <script
       type="module"
