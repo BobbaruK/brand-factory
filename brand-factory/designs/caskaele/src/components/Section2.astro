@@ -1,0 +1,132 @@
+---
+import { ICON1, ICON2, ICON3 } from "@/constants/icons";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Real value, real money`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `قيمة حقيقية، مال حقيقي`,
+  de: ``,
+  es: `Valor real, dinero real`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const bullets: {
+  icon: string;
+  label: TranslationsType;
+}[] = [
+  {
+    icon: ICON1,
+    label: {
+      en: `Real money, not points`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: `مال حقيقي، ليس نقاط`,
+      de: ``,
+      es: `Dinero real, no puntos`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: ICON2,
+    label: {
+      en: `Start with just $200`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: `ابدأ فقط بـ 200 دولار`,
+      de: ``,
+      es: `Empieza con solo $200`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    icon: ICON3,
+    label: {
+      en: `Access 500+ instruments`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: `إمكانية الوصول إلى أكثر من 500 أداة`,
+      de: ``,
+      es: `Accede a más de 500 instrumentos`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+];
+---
+
+<section id="section2" class="section2 py-custom-spacing">
+  <div class="space-y-custom-spacing container">
+    <h2
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 3,
+          })
+        : title[componentProps.lang]}
+      class="text-heading2 font-black uppercase"
+    />
+
+    <div
+      class="flex flex-wrap items-start justify-between gap-y-4 lg:justify-around"
+    >
+      {
+        bullets.map((bullet, index) => (
+          <div class="flex items-center justify-start gap-4 lg:w-4/12">
+            <div
+              class="grid size-16 min-w-16 place-items-center lg:size-[100px] lg:min-w-[100px] [&_svg]:w-full"
+              set:html={bullet.icon}
+            />
+
+            <div class="text-custom-size pe-2 text-balance">
+              {componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 5,
+                  })
+                : bullet.label[componentProps.lang]}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
