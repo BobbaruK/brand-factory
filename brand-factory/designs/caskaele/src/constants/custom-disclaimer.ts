@@ -1,13 +1,13 @@
 import type { TranslationsType } from "../../../../globals/types/translations";
 
 export const CUSTOM_DISCLAIMER: TranslationsType = {
-  en: `Trading is risky. <a href="#" target="_blank">Terms and conditions</a> apply.`,
+  en: `Trading is risky. <a target="_blank" href="https://fxoroglobal.com/cashback/" target="_blank">Terms and conditions</a> apply.`,
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `التداول محفوف بالمخاطر. <a target="_blank" href="https://fxoroglobal.com/ar/cashback/">تُطبّق الشروط والأحكا</a>م.`,
   de: ``,
-  es: `Operar implica riesgos. Aplican <a href="#" target="_blank">términos y condiciones</a>.`,
+  es: `Operar implica riesgos. Aplican <a target="_blank" href="https://fxoroglobal.com/es/cashback/" target="_blank">términos y condiciones</a>.`,
   sv: ``,
   pt: ``,
   fi: ``,
