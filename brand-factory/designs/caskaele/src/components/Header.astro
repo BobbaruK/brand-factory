@@ -1,20 +1,135 @@
 ---
+import { CUSTOM_DISCLAIMER } from "@/constants/custom-disclaimer";
+import { cn } from "@/lib/utils";
 import { type CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
+import { showcase } from "../../../../globals/features/showcase/text";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import heroImage from "../assets/hero-image.svg";
+import { Button } from "./ui/button";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Earn <span class="text-primary">real cashback</span> every time you trade`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Gana dinero <span class="text-primary">real con cashback</span> cada vez que operes`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: `Get up to 50% back when you deposit $200 or more!`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `¡Recibe hasta un 50% de reembolso al depositar $200 o más!`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const formButton: TranslationsType = {
+  en: `Claim now`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Solicítalo ahora`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header id="header" class="overflow-clip">
+  <div class="container flex flex-wrap">
+    <div
+      class="py-custom-spacing gap-custom-spacing flex grow flex-col justify-center lg:w-7/12"
+    >
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+
+      <h1
+        set:html={title[componentProps.lang]}
+        class="text-heading1 font-black text-balance uppercase"
+      />
+
+      <p
+        set:html={para[componentProps.lang]}
+        class="text-para-lead text-balance"
+      />
+
+      <ButtonDisclaimer
+        componentProps={componentProps}
+        client:load
+        className="w-full! max-w-[300px]"
+        disclaimer={{
+          active: true,
+          text: CUSTOM_DISCLAIMER[componentProps.lang],
+        }}
+      >
+        <Button
+          variant={"secondary"}
+          className={"js-modal-trigger text-custom-size! w-full cursor-pointer font-black uppercase"}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : formButton[componentProps.lang]}
+        />
+      </ButtonDisclaimer>
+    </div>
+    <div class="grow lg:w-5/12">
+      <Image
+        src={heroImage}
+        alt="Man"
+        class={cn(
+          "pointer-events-none w-full max-lg:max-w-[350px] max-lg:mx-auto h-full object-contain object-bottom lg:-ms-36 xl:-ms-52 lg:max-w-none lg:w-[clamp(34.375rem,_-8.125rem_+_66.4063vw,_45rem)]",
+          componentProps.lang === "ar" ? "" : "",
+        )}
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, heroImage.width]}
+        sizes={`
+            (max-width: 320px) 273px,
+            (max-width: 1023px) 350px,
+            (max-width: 1280px) 410px,
+            440px
+          `}
+        loading={"eager"}
+      />
+    </div>
   </div>
 </header>
