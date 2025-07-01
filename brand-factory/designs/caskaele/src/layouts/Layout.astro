@@ -6,7 +6,7 @@ import BackToTop from "../../../../globals/components/back-to-top/back-to-top.as
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import "../styles/global.css";
-
+import "@fontsource-variable/montserrat"; // Supports weights 100-900
 interface Props {
   componentProps: ComponentProps;
   metaDescription: TranslationsType;
@@ -67,6 +67,10 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
         html {
           scroll-behavior: auto;
         }
+      }
+
+      body {
+        font-family: "Montserrat Variable", sans-serif;
       }
     </style>
   </head>
