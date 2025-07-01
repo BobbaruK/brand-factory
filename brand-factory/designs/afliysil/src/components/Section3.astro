@@ -95,18 +95,15 @@ const buttonLabel: TranslationsType = {
 
       <ButtonDisclaimer
         componentProps={componentProps}
+        client:load
+        className="w-full! max-w-[300px]"
         disclaimer={{
           active: false,
         }}
-        client:load
       >
-        <a
-          href="https://fxoro.com/app"
-          target="_blank"
-          class={cn(
-            buttonVariants({ variant: "accent" }),
-            "w-full cursor-pointer p-6 font-black uppercase",
-          )}
+        <Button
+          variant={"accent"}
+          className={"js-modal-trigger w-full cursor-pointer p-6 font-black uppercase"}
           style={{
             fontSize: "var(--text-para-lead)",
           }}
