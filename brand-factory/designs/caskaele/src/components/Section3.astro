@@ -1,0 +1,216 @@
+---
+import { CUSTOM_DISCLAIMER } from "@/constants/custom-disclaimer";
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import imageS3 from "../assets/image-s3.svg";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Why trading with ${componentProps.brandObj.name}?`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `لماذا تتداول مع ${componentProps.brandObj.name}؟`,
+  de: ``,
+  es: `Por qué operar con ${componentProps.brandObj.name}?`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const list: TranslationsType[] = [
+  {
+    en: `Fully regulated & reliable`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: `مرخّص بالكامل وموثوق`,
+    de: ``,
+    es: `Totalmente regulado y confiable`,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `13+ years in the market`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: `أكثر من 13 سنة في السوق`,
+    de: ``,
+    es: `Más de 13 años en el mercado`,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `Award-winning platform`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: `منصة حائزة على جوائز`,
+    de: ``,
+    es: `Plataforma galardonada`,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `Trusted by over 1M traders`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: `موثوق من أكثر من مليون متداول`,
+    de: ``,
+    es: `Con la confianza de más de 1 millón de traders`,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `No hidden fees`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: `بدون رسوم خفية`,
+    de: ``,
+    es: `Sin comisiones ocultas`,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+
+const buttonLabel: TranslationsType = {
+  en: `Start trading now`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `ابدأ التداول الآن`,
+  de: ``,
+  es: `Empieza a operar ahora`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section
+  id="section3"
+  class="section3 bg-primary text-primary-foreground py-custom-spacing space-y-custom-spacing overflow-x-clip"
+>
+  <div class="container">
+    <h2
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+      class="text-heading2 font-black uppercase"
+    />
+  </div>
+
+  <div class="container flex flex-wrap gap-y-4">
+    <div class="space-y-custom-spacing grow lg:w-7/12">
+      <ul class="marker:text-accent flex list-inside list-disc flex-col gap-4">
+        {
+          list.map((li) => (
+            <li
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 5,
+                    })
+                  : li[componentProps.lang]
+              }
+              class="text-custom-size"
+            />
+          ))
+        }
+      </ul>
+
+      <ButtonDisclaimer
+        componentProps={componentProps}
+        client:load
+        className="w-full! max-w-[400px]"
+        disclaimer={{
+          active: false,
+          text: CUSTOM_DISCLAIMER[componentProps.lang],
+        }}
+      >
+        <Button
+          variant={"secondary"}
+          className={"js-modal-trigger text-custom-size! w-full cursor-pointer font-black uppercase"}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : buttonLabel[componentProps.lang]}
+        />
+      </ButtonDisclaimer>
+    </div>
+    <div class="w-full grow lg:w-5/12">
+      <Image
+        src={imageS3}
+        alt="Man"
+        class={cn(
+          "pointer-events-none w-full max-lg:max-w-[350px] max-lg:mx-auto h-full object-contain object-bottom lg:-ms-36 xl:-ms-52 lg:max-w-none lg:w-[clamp(34.375rem,_-8.125rem_+_66.4063vw,_45rem)]",
+          componentProps.lang === "ar" ? "scale-x-[-1]" : "",
+        )}
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, imageS3.width]}
+        sizes={`
+            (max-width: 320px) 273px,
+            (max-width: 1023px) 350px,
+            (max-width: 1280px) 410px,
+            440px
+          `}
+        loading={"eager"}
+      />
+    </div>
+  </div>
+</section>
