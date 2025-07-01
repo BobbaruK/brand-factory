@@ -109,7 +109,11 @@ const formButton: TranslationsType = {
 >
   <div class="space-y-custom-spacing container">
     <h2
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 3,
+          })
+        : title[componentProps.lang]}
       class="text-heading2 font-black uppercase"
     />
 
@@ -123,7 +127,11 @@ const formButton: TranslationsType = {
               {index + 1 <= 9 ? "0" + (index + 1) : index + 1}
             </div>
             <div class="text-custom-size pe-2 text-balance">
-              {bullet[componentProps.lang]}
+              {componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 5,
+                  })
+                : bullet[componentProps.lang]}
             </div>
           </div>
         ))
