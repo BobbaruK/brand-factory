@@ -22,7 +22,7 @@ const title: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `احصل على كاش باك حقيقي في كل مرة تتداول فيها`,
   de: ``,
   es: `Gana dinero <span class="text-primary">real con cashback</span> cada vez que operes`,
   sv: ``,
@@ -40,7 +40,7 @@ const para: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `استردّ حتى 50% عند إيداع 200 دولار أو أكثر!`,
   de: ``,
   es: `¡Recibe hasta un 50% de reembolso al depositar $200 o más!`,
   sv: ``,
@@ -58,7 +58,7 @@ const formButton: TranslationsType = {
   it: ``,
   tr: ``,
   ro: ``,
-  ar: ``,
+  ar: `اطلبه الآن`,
   de: ``,
   es: `Solicítalo ahora`,
   sv: ``,
@@ -84,12 +84,21 @@ const formButton: TranslationsType = {
       />
 
       <h1
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+              spanClasses: "text-primary",
+            })
+          : title[componentProps.lang]}
         class="text-heading1 font-black text-balance uppercase"
       />
 
       <p
-        set:html={para[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 10,
+            })
+          : para[componentProps.lang]}
         class="text-para-lead text-balance"
       />
 
@@ -119,7 +128,7 @@ const formButton: TranslationsType = {
         alt="Man"
         class={cn(
           "pointer-events-none w-full max-lg:max-w-[350px] max-lg:mx-auto h-full object-contain object-bottom lg:-ms-36 xl:-ms-52 lg:max-w-none lg:w-[clamp(34.375rem,_-8.125rem_+_66.4063vw,_45rem)]",
-          componentProps.lang === "ar" ? "" : "",
+          componentProps.lang === "ar" ? "scale-x-[-1]" : "",
         )}
         widths={[320, 576, 640, 768, 1024, 1280, 1536, heroImage.width]}
         sizes={`
