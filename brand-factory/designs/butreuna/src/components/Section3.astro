@@ -1,0 +1,184 @@
+---
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Choose from over 500 assets`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `عزّز قوة تداولك في 3 خطوات`,
+  de: ``,
+  es: `Impulsa tu poder de trading en 3 pasos`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const list: TranslationsType[] = [
+  {
+    en: `Shares`,
+    it: `Azioni`,
+    tr: `Hisseler`,
+    ro: `Acțiuni`,
+    ar: `الأسهم`,
+    de: `Aktien`,
+    es: `Acciones`,
+    sv: `Aktier`,
+    pt: `Ações`,
+    fi: `Osakkeet`,
+    pl: `Akcje`,
+    hu: `Részvények`,
+    th: `หุ้น`,
+    ms: `Saham`,
+    vi: `Cổ phiếu`,
+  },
+  {
+    en: `Commodities`,
+    it: `Materie prime`,
+    tr: `Emtialar`,
+    ro: `Mărfuri`,
+    ar: `السلع`,
+    de: `Rohstoffe`,
+    es: `Materias primas`,
+    sv: `Råvaror`,
+    pt: `Commodities`,
+    fi: `Hyödykkeet`,
+    pl: `Towary`,
+    hu: `Nyersanyagok`,
+    th: `สินค้าโภคภัณฑ์`,
+    ms: `Komoditi`,
+    vi: `Hàng hóa`,
+  },
+  {
+    en: `Indices`,
+    it: `Indici`,
+    tr: `Endeksler`,
+    ro: `Indici`,
+    ar: `المؤشرات`,
+    de: `Indizes`,
+    es: `Índices`,
+    sv: `Index`,
+    pt: `Índices`,
+    fi: `Indeksit`,
+    pl: `Indeksy`,
+    hu: `Indexek`,
+    th: `ดัชนี`,
+    ms: `Indeks`,
+    vi: `Chỉ số`,
+  },
+  {
+    en: `Currencies`,
+    it: `Valute`,
+    tr: `Dövizler`,
+    ro: `Valute`,
+    ar: `العملات`,
+    de: `Währungen`,
+    es: `Divisas`,
+    sv: `Valutor`,
+    pt: `Moedas`,
+    fi: `Valuutat`,
+    pl: `Waluty`,
+    hu: `Valuták`,
+    th: `สกุลเงิน`,
+    ms: `Mata wang`,
+    vi: `Tiền tệ`,
+  },
+  {
+    en: `Metal`,
+    it: `Metallo`,
+    tr: `Metal`,
+    ro: `Metal`,
+    ar: `المعادن`,
+    de: `Metall`,
+    es: `Metal`,
+    sv: `Metall`,
+    pt: `Metal`,
+    fi: `Metalli`,
+    pl: `Metal`,
+    hu: `Fém`,
+    th: `โลหะ`,
+    ms: `Logam`,
+    vi: `Kim loại`,
+  },
+  {
+    en: `Energies`,
+    it: `Energia`,
+    tr: `Enerjiler`,
+    ro: `Energii`,
+    ar: `الطاقات`,
+    de: `Energien`,
+    es: `Energías`,
+    sv: `Energier`,
+    pt: `Energias`,
+    fi: `Energialähteet`,
+    pl: `Energia`,
+    hu: `Energiák`,
+    th: `พลังงาน`,
+    ms: `Tenaga`,
+    vi: `Năng lượng`,
+  },
+  {
+    en: `ETFs`,
+    it: `ETF`,
+    tr: `ETF'ler`,
+    ro: `ETF-uri`,
+    ar: `الصناديق المتداولة (ETF)`,
+    de: `ETFs`,
+    es: `ETFs`,
+    sv: `ETF:er`,
+    pt: `ETFs`,
+    fi: `ETF:t`,
+    pl: `ETF-y`,
+    hu: `ETF-ek`,
+    th: `กองทุน ETF`,
+    ms: `ETF`,
+    vi: `Quỹ ETF`,
+  },
+];
+
+---
+
+<section
+  id="section3"
+  class="section3 bg-primary text-primary-foreground py-custom-spacing"
+>
+  <div class="space-y-custom-spacing container">
+    <h2
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+      class="text-heading2 font-black text-balance uppercase"
+    />
+    <ul
+      class="text-custom-size flex flex-wrap items-center justify-around gap-4"
+    >
+      {
+        list.map((li) => (
+          <li
+            set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 1,
+          })
+        : li[componentProps.lang]}
+            class="before:text-accent relative [transform:_translate-y(-50%)] ps-10 before:absolute before:start-0 before:top-1 before:me-4 before:-translate-y-1/2 before:text-9xl before:leading-0 before:content-['\\2022'] max-md:grow"
+          />
+        ))
+      }
+    </ul>
+  </div>
+</section>

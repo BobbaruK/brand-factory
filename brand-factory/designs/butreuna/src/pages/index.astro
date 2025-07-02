@@ -1,6 +1,7 @@
 ---
 import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
+import Section3 from "@/components/Section3.astro";
 import { brandFactory } from "../../../../globals/factory";
 import { type TradersAcademicSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
@@ -50,7 +51,7 @@ const lang: Languages = "en";
 const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
-  Features.showcase,
+  // Features.showcase,
   // Features.readyForMail,
   Features.outbrain,
   // Features.atheneum,
@@ -91,4 +92,5 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
 <Layout componentProps={componentProps} metaDescription={metaDescription}>
   <Section1 componentProps={componentProps} />
   <Section2 componentProps={componentProps} />
+  <Section3 componentProps={componentProps} />
 </Layout>
