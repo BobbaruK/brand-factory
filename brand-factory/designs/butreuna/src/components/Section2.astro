@@ -1,0 +1,288 @@
+---
+import { CUSTOM_DISCLAIMER } from "@/constants/custom-disclaimer";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import Form from "../../../../globals/components/form";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { glossaryLetter_S } from "../../../../globals/translations/glossary";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Boost your trading power in 3 steps`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `عزّز قوة تداولك في 3 خطوات`,
+  de: ``,
+  es: `Impulsa tu poder de trading en 3 pasos`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const list: TranslationsType[] = [
+  {
+    en: `Trusted by over 1M traders world-wide`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: `موثوق من أكثر من مليون متداول حول العالم`,
+    de: ``,
+    es: `Confiado por más de 1 millón de traders en todo el mundo`,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `Fully regulated & secure platform`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: `منصة مرخصة وآمنة بالكامل`,
+    de: ``,
+    es: `Plataforma totalmente regulada y segura`,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `13+ years of market expertise`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: `أكثر من 13 عامًا من الخبرة في الأسواق`,
+    de: ``,
+    es: `Más de 13 años de experiencia en los mercados`,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+
+const steps: {
+  title: TranslationsType;
+  para: TranslationsType;
+}[] = [
+  {
+    title: {
+      en: `Sign up quickly & easily:`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: `سجّل بسرعة وسهولة:`,
+      de: ``,
+      es: `Regístrate fácil y rápido:`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Create your account in minutes`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: `أنشئ حسابك في دقائق`,
+      de: ``,
+      es: `Crea tu cuenta en minutos`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    title: {
+      en: `Make a deposit:`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: `قم بالإيداع:`,
+      de: ``,
+      es: `Realiza un depósito:`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Use our fast and secure funding methods`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: `استخدم وسائل التمويل السريعة والآمنة`,
+      de: ``,
+      es: `Usa nuestros métodos rápidos y seguros`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  {
+    title: {
+      en: `Get your bonus:`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: `احصل على البونص:`,
+      de: ``,
+      es: `Recibe tu bono:`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    para: {
+      en: `Begin trading with your bonus instantly`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: `ابدأ التداول ببونصك فورًا`,
+      de: ``,
+      es: `Comienza a operar con tu bono al instante`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+];
+
+const buttonLabel: TranslationsType = {
+  en: `Get started`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `ابدأ الآن`,
+  de: ``,
+  es: `Comenzar`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section2" class="section2 py-custom-spacing">
+  <div class="space-y-custom-spacing container">
+    <h2
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+      class="text-heading2 font-black text-balance uppercase"
+    />
+
+    <div class="flex flex-wrap justify-between gap-4">
+      {
+        steps.map((step, index) => (
+          <div class="flex items-center justify-start gap-4 lg:w-[calc(33.3333%_-_32px)]">
+            <div
+              set:html={index + 1}
+              class="text-primary text-shadow-accent grid h-full w-5 place-items-center gap-4 text-4xl font-black text-shadow-[-3px_0px_0px_#CE5937] lg:w-18 lg:text-9xl"
+            />
+            <div class="">
+              <h3
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 3,
+                      })
+                    : step.title[componentProps.lang]
+                }
+                class="text-heading3 font-black text-balance"
+              />
+              <p
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 10,
+                      })
+                    : step.para[componentProps.lang]
+                }
+                class="text-custom-size text-balance"
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <ButtonDisclaimer
+      componentProps={componentProps}
+      client:load
+      className=""
+      disclaimer={{
+        active: true,
+        text: CUSTOM_DISCLAIMER[componentProps.lang],
+      }}
+    >
+      <Button
+        variant={"secondary"}
+        className={"js-modal-trigger text-custom-size! w-full cursor-pointer rounded-[25px] font-black uppercase md:px-16 md:py-3"}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>
