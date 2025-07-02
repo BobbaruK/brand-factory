@@ -1,20 +1,150 @@
 ---
+import { CUSTOM_DISCLAIMER } from "@/constants/custom-disclaimer";
+import { cn } from "@/lib/utils";
 import { type CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
+import { showcase } from "../../../../globals/features/showcase/text";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Button } from "./ui/button";
+import heroImage from "../assets/hero-image.svg";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Supercharge your trading with up to 50% deposit bonus`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `عزّز تداولك حتى 50٪ بونص على الإيداع`,
+  de: ``,
+  es: `Impulsa tu trading con hasta un 50% de bono por depósito`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const paras: TranslationsType[] = [
+  {
+    en: `We reward your first step in the world of trading. Get up to 50% back when you deposit $200 or more.`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: `نُكافئ خطوتك الأولى في عالم التداول. احصل على ما يصل إلى 50٪ عند إيداع 200 دولار أو أكثر.`,
+    de: ``,
+    es: `Recompensamos tu primer paso en el mundo del trading. Recibe hasta un 50% de vuelta al depositar $200 o más.`,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+
+const buttonLabel: TranslationsType = {
+  en: `Claim now`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `احصل عليه الآن`,
+  de: ``,
+  es: `Reclámalo ahora`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
 ---
 
-<header id="header">
-  <div class="container">
+<header id="header" class="overflow-x-clip">
+  <div class="py-custom-spacing container">
     <MainLogo
       size={componentProps.brandObj.nameToLower}
       logo={componentProps.logo()}
       square={componentProps.customOptions?.logoSquare}
     />
+  </div>
+  <div class="pb-custom-spacing container flex flex-wrap">
+    <div class="gap-custom-spacing flex grow flex-col justify-center lg:w-5/12">
+      <h1
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
+        class="text-heading1 font-black text-balance uppercase"
+      />
+
+      {
+        paras.map((para) => (
+          <p
+            set:html={
+              componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 15,
+                  })
+                : para[componentProps.lang]
+            }
+            class="text-para-lead font-bold text-balance"
+          />
+        ))
+      }
+
+      <ButtonDisclaimer
+        componentProps={componentProps}
+        client:load
+        className=""
+        disclaimer={{
+          active: true,
+          text: CUSTOM_DISCLAIMER[componentProps.lang],
+        }}
+      >
+        <Button
+          variant={"secondary"}
+          className={"js-modal-trigger text-custom-size! w-full cursor-pointer rounded-[25px] px-16 py-3 font-black uppercase"}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : buttonLabel[componentProps.lang]}
+        />
+      </ButtonDisclaimer>
+    </div>
+    <div class="relative grow lg:w-7/12">
+      <Image
+        src={heroImage}
+        alt="50%"
+        class={cn(
+          "max-w-[400px] w-full max-lg:mx-auto lg:absolute  lg:h-[calc(100%_+_100px)] lg:object-contain lg:max-w-none lg:w-[785px] -start-10 bottom-0",
+          componentProps.lang === "ar" ? "" : "",
+        )}
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, heroImage.width]}
+        sizes={`
+          (max-width: 320px) 273px,
+          (max-width: 1023px) 350px,
+          (max-width: 1280px) 410px,
+          440px
+        `}
+        loading={"eager"}
+      />
+    </div>
   </div>
 </header>

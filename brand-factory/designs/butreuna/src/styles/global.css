@@ -50,9 +50,9 @@
     1.5rem
   ); /* 18 - 24 ; 320 - 1280 */
   --text-para-lead--line-height: clamp(
-    1.75rem,
-    1.5rem + 1.25vw,
-    2.5rem
+    1.25rem,
+    1.0833rem + 0.8333vw,
+    1.75rem
   ); /* 20 - 40 ; 320 - 1280 */
 
   --text-custom-size: clamp(
@@ -65,6 +65,8 @@
     1.4167rem + 0.4167vw,
     1.75rem
   ); /* 24 - 28 ; 320 - 1280 */
+
+  --spacing-custom-spacing: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
 }
 
 @theme inline {
