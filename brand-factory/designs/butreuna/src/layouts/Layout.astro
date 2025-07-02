@@ -7,6 +7,8 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import "../styles/global.css";
 import "@fontsource-variable/montserrat"; // Supports weights 100-900
+import Form from "../../../../globals/components/form";
+import { FORM_BUTTON } from "@/constants/form-button";
 
 interface Props {
   componentProps: ComponentProps;
@@ -83,7 +85,14 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    <Dialog> Dialog Content Here! </Dialog>
+    <Dialog>
+      <Form
+        componentProps={componentProps}
+        button={FORM_BUTTON[componentProps.lang]}
+        id="modal-form"
+        layout={2}
+      />
+    </Dialog>
     <BackToTop />
     <script
       type="module"
