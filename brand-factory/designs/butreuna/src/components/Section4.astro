@@ -1,0 +1,58 @@
+---
+import { CUSTOM_DISCLAIMER } from "@/constants/custom-disclaimer";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import Form from "../../../../globals/components/form";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { glossaryLetter_S } from "../../../../globals/translations/glossary";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const buttonLabel: TranslationsType = {
+  en: `Start trading now`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: `ابدأ التداول الآن`,
+  de: ``,
+  es: `Empieza a operar ahora`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section2" class="section2 py-custom-spacing">
+  <div class="space-y-custom-spacing container">
+    <ButtonDisclaimer
+      componentProps={componentProps}
+      client:load
+      className="mx-auto"
+      disclaimer={{
+        active: true,
+        text: CUSTOM_DISCLAIMER[componentProps.lang],
+      }}
+    >
+      <Button
+        variant={"secondary"}
+        className={"js-modal-trigger text-custom-size! w-full cursor-pointer rounded-[25px] font-black uppercase md:px-16 md:py-3"}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>
