@@ -38,13 +38,30 @@ const title: TranslationsType = {
 
 const paras: TranslationsType[] = [
   {
-    en: `We reward your first step in the world of trading. Get up to 50% back when you deposit $200 or more.`,
+    en: `We reward your first step in the world of trading. `,
     it: ``,
     tr: ``,
     ro: ``,
-    ar: `نُكافئ خطوتك الأولى في عالم التداول. احصل على ما يصل إلى 50٪ عند إيداع 200 دولار أو أكثر.`,
+    ar: `نُكافئ خطوتك الأولى في عالم التداول.`,
     de: ``,
-    es: `Recompensamos tu primer paso en el mundo del trading. Recibe hasta un 50% de vuelta al depositar $200 o más.`,
+    es: `Recompensamos tu primer paso en el mundo del trading. `,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `Get up to 50% back when you deposit $200 or more.`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: `نُكافئ خطوتك الأولى في عالم التداول.`,
+    de: ``,
+    es: `Recibe hasta un 50% de vuelta al depositar $200 o más.`,
     sv: ``,
     pt: ``,
     fi: ``,
@@ -77,7 +94,7 @@ const paras: TranslationsType[] = [
       />
 
       {
-        paras.map((para) => (
+        paras.map((para, index) => (
           <p
             set:html={
               componentProps.features?.includes(Features.showcase)
@@ -86,7 +103,9 @@ const paras: TranslationsType[] = [
                   })
                 : para[componentProps.lang]
             }
-            class="text-para-lead font-bold text-balance"
+            class={cn("text-para-lead text-balance", {
+              "font-bold": index + 1 === 2,
+            })}
           />
         ))
       }
@@ -122,9 +141,8 @@ const paras: TranslationsType[] = [
         widths={[320, 576, 640, 768, 1024, 1280, 1536, heroImage.width]}
         sizes={`
           (max-width: 320px) 273px,
-          (max-width: 1023px) 350px,
-          (max-width: 1280px) 410px,
-          440px
+          (max-width: 1023px) 400px,
+          785px
         `}
         loading={"eager"}
       />

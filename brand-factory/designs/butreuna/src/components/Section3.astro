@@ -168,16 +168,20 @@ const list: TranslationsType[] = [
     >
       {
         list.map((li) => (
-          <li
-            set:html={
-              componentProps.features?.includes(Features.showcase)
-                ? showcase({
-                    words: 1,
-                  })
-                : li[componentProps.lang]
-            }
-            class="before:text-accent relative [transform:_translate-y(-50%)] ps-10 before:absolute before:start-0 before:top-1 before:me-4 before:-translate-y-1/2 before:text-9xl before:leading-0 before:content-['\\2022'] max-md:grow"
-          />
+          <li class="flex items-center max-md:grow">
+            <div class="text-accent relative -top-2 text-8xl leading-0">
+              &bull;
+            </div>
+            <span
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 1,
+                    })
+                  : li[componentProps.lang]
+              }
+            />
+          </li>
         ))
       }
     </ul>
