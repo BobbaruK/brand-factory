@@ -526,7 +526,7 @@ const bullets: {
                 <div
                   class="text-background grid h-full w-full place-items-center rounded-full bg-[var(--secondary-dark)] text-3xl font-bold"
                   set:html={
-                    componentProps.customOptions?.textVersion === "default"
+                    componentProps.customOptions?.textVersion === undefined
                       ? li.icon
                       : li.percent + "%"
                   }
