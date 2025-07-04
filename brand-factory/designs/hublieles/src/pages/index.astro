@@ -3,8 +3,8 @@ import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
 import Section4 from "@/components/Section4.astro";
-import Section5 from "@/components/Section5.astro";
 import Section5PA from "@/components/Section5-PA.astro";
+import Section5 from "@/components/Section5.astro";
 import { brandFactory } from "../../../../globals/factory";
 import { type TradingAtheneumSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
@@ -15,7 +15,10 @@ import type {
   LicenseType,
   RegistrationType,
 } from "../../../../globals/types/lp-params-type";
-import type { Languages } from "../../../../globals/types/translations";
+import type {
+  Languages,
+  TranslationsType,
+} from "../../../../globals/types/translations";
 import { checkFeatures } from "../../../../globals/utils/check-features";
 import { fxoroFooter as fxoroFooterFn } from "../../../../globals/utils/fxoro-footer";
 import Layout from "../layouts/Layout.astro";
@@ -30,7 +33,24 @@ export interface CustomOptions {
  */
 type Logo = TradingAtheneumSVGVariation;
 const brand: BrandsNames = "tradingatheneum";
-const lpName = "Home";
+const lpName = "";
+const metaDescription: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
 const lang: Languages = "ar";
 const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
@@ -38,13 +58,15 @@ const features = checkFeatures([
   // Features.showcase,
   // Features.readyForMail,
   // Features.outbrain,
-  Features.atheneum,
+  Features.type5,
+  // Features.atheneum,
   // Features.officialTerms,
   // Features.policyInFooter,
 ]);
 const registrationType: RegistrationType = "classic";
 const whatsapp = false;
 const fxoroFooter: boolean = false;
+const drThankYou: boolean = true;
 const customOptions: CustomOptions = {
   logoSquare: false,
   designVersion: "payment-authorization",
@@ -60,6 +82,7 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
     license,
     whatsapp,
     features,
+    drThankYou,
   }),
   logo: function () {
     return this.brandObj.images.logoSVG.default;
@@ -72,7 +95,7 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
 };
 ---
 
-<Layout componentProps={componentProps}>
+<Layout componentProps={componentProps} metaDescription={metaDescription}>
   <Section1 componentProps={componentProps} />
   <Section2 componentProps={componentProps} />
   <Section3 componentProps={componentProps} />

@@ -7,9 +7,10 @@ import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import heroImage from "../assets/hero-img.png";
 import heroImageAr from "../assets/hero-img-ar.png";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { textBy } from "../../../../globals/utils/text-by";
 import type { CustomOptions } from "@/pages/index.astro";
+import { cn } from "@/lib/utils";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -78,21 +79,21 @@ const paras: TranslationsType[] = [
         vi: `Chào mừng đến với ${componentProps.brandObj.name}, nơi hội tụ giữa đổi mới và truyền thống. Học viện của chúng tôi kết hợp công nghệ giao dịch toàn cầu mới nhất với sự hướng dẫn mang dấu ấn cá nhân từ Ý.`,
       },
       "payment-authorization": {
-        en: `At ${componentProps.brandObj.name}, our mission is to provide every trader — beginner or advanced — with the educational tools needed to succeed. Explore a world of knowledge with our expert-led webinars, one-on-one classes, and advanced trading alerts designed to elevate your skills.`,
-        it: `Alla ${componentProps.brandObj.name}, la nostra missione è fornire a ogni trader — principiante o esperto — gli strumenti educativi necessari per avere successo. Scopri un mondo di conoscenze con i nostri webinar guidati da esperti, lezioni individuali e avvisi di trading avanzati pensati per migliorare le tue abilità.`,
-        tr: `${componentProps.brandObj.name} olarak amacımız, her seviyeden yatırımcıya başarı için gerekli eğitim araçlarını sağlamaktır. Uzman rehberliğinde seminerlerimiz, bire bir derslerimiz ve gelişmiş işlem uyarılarımızla bilgi dolu bir dünyayı keşfedin.`,
-        ro: `La ${componentProps.brandObj.name}, misiunea noastră este să oferim fiecărui trader — începător sau avansat — instrumentele educaționale necesare pentru a reuși. Explorează o lume a cunoștințelor cu ajutorul webinarilor susținute de experți, al lecțiilor individuale și al alertelor de tranzacționare avansate concepute pentru a-ți îmbunătăți abilitățile.`,
-        ar: `في ${componentProps.brandObj.name}، مهمتنا هي تزويد كل متداول - مبتدئ أو متقدم - بالأدوات التعليمية اللازمة للنجاح. استكشف عالمًا من المعرفة من خلال ندواتنا التعليمية المباشرة، والدروس الفردية، وتنبيهات التداول المتقدمة المصممة لتعزيز مهاراتك.`,
-        de: `Bei ${componentProps.brandObj.name} ist es unsere Mission, jedem Trader — ob Anfänger oder Fortgeschrittener — die Bildungswerkzeuge bereitzustellen, die für den Erfolg notwendig sind. Entdecke eine Welt des Wissens mit Experten-Webinaren, Einzelunterricht und fortschrittlichen Trading-Alerts zur Verbesserung deiner Fähigkeiten.`,
-        es: `En ${componentProps.brandObj.name}, nuestra misión es brindar a cada trader — principiante o avanzado — las herramientas educativas necesarias para tener éxito. Explora un mundo de conocimientos con nuestros seminarios dirigidos por expertos, clases individuales y alertas de trading avanzadas.`,
-        sv: `På ${componentProps.brandObj.name} är vårt uppdrag att förse varje trader — nybörjare eller avancerad — med de utbildningsverktyg som krävs för att lyckas. Utforska en värld av kunskap med våra expertledda webbinarier, enskilda lektioner och avancerade handelsvarningar.`,
-        pt: `Na ${componentProps.brandObj.name}, nossa missão é fornecer a cada trader — iniciante ou avançado — as ferramentas educacionais necessárias para ter sucesso. Explore um mundo de conhecimento com nossos webinars liderados por especialistas, aulas individuais e alertas de trading avançados.`,
-        fi: `${componentProps.brandObj.name}:ssa tehtävämme on tarjota jokaiselle kauppiaalle — aloittelijalle tai edistyneelle — tarvittavat koulutustyökalut menestymiseen. Tutustu asiantuntijoiden vetämiin webinaareihin, henkilökohtaisiin oppitunteihin ja kehittyneisiin kaupankäyntihälytyksiin, jotka on suunniteltu kehittämään taitojasi.`,
-        pl: `W ${componentProps.brandObj.name} naszą misją jest zapewnienie każdemu traderowi — początkującemu lub zaawansowanemu — narzędzi edukacyjnych potrzebnych do odniesienia sukcesu. Odkryj świat wiedzy dzięki webinarom prowadzonym przez ekspertów, indywidualnym lekcjom i zaawansowanym alertom handlowym.`,
-        hu: `A ${componentProps.brandObj.name}-nál küldetésünk, hogy minden kereskedőnek — kezdőnek vagy haladónak — megadjuk a sikerhez szükséges oktatási eszközöket. Fedezd fel a tudás világát szakértők által vezetett webináriumainkkal, egyéni óráinkkal és fejlett kereskedési riasztásainkkal.`,
-        th: `ที่ ${componentProps.brandObj.name} ภารกิจของเราคือมอบเครื่องมือการเรียนรู้ที่จำเป็นแก่เทรดเดอร์ทุกคน — ไม่ว่าจะมือใหม่หรือมืออาชีพ ค้นพบโลกแห่งความรู้ด้วยสัมมนาออนไลน์จากผู้เชี่ยวชาญ คลาสตัวต่อตัว และการแจ้งเตือนการเทรดขั้นสูงเพื่อยกระดับทักษะของคุณ`,
-        ms: `Di ${componentProps.brandObj.name}, misi kami adalah untuk menyediakan alat pendidikan yang diperlukan kepada setiap pedagang — pemula atau berpengalaman — untuk berjaya. Terokai dunia pengetahuan melalui webinar bersama pakar, kelas satu lawan satu dan isyarat dagangan lanjutan yang direka untuk meningkatkan kemahiran anda.`,
-        vi: `Tại ${componentProps.brandObj.name}, sứ mệnh của chúng tôi là cung cấp cho mọi nhà giao dịch — dù mới bắt đầu hay đã nâng cao — những công cụ học tập cần thiết để thành công. Khám phá thế giới kiến thức qua các hội thảo trực tuyến do chuyên gia hướng dẫn, các lớp học riêng và cảnh báo giao dịch nâng cao.`,
+        en: ``,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: `في تريدينغ أثينيوم (${componentProps.brandObj.name})، مهمتنا هي تزويد كل متداول — مبتدئًا كان أم متقدمًا — بالأدوات التعليمية اللازمة لتحقيق النجاح. استكشف عالمًا من المعرفة من خلال ندواتنا التعليمية المباشرة، والوصول إلى تطبيقات التداول الحديثة، والتنبيهات المتقدمة المصممة لتعزيز مهاراتك في التداول.`,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: ``,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
       },
     },
     "designVersion",
@@ -101,21 +102,21 @@ const paras: TranslationsType[] = [
   textBy(
     {
       default: {
-        en: `Join us to master the markets with confidence, supported by teachers who care about your growth and success.`,
-        it: `Unisciti a noi per padroneggiare i mercati con sicurezza, supportato da insegnanti che si prendono cura della tua crescita e del tuo successo.`,
-        tr: `Bize katılın ve büyümenizi önemseyen eğitmenlerin desteğiyle piyasaları güvenle yönetin.`,
-        ro: `Alătură-te nouă pentru a stăpâni piețele cu încredere, susținut de profesori care se preocupă de evoluția și succesul tău.`,
-        ar: `انضم إلينا لإتقان الأسواق بثقة، بدعم من معلمين يهتمون بنموك ونجاحك.`,
-        de: `Schließe dich uns an, um die Märkte mit Zuversicht zu meistern – unterstützt von Lehrern, denen dein Wachstum und Erfolg am Herzen liegen.`,
-        es: `Únete a nosotros para dominar los mercados con confianza, respaldado por profesores que se preocupan por tu crecimiento y éxito.`,
-        sv: `Gå med oss för att bemästra marknaderna med självförtroende, stödd av lärare som bryr sig om din utveckling och framgång.`,
-        pt: `Junte-se a nós para dominar os mercados com confiança, com o apoio de professores que se preocupam com o seu crescimento e sucesso.`,
-        fi: `Liity mukaan hallitsemaan markkinoita itsevarmasti, opettajien tukemana, jotka välittävät kasvustasi ja menestyksestäsi.`,
-        pl: `Dołącz do nas, aby z pewnością siebie opanować rynki — wspierany przez nauczycieli, którym zależy na twoim rozwoju i sukcesie.`,
-        hu: `Csatlakozz hozzánk, hogy magabiztosan urald a piacokat, olyan tanárok támogatásával, akik törődnek a fejlődéseddel és sikereddel.`,
-        th: `เข้าร่วมกับเราเพื่อพิชิตตลาดอย่างมั่นใจ โดยมีครูผู้สอนที่ใส่ใจในการเติบโตและความสำเร็จของคุณ`,
-        ms: `Sertai kami untuk menguasai pasaran dengan keyakinan, disokong oleh guru yang prihatin terhadap pertumbuhan dan kejayaan anda.`,
-        vi: `Tham gia cùng chúng tôi để chinh phục thị trường một cách tự tin, với sự hỗ trợ từ các giảng viên tận tâm với sự phát triển và thành công của bạn.`,
+        en: ``,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: `تم تصميم مواردنا الموثوقة، وتحليلات السوق، والإشارات الفورية لمساعدتك على اتخاذ قرارات تداول أكثر ذكاءً — مع إعطاء الأولوية دائمًا لنموك وتطوّرك.`,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: ``,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
       },
       "payment-authorization": {
         en: `Our trusted resources, market insights, and real-time signals are tailored to help you make smarter trading decisions — always putting your growth first.`,
@@ -217,22 +218,46 @@ const buttonLabel: TranslationsType = textBy(
           active: false,
         }}
       >
-        <Button
-          variant={"secondary"}
-          className={"js-modal-trigger h-auto cursor-pointer gap-4 px-16 py-4 text-lg font-bold text-white uppercase md:px-20 md:py-6 lg:text-2xl"}
-          set:html={componentProps.features?.includes(Features.showcase)
-            ? showcase({
-                words: 2,
-              })
-            : buttonLabel[componentProps.lang]}
-        />
+        {
+          componentProps.customOptions?.designVersion ===
+          "payment-authorization" ? (
+            <a
+              href={"#testimonials"}
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 2,
+                    })
+                  : buttonLabel[componentProps.lang]
+              }
+              class={cn(
+                buttonVariants({ variant: "secondary" }),
+                "h-auto cursor-pointer gap-4 px-16 py-4 text-lg font-bold text-white uppercase md:px-20 md:py-6 lg:text-2xl",
+              )}
+            />
+          ) : (
+            <Button
+              variant={"secondary"}
+              className={
+                "js-modal-trigger h-auto cursor-pointer gap-4 px-16 py-4 text-lg font-bold text-white uppercase md:px-20 md:py-6 lg:text-2xl"
+              }
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 2,
+                    })
+                  : buttonLabel[componentProps.lang]
+              }
+            />
+          )
+        }
       </ButtonDisclaimer>
     </div>
     <div class="relative grow">
       <Image
         src={componentProps.lang === "ar" ? heroImageAr : heroImage}
         alt="Background"
-        class="-mb-20 w-full max-w-[350px] lg:absolute lg:-bottom-12 lg:h-[560px] lg:w-auto lg:max-w-none xl:-start-28 xl:-bottom-48 xl:h-[730px]"
+        class="pointer-events-none -mb-20 w-full max-w-[350px] lg:absolute lg:-bottom-12 lg:h-[560px] lg:w-auto lg:max-w-none xl:-start-28 xl:-bottom-48 xl:h-[730px]"
         widths={[320, 576, 640, 768, 1024, 1280, 1536, heroImage.width]}
         sizes={`
         (max-width: 640px) 640px,

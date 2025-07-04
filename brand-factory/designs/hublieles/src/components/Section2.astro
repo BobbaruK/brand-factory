@@ -14,14 +14,17 @@ import { textBy } from "../../../../globals/utils/text-by";
 import bg from "../assets/s2-bg.png";
 import slide1 from "../assets/slide1.png";
 import slide1Ar from "../assets/slide1-ar.png";
+import slide1ArV2 from "../assets/slide-1-ar-v2.png";
 import slide2 from "../assets/slide2.png";
 import slide2Ar from "../assets/slide2-ar.png";
 import slide3 from "../assets/slide3.png";
 import slide3Ar from "../assets/slide3-ar.png";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
+import type { CustomOptions } from "@/pages/index.astro";
+import { cn } from "@/lib/utils";
 
 interface Props {
-  componentProps: ComponentProps;
+  componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
 
@@ -62,7 +65,7 @@ const title: TranslationsType = textBy(
       vi: `Tại sao chọn ${componentProps.brandObj.name}?`,
     },
   },
-  "textVersion",
+  "designVersion",
   componentProps.customOptions,
 );
 
@@ -103,7 +106,7 @@ const para1: TranslationsType = textBy(
       vi: `Điểm đến tin cậy cho giáo dục tài chính của bạn. Tại ${componentProps.brandObj.name}, chúng tôi kết hợp truyền thống, đổi mới và chuyên môn toàn cầu để mang đến cho bạn mọi lợi thế:`,
     },
   },
-  "textVersion",
+  "designVersion",
   componentProps.customOptions,
 );
 
@@ -144,13 +147,19 @@ const para2: TranslationsType = textBy(
       vi: `Cam kết của chúng tôi là trang bị cho các nhà giao dịch tại GCC và hơn thế nữa các kỹ năng và công cụ để thành công — hôm nay và trong tương lai.`,
     },
   },
-  "textVersion",
+  "designVersion",
   componentProps.customOptions,
 );
 
 const carouselSlides: CarouselSlide[] = [
   {
-    bgFlip: componentProps.lang === "ar" ? slide1Ar : slide1,
+    bgFlip:
+      componentProps.lang === "ar"
+        ? componentProps.customOptions?.designVersion ===
+          "payment-authorization"
+          ? slide1ArV2
+          : slide1Ar
+        : slide1,
     title: textBy(
       {
         default: {
@@ -171,24 +180,24 @@ const carouselSlides: CarouselSlide[] = [
           vi: `Sự Chính Xác và Truyền Thống Ý`,
         },
         "payment-authorization": {
-          en: `Expert-led learning:`,
-          it: `Apprendimento guidato da esperti:`,
-          tr: `Uzman liderliğinde öğrenme:`,
-          ro: `Învățare condusă de experți:`,
-          ar: `تعلم بقيادة الخبراء:`,
-          de: `Expertengeführtes Lernen:`,
-          es: `Aprendizaje dirigido por expertos:`,
-          sv: `Expertledd lärande:`,
-          pt: `Aprendizagem liderada por especialistas:`,
-          fi: `Asiantijohtoinen oppiminen:`,
-          pl: `Nauka prowadzona przez ekspertów:`,
-          hu: `Szakértők által vezetett tanulás:`,
-          th: `การเรียนรู้โดยผู้เชี่ยวชาญ:`,
-          ms: `Pembelajaran dipimpin pakar:`,
-          vi: `Học tập do chuyên gia dẫn dắt:`,
+          en: ``,
+          it: ``,
+          tr: ``,
+          ro: ``,
+          ar: `المنصات التداولية الفاخرة`,
+          de: ``,
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: ``,
+          pl: ``,
+          hu: ``,
+          th: ``,
+          ms: ``,
+          vi: ``,
         },
       },
-      "textVersion",
+      "designVersion",
       componentProps.customOptions,
     ),
     description: textBy(
@@ -211,24 +220,24 @@ const carouselSlides: CarouselSlide[] = [
           vi: `Lấy cảm hứng từ di sản học thuật phong phú của Ý, tập trung vào kỷ luật và tư duy phản biện.`,
         },
         "payment-authorization": {
-          en: `Inspired by the world’s leading financial academies, we focus on quality education—building your discipline and trading confidence.`,
-          it: `Ispirati dalle principali accademie finanziarie mondiali, puntiamo a un'educazione di qualità—costruendo disciplina e fiducia nel trading.`,
-          tr: `Dünyanın önde gelen finans akademilerinden ilham alarak, kalite eğitimine odaklanıyoruz — disiplininizi ve ticaret güveninizi inşa ediyoruz.`,
-          ro: `Inspirat de cele mai importante academii financiare din lume, ne concentrăm pe educație de calitate — dezvoltându-ți disciplina și încrederea în tranzacționare.`,
-          ar: `مستوحى من أبرز الأكاديميات المالية العالمية، نركز على التعليم الجيد — لبناء انضباطك وثقتك في التداول.`,
-          de: `Inspiriert von den weltweit führenden Finanzakademien, konzentrieren wir uns auf qualitativ hochwertige Ausbildung — wir stärken Ihre Disziplin und Ihr Trading-Vertrauen.`,
-          es: `Inspirado por las principales academias financieras del mundo, nos enfocamos en una educación de calidad, construyendo tu disciplina y confianza en el trading.`,
-          sv: `Inspirerad av världens ledande finansakademier, fokuserar vi på kvalitetsutbildning – vi bygger din disciplin och ditt handelsförtroende.`,
-          pt: `Inspirado pelas principais academias financeiras do mundo, focamos em educação de qualidade—construindo sua disciplina e confiança em negociações.`,
-          fi: `Innoittamana maailman johtavista rahoitusakatemioista keskitymme laadukkaaseen koulutukseen — rakennamme kurinalaisuuttasi ja kaupankäyntiluottamustasi.`,
-          pl: `Zainspirowani światowymi czołowymi akademiami finansowymi, skupiamy się na jakości edukacji — budując twoją dyscyplinę i pewność handlu.`,
-          hu: `A világ vezető pénzügyi akadémiái ihlettek minket, a minőségi oktatásra koncentrálunk — építjük a fegyelmed és a kereskedési magabiztosságod.`,
-          th: `ได้รับแรงบันดาลใจจากสถาบันการเงินชั้นนำของโลก เรามุ่งเน้นการศึกษาที่มีคุณภาพ — สร้างวินัยและความมั่นใจในการเทรดของคุณ`,
-          ms: `Diilhamkan oleh akademi kewangan terkemuka dunia, kami fokus pada pendidikan berkualiti—membina disiplin dan keyakinan berdagang anda.`,
-          vi: `Lấy cảm hứng từ các học viện tài chính hàng đầu thế giới, chúng tôi tập trung vào giáo dục chất lượng — xây dựng kỷ luật và sự tự tin trong giao dịch của bạn.`,
+          en: ``,
+          it: ``,
+          tr: ``,
+          ro: ``,
+          ar: `نقدّم لك أحدث التقنيات في السوق لتجربة تداول متطورة وعصرية.`,
+          de: ``,
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: ``,
+          pl: ``,
+          hu: ``,
+          th: ``,
+          ms: ``,
+          vi: ``,
         },
       },
-      "textVersion",
+      "designVersion",
       componentProps.customOptions,
     ),
     icon: icon5,
@@ -272,7 +281,7 @@ const carouselSlides: CarouselSlide[] = [
           vi: `Công cụ giáo dục sáng tạo:`,
         },
       },
-      "textVersion",
+      "designVersion",
       componentProps.customOptions,
     ),
     description: textBy(
@@ -312,7 +321,7 @@ const carouselSlides: CarouselSlide[] = [
           vi: `Truy cập các hội thảo trên web tiên tiến, cảnh báo thị trường trực tiếp và các lộ trình học tập cá nhân hóa để giúp bạn được thông tin và tự tin trong các thị trường năng động ngày nay.`,
         },
       },
-      "textVersion",
+      "designVersion",
       componentProps.customOptions,
     ),
     icon: icon6,
@@ -356,7 +365,7 @@ const carouselSlides: CarouselSlide[] = [
           vi: `Hỗ trợ Cá nhân hóa:`,
         },
       },
-      "textVersion",
+      "designVersion",
       componentProps.customOptions,
     ),
     description: textBy(
@@ -396,7 +405,7 @@ const carouselSlides: CarouselSlide[] = [
           vi: `Từ các lớp học tương tác một kèm một đến các tín hiệu hành động và cảnh báo hàng ngày, chúng tôi cung cấp hỗ trợ và giáo dục trực tiếp, phù hợp với mọi phong cách giao dịch.`,
         },
       },
-      "textVersion",
+      "designVersion",
       componentProps.customOptions,
     ),
     icon: icon7,
@@ -440,7 +449,7 @@ const buttonLabel: TranslationsType = textBy(
       vi: `Khám phá công cụ của chúng tôi`,
     },
   },
-  "textVersion",
+  "designVersion",
   componentProps.customOptions,
 );
 ---
@@ -449,7 +458,7 @@ const buttonLabel: TranslationsType = textBy(
   <Image
     src={bg}
     alt="Background"
-    class="absolute inset-0 z-0 h-full w-full object-cover"
+    class="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
     widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
     sizes={`100vw`}
   />
@@ -496,15 +505,39 @@ const buttonLabel: TranslationsType = textBy(
           active: false,
         }}
       >
-        <Button
-          variant={"secondary"}
-          className={"js-modal-trigger h-auto cursor-pointer gap-4 px-16 py-4 text-lg font-bold text-white uppercase md:px-20 md:py-6 lg:text-2xl"}
-          set:html={componentProps.features?.includes(Features.showcase)
-            ? showcase({
-                words: 2,
-              })
-            : buttonLabel[componentProps.lang]}
-        />
+        {
+          componentProps.customOptions?.designVersion ===
+          "payment-authorization" ? (
+            <a
+              href={"#testimonials"}
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 2,
+                    })
+                  : buttonLabel[componentProps.lang]
+              }
+              class={cn(
+                buttonVariants({ variant: "secondary" }),
+                "h-auto cursor-pointer gap-4 px-16 py-4 text-lg font-bold text-white uppercase md:px-20 md:py-6 lg:text-2xl",
+              )}
+            />
+          ) : (
+            <Button
+              variant={"secondary"}
+              className={
+                "js-modal-trigger h-auto cursor-pointer gap-4 px-16 py-4 text-lg font-bold text-white uppercase md:px-20 md:py-6 lg:text-2xl"
+              }
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 2,
+                    })
+                  : buttonLabel[componentProps.lang]
+              }
+            />
+          )
+        }
       </ButtonDisclaimer>
     </div>
   </div>

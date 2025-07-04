@@ -17,7 +17,14 @@ interface Props {
 
 export function CarouselWrapper({ slides, componentProps }: Props) {
   return (
-    <Carousel className="flex flex-row items-center gap-2">
+    <Carousel
+      className="flex flex-row items-center gap-2"
+      opts={{
+        align: "start",
+        loop: true,
+        direction: componentProps.lang === "ar" ? "rtl" : "ltr",
+      }}
+    >
       <CarouselPrevious className="static hidden sm:flex lg:hidden" />
       <div className="w-full">
         <CarouselContent className="-ml-2 py-14 md:-ml-4">
