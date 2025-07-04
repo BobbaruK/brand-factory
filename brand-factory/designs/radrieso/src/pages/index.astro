@@ -1,7 +1,8 @@
 ---
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
+import { type TradersAcademicSVGVariation } from "../../../../globals/types/brands/logo";
+import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -9,49 +10,84 @@ import type {
   LicenseType,
   RegistrationType,
 } from "../../../../globals/types/lp-params-type";
+import type {
+  Languages,
+  TranslationsType,
+} from "../../../../globals/types/translations";
 import { checkFeatures } from "../../../../globals/utils/check-features";
+import { fxoroFooter as fxoroFooterFn } from "../../../../globals/utils/fxoro-footer";
 import Layout from "../layouts/Layout.astro";
-
-const license: LicenseType = "fsa";
-const lpType: LandingPageType = "classic";
-const features = checkFeatures([
-  // Features.readyForMail,
-  Features.outbrain,
-  // Features.atheneum,
-  // Features.showcase,
-]);
-const registrationType: RegistrationType = "direct_registration";
 
 export interface CustomOptions {
   logoSquare: boolean;
 }
 
-const componentProps: ComponentProps<
-  FXOROGlobalSVGVariation,
-  CustomOptions
-> = {
-  lang: "en",
+/**
+ * Landing page's main variables
+ */
+type Logo = TradersAcademicSVGVariation;
+const brand: BrandsNames = "tradersacademic";
+const lpName = "";
+const metaDescription: TranslationsType = {
+  en: "",
+  it: "",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: "",
+  pt: "",
+  fi: "",
+  pl: "",
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
+};
+const lang: Languages = "en";
+const license: LicenseType = "fsa";
+const lpType: LandingPageType = "classic";
+const features = checkFeatures([
+  // Features.showcase,
+  // Features.readyForMail,
+  // Features.outbrain,
+  Features.type5,
+  // Features.atheneum,
+  // Features.officialTerms,
+  // Features.policyInFooter,
+]);
+const registrationType: RegistrationType = "classic";
+const whatsapp = false;
+const fxoroFooter: boolean = false;
+const drThankYou: boolean = true;
+const customOptions: CustomOptions = {
+  logoSquare: false,
+};
+// ===============================
+
+const componentProps: ComponentProps<Logo, CustomOptions> = {
+  lang,
   license,
-  lpName: "Trading Signals",
+  lpName,
   brandObj: brandFactory({
-    brand: "fxoro_global",
+    brand,
     license,
-    whatsapp: false,
+    whatsapp,
     features,
+    drThankYou,
   }),
   logo: function () {
     return this.brandObj.images.logoSVG.default;
   },
   lpType,
   registrationType,
-  customOptions: {
-    logoSquare: false,
-  },
+  customOptions,
   features,
-  fxoroFooter: true,
+  fxoroFooter: fxoroFooterFn(brand, fxoroFooter),
 };
 ---
 
-<Layout componentProps={componentProps}>
+<Layout componentProps={componentProps} metaDescription={metaDescription}>
   <Section1 componentProps={componentProps} />
 </Layout>
