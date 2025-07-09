@@ -22,6 +22,7 @@ import Layout from "../layouts/Layout.astro";
 export interface CustomOptions {
   logoSquare: boolean;
   textVersion?: "meaningfulName" | "anotherMeaningfulName";
+  s2Icons?: boolean;
 }
 
 /**
@@ -66,6 +67,7 @@ const drThankYou: boolean = true;
 const customOptions: CustomOptions = {
   logoSquare: false,
   textVersion: "anotherMeaningfulName",
+  s2Icons: true,
 };
 // ===============================
 
