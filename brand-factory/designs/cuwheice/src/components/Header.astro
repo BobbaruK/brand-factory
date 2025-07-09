@@ -9,6 +9,7 @@ import coins from "../assets/coins.png";
 import background from "../assets/herobg.png";
 import { cn } from "@/lib/utils";
 import { SPACING_HERO } from "@/constants/spacing";
+import { FORM_ID } from "@/constants/form-id";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -163,7 +164,7 @@ const list: {
         <Form
           componentProps={componentProps}
           button={formBtn[componentProps.lang]}
-          id="bottom-form"
+          id={FORM_ID}
           layout={2}
         />
       </div>
@@ -236,7 +237,7 @@ const list: {
         }
       }
       button {
-        @apply text-xl uppercase;
+        @apply sm:h-9 text-xl uppercase;
       }
     }
   }
