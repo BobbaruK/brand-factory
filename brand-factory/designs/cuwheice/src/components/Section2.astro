@@ -1,0 +1,141 @@
+---
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import background from "../assets/bgs2.png";
+import {
+  ICON1,
+  ICON2,
+  ICON3,
+  ICON4,
+  ICON5,
+  ICON6,
+  ICON7,
+  ICON8,
+} from "@/constants/icons";
+import { buttonVariants } from "./ui/button";
+import { FORM_ID } from "@/constants/form-id";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Dominate the charts with these coins`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Domina los gráficos con estas monedas`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const list: {
+  title: TranslationsType;
+  data: {
+    icon: string;
+    label: string;
+  }[];
+} = {
+  title: {
+    en: `Master trading strategies on top cryptocurrencies:`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: `Domina estrategias de trading con las criptomonedas más importantes:`,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  data: [
+    { icon: ICON1, label: "Bitcoin (BTC)" },
+    { icon: ICON2, label: "Litecoin (LTC)" },
+    { icon: ICON3, label: "Dash (DASH)" },
+    { icon: ICON4, label: "Dogecoin (DOGE)" },
+    { icon: ICON5, label: "Stellar (XLM)" },
+    { icon: ICON6, label: "Ripple (XRP)" },
+    { icon: ICON7, label: "Solana (SOL)" },
+    { icon: ICON8, label: "Ethereum (ETH)" },
+  ],
+};
+
+const btnLabel: TranslationsType = {
+  en: `Start learning today`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Comienza a aprender hoy`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section2" class="section2 py-custom-spacing relative text-white">
+  <Image
+    src={background}
+    alt="Background"
+    class={cn(
+      "absolute inset-0 z-0 h-full w-full object-cover pointer-events-none",
+      // componentProps.lang === "ar" ? "scale-[-1] " : "",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+    loading={"eager"}
+  />
+  <div class="gap-custom-spacing relative z-10 container flex flex-col">
+    <h2
+      set:html={title[componentProps.lang]}
+      class="text-heading2 font-black uppercase"
+    />
+    <p set:html={list.title[componentProps.lang]} class="text-para-lead" />
+
+    <div class="gap-y-custom-spacing flex flex-wrap">
+      {
+        list.data.map((item) => (
+          <div class="flex w-full items-center gap-6 sm:w-1/2 xl:w-3/12">
+            <div
+              set:html={item.icon}
+              class="size-[clamp(3.125rem,_2.7083rem_+_2.0833vw,_4.375rem)]"
+            />
+            <div set:html={item.label} class="text-para-lead" />
+          </div>
+        ))
+      }
+    </div>
+
+    <a
+      class={cn(
+        `${buttonVariants({
+          variant: "white",
+        })} w-fit text-xl uppercase font-black px-6 sm:px-10 py-3 text-center`,
+      )}
+      href={`#${FORM_ID}`}
+      set:html={btnLabel[componentProps.lang]}
+    />
+  </div>
+</section>
