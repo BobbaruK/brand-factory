@@ -8,6 +8,7 @@ import { Image } from "astro:assets";
 import coins from "../assets/coins.png";
 import background from "../assets/herobg.png";
 import { cn } from "@/lib/utils";
+import { SPACING_HERO } from "@/constants/spacing";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -183,24 +184,23 @@ const list: {
       </div>
     </div>
   </div>
+  <section
+    id="subHeader"
+    class={`bg-secondary z-20 h-fit relative lg:-mb-[${SPACING_HERO}px] xl:bg-transparent`}
+  >
+    <div class="xl:bg-secondary container rounded-md">
+      {
+        list.data.length > 0 && (
+          <ol class="text-custom-size flex list-inside list-decimal flex-wrap justify-around gap-4 py-6 font-black">
+            {list.data.map((li) => (
+              <li set:html={li[componentProps.lang]} />
+            ))}
+          </ol>
+        )
+      }
+    </div>
+  </section>
 </header>
-
-<section
-  id="subHeader"
-  class="bg-secondary h-fit lg:relative lg:-top-[36px] xl:bg-transparent"
->
-  <div class="xl:bg-secondary container rounded-md">
-    {
-      list.data.length > 0 && (
-        <ol class="flex list-inside list-decimal flex-wrap justify-around gap-4 py-6 font-black">
-          {list.data.map((li) => (
-            <li set:html={li[componentProps.lang]} />
-          ))}
-        </ol>
-      )
-    }
-  </div>
-</section>
 
 <style lang="scss" is:global>
   @reference "../styles/global.css";
