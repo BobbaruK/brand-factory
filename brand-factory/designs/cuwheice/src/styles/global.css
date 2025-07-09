@@ -53,6 +53,8 @@
     1.25rem
   ); /* 18 - 20 ; 320 - 1280 */
   --text-custom-size--line-height: 1.1;
+
+  --spacing-custom-spacing: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
 }
 
 @theme inline {

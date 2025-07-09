@@ -51,7 +51,8 @@ const lpType: LandingPageType = "classic";
 const features = checkFeatures([
   // Features.showcase,
   // Features.readyForMail,
-  Features.outbrain,
+  // Features.outbrain,
+  Features.type5,
   // Features.atheneum,
   // Features.officialTerms,
   // Features.policyInFooter,
@@ -59,7 +60,7 @@ const features = checkFeatures([
 const registrationType: RegistrationType = "classic";
 const whatsapp = false;
 const fxoroFooter: boolean = false;
-const drThankYou: boolean = false;
+const drThankYou: boolean = true;
 const customOptions: CustomOptions = {
   logoSquare: false,
 };
@@ -88,5 +89,5 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
 ---
 
 <Layout componentProps={componentProps} metaDescription={metaDescription}>
-  <Section1 componentProps={componentProps} />
+  <!-- <Section1 componentProps={componentProps} /> -->
 </Layout>

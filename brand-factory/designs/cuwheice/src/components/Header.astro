@@ -2,19 +2,242 @@
 import { type CustomOptions } from "@/pages/index.astro";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import Form from "../../../../globals/components/form";
+import { Image } from "astro:assets";
+import coins from "../assets/coins.png";
+import background from "../assets/herobg.png";
+import { cn } from "@/lib/utils";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Crypto signals. Smarter trading.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Señales cripto. Operaciones más inteligentes.`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const formBtn: TranslationsType = {
+  en: `Get my signals now`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Recibir mis señales ahora`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const list: {
+  title: TranslationsType;
+  data: TranslationsType[];
+} = {
+  title: {
+    en: `Get started in 3 easy steps:`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: `Comienza en 3 pasos sencillos:`,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  data: [
+    {
+      en: `Fill in the form below`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `Rellena el formulario abajo`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    {
+      en: `Activate your account by email`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `Activa tu cuenta por correo electrónico`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    {
+      en: `Start receiving powerful crypto trading signals`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: `Comienza a recibir poderosas señales de trading en criptomonedas`,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  ],
+};
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header id="header" class="relative">
+  <Image
+    src={background}
+    alt="Background"
+    class={cn(
+      "absolute inset-0 z-0 h-full w-full object-cover pointer-events-none",
+      // componentProps.lang === "ar" ? "scale-[-1] " : "",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+    loading={"eager"}
+  />
+  <div class="relative z-10">
+    <div class="pt-custom-spacing container text-white">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+    <div
+      class="pt-custom-spacing gap-custom-spacing container grid lg:grid-cols-[1fr_450px] lg:pb-[calc(var(--spacing-custom-spacing)_*_2)]"
+    >
+      <div class="flex items-end text-white">
+        <h1
+          set:html={title[componentProps.lang]}
+          class="text-heading1 max-w-[20ch] font-black uppercase"
+        />
+      </div>
+      <div
+        class="bg-background rounded-[20px] p-4 sm:px-10 sm:py-8 lg:col-start-2 lg:row-start-1 lg:row-end-3"
+      >
+        <Form
+          componentProps={componentProps}
+          button={formBtn[componentProps.lang]}
+          id="bottom-form"
+          layout={2}
+        />
+      </div>
+      <div>
+        <Image
+          src={coins}
+          alt="50%"
+          class={cn("", componentProps.lang === "ar" ? "" : "")}
+          widths={[320, 576, 640, 768, 1024, 1280, 1536, coins.width]}
+          sizes={`
+            (max-width: 320px) 288px,
+            (max-width: 636px) 604px,
+            (max-width: 768px) 721px,
+            (max-width: 1081px) 564px,
+            758px
+          `}
+        />
+      </div>
+    </div>
   </div>
 </header>
+
+<section
+  id="subHeader"
+  class="bg-secondary h-fit lg:relative lg:-top-[36px] xl:bg-transparent"
+>
+  <div class="xl:bg-secondary container rounded-md">
+    {
+      list.data.length > 0 && (
+        <ol class="flex list-inside list-decimal flex-wrap justify-around gap-4 py-6 font-black">
+          {list.data.map((li) => (
+            <li set:html={li[componentProps.lang]} />
+          ))}
+        </ol>
+      )
+    }
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  @reference "../styles/global.css";
+
+  form.registerForm {
+    input,
+    select {
+      @apply text-slate-800;
+    }
+    input[disabled] {
+      // color: white;
+    }
+
+    .form-control {
+      label {
+        font-size: 1rem;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        @apply border-gray-500 px-7;
+        // border: medium none;
+        // max-width: 100%;
+        // padding: 5px 15px;
+        // transition: 350ms;
+        // width: 100%;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      button {
+        @apply text-xl uppercase;
+      }
+    }
+  }
+</style>
