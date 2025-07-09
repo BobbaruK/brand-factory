@@ -1,9 +1,5 @@
 ---
-import { cn } from "@/lib/utils";
-import { Image } from "astro:assets";
-import type { ComponentProps } from "../../../../globals/types/component-props";
-import type { TranslationsType } from "../../../../globals/types/translations";
-import background from "../assets/bgs2.png";
+import { FORM_ID } from "@/constants/form-id";
 import {
   ICON1,
   ICON2,
@@ -14,8 +10,14 @@ import {
   ICON7,
   ICON8,
 } from "@/constants/icons";
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import background from "../assets/bgs2.png";
 import { buttonVariants } from "./ui/button";
-import { FORM_ID } from "@/constants/form-id";
 
 interface Props {
   componentProps: ComponentProps;
@@ -109,10 +111,21 @@ const btnLabel: TranslationsType = {
   />
   <div class="gap-custom-spacing relative z-10 container flex flex-col">
     <h2
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
       class="text-heading2 font-black uppercase"
     />
-    <p set:html={list.title[componentProps.lang]} class="text-para-lead" />
+    <p
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+          })
+        : list.title[componentProps.lang]}
+      class="text-para-lead"
+    />
 
     <div class="gap-y-custom-spacing flex flex-wrap">
       {
@@ -122,7 +135,16 @@ const btnLabel: TranslationsType = {
               set:html={item.icon}
               class="size-[clamp(3.125rem,_2.7083rem_+_2.0833vw,_4.375rem)]"
             />
-            <div set:html={item.label} class="text-para-lead" />
+            <div
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 2,
+                    })
+                  : item.label
+              }
+              class="text-para-lead"
+            />
           </div>
         ))
       }
@@ -134,8 +156,12 @@ const btnLabel: TranslationsType = {
           variant: "white",
         })} w-fit text-xl uppercase font-black px-6 sm:px-10 py-3 text-center`,
       )}
-      href={`#${FORM_ID}`}
-      set:html={btnLabel[componentProps.lang]}
+      href={`#wrapper-${FORM_ID}`}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 3,
+          })
+        : btnLabel[componentProps.lang]}
     />
   </div>
 </section>

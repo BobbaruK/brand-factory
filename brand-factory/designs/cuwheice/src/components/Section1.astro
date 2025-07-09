@@ -5,6 +5,8 @@ import type { TranslationsType } from "../../../../globals/types/translations";
 import { cn } from "@/lib/utils";
 import { Image } from "astro:assets";
 import handPhone from "../assets/hand-with-phone.png";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps;
@@ -71,13 +73,23 @@ const paras: TranslationsType[] = [
   <div class="py-custom-spacing container flex flex-wrap space-y-6">
     <div class="gap-custom-spacing flex flex-col justify-center lg:w-7/12">
       <h2
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
         class="text-heading2 font-black uppercase"
       />
       {
         paras.map((p, index) => (
           <p
-            set:html={p[componentProps.lang]}
+            set:html={
+              componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 30,
+                  })
+                : p[componentProps.lang]
+            }
             class={cn(`text-para-lead`, {
               "font-bold": index === 1,
             })}

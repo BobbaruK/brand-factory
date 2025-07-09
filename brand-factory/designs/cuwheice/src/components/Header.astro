@@ -10,6 +10,8 @@ import background from "../assets/herobg.png";
 import { cn } from "@/lib/utils";
 import { SPACING_HERO } from "@/constants/spacing";
 import { FORM_ID } from "@/constants/form-id";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -154,16 +156,25 @@ const list: {
     >
       <div class="flex items-end text-white">
         <h1
-          set:html={title[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 5,
+              })
+            : title[componentProps.lang]}
           class="text-heading1 max-w-[20ch] font-black uppercase"
         />
       </div>
       <div
+        id={`wrapper-${FORM_ID}`}
         class="bg-background rounded-[20px] p-4 sm:px-10 sm:py-8 lg:col-start-2 lg:row-start-1 lg:row-end-3"
       >
         <Form
           componentProps={componentProps}
-          button={formBtn[componentProps.lang]}
+          button={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : formBtn[componentProps.lang]}
           id={FORM_ID}
           layout={2}
         />
@@ -194,7 +205,15 @@ const list: {
         list.data.length > 0 && (
           <ol class="text-custom-size flex list-inside list-decimal flex-wrap justify-around gap-4 py-6 font-black">
             {list.data.map((li) => (
-              <li set:html={li[componentProps.lang]} />
+              <li
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 5,
+                      })
+                    : li[componentProps.lang]
+                }
+              />
             ))}
           </ol>
         )
@@ -237,7 +256,7 @@ const list: {
         }
       }
       button {
-        @apply sm:h-9 text-xl uppercase;
+        @apply text-xl uppercase sm:h-9;
       }
     }
   }
