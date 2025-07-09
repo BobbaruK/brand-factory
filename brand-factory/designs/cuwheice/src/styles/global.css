@@ -12,26 +12,18 @@
 
 @theme {
   --text-heading1: clamp(
-    1.125rem,
-    0.6667rem + 2.2917vw,
-    2.5rem
-  ); /* 18 - 40 ; 320 - 1280 */
-  --text-heading1--line-height: clamp(
     1.25rem,
     0.75rem + 2.5vw,
     2.75rem
   ); /* 20 - 44 ; 320 - 1280 */
+  --text-heading1--line-height: 1.1;
 
   --text-heading2: clamp(
-    1.125rem,
-    0.8333rem + 1.4583vw,
-    2rem
-  ); /* 18 - 32 ; 320 - 1280 */
-  --text-heading2--line-height: clamp(
     1.25rem,
-    0.8333rem + 2.0833vw,
-    2.5rem
-  ); /* 20 - 40 ; 320 - 1280 */
+    0.9167rem + 1.6667vw,
+    2.25rem
+  ); /* 20 - 336 ; 320 - 1280 */ /* wtf */
+  --text-heading2--line-height: 1.1;
 
   --text-heading3: clamp(
     1rem,
@@ -45,15 +37,22 @@
   ); /* 20 - 32 ; 320 - 1280 */
 
   --text-para-lead: clamp(
-    1rem,
-    0.9167rem + 0.4167vw,
-    1.25rem
-  ); /* 16 - 20 ; 320 - 1280 */
+    1.125rem,
+    1rem + 0.625vw,
+    1.5rem
+  ); /* 18 - 24 ; 320 - 1280 */
   --text-para-lead--line-height: clamp(
-    1.25rem,
-    1rem + 1.25vw,
+    1.75rem,
+    1.6667rem + 0.4167vw,
     2rem
-  ); /* 20 - 32 ; 320 - 1280 */
+  ); /* 28 - 32 ; 320 - 1280 */
+
+  --text-custom-size: clamp(
+    1.125rem,
+    1.0833rem + 0.2083vw,
+    1.25rem
+  ); /* 18 - 20 ; 320 - 1280 */
+  --text-custom-size--line-height: 1.1;
 }
 
 @theme inline {
@@ -95,16 +94,16 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 3.2rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
+  --primary: oklch(0.55 0.13 247.52);
   --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
+  --secondary: oklch(0.81 0.17 76.62);
   --secondary-foreground: oklch(0.208 0.042 265.755);
   --muted: oklch(0.968 0.007 247.896);
   --muted-foreground: oklch(0.554 0.046 257.417);

@@ -5,6 +5,8 @@ import BackToTop from "../../../../globals/components/back-to-top/back-to-top.as
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import "../styles/global.css";
+import "@fontsource/lato/400.css";
+import "@fontsource/lato/900.css";
 
 interface Props {
   componentProps: ComponentProps;
@@ -67,6 +69,10 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
           scroll-behavior: auto;
         }
       }
+
+      body {
+        font-family: "Lato", sans-serif;
+      }
     </style>
   </head>
   <body>
@@ -77,7 +83,7 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    
+
     <BackToTop />
     <script
       type="module"
