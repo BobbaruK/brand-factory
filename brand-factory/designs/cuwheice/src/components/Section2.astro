@@ -130,10 +130,10 @@ const btnLabel: TranslationsType = {
     <div class="gap-y-custom-spacing flex flex-wrap">
       {
         list.data.map((item) => (
-          <div class="flex w-full items-center gap-6 sm:w-1/2 xl:w-3/12">
+          <div class="flex w-full items-center gap-4 sm:w-1/2 xl:w-3/12">
             <div
               set:html={item.icon}
-              class="size-[clamp(3.125rem,_2.7083rem_+_2.0833vw,_4.375rem)]"
+              class="size-[clamp(3.125rem,_2.7083rem_+_2.0833vw,_4.375rem)] [&_svg]:size-full"
             />
             <div
               set:html={

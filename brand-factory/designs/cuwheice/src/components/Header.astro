@@ -198,14 +198,15 @@ const list: {
   </div>
   <section
     id="subHeader"
-    class={`bg-secondary z-20 h-fit relative lg:-mb-[${SPACING_HERO}px] xl:bg-transparent`}
+    class={`bg-secondary z-20 h-fit relative xl:bg-transparent xl:translate-y-1/2`}
   >
     <div class="xl:bg-secondary container rounded-md">
       {
         list.data.length > 0 && (
-          <ol class="text-custom-size flex list-inside list-decimal flex-wrap justify-around gap-4 py-6 font-black">
+          <ol class="text-custom-size flex list-inside list-decimal flex-wrap sm:justify-around gap-4 py-6 font-black">
             {list.data.map((li) => (
               <li
+                class="sm:text-center text-balance"
                 set:html={
                   componentProps.features?.includes(Features.showcase)
                     ? showcase({
@@ -254,6 +255,14 @@ const list: {
         }
         &::placeholder {
         }
+      }
+      select {
+        -webkit-appearance: none;
+
+        background-image: url('../assets/select-chevron.svg');
+        background-repeat: no-repeat;
+        background-position: top right;
+        background-size: auto 100%;
       }
       button {
         @apply text-xl uppercase sm:h-9;
