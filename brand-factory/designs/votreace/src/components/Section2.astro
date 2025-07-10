@@ -1,0 +1,159 @@
+---
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import background from "../assets/s2-bg.png";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Track these indices smarter`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: `Use our signals to trade some of the most watched indices in the world:`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const lists: string[][] = [
+  ["LATAM30", "SP500", "DUBAI INDEX", "NIFTY50"],
+  ["NASDAQ100", "NIKKEI225", "DAX40", "DOW JONES30"],
+];
+
+const buttonLabel: TranslationsType = {
+  en: `Start getting signals now`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section2" class="section2 py-custom-spacing relative">
+  <Image
+    src={background}
+    alt="Background"
+    class={cn(
+      "absolute inset-0 z-0 h-full w-full object-cover pointer-events-none",
+      // componentProps.lang === "ar" ? "scale-[-1] " : "",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+  />
+  <div
+    class="gap-custom-spacing relative z-10 container flex flex-col text-white"
+  >
+    <h2
+      set:html={title[componentProps.lang]}
+      class="text-heading2 font-black uppercase"
+    />
+    <p set:html={para[componentProps.lang]} class="text-custom-size" />
+    <div class="sm:flex sm:flex-wrap sm:justify-between">
+      {
+        lists[0].length > 0 && (
+          <ul class="order-1 flex list-inside list-disc flex-col gap-2">
+            {lists[0].map((li) => (
+              <li class="text-custom-size flex items-center gap-2">
+                <div class="text-accent relative -top-1 text-3xl leading-0">
+                  &bull;
+                </div>
+                <span
+                  set:html={li}
+                  dir={componentProps.lang === "ar" ? "rtl" : "ltr"}
+                />
+              </li>
+            ))}
+          </ul>
+        )
+      }
+      {
+        lists[1].length > 0 && (
+          <ul class="custom-direction order-2 flex list-inside list-disc flex-col gap-2 max-sm:mt-2 lg:order-3">
+            {lists[1].map((li) => (
+              <li class="text-custom-size flex items-center gap-2">
+                <div class="text-accent relative -top-1 text-3xl leading-0">
+                  &bull;
+                </div>
+                <span
+                  set:html={li}
+                  dir={componentProps.lang === "ar" ? "rtl" : "ltr"}
+                />
+              </li>
+            ))}
+          </ul>
+        )
+      }
+      <div
+        class="order-3 max-lg:w-full sm:grid sm:place-items-center lg:order-2"
+      >
+        <Button
+          className="js-modal-trigger"
+          variant={"white"}
+          className={cn(
+            "js-modal-trigger",
+            "text-custom-size! text-primary max-lg:mt-custom-spacing font-black uppercase",
+          )}>{buttonLabel[componentProps.lang]}</Button
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  html[dir="ltr"] {
+    .custom-direction {
+      @media (min-width: 636px) {
+        direction: rtl;
+      }
+    }
+  }
+  html[dir="rtl"] {
+    .custom-direction {
+      @media (min-width: 636px) {
+        direction: ltr;
+      }
+    }
+  }
+</style>
