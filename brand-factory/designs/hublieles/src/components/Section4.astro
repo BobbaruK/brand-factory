@@ -7,7 +7,7 @@ import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { textBy } from "../../../../globals/utils/text-by";
 import laptopDude from "../assets/laptopdude.png";
-import phones from "../assets/phones.png";
+import phones from "../assets/phone-v2.png";
 import { Button, buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
 
@@ -40,7 +40,7 @@ const title: TranslationsType = textBy(
       it: ``,
       tr: ``,
       ro: ``,
-      ar: `مخططات متقدمة. ميزة آنية في التداول`,
+      ar: `فهم أعمق. أدوات استثمار أذكى.`,
       de: ``,
       es: ``,
       sv: ``,
@@ -81,7 +81,7 @@ const para1: TranslationsType = textBy(
       it: ``,
       tr: ``,
       ro: ``,
-      ar: `ارتقِ بتجربتك في التداول إلى المستوى التالي مع تطبيق TradingView — منصة قوية يعتمد عليها ملايين المستخدمين حول العالم. بفضل أدوات التحليل البياني المتقدمة، ودعم الشاشات المتعددة بسلاسة، وبيانات حية من الأسواق العالمية، ستحصل على رؤية أعمق وتنفيذ أسرع للصفقات.`,
+      ar: ` ارتقِ بتعلمك المالي مع أكاديمية خان — مصدر موثوق للملايين حول العالم. من أساسيات سوق الأسهم إلى استراتيجيات الاستثمار المتقدمة، تساعدك دروسنا المجانية والمدعومة من خبراء على بناء المعرفة والثقة.`,
       de: ``,
       es: ``,
       sv: ``,
@@ -122,7 +122,7 @@ const para2: TranslationsType = textBy(
       it: ``,
       tr: ``,
       ro: ``,
-      ar: `خصّص مساحة عملك، وتتبّع تحرّكات الأسعار بدقة، وراقب الاتجاهات كما يفعل المحترفون. سواء كنت تتداول يوميًا أو تطوّر استراتيجيات طويلة الأجل، فإن TradingView يمنحك الوضوح والتحكم اللذين تحتاجهما لتكون دائمًا في المقدمة.`,
+      ar: `شاهد الفيديوهات، اختبر فهمك من خلال التمارين التفاعلية، وتابع تقدمك خطوة بخطوة. سواء كنت مبتدئًا في عالم الاستثمار أو تطوّر مهاراتك، تمنحك أكاديمية خان الأساس لاتخاذ قرارات مالية مستنيرة.`,
       de: ``,
       es: ``,
       sv: ``,
@@ -258,7 +258,7 @@ const buttonLabel: TranslationsType = textBy(
       <Image
         src={componentProps.lang === "ar" ? phones : laptopDude}
         alt="Background"
-        class="bottom-0 -mb-10 w-full max-w-[350px] xl:absolute xl:h-[560px] xl:w-auto xl:max-w-none"
+        class="bottom-0 -mb-10 w-full max-w-[350px] xl:-mb-14 xl:absolute xl:h-[560px] xl:w-auto xl:max-w-none"
         widths={[320, 576, 640, 768, 1024, 1280, 1536, laptopDude.width]}
         sizes={`
           (max-width: 640px) 640px,
