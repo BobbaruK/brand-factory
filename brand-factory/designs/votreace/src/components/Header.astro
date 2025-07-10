@@ -1,15 +1,16 @@
 ---
+import { FORM_BUTTON_LABEL } from "@/constants/form-button-label";
 import { cn } from "@/lib/utils";
 import { type CustomOptions } from "@/pages/index.astro";
 import { Image } from "astro:assets";
+import Form from "../../../../globals/components/form";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { showcase } from "../../../../globals/features/showcase/text";
 import { type ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
-import background from "../assets/hero-bg.png";
 import head from "../assets/head.png";
-import Form from "../../../../globals/components/form";
+import background from "../assets/hero-bg.png";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -87,27 +88,10 @@ const list: TranslationsType[] = [
     vi: ``,
   },
 ];
-
-const buttonLabel: TranslationsType = {
-  en: `Get index signals now`,
-  it: ``,
-  tr: ``,
-  ro: ``,
-  ar: ``,
-  de: ``,
-  es: ``,
-  sv: ``,
-  pt: ``,
-  fi: ``,
-  pl: ``,
-  hu: ``,
-  th: ``,
-  ms: ``,
-  vi: ``,
-};
 ---
 
-<header id="header" class="pt-custom-spacing lg:py-custom-spacing relative">
+<!-- <header id="header" class="pt-custom-spacing lg:py-custom-spacing relative"> -->
+<header id="header" class="py-custom-spacing relative">
   <Image
     src={background}
     alt="Background"
@@ -148,14 +132,14 @@ const buttonLabel: TranslationsType = {
       <div class="bg-background rounded-[20px] p-4 md:p-6 lg:my-8">
         <Form
           componentProps={componentProps}
-          button={buttonLabel[componentProps.lang]}
+          button={FORM_BUTTON_LABEL[componentProps.lang]}
           id="hero-form"
           layout={1}
         />
       </div>
     </div>
   </div>
-  <Image
+  <!-- <Image
     src={head}
     alt="50%"
     class={cn(
@@ -170,7 +154,7 @@ const buttonLabel: TranslationsType = {
       (max-width: 1081px) 564px,
       758px
     `}
-  />
+  /> -->
   <div class="bg-primary/50 absolute inset-0 z-20 h-full w-full"></div>
 </header>
 

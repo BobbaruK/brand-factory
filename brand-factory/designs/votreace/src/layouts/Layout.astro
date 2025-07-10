@@ -8,6 +8,8 @@ import type { TranslationsType } from "../../../../globals/types/translations";
 import "../styles/global.css";
 import "@fontsource/lato/400.css";
 import "@fontsource/lato/900.css";
+import Form from "../../../../globals/components/form";
+import { FORM_BUTTON_LABEL } from "@/constants/form-button-label";
 
 interface Props {
   componentProps: ComponentProps;
@@ -84,7 +86,14 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    <Dialog> Dialog Content Here! </Dialog>
+    <Dialog>
+      <Form
+        componentProps={componentProps}
+        button={FORM_BUTTON_LABEL[componentProps.lang]}
+        id="modal-form"
+        layout={1}
+      />
+    </Dialog>
     <BackToTop />
     <script
       type="module"
@@ -93,11 +102,15 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
   </body>
 </html>
 
-<style>
+<style is:global>
   #site-wrapper {
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
+  }
+
+  .modal {
+    border-radius: 16px !important;
   }
 </style>
 
