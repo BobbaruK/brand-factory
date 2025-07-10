@@ -46,6 +46,10 @@ const para: TranslationsType = {
       <strong>Para lead:</strong>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur, ipsa!
     </p>
+    <p class="text-custom-size">
+      <strong>Custom size:</strong>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur, ipsa!
+    </p>
     <p
       set:html={componentProps.features?.includes(Features.showcase)
         ? showcase({ words: 50 }) + " " + showcase({ words: 30 })
@@ -58,8 +62,7 @@ const para: TranslationsType = {
       <Button variant={"link"}>Link</Button>
       <Button variant={"outline"}>Outline</Button>
     </div>
-		<Button className="js-modal-trigger">Open Modal</Button>
-
+    <Button className="js-modal-trigger">Open Modal</Button>
 
     <Form
       componentProps={componentProps}

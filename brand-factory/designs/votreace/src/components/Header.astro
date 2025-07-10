@@ -18,3 +18,51 @@ const { componentProps } = Astro.props;
     />
   </div>
 </header>
+
+<style lang="scss" is:global>
+  @reference "../styles/global.css";
+
+  form.registerForm {
+    input,
+    select {
+      @apply text-slate-800;
+    }
+    input[disabled] {
+      // color: white;
+    }
+
+    .form-control {
+      label {
+        font-size: 1rem;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        @apply border-gray-500 px-7;
+        // border: medium none;
+        // max-width: 100%;
+        // padding: 5px 15px;
+        // transition: 350ms;
+        // width: 100%;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      select {
+        -webkit-appearance: none;
+
+        background-image: url("../assets/select-chevron.svg");
+        background-repeat: no-repeat;
+        background-position: top right;
+        background-size: auto 100%;
+      }
+      button {
+        @apply text-xl uppercase sm:h-9;
+      }
+    }
+  }
+</style>
