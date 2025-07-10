@@ -1,22 +1,177 @@
 ---
+import { cn } from "@/lib/utils";
 import { type CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
+import { showcase } from "../../../../globals/features/showcase/text";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import background from "../assets/hero-bg.png";
+import head from "../assets/head.png";
+import Form from "../../../../globals/components/form";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: `Index trends. Clear signals.`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const list: TranslationsType[] = [
+  {
+    en: `Complete the form on this page`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `Activate your account on the next page`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+  {
+    en: `Get instant access to trading signals on indices`,
+    it: ``,
+    tr: ``,
+    ro: ``,
+    ar: ``,
+    de: ``,
+    es: ``,
+    sv: ``,
+    pt: ``,
+    fi: ``,
+    pl: ``,
+    hu: ``,
+    th: ``,
+    ms: ``,
+    vi: ``,
+  },
+];
+
+const buttonLabel: TranslationsType = {
+  en: `Get index signals now`,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: ``,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header id="header" class="pt-custom-spacing lg:py-custom-spacing relative">
+  <Image
+    src={background}
+    alt="Background"
+    class={cn(
+      "absolute inset-0 z-0 h-full w-full object-cover pointer-events-none",
+      // componentProps.lang === "ar" ? "scale-[-1] " : "",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+    loading={"eager"}
+  />
+  <div class="relative z-30 container flex flex-wrap gap-y-8">
+    <div class="gap-custom-spacing flex grow flex-col text-white lg:w-8/12">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+      <h1
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
+        class="text-heading1 mt-auto font-black uppercase lg:max-w-[15ch]"
+      />
+      {
+        list.length > 0 && (
+          <ol class="text-para-lead mb-auto flex list-inside list-decimal flex-col gap-4 font-black">
+            {list.map((li) => (
+              <li set:html={li[componentProps.lang]} />
+            ))}
+          </ol>
+        )
+      }
+    </div>
+    <div class="w-full lg:w-4/12">
+      <div class="bg-background rounded-[20px] p-4 md:p-6 lg:my-8">
+        <Form
+          componentProps={componentProps}
+          button={buttonLabel[componentProps.lang]}
+          id="hero-form"
+          layout={2}
+        />
+      </div>
+    </div>
   </div>
+  <Image
+    src={head}
+    alt="50%"
+    class={cn(
+      "relative z-10 scale-x-[-1] max-w-[320px] ms-auto lg:absolute top-0 end-0 bottom-0 lg:h-full lg:w-[800px] lg:max-w-none pointer-events-none",
+      componentProps.lang === "ar" ? "" : "",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, head.width]}
+    sizes={`
+      (max-width: 320px) 288px,
+      (max-width: 636px) 604px,
+      (max-width: 768px) 721px,
+      (max-width: 1081px) 564px,
+      758px
+    `}
+  />
+  <div class="bg-primary/50 absolute inset-0 z-20 h-full w-full"></div>
 </header>
 
 <style lang="scss" is:global>
@@ -39,7 +194,7 @@ const { componentProps } = Astro.props;
       input[type="email"],
       input[type="tel"],
       select {
-        @apply border-gray-500 px-7;
+        @apply border-gray-500 md:px-4;
         // border: medium none;
         // max-width: 100%;
         // padding: 5px 15px;
