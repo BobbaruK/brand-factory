@@ -122,7 +122,15 @@ const list: TranslationsType[] = [
         list.length > 0 && (
           <ol class="text-para-lead mb-auto flex list-inside list-decimal flex-col gap-4 font-black text-balance lg:max-w-[40ch]">
             {list.map((li) => (
-              <li set:html={li[componentProps.lang]} />
+              <li
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 5,
+                      })
+                    : li[componentProps.lang]
+                }
+              />
             ))}
           </ol>
         )

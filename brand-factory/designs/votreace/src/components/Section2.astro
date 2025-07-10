@@ -1,7 +1,9 @@
 ---
 import { cn } from "@/lib/utils";
 import { Image } from "astro:assets";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import background from "../assets/s2-bg.png";
 import { Button } from "./ui/button";
@@ -86,10 +88,21 @@ const buttonLabel: TranslationsType = {
     class="gap-custom-spacing relative z-10 container flex flex-col text-white"
   >
     <h2
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
       class="text-heading2 font-black uppercase"
     />
-    <p set:html={para[componentProps.lang]} class="text-custom-size" />
+    <p
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 15,
+          })
+        : para[componentProps.lang]}
+      class="text-custom-size"
+    />
     <div class="sm:flex sm:flex-wrap sm:justify-between">
       {
         lists[0].length > 0 && (
@@ -100,7 +113,13 @@ const buttonLabel: TranslationsType = {
                   &bull;
                 </div>
                 <span
-                  set:html={li}
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({
+                          words: 2,
+                        })
+                      : li
+                  }
                   dir={componentProps.lang === "ar" ? "rtl" : "ltr"}
                 />
               </li>
@@ -117,7 +136,13 @@ const buttonLabel: TranslationsType = {
                   &bull;
                 </div>
                 <span
-                  set:html={li}
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({
+                          words: 2,
+                        })
+                      : li
+                  }
                   dir={componentProps.lang === "ar" ? "rtl" : "ltr"}
                 />
               </li>

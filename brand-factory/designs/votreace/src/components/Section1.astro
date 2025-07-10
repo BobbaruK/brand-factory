@@ -4,6 +4,8 @@ import { Image } from "astro:assets";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import graphMan from "../assets/graph-man.png";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps;
@@ -73,13 +75,23 @@ Al reflejar el rendimiento de sectores o regiones enteras, son populares tanto p
       class="gap-custom-spacing py-custom-spacing flex w-full flex-col lg:order-2 lg:w-7/12 lg:text-end"
     >
       <h2
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
         class="text-heading2 font-black uppercase"
       />
       {
         paras.map((para) => (
           <div
-            set:html={para[componentProps.lang]}
+            set:html={
+              componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 30,
+                  })
+                : para[componentProps.lang]
+            }
             class="text-custom-size text-balance"
           />
         ))
