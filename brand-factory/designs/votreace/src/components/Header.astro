@@ -24,7 +24,7 @@ const title: TranslationsType = {
   ro: ``,
   ar: ``,
   de: ``,
-  es: ``,
+  es: `Tendencias de índices. Señales claras.`,
   sv: ``,
   pt: ``,
   fi: ``,
@@ -43,7 +43,7 @@ const list: TranslationsType[] = [
     ro: ``,
     ar: ``,
     de: ``,
-    es: ``,
+    es: `Completa el formulario en esta página`,
     sv: ``,
     pt: ``,
     fi: ``,
@@ -60,7 +60,7 @@ const list: TranslationsType[] = [
     ro: ``,
     ar: ``,
     de: ``,
-    es: ``,
+    es: `Activa tu cuenta en la página siguiente`,
     sv: ``,
     pt: ``,
     fi: ``,
@@ -77,7 +77,7 @@ const list: TranslationsType[] = [
     ro: ``,
     ar: ``,
     de: ``,
-    es: ``,
+    es: `Obtén acceso inmediato a señales de trading en índices`,
     sv: ``,
     pt: ``,
     fi: ``,
@@ -116,11 +116,11 @@ const list: TranslationsType[] = [
               words: 5,
             })
           : title[componentProps.lang]}
-        class="text-heading1 mt-auto font-black uppercase lg:max-w-[15ch]"
+        class="text-heading1 mt-auto font-black text-balance uppercase lg:max-w-[15ch]"
       />
       {
         list.length > 0 && (
-          <ol class="text-para-lead mb-auto flex list-inside list-decimal flex-col gap-4 font-black">
+          <ol class="text-para-lead mb-auto flex list-inside list-decimal flex-col gap-4 font-black text-balance lg:max-w-[40ch]">
             {list.map((li) => (
               <li set:html={li[componentProps.lang]} />
             ))}
@@ -200,7 +200,7 @@ const list: TranslationsType[] = [
         background-size: auto 100%;
       }
       button {
-        @apply text-xl uppercase sm:h-9;
+        @apply text-xl uppercase;
       }
     }
   }

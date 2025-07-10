@@ -7,7 +7,7 @@ export const FORM_BUTTON_LABEL: TranslationsType = {
   ro: ``,
   ar: ``,
   de: ``,
-  es: ``,
+  es: `Obtén señales de índices ahora`,
   sv: ``,
   pt: ``,
   fi: ``,
