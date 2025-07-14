@@ -6,7 +6,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/lp/crypto-signals/en/",
+  // base: "/lp/crypto-signals/en/",
+  base: "/lp/crypto-signals/es/",
   trailingSlash: "ignore",
   integrations: [react()],
 
