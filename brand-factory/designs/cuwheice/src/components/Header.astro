@@ -203,10 +203,10 @@ const list: {
     <div class="xl:bg-secondary container rounded-md">
       {
         list.data.length > 0 && (
-          <ol class="text-custom-size flex list-inside list-decimal flex-wrap sm:justify-around gap-4 py-6 font-black">
+          <ol class="text-custom-size flex list-inside list-decimal flex-wrap gap-4 py-6 font-black sm:justify-around">
             {list.data.map((li) => (
               <li
-                class="sm:text-center text-balance"
+                class="text-balance sm:text-center"
                 set:html={
                   componentProps.features?.includes(Features.showcase)
                     ? showcase({
@@ -259,13 +259,23 @@ const list: {
       select {
         -webkit-appearance: none;
 
-        background-image: url('../assets/select-chevron.svg');
+        background-image: url("../assets/select-chevron.svg");
         background-repeat: no-repeat;
         background-position: top right;
         background-size: auto 100%;
       }
       button {
         @apply text-xl uppercase sm:h-9;
+      }
+    }
+  }
+
+  html[dir="rtl"] {
+    form.registerForm {
+      .form-control {
+        select {
+          background-position: top left;
+        }
       }
     }
   }
