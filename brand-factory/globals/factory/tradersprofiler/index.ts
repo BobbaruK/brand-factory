@@ -20,22 +20,52 @@ export const tradersprofiler = ({
     nameToLower: "tradersprofiler",
     name: "Traders Profiler",
     typage: {
-      en: "https://tradersprofiler.com/thankyou/en/",
-      it: "https://tradersprofiler.com/thankyou/it/",
-      tr: "https://tradersprofiler.com/thankyou/tr/",
-      ro: "https://tradersprofiler.com/thankyou/ro/",
-      ar: "https://tradersprofiler.com/thankyou/ar/",
-      de: "https://tradersprofiler.com/thankyou/de/",
-      es: "https://tradersprofiler.com/thankyou/es/",
-      sv: "https://tradersprofiler.com/thankyou/sv/",
-      pt: "https://tradersprofiler.com/thankyou/pt/",
-      fi: "https://tradersprofiler.com/thankyou/fi/",
-      pl: "https://tradersprofiler.com/thankyou/pl/",
-      hu: "https://tradersprofiler.com/thankyou/hu/",
-      th: "https://tradersprofiler.com/thankyou/th/",
-      ms: "https://tradersprofiler.com/thankyou/ms/",
-      vi: "https://tradersprofiler.com/thankyou/vi/",
-    },
+    en: drThankYou
+      ? `https://tradersprofiler.com/thankyou/dr/en/`
+      : `https://tradersprofiler.com/thankyou/en/`,
+    it: drThankYou
+      ? `https://tradersprofiler.com/thankyou/dr/it/`
+      : `https://tradersprofiler.com/thankyou/it/`,
+    tr: drThankYou
+      ? `https://tradersprofiler.com/thankyou/dr/tr/`
+      : `https://tradersprofiler.com/thankyou/tr/`,
+    ro: drThankYou
+      ? `https://tradersprofiler.com/thankyou/dr/ro/`
+      : `https://tradersprofiler.com/thankyou/ro/`,
+    ar: drThankYou
+      ? `https://tradersprofiler.com/thankyou/dr/ar/`
+      : `https://tradersprofiler.com/thankyou/ar/`,
+    de: drThankYou
+      ? `https://tradersprofiler.com/thankyou/dr/de/`
+      : `https://tradersprofiler.com/thankyou/de/`,
+    es: drThankYou
+      ? `https://tradersprofiler.com/thankyou/dr/es/`
+      : `https://tradersprofiler.com/thankyou/es/`,
+    sv: drThankYou
+      ? `https://tradersprofiler.com/thankyou/dr/sv/`
+      : `https://tradersprofiler.com/thankyou/sv/`,
+    pt: drThankYou
+      ? `https://tradersprofiler.com/thankyou/dr/pt/`
+      : `https://tradersprofiler.com/thankyou/pt/`,
+    fi: drThankYou
+      ? `https://tradersprofiler.com/thankyou/dr/fi/`
+      : `https://tradersprofiler.com/thankyou/fi/`,
+    pl: drThankYou
+      ? `https://tradersprofiler.com/thankyou/dr/pl/`
+      : `https://tradersprofiler.com/thankyou/pl/`,
+    hu: drThankYou
+      ? `https://tradersprofiler.com/thankyou/dr/hu/`
+      : `https://tradersprofiler.com/thankyou/hu/`,
+    th: drThankYou
+      ? `https://tradersprofiler.com/thankyou/dr/th/`
+      : `https://tradersprofiler.com/thankyou/th/`,
+    ms: drThankYou
+      ? `https://tradersprofiler.com/thankyou/dr/ms/`
+      : `https://tradersprofiler.com/thankyou/ms/`,
+    vi: drThankYou
+      ? `https://tradersprofiler.com/thankyou/dr/vi/`
+      : `https://tradersprofiler.com/thankyou/vi/`,
+  },
     recaptchaKey: "6LeNcU4rAAAAAF27YGiKuEBjnKWf9-zSFX7z5BPL",
     privacyLink: {
       en: "https://tradersprofiler.com/privacypolicy/en/",
