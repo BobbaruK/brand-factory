@@ -3,6 +3,7 @@ import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
 import Section4 from "@/components/Section4.astro";
+import SectionPayment from "../../../../globals/components/section-payment/Section-Payment.astro";
 import { brandFactory } from "../../../../globals/factory";
 import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
@@ -48,7 +49,7 @@ const metaDescription: TranslationsType = {
   ms: "",
   vi: "",
 };
-const lang: Languages = "ar";
+const lang: Languages = "es";
 const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
@@ -94,5 +95,10 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
   <Section1 componentProps={componentProps} />
   <Section2 componentProps={componentProps} />
   <Section3 componentProps={componentProps} />
+  {
+    componentProps.lang === "es" && (
+      <SectionPayment componentProps={componentProps} />
+    )
+  }
   <Section4 componentProps={componentProps} />
 </Layout>
