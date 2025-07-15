@@ -7,8 +7,8 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   // base: "/cashback-offer/en/",
-  // base: "/cashback-offer/es/",
-  base: "/cashback-offer/ar/",
+  base: "/cashback-offer/es/",
+  // base: "/cashback-offer/ar/",
   trailingSlash: "ignore",
   integrations: [react()],
 
