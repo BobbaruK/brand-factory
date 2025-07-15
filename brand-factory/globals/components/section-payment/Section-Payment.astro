@@ -1,0 +1,162 @@
+---
+import BBVA from "../logos/misc/BBVA/bbva.astro";
+import Khipu from "../logos/misc/Khipu/khipu.astro";
+import Oxxo from "../logos/misc/Oxxo/oxxo.astro";
+import Pago from "../logos/misc/Pago-efectivo/pago.astro";
+import Spei from "../logos/misc/Spei/spei.astro";
+import WebPay from "../logos/misc/Web-Pay/web-pay.astro";
+import { showcase } from "../../features/showcase/text";
+import type { ComponentProps } from "../../types/component-props";
+import { Features } from "../../types/enums";
+import type { TranslationsType } from "../../types/translations";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = {
+  en: ``,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `Opciones de pago locales que conoces, del bróker en el que confías`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+
+const para: TranslationsType = {
+  en: ``,
+  it: ``,
+  tr: ``,
+  ro: ``,
+  ar: ``,
+  de: ``,
+  es: `${componentProps.brandObj.name} ofrece los métodos de pago más confiables y utilizados en toda LATAM, lo que facilita y asegura el fondeo de tu cuenta.`,
+  sv: ``,
+  pt: ``,
+  fi: ``,
+  pl: ``,
+  hu: ``,
+  th: ``,
+  ms: ``,
+  vi: ``,
+};
+---
+
+<section id="section-payment" class="section-payment">
+  <div class="payment-container">
+    <h2
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+      class="heading2"
+    />
+    <p
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+          })
+        : para[componentProps.lang]}
+      class="para"
+    />
+
+    <div class="payments-wrapper">
+      <BBVA />
+      <Khipu />
+      <Oxxo />
+      <Pago />
+      <Spei />
+      <WebPay />
+    </div>
+  </div>
+</section>
+
+<style lang="scss" is:global>
+  @keyframes custom-bounce {
+    0% {
+      transform: scale(1, 1) translateY(0);
+    }
+    10% {
+      transform: scale(1.1, 0.9) translateY(0);
+    }
+    30% {
+      transform: scale(0.9, 1.1) translateY(-15px);
+    }
+    50% {
+      transform: scale(1.05, 0.95) translateY(0);
+    }
+    57% {
+      transform: scale(1, 1) translateY(-7px);
+    }
+    64% {
+      transform: scale(1, 1) translateY(0);
+    }
+    100% {
+      transform: scale(1, 1) translateY(0);
+    }
+  }
+
+  .section-payment {
+    padding-block: var(--spacing-custom-spacing, 2rem);
+  }
+
+  .payment-container {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 1rem;
+    gap: var(--custom-spacing, 2rem);
+  }
+
+  .heading2 {
+    font-size: var(--text-heading2, 3rem);
+    line-height: var(--tw-leading, var(--text-heading2--line-height, 1.2));
+    font-weight: var(--font-weight-black, 900);
+    text-wrap: balance;
+    text-transform: uppercase;
+  }
+
+  .para {
+    font-size: var(--text-custom-size, 1.125rem);
+    line-height: var(--tw-leading, var(--text-custom-size--line-height, 1.2));
+  }
+
+  .payments-wrapper {
+    color: var(--primary);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+
+    @media (width >= 1024px) {
+      justify-content: space-between;
+    }
+
+    svg {
+      display: block;
+      max-height: 2.5rem;
+      width: auto;
+      transform-origin: bottom;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      &:hover {
+        animation-name: custom-bounce;
+        animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+      }
+    }
+  }
+</style>
