@@ -1,22 +1,22 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
+import "@fontsource-variable/montserrat"; // Supports weights 100-900
 import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
 import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
-import type { ComponentProps } from "../../../../globals/types/component-props";
-import "../styles/global.css";
-// Supports weights 100-900
-import "@fontsource-variable/montserrat";
 import Form from "../../../../globals/components/form";
 import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import "../styles/global.css";
 
 interface Props {
   componentProps: ComponentProps;
+  metaDescription: TranslationsType;
 }
 
-const { componentProps } = Astro.props;
+const { componentProps, metaDescription } = Astro.props;
 
 const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
 
@@ -37,7 +37,6 @@ const formButtonTranslation: TranslationsType = {
   ms: `Daftar sekarang!`,
   vi: `Đăng ký ngay!`,
 };
-
 ---
 
 <!doctype html>
@@ -66,7 +65,21 @@ const formButtonTranslation: TranslationsType = {
     />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{componentProps.lpName} | {componentProps.brandObj.name}</title>
+    <title>
+      {
+        componentProps.lpName
+          ? componentProps.lpName + " | " + componentProps.brandObj.name
+          : componentProps.brandObj.name
+      }
+    </title>
+    {
+      metaDescription[componentProps.lang] && (
+        <meta
+          name="description"
+          content={metaDescription[componentProps.lang]}
+        />
+      )
+    }
     <style>
       html {
         scroll-behavior: smooth;
