@@ -16,7 +16,7 @@ interface Props {
 const { componentProps } = Astro.props;
 
 const title: TranslationsType = {
-  en: "",
+  en: "Expand your knowledge on CFD trading.",
   it: `Impara a fare trading <strong>Gratis</strong> sui mercati finanziari con zero rischio`,
   tr: "",
   ro:
@@ -37,7 +37,7 @@ const title: TranslationsType = {
 };
 
 const paraLead: TranslationsType = {
-  en: "",
+  en: `Register for an account with ${componentProps.brandObj.name} and get your free handbook`,
   it: "Ricevi la tua guida gratuita in PDF Per imparare adesso",
   tr: "",
   ro:
@@ -58,7 +58,7 @@ const paraLead: TranslationsType = {
 };
 
 const formTitle: TranslationsType = {
-  en: "",
+  en: "Register NOW",
   it: "Registrati Ora",
   tr: "",
   ro: componentProps.license === "fsa" ? `Înregistrează-te acum` : ``,
@@ -76,7 +76,7 @@ const formTitle: TranslationsType = {
 };
 
 const formSubTitle: TranslationsType = {
-  en: "",
+  en: "to get your <strong>FREE HANDBOOK</strong>",
   it: "per ricevere la tua <strong>guida gratuita in PDF</strong>",
   tr: "",
   ro:
@@ -96,26 +96,8 @@ const formSubTitle: TranslationsType = {
   vi: "",
 };
 
-const formDisclaimer: TranslationsType = {
-  en: "",
-  it: "Attenzione: il Trading può causare la perdita del capitale investito.",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "",
-  sv: "",
-  pt: "",
-  fi: "",
-  pl: "Handel jest ryzykowny. Możesz stracić zainwestowany kapitał.",
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
-};
-
 const formButton: TranslationsType = {
-  en: "",
+  en: "Register",
   it: "Scarica la guida",
   tr: "",
   ro: componentProps.license === "fsa" ? `Primeşte ghidul` : ``,
@@ -191,12 +173,6 @@ const formButton: TranslationsType = {
           componentProps={componentProps}
           button={formButton[componentProps.lang]}
           id="form1"
-        />
-        <p
-          class="relative text-center text-sm text-white"
-          set:html={componentProps.features?.includes(Features.showcase)
-            ? showcase({ words: 10 })
-            : formDisclaimer[componentProps.lang]}
         />
       </div>
     </div>

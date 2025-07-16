@@ -6,7 +6,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/lp/cometolearn/it/",
+  // base: "/lp/cometolearn/it/",
+  // base: "/cometolearn/pl/",
+  base: "/cometolearn/en/",
   trailingSlash: "ignore",
   integrations: [react()],
 

@@ -1,10 +1,9 @@
 ---
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradingProfilerSVGVariation } from "../../../../globals/types/brands/logo";
+import { type FXOROSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
-import { Features } from "../../../../globals/types/enums";
 import type {
   LandingPageType,
   LicenseType,
@@ -25,8 +24,8 @@ export interface CustomOptions {
 /**
  * Landing page's main variables
  */
-type Logo = TradingProfilerSVGVariation;
-const brand: BrandsNames = "tradingprofiler";
+type Logo = FXOROSVGVariation;
+const brand: BrandsNames = "fxoro";
 const lpName = "";
 const metaDescription: TranslationsType = {
   en: "",
@@ -46,12 +45,13 @@ const metaDescription: TranslationsType = {
   vi: "",
 };
 const lang: Languages = "en";
-const license: LicenseType = "fsa";
+const license: LicenseType = "cysec";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
   // Features.showcase,
   // Features.readyForMail,
-  Features.outbrain,
+  // Features.outbrain,
+  // Features.type5,
   // Features.atheneum,
   // Features.officialTerms,
   // Features.policyInFooter,
