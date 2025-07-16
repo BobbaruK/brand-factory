@@ -1,36 +1,61 @@
 ---
+import type { CustomOptions } from "@/pages/index.astro";
 import { Image } from "astro:assets";
 import Form from "../../../../globals/components/form";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
 import phoneImage from "../assets/phone.png";
 import bgPattern from "../assets/topBgPattern.png";
-import { Features } from "../../../../globals/types/enums";
-import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
-  componentProps: ComponentProps;
+  componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
 
-const title: TranslationsType = {
-  en: `${componentProps.brandObj.name} gives you the ability to enter the financial markets`,
-  it: ``,
-  tr: ``,
-  ro: ``,
-  ar: `تمنحك ${componentProps.brandObj.name} القدرة على التداول في الأسواق المالية بأدوات احترافية.`,
-  de: ``,
-  es: ``,
-  sv: ``,
-  pt: ``,
-  fi: ``,
-  pl: ``,
-  hu: ``,
-  th: ``,
-  ms: ``,
-  vi: ``,
-};
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: `${componentProps.brandObj.name} gives you the ability to enter the financial markets`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: `تمنحك ${componentProps.brandObj.name} القدرة على التداول في الأسواق المالية بأدوات احترافية.`,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    cysec: {
+      en: "",
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: `${componentProps.brandObj.name} Pozwala handlować na światowych rynkach`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
 
 const para: TranslationsType = {
   en: ``,
@@ -50,23 +75,46 @@ const para: TranslationsType = {
   vi: ``,
 };
 
-const formButton: TranslationsType = {
-  en: `Start trading`,
-  it: ``,
-  tr: ``,
-  ro: ``,
-  ar: `اضغط هنا للتسجيل`,
-  de: ``,
-  es: ``,
-  sv: ``,
-  pt: ``,
-  fi: ``,
-  pl: ``,
-  hu: ``,
-  th: ``,
-  ms: ``,
-  vi: ``,
-};
+const formButton: TranslationsType = textBy(
+  {
+    default: {
+      en: `Start trading`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: `اضغط هنا للتسجيل`,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    cysec: {
+      en: "",
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: `Zacznij teraz`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
 ---
 
 <header
@@ -79,16 +127,17 @@ const formButton: TranslationsType = {
     class="absolute inset-0 z-0 h-full w-full object-cover"
     widths={[320, 576, 640, 768, 1024, 1280, 1536, bgPattern.width]}
     sizes={`
-      (max-width: 320px) 320px,
-      (max-width: 576px) 576px,
-      (max-width: 640px) 640px,
-      (max-width: 768px) 768px,
-      (max-width: 1024px) 1024px,
-      (max-width: 1280px) 1280px,
-      (max-width: 1536px) 1536px,
-      100vw
-    `}
+          (max-width: 320px) 320px,
+          (max-width: 576px) 576px,
+          (max-width: 640px) 640px,
+          (max-width: 768px) 768px,
+          (max-width: 1024px) 1024px,
+          (max-width: 1280px) 1280px,
+          (max-width: 1536px) 1536px,
+          100vw
+        `}
   />
+
   <div class="relative z-10 container py-4 [&>svg]:max-w-full">
     <MainLogo
       size={componentProps.brandObj.nameToLower}
@@ -97,7 +146,7 @@ const formButton: TranslationsType = {
     />
   </div>
   <div
-    class="md:grid-rows-v1-header-layout-md relative z-10 container grid grid-cols-1 gap-9 py-4 md:grid-cols-[1fr_50%] md:py-9 lg:grid-cols-[1fr_40%] lg:gap-y-4 lg:py-10 xl:max-w-[1140px] xl:gap-x-16 xl:py-12"
+    class="md:grid-rows-v1-header-layout-md relative z-10 container grid grid-cols-1 gap-9 py-4 md:grid-cols-[1fr_50%] md:py-9 lg:grid-cols-[1fr_40%] lg:gap-y-4 lg:py-10 xl:gap-x-16 xl:py-12"
   >
     <div>
       <h1
@@ -135,13 +184,18 @@ const formButton: TranslationsType = {
       </div>
     </div>
     <div class="grid place-items-center md:place-items-end">
-      <Image
-        src={phoneImage}
-        alt="Header Background"
-        class="-mb-80 w-full max-w-[300px] md:-mb-20 md:max-w-[260px] lg:-mb-56 lg:max-w-[320px] xl:-mb-64"
-        widths={[320, phoneImage.width]}
-        sizes={`320px`}
-      />
+      {
+        (componentProps.customOptions?.showMobileImage === undefined ||
+          componentProps.customOptions.showMobileImage === true) && (
+          <Image
+            src={phoneImage}
+            alt="Header Background"
+            class="-mb-80 w-full max-w-[300px] md:-mb-20 md:max-w-[260px] lg:-mb-56 lg:max-w-[320px] xl:-mb-64"
+            widths={[320, phoneImage.width]}
+            sizes={`320px`}
+          />
+        )
+      }
     </div>
   </div>
 </header>
@@ -242,7 +296,7 @@ const formButton: TranslationsType = {
         }
       }
       button {
-        @apply hover:bg-secondary hover:text-secondary-foreground flex h-10 gap-4 p-2 py-4 text-xl uppercase;
+        @apply bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground flex h-10 gap-4 p-2 py-4 text-xl uppercase;
       }
     }
   }

@@ -4,6 +4,7 @@ import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
 import devices from "../assets/devices.png";
 import bg from "../assets/s2BG.jpg";
 
@@ -12,23 +13,46 @@ interface Props {
 }
 const { componentProps } = Astro.props;
 
-const title: TranslationsType = {
-  en: `You can trade through:`,
-  it: ``,
-  tr: ``,
-  ro: ``,
-  ar: `يمكنك التداول من خلال:`,
-  de: ``,
-  es: ``,
-  sv: ``,
-  pt: ``,
-  fi: ``,
-  pl: ``,
-  hu: ``,
-  th: ``,
-  ms: ``,
-  vi: ``,
-};
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: `You can trade through:`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: `يمكنك التداول من خلال:`,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: ``,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+    cysec: {
+      en: "",
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: `Handlujemy za pomocą:`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
 
 const bullets: {
   mt4: {
@@ -53,7 +77,7 @@ const bullets: {
       sv: ``,
       pt: ``,
       fi: ``,
-      pl: ``,
+      pl: `MT4`,
       hu: ``,
       th: ``,
       ms: ``,
@@ -70,7 +94,7 @@ const bullets: {
       sv: ``,
       pt: ``,
       fi: ``,
-      pl: ``,
+      pl: `jest jedną z najpopularniejszych platform transakcyjnych na świecie, liczy ponad 6 milionów użytkowników i 2000 brokerów. „Metatrader 4” zawiera wszystkie zaawansowane narzędzia, jednocześnie będąc prosty w obsłudze.`,
       hu: ``,
       th: ``,
       ms: ``,
@@ -89,7 +113,7 @@ const bullets: {
       sv: ``,
       pt: ``,
       fi: ``,
-      pl: ``,
+      pl: `Aplikacja mobilna ${componentProps.brandObj.name}`,
       hu: ``,
       th: ``,
       ms: ``,
@@ -106,7 +130,7 @@ const bullets: {
       sv: ``,
       pt: ``,
       fi: ``,
-      pl: ``,
+      pl: `Aplikacja jest dostępna na urządzenia z systemem iOS (iPad i iPhone) oraz Android. Oferuje te same funkcje, co jego komputerowy odpowiednik i jest równie intuicyjna.`,
       hu: ``,
       th: ``,
       ms: ``,
@@ -124,7 +148,7 @@ const bullets: {
     sv: ``,
     pt: ``,
     fi: ``,
-    pl: ``,
+    pl: `Staramy się oferować klientom najlepszą obsługę na wszystkich platformach. Platforma ${componentProps.brandObj.name} została zaprojektowana w celu zapewnienia prostoty, której poszukuje każdy trader.`,
     hu: ``,
     th: ``,
     ms: ``,
