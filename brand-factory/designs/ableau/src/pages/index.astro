@@ -3,10 +3,9 @@ import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type FacoltaDiTradingSVGVariation } from "../../../../globals/types/brands/logo";
+import { type FXOROSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
-import { Features } from "../../../../globals/types/enums";
 import type {
   LandingPageType,
   LicenseType,
@@ -32,8 +31,8 @@ export interface CustomOptions {
 /**
  * Landing page's main variables
  */
-type Logo = FacoltaDiTradingSVGVariation;
-const brand: BrandsNames = "facoltaditrading";
+type Logo = FXOROSVGVariation;
+const brand: BrandsNames = "fxoro";
 const lpName = "";
 const metaDescription: TranslationsType = {
   en: "",
@@ -52,14 +51,14 @@ const metaDescription: TranslationsType = {
   ms: "",
   vi: "",
 };
-const lang: Languages = "es";
-const license: LicenseType = "fsa";
+const lang: Languages = "pl";
+const license: LicenseType = "cysec";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
   // Features.showcase,
   // Features.readyForMail,
   // Features.outbrain,
-  Features.type5,
+  // Features.type5,
   // Features.atheneum,
   // Features.officialTerms,
   // Features.policyInFooter,
@@ -67,10 +66,10 @@ const features = checkFeatures([
 const registrationType: RegistrationType = "classic";
 const whatsapp = false;
 const fxoroFooter: boolean = false;
-const drThankYou: boolean = true;
+const drThankYou: boolean = false;
 const customOptions: CustomOptions = {
   logoSquare: false,
-  textVersion: "anotherMeaningfulName",
+  // textVersion: "greaterMeaningfulName",
 };
 // ===============================
 
