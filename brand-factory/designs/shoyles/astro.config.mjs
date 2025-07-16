@@ -6,7 +6,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/lp/financial-markets/ar/",
+  // base: "/lp/financial-markets/ar/",
+  // base: "/financial-markets/pl/",
+  base: "/financial-markets/en/",
   trailingSlash: "ignore",
   integrations: [react()],
 

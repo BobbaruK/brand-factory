@@ -6,12 +6,14 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import "../styles/global.css";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/700.css";
+import type { TranslationsType } from "../../../../globals/types/translations";
 
 interface Props {
   componentProps: ComponentProps;
+  metaDescription: TranslationsType;
 }
 
-const { componentProps } = Astro.props;
+const { componentProps, metaDescription } = Astro.props;
 
 const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
 ---
@@ -42,7 +44,21 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
     />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{componentProps.lpName} | {componentProps.brandObj.name}</title>
+    <title>
+      {
+        componentProps.lpName
+          ? componentProps.lpName + " | " + componentProps.brandObj.name
+          : componentProps.brandObj.name
+      }
+    </title>
+    {
+      metaDescription[componentProps.lang] && (
+        <meta
+          name="description"
+          content={metaDescription[componentProps.lang]}
+        />
+      )
+    }
     <style>
       html {
         scroll-behavior: smooth;

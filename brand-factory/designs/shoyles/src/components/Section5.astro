@@ -33,7 +33,7 @@ const button: TranslationsType = {
 
 <section class="py-4 sm:py-8 md:py-9 lg:py-10 xl:py-12 2xl:py-14">
   <div class="container">
-    <ButtonDisclaimer lang={componentProps.lang} className="mx-auto">
+    <ButtonDisclaimer className="mx-auto" componentProps={componentProps}>
       <a
         class={cn(buttonVariants({ variant: "default" }), "font-bold", "p-6")}
         href="#formWrapper"
