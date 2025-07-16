@@ -8,7 +8,8 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   // base: "/lp/freedom-to-trade/ar/",
   // base: "/lp/trading-signals/es/",
-  base: "/freedom-to-trade/pl/",
+  // base: "/freedom-to-trade/pl/",
+  base: "/freedom-to-trade/en/",
   trailingSlash: "ignore",
   integrations: [react()],
 

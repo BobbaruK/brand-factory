@@ -9,6 +9,7 @@ import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { textBy } from "../../../../globals/utils/text-by";
 import phoneImage from "../assets/phone.png";
+import handPhone from "../assets/hand.webp";
 import bgPattern from "../assets/topBgPattern.png";
 
 interface Props {
@@ -36,7 +37,7 @@ const title: TranslationsType = textBy(
       vi: ``,
     },
     cysec: {
-      en: "",
+      en: `${componentProps.brandObj.name} gives you the ability to enter the financial markets`,
       it: ``,
       tr: "",
       ro: "",
@@ -95,7 +96,7 @@ const formButton: TranslationsType = textBy(
       vi: ``,
     },
     cysec: {
-      en: "",
+      en: "Start trading",
       it: ``,
       tr: "",
       ro: "",
@@ -185,15 +186,29 @@ const formButton: TranslationsType = textBy(
     </div>
     <div class="grid place-items-center md:place-items-end">
       {
-        (componentProps.customOptions?.showMobileImage === undefined ||
-          componentProps.customOptions.showMobileImage === true) && (
-          <Image
-            src={phoneImage}
-            alt="Header Background"
-            class="-mb-80 w-full max-w-[300px] md:-mb-20 md:max-w-[260px] lg:-mb-56 lg:max-w-[320px] xl:-mb-64"
-            widths={[320, phoneImage.width]}
-            sizes={`320px`}
-          />
+        (componentProps.customOptions?.showHeaderImage === undefined ||
+          componentProps.customOptions.showHeaderImage === true) && (
+          <>
+            {(componentProps.customOptions?.mobileImage === undefined ||
+              componentProps.customOptions?.mobileImage === "mobile") && (
+              <Image
+                src={phoneImage}
+                alt="Header Background"
+                class="-mb-80 w-full max-w-[300px] md:-mb-20 md:max-w-[260px] lg:-mb-56 lg:max-w-[320px] xl:-mb-64"
+                widths={[320, phoneImage.width]}
+                sizes={`320px`}
+              />
+            )}
+            {componentProps.customOptions?.mobileImage === "hand-mobile" && (
+              <Image
+                src={handPhone}
+                alt="Header Background"
+                class="-mb-30 w-full max-w-[300px] md:max-w-[260px] lg:max-w-[320px]"
+                widths={[320, handPhone.width]}
+                sizes={`320px`}
+              />
+            )}
+          </>
         )
       }
     </div>
