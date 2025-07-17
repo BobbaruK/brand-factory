@@ -8,7 +8,8 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   // base: "/lp/corsitrading/v1/es/",
   // base: "/lp/corsitrading/v1/it/",
-  base: "/corsitrading/v1_eu/pl/",
+  // base: "/corsitrading/v1_eu/pl/",
+  base: "/corsitrading/v1/pl/",
   trailingSlash: "ignore",
   integrations: [react()],
 
