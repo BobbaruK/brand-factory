@@ -1,8 +1,9 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
+import "@fontsource-variable/montserrat"; // Supports weights 100-900
 import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
+import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import "../styles/global.css";
@@ -67,6 +68,10 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
         html {
           scroll-behavior: auto;
         }
+      }
+
+      body {
+        font-family: "Montserrat Variable", sans-serif;
       }
     </style>
   </head>
