@@ -2,16 +2,16 @@
 import { cn } from "@/lib/utils";
 import { type CustomOptions } from "@/pages/index.astro";
 import { Image } from "astro:assets";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
+import { showcase } from "../../../../globals/features/showcase/text";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { textBy } from "../../../../globals/utils/text-by";
 import background from "../assets/hero-bg.png";
 import heroLion from "../assets/hero-lion.png";
-import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
 import { Button } from "./ui/button";
-import { showcase } from "../../../../globals/features/showcase/text";
-import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
