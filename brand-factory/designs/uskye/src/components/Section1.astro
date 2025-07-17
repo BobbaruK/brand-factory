@@ -1,12 +1,13 @@
 ---
 import { icon2 } from "@/constants/icon2";
+import { icon9 } from "@/constants/icon9";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import { textBy } from "../../../../globals/utils/text-by";
 import { icon1 } from "../constants/icon1";
 import { icon3 } from "../constants/icon3";
 import type { Bullet } from "../types/bullet";
-import { Features } from "../../../../globals/types/enums";
-import { showcase } from "../../../../globals/features/showcase/text";
-import { icon9 } from "@/constants/icon9";
 
 interface Props {
   componentProps: ComponentProps;
@@ -15,83 +16,175 @@ const { componentProps } = Astro.props;
 
 const bullets: Bullet[] = [
   {
-    title: {
-      en: "24/5 hour professional support",
-      it: "",
-      tr: "",
-      ro: "",
-      ar: "",
-      de: "",
-      es: "Soporte profesional las 24 horas, 5 días a la semana.",
-      sv: "",
-      pt: "",
-      fi: "",
-      pl: `Całodobowa obsługa 5 dni w tygodniu.`,
-      hu: "",
-      th: "",
-      ms: "",
-      vi: "Hỗ trợ chuyên nghiệp 24/5",
-    },
+    title: textBy(
+      {
+        default: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: `24/5 hour professional support`,
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: `Całodobowa obsługa 5 dni w tygodniu.`,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
     svgIcon: icon1,
   },
   {
-    title: {
-      en: "Certified broker",
-      it: "",
-      tr: "",
-      ro: "",
-      ar: "",
-      de: "",
-      es: "Corredor certificado.",
-      sv: "",
-      pt: "",
-      fi: "",
-      pl: ``,
-      hu: "",
-      th: "",
-      ms: "",
-      vi: "",
-    },
+    title: textBy(
+      {
+        default: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: ``,
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
     svgIcon: icon9,
   },
   {
-    title: {
-      en: "Training tools",
-      it: "",
-      tr: "",
-      ro: "",
-      ar: "",
-      de: "",
-      es: "Herramientas de entrenamiento.",
-      sv: "",
-      pt: "",
-      fi: "",
-      pl: `Narzędzia szkoleniowe`,
-      hu: "",
-      th: "",
-      ms: "",
-      vi: "Công cụ đào tạo",
-    },
+    title: textBy(
+      {
+        default: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: `Training tools`,
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: `Narzędzia szkoleniowe`,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
     svgIcon: icon2,
   },
   {
-    title: {
-      en: "No hidden fees",
-      it: "",
-      tr: "",
-      ro: "",
-      ar: "",
-      de: "",
-      es: "Sin cargos ocultos.",
-      sv: "",
-      pt: "",
-      fi: "",
-      pl: `Brak ukrytych opłat`,
-      hu: "",
-      th: "",
-      ms: "",
-      vi: "Không có phí ẩn",
-    },
+    title: textBy(
+      {
+        default: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: `No hidden fees`,
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: `Brak ukrytych opłat`,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
     svgIcon: icon3,
   },
 ];
@@ -100,16 +193,19 @@ const bullets: Bullet[] = [
 <section id="section1" class="bg-gray-200 py-7 md:py-8 lg:py-9 xl:py-11">
   <div class="container flex flex-wrap justify-around gap-8">
     {
-      bullets.map((bullet) => (
-        <div class="flex flex-col items-center gap-2 text-center">
-          <Fragment set:html={bullet.svgIcon} class="" />
-          <p class="max-w-[20ch] text-center text-balance">
-            {componentProps.features?.includes(Features.showcase)
-              ? showcase({ words: 3 })
-              : bullet.title[componentProps.lang]}
-          </p>
-        </div>
-      ))
+      bullets.map((bullet) => {
+        if (!bullet.title[componentProps.lang]) return null;
+        return (
+          <div class="flex flex-col items-center gap-2 text-center">
+            <Fragment set:html={bullet.svgIcon} class="" />
+            <p class="max-w-[20ch] text-center text-balance">
+              {componentProps.features?.includes(Features.showcase)
+                ? showcase({ words: 3 })
+                : bullet.title[componentProps.lang]}
+            </p>
+          </div>
+        );
+      })
     }
   </div>
 </section>

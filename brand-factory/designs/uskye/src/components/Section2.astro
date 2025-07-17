@@ -4,56 +4,181 @@ import {
   buttonWrapperLabel,
 } from "@/translations/button-wrapper";
 import { Image } from "astro:assets";
-import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
 import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
 import brands from "../assets/brands.png";
 import ButtonWrapper from "./Button-Wrapper";
-import { Button } from "./ui/button";
 
 interface Props {
   componentProps: ComponentProps;
 }
 const { componentProps } = Astro.props;
 
-const title: TranslationsType = {
-  en: "What motivates traders to buy and sell CFDs on stocks?",
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "¿Qué motiva a los traders a comprar y vender CFDs sobre acciones?",
-  sv: "",
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "Điều gì thúc đẩy bạn mua bán CFD trên cổ phiếu?",
-};
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: `What motivates traders to buy and sell CFDs on stocks?`,
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: `Co motywuje traderów do działania na CFD?`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
 
 const paras: TranslationsType[] = [
-  {
-    en: `From today, you can begin trading CFDs on stocks with ${componentProps.brandObj.name}. You can open an account and choose from a range of products to trade. CFDs on shares trading, based on fundamental analysis of the markets, is a very popular investment product for traders who follow markets and can identify companies offering trading opportunities. ${componentProps.brandObj.name} offers a wide range of free educational tools, including live webinars and daily market news to keep you informed on financial markets.`,
-    it: ``,
-    tr: ``,
-    ro: ``,
-    ar: ``,
-    de: ``,
-    es: `A partir de hoy, puedes comenzar a operar CFDs sobre acciones con ${componentProps.brandObj.name} . Puedes abrir una cuenta y elegir entre una variedad de productos para operar. Los CFDs sobre acciones, basados en análisis fundamental de los mercados, son un producto de inversión muy popular para traders que siguen los mercados y pueden identificar empresas que ofrecen oportunidades de trading. ${componentProps.brandObj.name} ofrece una amplia gama de herramientas educativas gratuitas, incluyendo seminarios web en vivo y noticias diarias del mercado para mantenerte informado sobre los mercados financieros.`,
-    sv: ``,
-    pt: ``,
-    fi: ``,
-    pl: ``,
-    hu: ``,
-    th: ``,
-    ms: ``,
-    vi: `Kể từ hôm nay, bạn có thể bắt đầu giao dịch CFD trên cổ phiếu với ${componentProps.brandObj.name}. Bạn có thể mở tài khoản và chọn trong nhiều loại sản phẩm để giao dịch. CFD trên giao dịch cổ phiếu, dựa trên phân tích cơ bản về thị trường, là một sản phẩm đầu tư rất phổ biến dành cho các nhà giao dịch theo sát thị trường và có thể xác định các công ty cung cấp cơ hội giao dịch. ${componentProps.brandObj.name} cung cấp nhiều công cụ giáo dục miễn phí, bao gồm hội thảo trực tuyến và tin tức thị trường hằng ngày để giúp bạn cập nhật thông tin về thị trường tài chính.`,
-  },
+  textBy(
+    {
+      default: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: `Traders can choose from a variety of products to trade CFDs on stocks.`,
+        it: ``,
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: "",
+        pl: `Nasi klienci wybierają z szerokiej gamy spółek CFD.`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: "CFD on shares trading, based on fundamental analysis of the markets, is a very popular investment product who follow markets and can identify companies offering trading opportunities.",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: `Handel CFD, oparty na fundamentalnej analizie rynków, jest najpopularniejszą formą inwestycji, która pozwala na zarabianie niezależnie od obranego kierunku ceny.`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: `<strong>${componentProps.brandObj.name}</strong> offers a wide range of free educational tools and daily market news to keep you informed on financial markets.`,
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: `<strong>${componentProps.brandObj.name}</strong> oferuje szeroką gamę bezpłatnych narzędzi edukacyjnych i codziennych wiadomości rynkowych, aby na bieżąco informować Cię na temat rynku.`,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "license",
+    componentProps,
+  ),
 ];
 ---
 
@@ -69,15 +194,19 @@ const paras: TranslationsType[] = [
           : title[componentProps.lang]}
       />
       {
-        paras.map((para) => (
-          <p
-            set:html={
-              componentProps.features?.includes(Features.showcase)
-                ? showcase({ words: 50 })
-                : para[componentProps.lang]
-            }
-          />
-        ))
+        paras.map((para) => {
+          if (!para[componentProps.lang]) return null;
+
+          return (
+            <p
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({ words: 50 })
+                  : para[componentProps.lang]
+              }
+            />
+          );
+        })
       }
       <div class="grid place-items-center lg:place-items-start">
         <ButtonWrapper

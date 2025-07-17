@@ -3,52 +3,99 @@ import {
   buttonWrapperDisclaimer,
   buttonWrapperLabel,
 } from "@/translations/button-wrapper";
-import type { ComponentProps } from "../../../../globals/types/component-props";
-import type { TranslationsType } from "../../../../globals/types/translations";
-import ButtonWrapper from "./Button-Wrapper";
-import { Features } from "../../../../globals/types/enums";
 import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import ButtonWrapper from "./Button-Wrapper";
 
 interface Props {
   componentProps: ComponentProps;
 }
 const { componentProps } = Astro.props;
 
-const title: TranslationsType = {
-  en: "Trade in your favorite Product",
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "Invierta en su producto favorito",
-  sv: "",
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "Giao dịch sản phẩm bạn yêu thích!",
-};
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "Trade in your favorite Product",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: `Wybierz swoje ulubione produkty`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
 
-const para: TranslationsType = {
-  en: `Open an account with ${componentProps.brandObj.name}, and diversify your portfolio by investing in a variety of products.`,
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: `Abra una cuenta con ${componentProps.brandObj.name}, y diversifique su cartera invirtiendo en una variedad de productos.`,
-  sv: "",
-  pt: "",
-  fi: "",
-  pl: ``,
-  hu: "",
-  th: "",
-  ms: "",
-  vi: `Mở tài khoản với ${componentProps.brandObj.name} và đa dạng hóa danh mục đầu tư của bạn bằng cách đầu tư vào nhiều loại sản phẩm.`,
-};
+const para: TranslationsType = textBy(
+  {
+    default: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: `Open an account with <strong>${componentProps.brandObj.name}</strong>, and diversify your portfolio by investing in a variety of products.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: `Otwórz rachunek u nas i poszerz swoje portfolio`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
 ---
 
 <section id="section4" class="py-7 md:py-8 lg:py-9 xl:py-11">

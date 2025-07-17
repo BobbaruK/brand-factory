@@ -1,23 +1,289 @@
 ---
+import {
+  buttonWrapperDisclaimer,
+  buttonWrapperLabel,
+} from "@/translations/button-wrapper";
 import { Image } from "astro:assets";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
 import brandsStrip from "../assets/brands-strip.png";
+import ButtonWrapper from "./Button-Wrapper";
+import type { CustomOptions } from "@/pages/index.astro";
 
 interface Props {
-  componentProps: ComponentProps;
+  componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
-componentProps;
+
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "Are you ready?",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: `Czy jesteś gotowy by zacząć?`,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const steps: {
+  title: TranslationsType;
+  para: TranslationsType;
+}[] = [
+  {
+    title: textBy(
+      {
+        default: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "Open your account",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: `Otwórz rachunek`,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+    para: textBy(
+      {
+        default: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "Sign up for an account and complete your registration.",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: `Otwórz konto aby ukończyć rejestrację.`,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+  {
+    title: textBy(
+      {
+        default: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "Get started trading",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: `Zacznij handlować`,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+    para: textBy(
+      {
+        default: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "Use your preferred payment method to fund your account and start trading.",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: `Użyj dowolnej metody do zasilenia swojego rachunkui i zacznij inwestować.`,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+];
 ---
 
-<section id="section6" class="">
+<section id="section5" class="">
   <Image
     src={brandsStrip}
     alt="Background"
     class="h-divider mx-auto max-w-full object-cover"
     widths={[320, 576, 640, 768, 1024, 1280, 1536, brandsStrip.width]}
-    sizes={`
-      (max-width: 320px) 400px
-    `}
+    sizes={`100vw`}
   />
+  {
+    componentProps.customOptions?.showReadySection && (
+      <div class="container space-y-7 py-7 md:space-y-8 md:py-8 lg:space-y-9 lg:py-9 xl:space-y-11 xl:py-11">
+        <h2
+          set:html={
+            componentProps.features?.includes(Features.showcase)
+              ? showcase({ words: 5 })
+              : title[componentProps.lang]
+          }
+          class="text-heading2 text-center font-bold"
+        />
+
+        <div class="flex flex-wrap gap-y-7 md:gap-y-8 lg:gap-y-9 xl:gap-y-11">
+          {steps.map((step, index) => (
+            <div class="grow md:w-1/2">
+              <h3
+                set:html={index + 1 + ". " + step.title[componentProps.lang]}
+                class="text-primary text-para-lead text-center font-black"
+              />
+              <p
+                set:html={step.para[componentProps.lang]}
+                class="text-center"
+              />
+            </div>
+          ))}
+        </div>
+
+        <div class="mx-auto w-fit">
+          <ButtonWrapper
+            componentProps={componentProps}
+            buttonLabel={
+              componentProps.features?.includes(Features.showcase)
+                ? showcase({ words: 2 })
+                : buttonWrapperLabel[componentProps.lang]
+            }
+            buttonDisclaimer={
+              componentProps.features?.includes(Features.showcase)
+                ? showcase({ words: 5 })
+                : buttonWrapperDisclaimer[componentProps.lang]
+            }
+            hrefTo="formWrapper"
+            whatsapp={componentProps.brandObj.whatsapp}
+            client:only
+          />
+        </div>
+      </div>
+    )
+  }
 </section>
