@@ -1,15 +1,18 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
+import { FORM_BUTTON_LABEL } from "@/constants/form-button-label";
+import { type CustomOptions } from "@/pages/index.astro";
 import "@fontsource-variable/montserrat"; // Supports weights 100-900
 import BackToTop from "../../../../globals/components/back-to-top/back-to-top.astro";
 import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
+import Form from "../../../../globals/components/form";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import "../styles/global.css";
 
 interface Props {
-  componentProps: ComponentProps;
+  componentProps: ComponentProps<any, CustomOptions>;
   metaDescription: TranslationsType;
 }
 
@@ -83,7 +86,14 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    <Dialog> Dialog Content Here! </Dialog>
+    <Dialog>
+      <Form
+        componentProps={componentProps}
+        button={FORM_BUTTON_LABEL(componentProps)[componentProps.lang]}
+        id="modal-form"
+        layout={2}
+      />
+    </Dialog>
     <BackToTop />
     <script
       type="module"
