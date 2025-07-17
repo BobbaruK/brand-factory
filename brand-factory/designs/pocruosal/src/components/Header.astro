@@ -1,20 +1,254 @@
 ---
+import { cn } from "@/lib/utils";
 import { type CustomOptions } from "@/pages/index.astro";
+import { Image } from "astro:assets";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import background from "../assets/hero-bg.png";
+import heroLion from "../assets/hero-lion.png";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { Button } from "./ui/button";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: `<span class="text-secondary">Trade gold with confidence</span> <br /> Get real-time signals & market insights`,
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: `<span class="text-secondary">تداول الذهب بثقة</span> <br /> احصل على إشارات فورية وتحليلات السوق`,
+      de: "",
+      es: `<span class="text-secondary">Opera con oro con confianza</span> <br /> Obtén señales en tiempo real y análisis del mercado`,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const para: TranslationsType = textBy(
+  {
+    default: {
+      en: `Know when and how to act with live data, price alerts, and professional insights`,
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: `اعرف متى وكيف تتصرف من خلال البيانات المباشرة، تنبيهات الأسعار، ورؤى احترافية.`,
+      de: "",
+      es: `Descubre cuándo y cómo actuar con datos en vivo, alertas de precios e información profesional.`,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const customDisclaimer: TranslationsType = textBy(
+  {
+    default: {
+      en: `No cost. No commitment. Just smart gold intelligence.`,
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: `بدون تكلفة. بدون التزام. فقط ذكاء ذهبي.`,
+      de: "",
+      es: `Sin costo. Sin compromiso. Solo inteligencia dorada.`,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const buttonLabel: TranslationsType = textBy(
+  {
+    default: {
+      en: `Start Today`,
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: `ابدأ اليوم`,
+      de: "",
+      es: `Comienza Hoy`,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header id="header" class="py-custom-spacing relative text-white">
+  <Image
+    src={background}
+    alt="Background"
+    class={cn(
+      "absolute inset-0 z-0 h-full w-full object-cover pointer-events-none",
+      componentProps.lang === "ar" ? "scale-x-[-1] " : "",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+    loading={"eager"}
+  />
+  <div class="gap-y-custom-spacing relative z-10 container flex flex-wrap">
+    <div class="gap-custom-spacing flex grow flex-col lg:w-1/2">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+
+      <h1
+        set:html={title[componentProps.lang]}
+        class="text-heading1 mt-auto font-black text-balance uppercase"
+      />
+
+      <p
+        set:html={para[componentProps.lang]}
+        class="text-para-lead text-balance"
+      />
+
+      <ButtonDisclaimer
+        componentProps={componentProps}
+        client:load
+        className="mb-auto"
+        disclaimer={{
+          active: true,
+          text: customDisclaimer[componentProps.lang],
+        }}
+      >
+        <Button
+          variant={"secondary"}
+          className={"js-modal-trigger text-para-lead! text-primary w-full cursor-pointer rounded-[1.3rem] font-black uppercase md:px-16 md:py-3"}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : buttonLabel[componentProps.lang]}
+        />
+      </ButtonDisclaimer>
+    </div>
+    <div class="grid grow place-items-center lg:w-1/2">
+      <Image
+        src={heroLion}
+        alt="50%"
+        class={cn(
+          "max-w-[400px] w-full lg:max-w-full  block",
+          componentProps.lang === "ar" ? "scale-x-[-1] " : "",
+        )}
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, heroLion.width]}
+        sizes={`
+          (max-width: 320px) 273px,
+          (max-width: 1023px) 400px,
+          785px
+        `}
+        loading={"eager"}
+      />
+    </div>
   </div>
 </header>

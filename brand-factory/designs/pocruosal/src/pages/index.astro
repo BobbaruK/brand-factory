@@ -1,5 +1,5 @@
 ---
-import Section1 from "@/components/Section1.astro";
+import SectionPayment from "../../../../globals/components/section-payment/Section-Payment.astro";
 import { brandFactory } from "../../../../globals/factory";
 import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
@@ -80,7 +80,7 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
     drThankYou,
   }),
   logo: function () {
-    return this.brandObj.images.logoSVG.default;
+    return this.brandObj.images.logoSVG.whiteOrange;
   },
   lpType,
   registrationType,
@@ -91,5 +91,10 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
 ---
 
 <Layout componentProps={componentProps} metaDescription={metaDescription}>
-  <Section1 componentProps={componentProps} />
+  <!-- <Section1 componentProps={componentProps} /> -->
+  {
+    componentProps.lang === "es" && (
+      <SectionPayment componentProps={componentProps} />
+    )
+  }
 </Layout>

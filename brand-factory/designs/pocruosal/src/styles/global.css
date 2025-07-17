@@ -46,6 +46,8 @@
     1.75rem
   ); /* 16 - 28 ; 320 - 1280 */
   --text-para-lead--line-height: 1.2;
+
+  --spacing-custom-spacing: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
 }
 
 @theme inline {
