@@ -8,7 +8,8 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   // base: "/lp/cometolearn/it/",
   // base: "/cometolearn/pl/",
-  base: "/cometolearn/en/",
+  // base: "/cometolearn/en/",
+  base: "/cometolearn/v2/pl/",
   trailingSlash: "ignore",
   integrations: [react()],
 

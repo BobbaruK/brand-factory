@@ -19,6 +19,7 @@ import Layout from "../layouts/Layout.astro";
 
 export interface CustomOptions {
   logoSquare: boolean;
+  textVersion?: "meaningfulName";
 }
 
 /**
@@ -44,7 +45,7 @@ const metaDescription: TranslationsType = {
   ms: "",
   vi: "",
 };
-const lang: Languages = "en";
+const lang: Languages = "pl";
 const license: LicenseType = "cysec";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
@@ -62,6 +63,7 @@ const fxoroFooter: boolean = false;
 const drThankYou: boolean = false;
 const customOptions: CustomOptions = {
   logoSquare: false,
+  textVersion: "meaningfulName",
 };
 // ===============================
 
