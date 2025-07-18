@@ -211,11 +211,11 @@ const list: {
         square={componentProps.customOptions?.logoSquare}
       />
     </div>
-    <div class="relative z-10 container flex gap-4 py-4 md:pb-12">
-      <div class="flex flex-col gap-4">
+    <div class="relative z-10 container flex flex-wrap gap-y-4 py-4 md:pb-12">
+      <div class="flex grow lg:w-7/12 flex-col gap-4">
         <div>
           <h1
-            class="text-heading1 text-secondary font-times"
+            class="text-heading1 text-primary"
             set:html={componentProps.features?.includes(Features.showcase)
               ? showcase({
                   words: 2,
@@ -223,7 +223,7 @@ const list: {
               : title[componentProps.lang]}
           />
           <p
-            class="text-para-lead text-accent font-times text-balance"
+            class="text-para-lead text-accent text-balance"
             set:html={componentProps.features?.includes(Features.showcase)
               ? showcase({
                   words: 5,
@@ -231,9 +231,9 @@ const list: {
               : paraLead[componentProps.lang]}
           />
         </div>
-        <div class="hidden flex-col gap-8 md:flex">
+        <div class=" flex-col gap-8 md:flex">
           <p
-            class="max-w-[45ch] font-bold"
+            class="max-w-[45ch] font-bold hidden md:block"
             set:html={componentProps.features?.includes(Features.showcase)
               ? showcase({
                   words: 30,
@@ -254,7 +254,7 @@ const list: {
                 <li class="flex items-center gap-2 font-bold">
                   {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
                   <svg
-                    class="text-secondary"
+                    class="text-primary"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
@@ -280,11 +280,11 @@ const list: {
           </ul>
         </div>
       </div>
-      <div class="flex items-end justify-start">
+      <div class="flex items-end justify-start grow lg:w-5/12">
         <Image
           src={phone}
           alt="Phone"
-          class=""
+          class="w-full max-w-[360px]"
           widths={[320, 576, 640, 768, 1024, 1280, 1536, phone.width]}
           sizes={`
             (max-width: 320px) 157px,
