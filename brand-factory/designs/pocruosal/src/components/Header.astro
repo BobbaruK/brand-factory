@@ -204,12 +204,20 @@ const buttonLabel: TranslationsType = textBy(
       />
 
       <h1
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
         class="text-heading1 mt-auto font-black text-balance uppercase"
       />
 
       <p
-        set:html={para[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 10,
+            })
+          : para[componentProps.lang]}
         class="text-para-lead text-balance"
       />
 
@@ -219,7 +227,11 @@ const buttonLabel: TranslationsType = textBy(
         className="mb-auto"
         disclaimer={{
           active: true,
-          text: customDisclaimer[componentProps.lang],
+          text: componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 10,
+              })
+            : customDisclaimer[componentProps.lang],
         }}
       >
         <Button
