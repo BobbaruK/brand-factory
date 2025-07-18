@@ -311,7 +311,7 @@ const steps: {
 ];
 ---
 
-<section id="section4" class="section4 relative">
+<section id="section4" class="section4 relative mb-10">
   <Image
     src={background}
     alt="Background"
@@ -342,7 +342,16 @@ const steps: {
             {steps.map((step, index) => (
               <li class="text-para-lead">
                 <div
-                  set:html={index + 1 + ". " + step.title[componentProps.lang]}
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? index +
+                        1 +
+                        ". " +
+                        showcase({
+                          words: 3,
+                        })
+                      : index + 1 + ". " + step.title[componentProps.lang]
+                  }
                   class="text-secondary font-black"
                 />
                 <span
