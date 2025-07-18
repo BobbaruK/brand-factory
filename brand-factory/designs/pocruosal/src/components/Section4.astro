@@ -1,0 +1,401 @@
+---
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import businessLion from "../assets/business-lion.png";
+import background from "../assets/s2-bg.png";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { Button } from "./ui/button";
+import { FORM_BUTTON_LABEL } from "@/constants/form-button-label";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: `How to get started in minutes`,
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: `كيفية البدء في دقائق`,
+      de: "",
+      es: `Cómo comenzar en minutos`,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const steps: {
+  title: TranslationsType;
+  description: TranslationsType;
+}[] = [
+  {
+    title: textBy(
+      {
+        default: {
+          en: "Register your account",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "سجل حسابك",
+          de: "",
+          es: `Registra tu cuenta`,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+    description: textBy(
+      {
+        default: {
+          en: "Sign up with your basic details – fast, free, and secure.",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "سجل بياناتك الأساسية — سريع، مجاني وآمن.",
+          de: "",
+          es: `Regístrate con tus datos básicos – rápido, gratis y seguro.`,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+  {
+    title: textBy(
+      {
+        default: {
+          en: "Verify and access the platform",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "قم بالتحقق وادخل إلى المنصة",
+          de: "",
+          es: `Verifica y accede a la plataforma`,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+    description: textBy(
+      {
+        default: {
+          en: "Unlock your personal dashboard with tools, data, and insights.",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "افتح لوحة التحكم الخاصة بك المزودة بالأدوات والبيانات والتحليلات.",
+          de: "",
+          es: `Desbloquea tu panel personal con herramientas, datos e información.`,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+  {
+    title: textBy(
+      {
+        default: {
+          en: "Start receiving gold signals and more",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "ابدأ في استقبال إشارات الذهب والمزيد",
+          de: "",
+          es: `Empieza a recibir señales de oro y más`,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+    description: textBy(
+      {
+        default: {
+          en: "Get real-time alerts and expert analysis with no commitment required. ",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "احصل على تنبيهات وتحليلات فورية دون أي التزام.",
+          de: "",
+          es: `Recibe alertas en tiempo real y análisis experto sin compromiso.`,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+];
+---
+
+<section id="section4" class="section4 relative">
+  <Image
+    src={background}
+    alt="Background"
+    class={cn(
+      "absolute inset-0 z-0 h-full w-full object-cover pointer-events-none",
+      componentProps.lang === "ar" ? "scale-x-[-1] " : "",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+    loading={"eager"}
+  />
+  <div class="gap-y-custom-spacing relative z-10 container flex flex-wrap">
+    <div
+      class="gap-custom-spacing text-primary-foreground py-custom-spacing flex grow flex-col justify-center lg:w-7/12"
+    >
+      <h2
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
+        class="text-heading1 font-black text-balance uppercase"
+      />
+
+      {
+        steps.length > 0 && (
+          <ol class="space-y-custom-spacing">
+            {steps.map((step, index) => (
+              <li class="text-para-lead">
+                <div
+                  set:html={index + 1 + ". " + step.title[componentProps.lang]}
+                  class="text-secondary font-black"
+                />
+                <span
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({
+                          words: 15,
+                        })
+                      : step.description[componentProps.lang]
+                  }
+                  class=""
+                />
+              </li>
+            ))}
+          </ol>
+        )
+      }
+
+      <ButtonDisclaimer
+        componentProps={componentProps}
+        client:load
+        className="mb-auto"
+        disclaimer={{
+          active: false,
+        }}
+      >
+        <Button
+          variant={"secondary"}
+          className={"js-modal-trigger text-para-lead! text-primary w-full cursor-pointer rounded-[1.3rem] font-black uppercase md:px-16 md:py-3"}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : FORM_BUTTON_LABEL(componentProps)[componentProps.lang]}
+        />
+      </ButtonDisclaimer>
+    </div>
+    <div class="grid grow place-items-center lg:w-5/12">
+      <Image
+        src={businessLion}
+        alt="50%"
+        class={cn(
+          "max-w-[312px] w-full lg:max-w-full block -mb-10",
+          componentProps.lang === "ar" ? "scale-x-[-1] " : "",
+        )}
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, businessLion.width]}
+        sizes={`
+          (max-width: 320px) 273px,
+          (max-width: 1023px) 400px,
+          785px
+        `}
+        loading={"eager"}
+      />
+    </div>
+  </div>
+</section>
