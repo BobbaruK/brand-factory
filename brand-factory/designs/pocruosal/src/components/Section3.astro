@@ -1,0 +1,332 @@
+---
+import { ICON4, ICON5, ICON6, ICON7 } from "@/constants/icons";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: `What you get with ${componentProps.brandObj.name}`,
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: `ماذا ستحصل عليه مع ${componentProps.brandObj.name}؟`,
+      de: "",
+      es: `¿Qué obtienes con ${componentProps.brandObj.name}?`,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const bullets: {
+  icon: string;
+  label: TranslationsType;
+}[] = [
+  {
+    icon: ICON4,
+    label: textBy(
+      {
+        default: {
+          en: "Real-time market signals and market data",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: `إشارات سوق وبيانات لحظية`,
+          de: "",
+          es: `Señales de mercado y datos en tiempo real`,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+  {
+    icon: ICON5,
+    label: textBy(
+      {
+        default: {
+          en: "Smart tools to support your financial decisions",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: `أدوات ذكية لدعم قراراتك المالية`,
+          de: "",
+          es: `Herramientas inteligentes para apoyar tus decisiones financieras`,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+  {
+    icon: ICON6,
+    label: textBy(
+      {
+        default: {
+          en: "Custom alerts based on your preferences",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: `تنبيهات مخصصة حسب تفضيلاتك`,
+          de: "",
+          es: `Alertas personalizadas según tus preferencias`,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+  {
+    icon: ICON7,
+    label: textBy(
+      {
+        default: {
+          en: "A platform backed by professionals and built for clarity",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: `منصة مدعومة من محترفين ومصممة بوضوح`,
+          de: "",
+          es: `Una plataforma respaldada por profesionales y diseñada con claridad`,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: ``,
+          tr: "",
+          ro: "",
+          ar: "",
+          de: "",
+          es: ``,
+          sv: ``,
+          pt: ``,
+          fi: "",
+          pl: ``,
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+];
+
+const buttonLabel: TranslationsType = textBy(
+  {
+    default: {
+      en: "Get free access",
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: `احصل على دخول مجاني`,
+      de: "",
+      es: `Accede gratis`,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+---
+
+<section id="section3" class="section3 pb-custom-spacing mt-10">
+  <div class="container">
+    <h2
+      class="text-heading2 font-black uppercase"
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+    />
+  </div>
+  <div
+    class="py-custom-spacing gap-custom-spacing container flex flex-wrap items-stretch justify-around lg:justify-between"
+  >
+    {
+      bullets.map((bullet) => (
+        <div class="flex w-fit flex-col items-center gap-1 md:gap-2">
+          <div
+            set:html={bullet.icon}
+            class="size-[clamp(4.6875rem,_4.375rem_+_1.5625vw,_5.625rem)] [&_svg]:size-full"
+          />
+          <p
+            set:html={
+              componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 5,
+                  })
+                : bullet.label[componentProps.lang]
+            }
+            class="text-para-lead my-auto max-w-[12ch] text-center text-balance"
+          />
+        </div>
+      ))
+    }
+  </div>
+  <div class="container">
+    <ButtonDisclaimer
+      componentProps={componentProps}
+      client:load
+      className="mx-auto"
+      disclaimer={{
+        active: false,
+      }}
+    >
+      <Button
+        variant={"secondary"}
+        className={"js-modal-trigger text-para-lead! text-primary w-full cursor-pointer rounded-[1.3rem] font-black uppercase md:px-16 md:py-3"}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>
