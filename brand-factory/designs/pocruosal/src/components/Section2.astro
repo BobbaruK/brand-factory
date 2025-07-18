@@ -1,0 +1,200 @@
+---
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import manOnGold from "../assets/man-on-gold.png";
+import background from "../assets/s2-bg.png";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: `Why gold? Because Stability Matters.`,
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: `لماذا الذهب؟ لأن الاستقرار مهم.`,
+      de: "",
+      es: `¿Por qué oro? Porque la estabilidad importa.`,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: ``,
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: "",
+      pl: ``,
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const paras: TranslationsType[] = [
+  textBy(
+    {
+      default: {
+        en: `Gold has long been a symbol of security and value. In times of economic instability, investors turn to gold to protect their wealth.`,
+        it: ``,
+        tr: "",
+        ro: "",
+        ar: `لطالما كان الذهب رمزًا للأمان والقيمة. في أوقات عدم الاستقرار الاقتصادي، يتجه المستثمرون إلى الذهب لحماية ثرواتهم.`,
+        de: "",
+        es: `El oro ha sido durante mucho tiempo símbolo de seguridad y valor. En tiempos de inestabilidad económica, los inversores recurren al oro para proteger su patrimonio.`,
+        sv: ``,
+        pt: ``,
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: "",
+        it: ``,
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: `With ${componentProps.brandObj.name}, you'll get real-time pricing, market analysis, and fast trade execution to make the most of market movements.`,
+        it: ``,
+        tr: "",
+        ro: "",
+        ar: `مع ${componentProps.brandObj.name}، ستحصل على أسعار مباشرة، وتحليلات سوقية، وتنفيذ سريع للصفقات لتحقيق أقصى استفادة من تحركات السوق.`,
+        de: "",
+        es: `Con ${componentProps.brandObj.name}, obtendrás precios en tiempo real, análisis de mercado y ejecución rápida de operaciones para aprovechar los movimientos del mercado.`,
+        sv: ``,
+        pt: ``,
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: "",
+        it: ``,
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: "",
+        pl: ``,
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "license",
+    componentProps,
+  ),
+];
+---
+
+<section id="section2" class="section2 relative">
+  <Image
+    src={background}
+    alt="Background"
+    class={cn(
+      "absolute inset-0 z-0 h-full w-full object-cover pointer-events-none",
+      componentProps.lang === "ar" ? "scale-x-[-1] " : "",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+    loading={"eager"}
+  />
+  <div class="gap-y-custom-spacing relative z-10 container flex flex-wrap">
+    <div
+      class="gap-custom-spacing text-primary-foreground py-custom-spacing flex grow flex-col justify-center lg:w-9/12"
+    >
+      <h2
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
+        class="text-heading1 font-black text-balance uppercase"
+      />
+
+      {
+        paras.map((para) => (
+          <p
+            set:html={
+              componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 30,
+                  })
+                : para[componentProps.lang]
+            }
+            class="text-para-lead text-balance"
+          />
+        ))
+      }
+    </div>
+    <div class="grid grow place-items-center lg:w-3/12">
+      <Image
+        src={manOnGold}
+        alt="50%"
+        class={cn(
+          "max-w-[312px] w-full lg:max-w-full block -mb-10",
+          componentProps.lang === "ar" ? "scale-x-[-1] " : "",
+        )}
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, manOnGold.width]}
+        sizes={`
+          (max-width: 320px) 273px,
+          (max-width: 1023px) 400px,
+          785px
+        `}
+        loading={"eager"}
+      />
+    </div>
+  </div>
+</section>
