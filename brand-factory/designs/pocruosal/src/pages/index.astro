@@ -1,4 +1,5 @@
 ---
+import Section1 from "@/components/Section1.astro";
 import SectionPayment from "../../../../globals/components/section-payment/Section-Payment.astro";
 import { brandFactory } from "../../../../globals/factory";
 import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
@@ -46,11 +47,11 @@ const metaDescription: TranslationsType = {
   ms: "",
   vi: "",
 };
-const lang: Languages = "es";
+const lang: Languages = "ar";
 const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
-  // Features.showcase,
+  Features.showcase,
   // Features.readyForMail,
   // Features.outbrain,
   Features.type5,
@@ -91,7 +92,7 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
 ---
 
 <Layout componentProps={componentProps} metaDescription={metaDescription}>
-  <!-- <Section1 componentProps={componentProps} /> -->
+  <Section1 componentProps={componentProps} />
 
   {
     componentProps.lang === "es" && (
