@@ -8,6 +8,9 @@ interface Props {
   componentProps: ComponentProps;
 }
 const { componentProps } = Astro.props;
+
+const foregroundColor = "rgb(221 243 228)";
+const backgroundColor = "red";
 ---
 
 {
@@ -26,8 +29,9 @@ const { componentProps } = Astro.props;
   )
 }
 
-<style is:global>
+<style is:global define:vars={{ foregroundColor, backgroundColor }}>
   @reference "../styles/global.css";
+
   .brandFooter {
     padding-block: calc(var(--spacing) * 8);
     background-color: var(--color-white);
@@ -73,8 +77,7 @@ const { componentProps } = Astro.props;
     }
   }
 
-  /* #globalFooter footer {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-  } */
+  #globalFooter footer {
+    background-color: oklch(from var(--primary) calc(l - 0.03) c h / 1);
+  }
 </style>
