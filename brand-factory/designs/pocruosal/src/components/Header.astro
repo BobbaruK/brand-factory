@@ -195,7 +195,9 @@ const buttonLabel: TranslationsType = textBy(
     sizes={`100vw`}
     loading={"eager"}
   />
-  <div class="gap-y-custom-spacing relative z-10 container flex flex-wrap">
+  <div
+    class="gap-y-custom-spacing relative z-10 container flex flex-wrap text-center"
+  >
     <div class="gap-custom-spacing flex grow flex-col lg:w-1/2">
       <MainLogo
         size={componentProps.brandObj.nameToLower}
@@ -209,7 +211,7 @@ const buttonLabel: TranslationsType = textBy(
               words: 5,
             })
           : title[componentProps.lang]}
-        class="text-heading1 mt-auto font-black text-balance uppercase"
+        class="text-heading1 mx-auto mt-auto font-black text-balance uppercase"
       />
 
       <p
@@ -224,7 +226,7 @@ const buttonLabel: TranslationsType = textBy(
       <ButtonDisclaimer
         componentProps={componentProps}
         client:load
-        className="mb-auto"
+        className="mx-auto"
         disclaimer={{
           active: true,
           text: componentProps.features?.includes(Features.showcase)
@@ -245,7 +247,7 @@ const buttonLabel: TranslationsType = textBy(
         />
       </ButtonDisclaimer>
     </div>
-    <div class="grid grow place-items-center lg:w-1/2">
+    <!-- <div class="grid grow place-items-center lg:w-1/2">
       <Image
         src={heroLion}
         alt="50%"
@@ -262,6 +264,6 @@ const buttonLabel: TranslationsType = textBy(
         `}
         loading={"eager"}
       />
-    </div>
+    </div> -->
   </div>
 </header>
