@@ -60,6 +60,9 @@
     1.25rem + 3.125vw,
     3.75rem
   ); /* 30 - 60 ; 320 - 1280 */
+
+  --shadow-icon-p: 0px 4px 0px 0px var(--color-gray-400);
+  --shadow-icon: inset 0px 30px 10px 0px var(--color-gray-300);
 }
 
 @theme inline {

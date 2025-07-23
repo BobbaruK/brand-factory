@@ -1,0 +1,260 @@
+---
+import { ICON1, ICON2, ICON3, ICON4 } from "@/constants/icons";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+
+const { componentProps } = Astro.props;
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: "Join thousands of traders who rely on our free trading signals daily.",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "انضم إلى آلاف المتداولين الذين يعتمدون على إشاراتنا المجانية يوميًا.",
+      de: "",
+      es: "Únete a miles de traders que confían diariamente en nuestras señales de trading gratuitas.",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const bullets: {
+  icon: string;
+  label: TranslationsType;
+}[] = [
+  {
+    icon: ICON1,
+    label: textBy(
+      {
+        default: {
+          en: "No credit card required ",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "لا حاجة لبطاقة ائتمان",
+          de: "",
+          es: "No se requiere tarjeta de crédito",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+  {
+    icon: ICON2,
+    label: textBy(
+      {
+        default: {
+          en: "Real-time alerts via SMS, email & app",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "تنبيهات فورية عبر الرسائل النصية، البريد الإلكتروني والتطبيق",
+          de: "",
+          es: "Alertas en tiempo real por SMS, correo electrónico y app",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+  {
+    icon: ICON3,
+    label: textBy(
+      {
+        default: {
+          en: "Works for beginners & pro traders",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "مناسب للمبتدئين والمحترفين",
+          de: "",
+          es: "Funciona para principiantes y traders profesionales",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+  {
+    icon: ICON4,
+    label: textBy(
+      {
+        default: {
+          en: "Cancel anytime – no strings attached ",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "إلغاء في أي وقت — بدون شروط",
+          de: "",
+          es: "Cancelar en cualquier momento — sin compromiso",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+];
+---
+
+<section id="section2" class="section2 py-custom-spacing">
+  <div class="space-y-custom-spacing container">
+    <h2
+      set:html={title[componentProps.lang]}
+      class="text-heading2 font-black text-balance uppercase xl:text-center"
+    />
+
+    <div
+      class="gap-y-custom-spacing flex flex-wrap md:justify-around xl:justify-between"
+    >
+      {
+        bullets.map((bullet) => (
+          <div class="flex items-center gap-4 md:flex-col">
+            <div class="grid size-[clamp(5.625rem,_5.3333rem_+_1.4583vw,_6.5rem)] min-w-[clamp(5.625rem,_5.3333rem_+_1.4583vw,_6.5rem)] place-items-center rounded-full bg-[linear-gradient(to_bottom,_var(--background)_0%,var(--background)_40%,var(--color-gray-300)_100%)]">
+              <div
+                set:html={bullet.icon}
+                class="relative z-20 grid h-[93%] w-[93%] place-items-center rounded-full bg-[linear-gradient(to_bottom,_var(--color-gray-300)_0%,var(--background)_60%,var(--background)_100%)]"
+              />
+            </div>
+            <p
+              set:html={bullet.label[componentProps.lang]}
+              class="text-custom-size my-auto text-balance md:w-[20ch] md:text-center"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
