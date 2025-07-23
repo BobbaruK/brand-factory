@@ -3,6 +3,8 @@ import { ICON1, ICON2, ICON3, ICON4 } from "@/constants/icons";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { textBy } from "../../../../globals/utils/text-by";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps;
@@ -232,7 +234,11 @@ const bullets: {
 <section id="section2" class="section2 py-custom-spacing">
   <div class="space-y-custom-spacing container">
     <h2
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+          })
+        : title[componentProps.lang]}
       class="text-heading2 font-black text-balance uppercase xl:text-center"
     />
 
@@ -249,7 +255,13 @@ const bullets: {
               />
             </div>
             <p
-              set:html={bullet.label[componentProps.lang]}
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 5,
+                    })
+                  : bullet.label[componentProps.lang]
+              }
               class="text-custom-size my-auto text-balance md:w-[20ch] md:text-center"
             />
           </div>

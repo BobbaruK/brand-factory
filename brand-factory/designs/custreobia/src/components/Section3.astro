@@ -371,10 +371,24 @@ const buttonLabel: TranslationsType = textBy(
             {list.map((li) => (
               <li class="text-custom-size">
                 <h3
-                  set:html={`<span>${li.title[componentProps.lang]}</span>`}
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({
+                          words: 5,
+                        })
+                      : `<span>${li.title[componentProps.lang]}</span>`
+                  }
                   class="text-secondary flex items-center gap-2 font-black before:text-white before:content-['\\2022'] lg:justify-end"
                 />
-                <p set:html={li.label[componentProps.lang]} />
+                <p
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({
+                          words: 15,
+                        })
+                      : li.label[componentProps.lang]
+                  }
+                />
               </li>
             ))}
           </ul>

@@ -9,6 +9,8 @@ import "../styles/global.css";
 import "@fontsource-variable/montserrat"; // Supports weights 100-900
 import Form from "../../../../globals/components/form";
 import { FORM_BUTTON } from "@/constants/form-button";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps;
@@ -88,7 +90,11 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
     <Dialog>
       <Form
         componentProps={componentProps}
-        button={FORM_BUTTON[componentProps.lang]}
+        button={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : FORM_BUTTON[componentProps.lang]}
         id="modal-form"
         layout={2}
       />

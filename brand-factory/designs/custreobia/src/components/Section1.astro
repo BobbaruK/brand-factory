@@ -5,6 +5,8 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { textBy } from "../../../../globals/utils/text-by";
 import background from "../assets/s1-bg.png";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps;
@@ -283,11 +285,23 @@ const bullets: {
           bullets.map((bullet) => (
             <div class="flex flex-col px-4 xl:w-4/12 xl:items-center xl:gap-[calc(var(--spacing-custom-spacing)_/_2)] xl:text-center">
               <h3
-                set:html={bullet.title[componentProps.lang]}
-                class="text-secondary text-heading2 font-black uppercase"
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 2,
+                      })
+                    : bullet.title[componentProps.lang]
+                }
+                class="text-secondary text-heading2 mt-auto font-black uppercase"
               />
               <p
-                set:html={bullet.para[componentProps.lang]}
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 10,
+                      })
+                    : bullet.para[componentProps.lang]
+                }
                 class="text-custom-size my-auto text-balance"
               />
             </div>

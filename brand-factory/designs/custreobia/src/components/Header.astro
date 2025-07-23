@@ -11,6 +11,8 @@ import { cn } from "@/lib/utils";
 import background from "../assets/hero-img.png";
 import heroGyuLTR from "../assets/hero-guy-ltr.png";
 import heroGyuRTL from "../assets/hero-guy-rtl.png";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -125,18 +127,31 @@ const para: TranslationsType = textBy(
         class="gap-custom-spacing flex w-full flex-col justify-center text-white lg:w-6/12"
       >
         <h1
-          set:html={title[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 5,
+                spanClasses: "text-white",
+              })
+            : title[componentProps.lang]}
           class="text-heading1 text-secondary font-black text-balance uppercase"
         />
         <p
-          set:html={para[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 15,
+              })
+            : para[componentProps.lang]}
           class="text-para-lead text-balance"
         />
       </div>
       <div class="relative w-full lg:w-6/12 xl:w-4/12">
         <Form
           componentProps={componentProps}
-          button={FORM_BUTTON[componentProps.lang]}
+          button={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : FORM_BUTTON[componentProps.lang]}
           id="section-form"
           layout={2}
           className="z-20 w-full rounded-md bg-white p-4 lg:p-6"
