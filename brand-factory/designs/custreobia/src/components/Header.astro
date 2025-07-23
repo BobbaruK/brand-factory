@@ -1,20 +1,196 @@
 ---
+import { FORM_BUTTON } from "@/constants/form-button";
 import { type CustomOptions } from "@/pages/index.astro";
+import Form from "../../../../globals/components/form";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import { Image } from "astro:assets";
+import { cn } from "@/lib/utils";
+import background from "../assets/hero-img.png";
+import heroGyuLTR from "../assets/hero-guy-ltr.png";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: `<span class="text-white">Want free trading</span> signals that actually work?`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `هل تريد إشارات تداول مجانية تعمل فعلاً؟`,
+      de: "",
+      es: "¿Quieres señales de trading gratuitas que realmente funcionan?",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const para: TranslationsType = textBy(
+  {
+    default: {
+      en: `Receive real-time, easy-to-follow signals straight to your phone, desktop, or inbox — powered by ${componentProps.brandObj.name}'s 13+ years of market expertise.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `استلم إشارات فورية وسهلة المتابعة مباشرة على هاتفك، جهاز الكمبيوتر أو بريدك الإلكتروني — مدعومة بخبرة ${componentProps.brandObj.name} التي تمتد لأكثر من 13 عامًا في الأسواق.`,
+      de: "",
+      es: `Recibe señales en tiempo real, fáciles de seguir, directamente en tu móvil, escritorio o bandeja de entrada — impulsadas por los más de 13 años de experiencia de ${componentProps.brandObj.name} en los mercados.`,
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
-    />
+<header id="header" class={"overflow-clip"}>
+  <Image
+    src={background}
+    alt="Background"
+    class={cn(
+      "absolute inset-0 z-0 h-full w-full object-cover pointer-events-none",
+      componentProps.lang === "ar" ? "scale-x-[-1] " : "",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+    loading={"eager"}
+  />
+  <div class="relative z-20">
+    <div class="py-custom-spacing container text-white xl:pb-0">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+    <div class="gap-y-custom-spacing container flex flex-wrap py-4">
+      <div
+        class="gap-custom-spacing flex w-full flex-col justify-center text-white lg:w-6/12"
+      >
+        <h1
+          set:html={title[componentProps.lang]}
+          class="text-heading1 text-secondary font-black text-balance uppercase"
+        />
+        <p
+          set:html={para[componentProps.lang]}
+          class="text-para-lead text-balance"
+        />
+      </div>
+      <div class="relative w-full lg:w-6/12 xl:w-4/12">
+        <Form
+          componentProps={componentProps}
+          button={FORM_BUTTON[componentProps.lang]}
+          id="section-form"
+          layout={2}
+          className="z-20 w-full rounded-md bg-white p-4 lg:p-6"
+        />
+        <Image
+          src={heroGyuLTR}
+          alt="Hero Guy"
+          class={cn(
+            "absolute pointer-events-none bottom-[-330px] end-[-480px] w-[860px] max-w-none h-auto object-contain z-10 hidden xl:block",
+            componentProps.lang === "ar" ? "scale-x-[-1] " : "",
+          )}
+          widths={[320, 576, 640, 768, 1024, 1280, 1536, heroGyuLTR.width]}
+          sizes={`100vw`}
+          loading={"eager"}
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="h-hero-spacing mt-custom-spacing relative z-10 bg-white xl:mt-[calc(var(--spacing-hero-spacing)_*_2)]"
+  >
   </div>
 </header>
+
+<style lang="scss" is:global>
+  @reference "../styles/global.css";
+
+  form.registerForm {
+    input,
+    select {
+      @apply text-slate-800;
+    }
+    input[disabled] {
+      // color: white;
+    }
+
+    .form-control {
+      label {
+        font-size: 1rem;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select {
+        // @apply h-12 text-black;
+        &:hover {
+        }
+        &:focus {
+        }
+        &::placeholder {
+        }
+      }
+      button {
+        @apply bg-accent hover:bg-primary h-9 text-lg !font-black uppercase;
+      }
+    }
+  }
+</style>

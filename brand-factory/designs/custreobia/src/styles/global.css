@@ -50,7 +50,16 @@
   ); /* 16 - 20 ; 320 - 1280 */
   --text-custom-size--line-height: 1.2;
 
-  --spacing-custom-spacing: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --spacing-custom-spacing: clamp(
+    1rem,
+    0.5rem + 2.5vw,
+    2.5rem
+  ); /* 16 - 40 ; 320 - 1280 */
+  --spacing-hero-spacing: clamp(
+    1.875rem,
+    1.25rem + 3.125vw,
+    3.75rem
+  ); /* 30 - 60 ; 320 - 1280 */
 }
 
 @theme inline {
