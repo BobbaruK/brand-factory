@@ -1,0 +1,423 @@
+---
+import { ICON1, ICON2, ICON3, ICON4 } from "@/constants/icons";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import { cn } from "@/lib/utils";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
+import { Image } from "astro:assets";
+import phones from "../assets/phones.png";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+
+const { componentProps } = Astro.props;
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: `Why join ${componentProps.brandObj.name}?`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `لماذا تنضم إلى ${componentProps.brandObj.name}؟`,
+      de: "",
+      es: `¿Por qué unirte a ${componentProps.brandObj.name}?`,
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const list: {
+  title: TranslationsType;
+  label: TranslationsType;
+}[] = [
+  {
+    title: textBy(
+      {
+        default: {
+          en: "Trade with complete transparency",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "تداول بشفافية كاملة",
+          de: "",
+          es: "Opera con total transparencia",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+    label: textBy(
+      {
+        default: {
+          en: "Competitive pricing and expert support to execute your trades quickly and easily",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "أسعار تنافسية ودعم احترافي لتنفيذ تداولاتك بسهولة وسرعة",
+          de: "",
+          es: "Precios competitivos y soporte experto para ejecutar tus operaciones de forma rápida y sencilla",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+  {
+    title: textBy(
+      {
+        default: {
+          en: "Tight spreads from as little as 0.6 pips",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "فروقات سعرية تبدأ من 0.6 نقطة فقط",
+          de: "",
+          es: "Spreads ajustados desde solo 0.6 pips",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+    label: textBy(
+      {
+        default: {
+          en: "Real-time updates on major economic events and chart movements",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "تحديثات فورية عن أبرز الأحداث الاقتصادية وتحركات الرسوم البيانية",
+          de: "",
+          es: "Actualizaciones en tiempo real sobre eventos económicos importantes y movimientos en los gráficos",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+  {
+    title: textBy(
+      {
+        default: {
+          en: "Multilingual customer service",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "خدمة عملاء متعددة اللغات",
+          de: "",
+          es: "Atención al cliente multilingüe",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+    label: textBy(
+      {
+        default: {
+          en: "24/7 support tailored to your language and needs",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "دعم متوفر 24/7 بلغتك وبما يتناسب مع احتياجاتك",
+          de: "",
+          es: "Soporte 24/7 adaptado a tu idioma y necesidades",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+];
+
+const buttonLabel: TranslationsType = textBy(
+  {
+    default: {
+      en: "Start for Free",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `ابدأ مجانًا`,
+      de: "",
+      es: "Empieza gratis",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+---
+
+<section id="section3" class="section3 bg-primary text-white max-lg:mb-[230px]">
+  <div class="container flex flex-wrap">
+    <div
+      class="gap-custom-spacing py-custom-spacing flex w-full flex-col lg:order-2 lg:w-7/12 lg:text-end"
+    >
+      <h2
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
+        class="text-heading2 font-black uppercase"
+      />
+
+      {
+        list.length > 0 && (
+          <ul class="gap-custom-spacing flex flex-col lg:gap-6">
+            {list.map((li) => (
+              <li class="text-custom-size">
+                <h3
+                  set:html={`<span>${li.title[componentProps.lang]}</span>`}
+                  class="text-secondary flex items-center gap-2 font-black before:text-white before:content-['\\2022'] lg:justify-end"
+                />
+                <p set:html={li.label[componentProps.lang]} />
+              </li>
+            ))}
+          </ul>
+        )
+      }
+
+      <ButtonDisclaimer
+        componentProps={componentProps}
+        client:load
+        className="mx-auto lg:ms-auto lg:me-0"
+        disclaimer={{
+          active: false,
+        }}
+      >
+        <Button
+          variant={"accent"}
+          className={"js-modal-trigger text-custom-size! w-full cursor-pointer font-black uppercase md:px-16 md:py-3"}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : buttonLabel[componentProps.lang]}
+        />
+      </ButtonDisclaimer>
+    </div>
+    <div
+      class="flex w-full items-end justify-center lg:relative lg:order-1 lg:w-5/12"
+    >
+      <Image
+        src={phones}
+        alt="Phones"
+        class={cn(
+          "max-w-[350px] w-full lg:max-w-none lg:absolute  lg:bottom-0 lg:end-0 lg:h-full object-contain object-bottom max-lg:mb-[-230px]",
+          componentProps.lang === "ar" ? "" : "",
+        )}
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, phones.width]}
+        sizes={`
+          (max-width: 320px) 273px,
+          (max-width: 768px) 350px,
+          (max-width: 1081px) 431px,
+          510px
+        `}
+      />
+    </div>
+  </div>
+</section>
