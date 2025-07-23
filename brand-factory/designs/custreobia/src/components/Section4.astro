@@ -1,0 +1,177 @@
+---
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: "Trade Anywhere, Anytime",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `تداول في أي مكان، وفي أي وقت`,
+      de: "",
+      es: "Opera Donde Quieras, Cuando Quieras",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const para: TranslationsType = textBy(
+  {
+    default: {
+      en: `Download the ${componentProps.brandObj.name} App and stay connected with real-time market notifications and instant trading access.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `حمّل تطبيق ${componentProps.brandObj.name} وابقَ على اتصال دائم بإشعارات السوق الفورية وإمكانية الوصول الفوري للتداول.`,
+      de: "",
+      es: `Descarga la app de ${componentProps.brandObj.name} y mantente conectado con notificaciones del mercado en tiempo real y acceso instantáneo al trading.`,
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const buttonLabel: TranslationsType = textBy(
+  {
+    default: {
+      en: "Download Now",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `حمّل الآن`,
+      de: "",
+      es: "Descargar ahora",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+---
+
+<section id="section4" class="section4 py-custom-spacing">
+  <div class="space-y-custom-spacing container">
+    <h2
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+      class="text-heading2 font-black text-balance uppercase lg:text-center"
+    />
+    <p
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 15,
+          })
+        : para[componentProps.lang]}
+      class="text-custom-size text-balance lg:text-center"
+    />
+
+    <ButtonDisclaimer
+      componentProps={componentProps}
+      client:load
+      className="mx-auto"
+      disclaimer={{
+        active: false,
+      }}
+    >
+      <Button
+        variant={"accent"}
+        className={"js-modal-trigger text-custom-size! w-full cursor-pointer font-black uppercase md:px-16 md:py-3"}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>
