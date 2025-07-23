@@ -10,6 +10,7 @@ import { Image } from "astro:assets";
 import { cn } from "@/lib/utils";
 import background from "../assets/hero-img.png";
 import heroGyuLTR from "../assets/hero-guy-ltr.png";
+import heroGyuRTL from "../assets/hero-guy-rtl.png";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -141,7 +142,7 @@ const para: TranslationsType = textBy(
           className="z-20 w-full rounded-md bg-white p-4 lg:p-6"
         />
         <Image
-          src={heroGyuLTR}
+          src={componentProps.lang === "ar" ? heroGyuRTL : heroGyuLTR}
           alt="Hero Guy"
           class={cn(
             "absolute pointer-events-none bottom-[-330px] end-[-480px] w-[860px] max-w-none h-auto object-contain z-10 hidden xl:block",
