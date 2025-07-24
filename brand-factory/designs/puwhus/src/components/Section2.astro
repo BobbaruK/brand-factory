@@ -1,11 +1,10 @@
 ---
-import { cn } from "@/lib/utils";
-import { Image } from "astro:assets";
-import type { ComponentProps } from "../../../../globals/types/component-props";
-import { textBy } from "../../../../globals/utils/text-by";
-import type { TranslationsType } from "../../../../globals/types/translations";
-import bg from "../assets/s1-bg.png";
 import Form from "../../../../globals/components/form";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
 
 interface Props {
   componentProps: ComponentProps;
@@ -359,11 +358,21 @@ const list: {
       >
         <h2
           class="bg-primary text-heading3 text-primary-foreground mb-4 rounded-b-md p-1 py-2 text-center font-black uppercase md:py-4"
-          set:html={formTitle[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 5,
+                // spanClasses: "text-secondary block",
+              })
+            : formTitle[componentProps.lang]}
         />
         <Form
           componentProps={componentProps}
-          button={formButton[componentProps.lang]}
+          button={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+                // spanClasses: "text-secondary block",
+              })
+            : formButton[componentProps.lang]}
           id="form1"
         />
       </div>
@@ -384,9 +393,25 @@ const list: {
               <div>
                 <h3
                   class="text-heading3 text-secondary font-black uppercase"
-                  set:html={li.title[componentProps.lang]}
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({
+                          words: 1,
+                          // spanClasses: "text-secondary block",
+                        })
+                      : li.title[componentProps.lang]
+                  }
                 />
-                <p set:html={li.para[componentProps.lang]} />
+                <p
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({
+                          words: 5,
+                          // spanClasses: "text-secondary block",
+                        })
+                      : li.para[componentProps.lang]
+                  }
+                />
               </div>
             </li>
           ))

@@ -5,6 +5,8 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import { textBy } from "../../../../globals/utils/text-by";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import bg from "../assets/s1-bg.png";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps;
@@ -160,17 +162,37 @@ const para: TranslationsType = textBy(
       <div class={cn(`flex  max-w-[65ch] flex-col gap-4 text-white lg:py-10`)}>
         <h1
           class={cn(`text-heading1 uppercase font-black`)}
-          set:html={title[componentProps.lang]}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 10,
+                // spanClasses: "text-secondary block",
+              })
+            : title[componentProps.lang]}
         />
         {
           paraLead[componentProps.lang] && (
             <p
               class={cn("text-heading1 uppercase")}
-              set:html={paraLead[componentProps.lang]}
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 5,
+                      // spanClasses: "text-secondary block",
+                    })
+                  : paraLead[componentProps.lang]
+              }
             />
           )
         }
-        <p class="text-start" set:html={para[componentProps.lang]} />
+        <p
+          class="text-start"
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 50,
+                // spanClasses: "text-secondary block",
+              })
+            : para[componentProps.lang]}
+        />
       </div>
     </div>
   </div>
