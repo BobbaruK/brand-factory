@@ -7,6 +7,8 @@ import Dialog from "../../../../globals/components/custom-dialog/dialog.astro";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import "../styles/global.css";
+import Form from "../../../../globals/components/form";
+import { textBy } from "../../../../globals/utils/text-by";
 
 interface Props {
   componentProps: ComponentProps;
@@ -16,6 +18,47 @@ interface Props {
 const { componentProps, metaDescription } = Astro.props;
 
 const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
+
+const formButton: TranslationsType = textBy(
+  {
+    default: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: `Register!`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: ``,
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "Zarejestruj się!",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
 ---
 
 <!doctype html>
@@ -83,7 +126,13 @@ const lang = componentProps.lang as keyof typeof componentProps.brandObj.typage;
       </main>
       <Footer componentProps={componentProps} />
     </div>
-    <Dialog> Dialog Content Here! </Dialog>
+    <Dialog>
+      <Form
+        componentProps={componentProps}
+        button={formButton[componentProps.lang]}
+        id="bottom-form"
+      />
+    </Dialog>
     <BackToTop />
     <script
       type="module"
