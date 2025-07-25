@@ -57,6 +57,8 @@
     1rem + 1.25vw,
     2rem
   ); /* 20 - 32 ; 320 - 1280 */
+
+  --spacing-custom-spacing: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
 }
 
 @theme inline {
@@ -98,7 +100,7 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
