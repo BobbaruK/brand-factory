@@ -349,13 +349,37 @@ const buttonLabel: TranslationsType = textBy(
     <div class="relative z-10 flex flex-col gap-6">
       <h2
         class="text-heading2 leading-heading2 font-black uppercase"
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
       />
 
-      <p set:html={para[componentProps.lang]} class="text-paras" />
+      <p
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 30,
+            })
+          : para[componentProps.lang]}
+        class="text-paras"
+      />
 
       <ol class="flex list-inside list-decimal flex-col gap-6 xl:list-outside">
-        {list.map((li) => <li set:html={li[componentProps.lang]} class="" />)}
+        {
+          list.map((li) => (
+            <li
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 15,
+                    })
+                  : li[componentProps.lang]
+              }
+              class=""
+            />
+          ))
+        }
       </ol>
 
       <ButtonDisclaimer

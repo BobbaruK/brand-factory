@@ -163,11 +163,20 @@ const buttonLabel: TranslationsType = textBy(
               "text-heading1 font-black uppercase text-balance",
               componentProps.lang === "pl" ? "max-w-[25ch]" : "max-w-[20ch]",
             )}
-            set:html={title[componentProps.lang]}
+            set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 5,
+                  spanClasses: "text-secondary",
+                })
+              : title[componentProps.lang]}
           />
 
           <p
-            set:html={para[componentProps.lang]}
+            set:html={componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 50,
+                })
+              : para[componentProps.lang]}
             class="text-custom-size max-w-[40ch]"
           />
 

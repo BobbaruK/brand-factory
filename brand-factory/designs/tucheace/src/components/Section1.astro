@@ -1,5 +1,7 @@
 ---
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { textBy } from "../../../../globals/utils/text-by";
 
@@ -95,9 +97,20 @@ const para: TranslationsType = textBy(
   <div class="container flex flex-col gap-6">
     <h2
       class="text-heading2 text-primary font-black uppercase"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
     />
 
-    <p set:html={para[componentProps.lang]} class="text-custom-size" />
+    <p
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 30,
+          })
+        : para[componentProps.lang]}
+      class="text-custom-size"
+    />
   </div>
 </section>

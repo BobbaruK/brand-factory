@@ -265,7 +265,11 @@ const buttonLabel: TranslationsType = textBy(
   <div class="py-custom-spacing container flex flex-col gap-6">
     <h2
       class="text-heading2 leading-heading2 font-black uppercase"
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
     />
 
     {
@@ -274,7 +278,13 @@ const buttonLabel: TranslationsType = textBy(
 
         return (
           <p
-            set:html={para[componentProps.lang]}
+            set:html={
+              componentProps.features?.includes(Features.showcase)
+                ? showcase({
+                    words: 15,
+                  })
+                : para[componentProps.lang]
+            }
             class={cn("", {
               "font-black": isBold,
             })}
