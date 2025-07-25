@@ -1,0 +1,400 @@
+---
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import { Image } from "astro:assets";
+import { Button } from "./ui/button";
+import background from "../assets/wire-man.webp";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: `Why trade with ${componentProps.brandObj.name}? modern tools for smart trading`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Dlaczego warto handlować z ${componentProps.brandObj.name}? nowoczesne narzędzia dla inteligentnego tradingu`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const para: TranslationsType = textBy(
+  {
+    default: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: `Our cutting-edge tools provide you with deep insights, real-time data, and expert analyses to help you make well-informed trading decisions. Become a client of FXORO and Gain access to Trading Central, a leading technical analysis provider:`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Nasze nowoczesne narzędzia dostarczają Ci dogłębnych analiz, danych w czasie rzeczywistym i eksperckich prognoz, abyś mógł podejmować świadome decyzje handlowe. Dołącz do FXORO i uzyskaj dostęp do Trading Central – czołowego dostawcy analiz technicznych:`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const list: TranslationsType[] = [
+  textBy(
+    {
+      default: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: ``,
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: `<span class="font-black">Daily Newsletter -</span> A curated daily summary of key market movements, trends, and economic events to stay updated on global financial developments.`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: `<span class="font-black">Codzienny Biuletyn -</span> Starannie wyselekcjonowane podsumowanie najważniejszych ruchów rynkowych, trendów i wydarzeń gospodarczych, abyś zawsze był na bieżąco z globalnymi zmianami finansowymi.`,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: ``,
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: `<span class="font-black">Market Buzz -</span> A real-time tool that scans and analyzes social media and news articles to highlight trending assets and market sentiment.`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: `<span class="font-black">Market Buzz -</span> Narzędzie w czasie rzeczywistym analizujące media społecznościowe i artykuły prasowe, aby wskazać popularne aktywa i nastroje rynkowe.`,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: ``,
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: `<span class="font-black">Alpha Generation -</span> Optimize your trading strategy with a premium technical analysis, helping you discover potential opportunities.`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: `<span class="font-black">Alpha Generation -</span> Udoskonal swoją strategię inwestycyjną dzięki premium analizom technicznym, które pomogą Ci odkrywać nowe możliwości.`,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: ``,
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: `<span class="font-black">Technical Views -</span> Access expert chart analysis to enhance your technical trading moves.`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: `<span class="font-black">Technical Views -</span> Dostęp do eksperckich analiz wykresów, aby doskonalić swoje techniki handlowe.`,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: ``,
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: `<span class="font-black">Web TV -</span> Get daily live market updates and expert insights through our streaming video service.`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: `<span class="font-black">Web TV -</span> Codzienne transmisje na żywo z aktualnościami rynkowymi i analizami ekspertów.`,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+    },
+    "license",
+    componentProps,
+  ),
+];
+
+const buttonLabel: TranslationsType = textBy(
+  {
+    default: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: `Register to get access`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Zarejestruj się, aby uzyskać dostęp`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  "license",
+  componentProps,
+);
+---
+
+<section
+  id="section2"
+  class="section2 bg-primary text-custom-size text-primary-foreground overflow-clip"
+>
+  <div class="py-custom-spacing relative container">
+    <div class="relative z-10 flex flex-col gap-6">
+      <h2
+        class="text-heading2 leading-heading2 font-black uppercase"
+        set:html={title[componentProps.lang]}
+      />
+
+      <p set:html={para[componentProps.lang]} class="text-paras" />
+
+      <ol class="flex list-inside list-decimal flex-col gap-6 xl:list-outside">
+        {list.map((li) => <li set:html={li[componentProps.lang]} class="" />)}
+      </ol>
+
+      <ButtonDisclaimer
+        componentProps={componentProps}
+        client:load
+        className=""
+        disclaimer={{
+          active: true,
+        }}
+      >
+        <Button
+          variant={"secondary"}
+          className={"js-modal-trigger text-para-lead! w-full cursor-pointer font-black uppercase md:px-16 md:py-3"}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : buttonLabel[componentProps.lang]}
+        />
+      </ButtonDisclaimer>
+    </div>
+
+    <div
+      class="-end-[400px] top-0 bottom-0 z-0 hidden h-full lg:absolute 2xl:block"
+    >
+      <div
+        class="inset-0 z-20 hidden h-full lg:absolute lg:block lg:bg-[linear-gradient(90deg,_rgba(255,255,255,0)_0%,_rgba(255,255,255,0)_70%,_hsl(var(--primary))_100%)]"
+      >
+      </div>
+      <Image
+        src={background}
+        alt="Background"
+        class="relative z-10"
+        widths={[1536, background.width]}
+        sizes={`
+          (max-width: 1536px) 0px,
+          574px
+        `}
+      />
+    </div>
+  </div>
+</section>
