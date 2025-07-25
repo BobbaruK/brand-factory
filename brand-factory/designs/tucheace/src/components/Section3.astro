@@ -1,0 +1,305 @@
+---
+import { cn } from "@/lib/utils";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: `Support during your trading journey`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Wsparcie podczas twojej drogi tradingowej`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const paras: TranslationsType[] = [
+  textBy(
+    {
+      default: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: ``,
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: `We believe in things that are well-done.`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: `Wierzymy w jakość i profesjonalizm.`,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: ``,
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: `This is why we have developed a professional customer support team which is always ready to assist, ensuring a smooth experience.`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: `Dlatego stworzyliśmy zespół wsparcia klienta, który jest zawsze gotowy do pomocy, zapewniając Ci bezproblemowe doświadczenie.`,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: ``,
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: `Additionally, as a regulated broker on the European market, we adhere to the highest industry standards.`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: `Dodatkowo, jako regulowany broker na rynku europejskim, przestrzegamy najwyższych standardów branżowych.`,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: ``,
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: `Trade with confidence, trade with ${componentProps.brandObj.name}!`,
+        it: ``,
+        tr: ``,
+        ro: ``,
+        ar: ``,
+        de: ``,
+        es: ``,
+        sv: ``,
+        pt: ``,
+        fi: ``,
+        pl: `Handluj z pewnością siebie, handluj z ${componentProps.brandObj.name}!`,
+        hu: ``,
+        th: ``,
+        ms: ``,
+        vi: ``,
+      },
+    },
+    "license",
+    componentProps,
+  ),
+];
+
+const boldParas = [0, 3];
+
+const buttonLabel: TranslationsType = textBy(
+  {
+    default: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: ``,
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: `Register`,
+      it: ``,
+      tr: ``,
+      ro: ``,
+      ar: ``,
+      de: ``,
+      es: ``,
+      sv: ``,
+      pt: ``,
+      fi: ``,
+      pl: `Zarejestruj się`,
+      hu: ``,
+      th: ``,
+      ms: ``,
+      vi: ``,
+    },
+  },
+  "license",
+  componentProps,
+);
+---
+
+<section id="section3" class="section3 text-custom-size">
+  <div class="py-custom-spacing container flex flex-col gap-6">
+    <h2
+      class="text-heading2 leading-heading2 font-black uppercase"
+      set:html={title[componentProps.lang]}
+    />
+
+    {
+      paras.map((para, index) => {
+        const isBold = boldParas.includes(index);
+
+        return (
+          <p
+            set:html={para[componentProps.lang]}
+            class={cn("", {
+              "font-black": isBold,
+            })}
+          />
+        );
+      })
+    }
+
+    <ButtonDisclaimer
+      componentProps={componentProps}
+      client:load
+      className=""
+      disclaimer={{
+        active: true,
+      }}
+    >
+      <Button
+        variant={"secondary"}
+        className={"js-modal-trigger text-para-lead! w-full cursor-pointer font-black uppercase md:px-16 md:py-3"}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>
