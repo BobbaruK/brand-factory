@@ -4,7 +4,8 @@ import { Image } from "astro:assets";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { textBy } from "../../../../globals/utils/text-by";
 import type { TranslationsType } from "../../../../globals/types/translations";
-import bg from "../assets/s1-bg.png";
+import bg from "../assets/s1-bg-v2.png";
+import tablets from "../assets/tablets.png";
 import { showcase } from "../../../../globals/features/showcase/text";
 import { Features } from "../../../../globals/types/enums";
 
@@ -20,7 +21,7 @@ const title: TranslationsType = textBy(
       it: "",
       tr: "",
       ro: "",
-      ar: "",
+      ar: `<span class='text-secondary block'>إشارات تداول مجانية</span> اكتشف فرص التداول.`,
       de: "",
       es: "<span class='text-secondary block'>Señales de trading gratuitas.</span> Identificar oportunidades de trading.",
       sv: ``,
@@ -102,7 +103,7 @@ const para: TranslationsType = textBy(
       it: "",
       tr: "",
       ro: "",
-      ar: "",
+      ar: `كل متداول يودّ الحصول على نصائح عند الاستثمار في الأسواق المالية. تقدّم لك ${componentProps.brandObj.name} إشارات تداول مجانية وسهلة المتابعة، مع نتائج مباشرة في الوقت الحقيقي. استفد من هذه الفرصة لتحسين استراتيجيتك في التداول وزيادة إمكانياتك. نحن نرسل إشارات التداول مباشرة إلى هاتفك الذكي أو إلى بريدك الإلكتروني.`,
       de: "",
       es: `Todo trader desea contar con consejos al invertir en los mercados financieros. ${componentProps.brandObj.name} te ofrece Señales de Trading GRATUITAS, fáciles de seguir y con resultados en tiempo real. Aprovecha esta oportunidad para mejorar tu estrategia de trading y maximizar tu potencial. Enviamos las señales de trading directamente a tu smartphone o correo electrónico.`,
       sv: ``,
@@ -143,25 +144,22 @@ const para: TranslationsType = textBy(
 >
   <Image
     src={bg}
-    alt="Apple Laptop Diploma"
-    class="absolute z-0 h-full w-full object-cover"
+    alt="Background"
+    class={cn(
+      "absolute z-0 h-full w-full object-cover",
+      componentProps.lang === "ar" ? "scale-x-[-1] " : "",
+    )}
     widths={[320, 576, 640, 768, 1024, 1280, 1536, bg.width]}
-    sizes={`
-      (max-width: 320px) 576px,
-      (max-width: 576px) 768px,
-      (max-width: 768px) 1024px,
-      (max-width: 1024px) 1536px,
-      100vw
-    `}
+    sizes={`100vw`}
   />
   <div class="absolute z-10 h-full w-full bg-zinc-800/60 xl:hidden"></div>
   <div class="relative z-20 container flex flex-col gap-4 lg:flex-row">
     <div
-      class="relative z-20 flex grow items-center justify-center py-9 text-center lg:z-0 lg:w-[50%] lg:min-w-[50%] lg:justify-start lg:p-0 lg:text-start"
+      class="relative z-20 flex grow items-center justify-center py-9 text-center lg:z-0 lg:w-1/2 lg:justify-start lg:p-0 lg:text-start"
     >
       <div class={cn(`flex  max-w-[65ch] flex-col gap-4 text-white lg:py-10`)}>
         <h1
-          class={cn(`text-heading1 uppercase font-black`)}
+          class={cn(`text-heading1 uppercase font-black text-balance`)}
           set:html={componentProps.features?.includes(Features.showcase)
             ? showcase({
                 words: 10,
@@ -194,6 +192,22 @@ const para: TranslationsType = textBy(
             : para[componentProps.lang]}
         />
       </div>
+    </div>
+    <div class="relative hidden w-full grow lg:block lg:w-1/2">
+      <Image
+        src={tablets}
+        alt="50%"
+        class={cn(
+          "absolute inset-0 max-w-none w-[calc(100%_+_200px)] h-full object-cover object-top",
+          // componentProps.lang === "ar" ? "scale-x-[-1] " : "",
+        )}
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, tablets.width]}
+        sizes={`
+          (max-width: 1081px) 0px,
+          (max-width: 1470px) 709px,
+          836px
+        `}
+      />
     </div>
   </div>
 </section>
