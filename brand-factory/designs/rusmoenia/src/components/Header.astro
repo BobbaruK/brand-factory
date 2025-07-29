@@ -1,20 +1,135 @@
 ---
 import { type CustomOptions } from "@/pages/index.astro";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
+import SVGMask from "../../../../globals/components/svg-mask";
 import { type ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
+
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: `Stop settling. Start winning. <span class="block text-secondary">Trade smarter with ${componentProps.brandObj.name}.</span>`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `توقف عن التسوية. ابدأ بالفوز. <span class="block text-secondary">تداول بذكاء مع ${componentProps.brandObj.name}.</span>`,
+      de: "",
+      es: `Deja de conformarte. Empieza a ganar. <span class="block text-secondary">Opera de forma inteligente con ${componentProps.brandObj.name}.</span>`,
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const para: TranslationsType = textBy(
+  {
+    default: {
+      en: `Get more control, speed, and flexibility with a platform built around you.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `تحكّم أكبر، سرعة أعلى، ومرونة أفضل مع منصة مصممة خصيصًا لك.`,
+      de: "",
+      es: "Obtén más control, velocidad y flexibilidad con una plataforma creada para ti.",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
 ---
 
-<header id="header">
-  <div class="container">
-    <MainLogo
-      size={componentProps.brandObj.nameToLower}
-      logo={componentProps.logo()}
-      square={componentProps.customOptions?.logoSquare}
+<header id="header" class={"relative text-white"}>
+  <video
+    loop
+    autoplay
+    muted
+    class={"absolute inset-0 z-0 w-full h-full object-cover object-bottom"}
+  >
+    <source
+      src="https://assets.smartsupporthub.com/videos/lps/graph-bg.mp4"
+      type="video/mp4"
     />
+    Your browser does not support the video tag.
+  </video>
+  <div class="bg-primary/75 absolute inset-0"></div>
+  <div class="relative z-20">
+    <div class="py-custom-spacing container">
+      <MainLogo
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
+      />
+    </div>
+    <div class="space-y-custom-spacing container">
+      <h1
+        set:html={title[componentProps.lang]}
+        class="text-heading1 font-black text-balance uppercase lg:text-center"
+      />
+      <p
+        set:html={para[componentProps.lang]}
+        class="text-para-lead lg:text-center"
+      />
+      <div class="grid place-items-center text-6xl">
+        <SVGMask
+          url={`url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3C!-- Icon from Basil by Craftwork - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='currentColor' fill-rule='evenodd' d='M16.53 8.97a.75.75 0 0 1 0 1.06l-4 4a.75.75 0 0 1-1.06 0l-4-4a.75.75 0 1 1 1.06-1.06L12 12.44l3.47-3.47a.75.75 0 0 1 1.06 0' clip-rule='evenodd'/%3E%3C/svg%3E")`}
+        />
+      </div>
+    </div>
   </div>
 </header>
