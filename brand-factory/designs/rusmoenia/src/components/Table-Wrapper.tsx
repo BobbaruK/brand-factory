@@ -18,6 +18,7 @@ interface Props {
 }
 
 export const TableWrapper = ({ table, componentProps }: Props) => {
+  // TODO: data table maybe?!?
   // const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   // if (!isDesktop)
@@ -66,7 +67,7 @@ export const TableWrapper = ({ table, componentProps }: Props) => {
         <TableHeader>
           <TableRow>
             {table.titles.map((title) => (
-              <TableHead>
+              <TableHead key={title[componentProps.lang].replaceAll(" ", "-")}>
                 {componentProps.features?.includes(Features.showcase)
                   ? showcase({
                       words: 2,
@@ -77,8 +78,8 @@ export const TableWrapper = ({ table, componentProps }: Props) => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {table.data.map((row) => (
-            <TableRow>
+          {table.data.map((row, index) => (
+            <TableRow key={index}>
               <TableCell>
                 {componentProps.features?.includes(Features.showcase)
                   ? showcase({

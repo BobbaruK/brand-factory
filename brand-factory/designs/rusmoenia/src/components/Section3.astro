@@ -1,15 +1,15 @@
 ---
 import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import Trustpilot from "../../../../globals/components/logos/misc/Trustpilot/trustpilot.astro";
+import AppStore from "../../../../globals/components/logos/store/app-store.astro";
+import GooglePlay from "../../../../globals/components/logos/store/google-play.astro";
+import SVGMask from "../../../../globals/components/svg-mask";
 import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { textBy } from "../../../../globals/utils/text-by";
 import { Button } from "./ui/button";
-import Trustpilot from "../../../../globals/components/logos/misc/Trustpilot/trustpilot.astro";
-import GooglePlay from "../../../../globals/components/logos/store/google-play.astro";
-import AppStore from "../../../../globals/components/logos/store/app-store.astro";
-import SVGMask from "../../../../globals/components/svg-mask";
 
 interface Props {
   componentProps: ComponentProps;
@@ -78,23 +78,38 @@ const buttonLabel: TranslationsType = textBy(
           : buttonLabel[componentProps.lang]}
       />
     </ButtonDisclaimer>
-    <div class="text-primary flex flex-wrap items-center justify-center gap-4">
+  </div>
+  <hr class="border-primary my-custom-spacing" />
+  <div class="gap-custom-spacing container flex flex-col">
+    <div
+      class="text-primary flex flex-wrap items-center justify-center gap-4 lg:gap-8 xl:gap-16"
+    >
       <div class="w-fit text-6xl">
-        <a href="">
+        <a href="https://t.me/fxoroglobal" target="_blank">
           <SVGMask
             url={`url("data:image/svg+xml,%3Csvg width='477' height='478' viewBox='0 0 477 478' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M238.24 0.730469C106.7 0.730469 0.0605469 107.37 0.0605469 238.91C0.0605469 370.45 106.7 477.091 238.24 477.091C369.78 477.091 476.42 370.45 476.42 238.91C476.42 107.37 369.78 0.730469 238.24 0.730469ZM370.271 147.32L276.94 354.081C273.85 360.921 265.141 363 259.291 358.3L203.97 313.82L176.121 354.391C175.331 355.541 173.53 354.86 173.7 353.48L181.531 287.61C181.911 284.38 183.531 281.42 186.041 279.35L308.471 178.41L167.281 254.06C164.641 255.47 163.011 258.25 163.071 261.25L163.861 303.22C163.891 304.69 161.871 305.11 161.301 303.76L138.45 249.65L85.2305 220.66C76.0605 215.67 77.7904 202.02 87.9104 199.46L357 131.48C366.31 129.13 374.221 138.57 370.271 147.32Z' fill='%23273773'/%3E%3C/svg%3E")`}
           />
         </a>
       </div>
-      <a href="">
+      <a
+        href="https://www.trustpilot.com/review/fxoroglobal.com"
+        target="_blank"
+      >
         <Trustpilot />
       </a>
-      <a href="">
+      <a
+        href="https://play.google.com/store/apps/details?id=com.fxoro.app&pli=1"
+        target="_blank"
+      >
         <GooglePlay />
       </a>
-      <a href="">
+      <a
+        href="https://apps.apple.com/th/app/fxoro-trading-app/id1579042568"
+        target="_blank"
+      >
         <AppStore />
       </a>
     </div>
   </div>
+  <hr class="border-primary mt-custom-spacing" />
 </section>
