@@ -60,7 +60,7 @@ export const TableWrapper = ({ table, componentProps }: Props) => {
 
   return (
     <>
-      <Table className="border">
+      <Table className="border text-custom-size">
         <TableHeader>
           <TableRow>
             {table.titles.map((title) => (
