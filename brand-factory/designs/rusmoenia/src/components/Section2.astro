@@ -1,6 +1,8 @@
 ---
 import { ICON1, ICON2, ICON3 } from "@/constants/icons";
+import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { textBy } from "../../../../globals/utils/text-by";
 
@@ -164,11 +166,19 @@ const bullets: {
 >
   <div class="space-y-custom-spacing container">
     <h2
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+          })
+        : title[componentProps.lang]}
       class="text-heading2 font-black text-balance uppercase lg:text-center"
     />
     <p
-      set:html={para[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 15,
+          })
+        : para[componentProps.lang]}
       class="text-para-lead text-balance lg:text-center"
     />
 
@@ -181,7 +191,13 @@ const bullets: {
               class="stagger w-[70px] min-w-[70px] lg:w-[100px] lg:min-w-[100px] [&_svg]:h-auto max-lg:[&_svg]:w-full"
             />
             <h3
-              set:html={bullet.label[componentProps.lang]}
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 5,
+                    })
+                  : bullet.label[componentProps.lang]
+              }
               class="stagger text-custom-size"
             />
           </div>

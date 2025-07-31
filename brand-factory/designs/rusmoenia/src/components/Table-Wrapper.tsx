@@ -9,6 +9,8 @@ import {
 import type { DataTable } from "types/data-table";
 import SVGMask from "../../../../globals/components/svg-mask";
 import type { ComponentProps } from "../../../../globals/types/component-props";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps;
@@ -60,29 +62,49 @@ export const TableWrapper = ({ table, componentProps }: Props) => {
 
   return (
     <>
-      <Table className="border text-custom-size">
+      <Table className="text-custom-size border">
         <TableHeader>
           <TableRow>
             {table.titles.map((title) => (
-              <TableHead>{title[componentProps.lang]}</TableHead>
+              <TableHead>
+                {componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 2,
+                    })
+                  : title[componentProps.lang]}
+              </TableHead>
             ))}
           </TableRow>
         </TableHeader>
         <TableBody>
           {table.data.map((row) => (
             <TableRow>
-              <TableCell>{row.advantage[componentProps.lang]}</TableCell>
+              <TableCell>
+                {componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 2,
+                    })
+                  : row.advantage[componentProps.lang]}
+              </TableCell>
               <TableCell>
                 <div className="flex items-center gap-2">
                   <Icon state={row.fxoro_global.isAvailable} />
-                  {row.fxoro_global.label[componentProps.lang]}
+                  {componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 2,
+                      })
+                    : row.fxoro_global.label[componentProps.lang]}
                 </div>
               </TableCell>
 
               <TableCell className="">
                 <div className="flex items-center gap-2">
                   <Icon state={row.typical_broker_exp.isAvailable} />
-                  {row.typical_broker_exp.label[componentProps.lang]}
+                  {componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 2,
+                      })
+                    : row.typical_broker_exp.label[componentProps.lang]}
                 </div>
               </TableCell>
             </TableRow>

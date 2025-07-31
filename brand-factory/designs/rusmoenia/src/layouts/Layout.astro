@@ -8,6 +8,8 @@ import type { TranslationsType } from "../../../../globals/types/translations";
 import "../styles/global.css";
 import Form from "../../../../globals/components/form";
 import { textBy } from "../../../../globals/utils/text-by";
+import { Features } from "../../../../globals/types/enums";
+import { showcase } from "../../../../globals/features/showcase/text";
 
 interface Props {
   componentProps: ComponentProps;
@@ -124,7 +126,11 @@ const buttonLabel: TranslationsType = textBy(
     <Dialog>
       <Form
         componentProps={componentProps}
-        button={buttonLabel[componentProps.lang]}
+        button={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
         id="modal-form"
       />
     </Dialog>

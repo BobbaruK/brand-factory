@@ -533,11 +533,19 @@ const table: DataTable = {
 <section id="section1" class="section1 py-custom-spacing">
   <div class="space-y-custom-spacing container">
     <h2
-      set:html={title[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+          })
+        : title[componentProps.lang]}
       class="text-heading2 text-primary font-black text-balance uppercase lg:text-center"
     />
     <p
-      set:html={subTitle[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 15,
+          })
+        : subTitle[componentProps.lang]}
       class="text-para-lead text-balance lg:text-center"
     />
 
@@ -546,7 +554,11 @@ const table: DataTable = {
     </div>
 
     <p
-      set:html={para[componentProps.lang]}
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 10,
+          })
+        : para[componentProps.lang]}
       class="text-para-lead text-balance lg:text-center"
     />
 

@@ -5,6 +5,8 @@ import SVGMask from "../../../../globals/components/svg-mask";
 import { type ComponentProps } from "../../../../globals/types/component-props";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { textBy } from "../../../../globals/utils/text-by";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -118,11 +120,20 @@ const para: TranslationsType = textBy(
     </div>
     <div class="space-y-custom-spacing container">
       <h1
-        set:html={title[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 10,
+              spanClasses: "text-secondary",
+            })
+          : title[componentProps.lang]}
         class="text-heading1 heading font-black text-balance uppercase lg:text-center"
       />
       <p
-        set:html={para[componentProps.lang]}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 10,
+            })
+          : para[componentProps.lang]}
         class="text-para-lead para lg:text-center"
       />
       <div class="arrow grid place-items-center text-6xl">
@@ -143,5 +154,6 @@ const para: TranslationsType = textBy(
 
   tl.from(".heading", { x: -100, opacity: 0 });
   tl.from(".para", { x: -100, opacity: 0 }, "-=0.2");
-  tl.from(".arrow", { y: -10, repeat: -1, yoyo: true, ease: "none" }, "=<");
+  tl.from(".arrow", { opacity: 0 });
+  tl.from(".arrow", { y: -10, repeat: -1, yoyo: true, ease: "none" }, "<");
 </script>
