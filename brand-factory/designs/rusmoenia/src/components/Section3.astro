@@ -1,0 +1,86 @@
+---
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import { Button } from "./ui/button";
+import Trustpilot from "../../../../globals/components/logos/misc/Trustpilot/trustpilot.astro";
+import GooglePlay from "../../../../globals/components/logos/store/google-play.astro";
+import AppStore from "../../../../globals/components/logos/store/app-store.astro";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const buttonLabel: TranslationsType = textBy(
+  {
+    default: {
+      en: "Join 1M Traders",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "انضم إلى مليون متداول",
+      de: "",
+      es: "Únete a 1 millón de traders",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+---
+
+<section id="section3" class="section3 py-custom-spacing">
+  <div class="gap-custom-spacing container flex flex-col">
+    <ButtonDisclaimer
+      componentProps={componentProps}
+      client:load
+      className="mx-auto"
+      disclaimer={{
+        active: false,
+      }}
+    >
+      <Button
+        variant={"secondary"}
+        className={"js-modal-trigger text-heading3! w-full cursor-pointer font-black uppercase md:px-8"}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+    <div class="text-primary flex flex-wrap items-center justify-center gap-4">
+      <Trustpilot />
+      <GooglePlay />
+      <AppStore />
+    </div>
+  </div>
+</section>
