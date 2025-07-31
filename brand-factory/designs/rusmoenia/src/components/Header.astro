@@ -119,13 +119,13 @@ const para: TranslationsType = textBy(
     <div class="space-y-custom-spacing container">
       <h1
         set:html={title[componentProps.lang]}
-        class="text-heading1 font-black text-balance uppercase lg:text-center"
+        class="text-heading1 heading font-black text-balance uppercase lg:text-center"
       />
       <p
         set:html={para[componentProps.lang]}
-        class="text-para-lead lg:text-center"
+        class="text-para-lead para lg:text-center"
       />
-      <div class="grid place-items-center text-6xl">
+      <div class="arrow grid place-items-center text-6xl">
         <SVGMask
           url={`url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3C!-- Icon from Basil by Craftwork - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='currentColor' fill-rule='evenodd' d='M16.53 8.97a.75.75 0 0 1 0 1.06l-4 4a.75.75 0 0 1-1.06 0l-4-4a.75.75 0 1 1 1.06-1.06L12 12.44l3.47-3.47a.75.75 0 0 1 1.06 0' clip-rule='evenodd'/%3E%3C/svg%3E")`}
         />
@@ -133,3 +133,15 @@ const para: TranslationsType = textBy(
     </div>
   </div>
 </header>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline({ duration: 0.65 });
+
+  tl.from(".heading", { x: -100, opacity: 0 });
+  tl.from(".para", { x: -100, opacity: 0 }, "-=0.2");
+  tl.from(".arrow", { y: -10, repeat: -1, yoyo: true, ease: "none" }, "=<");
+</script>

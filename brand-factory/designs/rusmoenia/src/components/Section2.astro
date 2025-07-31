@@ -178,11 +178,11 @@ const bullets: {
           <div class="flex items-center gap-4">
             <div
               set:html={bullet.icon}
-              class="w-[70px] min-w-[70px] lg:w-[100px] lg:min-w-[100px] [&_svg]:h-auto max-lg:[&_svg]:w-full"
+              class="stagger w-[70px] min-w-[70px] lg:w-[100px] lg:min-w-[100px] [&_svg]:h-auto max-lg:[&_svg]:w-full"
             />
             <h3
               set:html={bullet.label[componentProps.lang]}
-              class="text-custom-size"
+              class="stagger text-custom-size"
             />
           </div>
         ))
@@ -190,3 +190,16 @@ const bullets: {
     </div>
   </div>
 </section>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".stagger", {
+    x: -100,
+    opacity: 0,
+    stagger: 0.1, // 0.1 seconds between when each ".box" element starts animating
+    scrollTrigger: ".stagger",
+  });
+</script>
