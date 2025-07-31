@@ -1,0 +1,192 @@
+---
+import { ICON1, ICON2, ICON3 } from "@/constants/icons";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: "Finally, a broker that works your way",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "أخيرًا، وسيط يعمل بطريقتك",
+      de: "",
+      es: "Finalmente, un broker que se adapta a ti",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const para: TranslationsType = textBy(
+  {
+    default: {
+      en: `Don’t let outdated platforms slow your trades. ${componentProps.brandObj.name} is built for sharp execution, easy customization, and clean, distraction-free charts — so you focus on what matters: the market.`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `لا تدع المنصات القديمة تبطئ تداولاتك. تم تصميم ${componentProps.brandObj.name} للتنفيذ السريع، والتخصيص السهل، والرسوم البيانية النظيفة الخالية من الإلهاء — لتتمكن من التركيز على ما يهم حقًا: السوق.`,
+      de: "",
+      es: `No permitas que las plataformas obsoletas ralenticen tus operaciones. ${componentProps.brandObj.name} está diseñada para una ejecución precisa, personalización sencilla y gráficos limpios y sin distracciones, para que puedas concentrarte en lo que realmente importa: el mercado.`,
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const bullets: {
+  icon: string;
+  label: TranslationsType;
+}[] = [
+  {
+    icon: ICON1(componentProps.lang),
+    label: {
+      en: "Lightning-fast charting tools",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "أدوات رسوم بيانية فائقة السرعة",
+      de: "",
+      es: "Herramientas de gráficos ultra rápidas",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: ICON2(componentProps.lang),
+    label: {
+      en: "Instant switching between workspaces",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "تبديل فوري بين مساحات العمل",
+      de: "",
+      es: "Cambio instantáneo entre espacios de trabajo",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  {
+    icon: ICON3(componentProps.lang),
+    label: {
+      en: "Clean UI for confident, distraction-free decisions",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "واجهة مستخدم واضحة لاتخاذ قرارات واثقة",
+      de: "",
+      es: "Interfaz clara para decisiones seguras y sin distracciones",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+];
+---
+
+<section
+  id="section2"
+  class="section2 py-custom-spacing bg-primary text-primary-foreground"
+>
+  <div class="space-y-custom-spacing container">
+    <h2
+      set:html={title[componentProps.lang]}
+      class="text-heading2 font-black text-balance uppercase lg:text-center"
+    />
+    <p
+      set:html={para[componentProps.lang]}
+      class="text-para-lead text-balance lg:text-center"
+    />
+
+    <div class="space-y-custom-spacing items-start lg:flex">
+      {
+        bullets.map((bullet) => (
+          <div class="flex items-center gap-4">
+            <div
+              set:html={bullet.icon}
+              class="w-[70px] min-w-[70px] lg:w-[100px] lg:min-w-[100px] [&_svg]:h-auto max-lg:[&_svg]:w-full"
+            />
+            <h3
+              set:html={bullet.label[componentProps.lang]}
+              class="text-custom-size"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
