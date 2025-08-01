@@ -6,9 +6,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  // base: "/switch/en/",
-  // base: "/switch/es/",
-  base: "/switch/ar/",
+  // base: "/switch-to-fxoro/en/",
+  // base: "/switch-to-fxoro/es/",
+  base: "/switch-to-fxoro/ar/",
   trailingSlash: "ignore",
   integrations: [react()],
 

@@ -1,6 +1,6 @@
 import type { Languages } from "../../../../../globals/types/translations";
 
-export const ICON1 = (lang: Languages) => {
+export const ICON1 = (lang: Languages, custom?: boolean) => {
   return `
 		<svg
 			width="90"
@@ -10,20 +10,30 @@ export const ICON1 = (lang: Languages) => {
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<g id="1 1" clip-path="url(#clip0_236_2)">
-				<path
-					id="Shadow"
-					d="M86.73 119.599L75.32 139.369L0 86.7288L11.41 66.9688L86.73 119.599Z"
-					fill="var(--accent)"></path>
+				${
+          (custom === undefined || custom === true) &&
+          `			
+							<path
+								id="Shadow"
+								d="M86.73 119.599L75.32 139.369L0 86.7288L11.41 66.9688L86.73 119.599Z"
+								fill="var(--accent)"></path>`
+        }
+	
 				<path
 					id="Number"
 					d="M57.97 119.6V0H30.58C30.58 11.22 17.76 20.69 2.58 20.69V48.08C12.79 48.08 22.36 45.66 30.58 41.46V119.6H0V144.45H86.73V119.6H57.97Z"
 					fill="var(--secondary)"></path>
-				<path
-					id="Ribbon"
-					d="M0 64V86.82H89.77L83.02 75.41L89.77 64H0Z"
-					fill="#92A4A3"></path>
+				${
+          (custom === undefined || custom === true) &&
+          `			
+							<path
+								id="Ribbon"
+								d="M0 64V86.82H89.77L83.02 75.41L89.77 64H0Z"
+								fill="#92A4A3"></path>`
+        }
 				${
           lang === "en" &&
+          (custom === undefined || custom === true) &&
           `
 						<g id="Label - EN">
 							<path
@@ -51,6 +61,7 @@ export const ICON1 = (lang: Languages) => {
         }
 				${
           lang === "es" &&
+          (custom === undefined || custom === true) &&
           `
 						<g id="Label - ES">
 							<path
@@ -83,6 +94,7 @@ export const ICON1 = (lang: Languages) => {
         }
 				${
           lang === "ar" &&
+          (custom === undefined || custom === true) &&
           `
 						<g id="Label - AR">
 							<path

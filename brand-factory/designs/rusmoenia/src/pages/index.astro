@@ -22,6 +22,7 @@ import Layout from "../layouts/Layout.astro";
 
 export interface CustomOptions {
   logoSquare: boolean;
+  customNumbers?: boolean;
 }
 
 /**
@@ -29,23 +30,23 @@ export interface CustomOptions {
  */
 type Logo = FXOROGlobalSVGVariation;
 const brand: BrandsNames = "fxoro_global";
-const lpName = "";
+const lpName = "Switch to FXORO Global - Smarter Tools. Faster Platform.";
 const metaDescription: TranslationsType = {
-  en: "",
-  it: "",
-  tr: "",
-  ro: "",
-  ar: "",
-  de: "",
-  es: "",
-  sv: "",
-  pt: "",
-  fi: "",
-  pl: "",
-  hu: "",
-  th: "",
-  ms: "",
-  vi: "",
+  en: "Discover FXORO Global - a custom, all-in-one platform built for smarter decisions. Fast setup, 24/7 support, and access on any device. Start for free today.",
+  it: "Discover FXORO Global - a custom, all-in-one platform built for smarter decisions. Fast setup, 24/7 support, and access on any device. Start for free today.",
+  tr: "Discover FXORO Global - a custom, all-in-one platform built for smarter decisions. Fast setup, 24/7 support, and access on any device. Start for free today.",
+  ro: "Discover FXORO Global - a custom, all-in-one platform built for smarter decisions. Fast setup, 24/7 support, and access on any device. Start for free today.",
+  ar: "Discover FXORO Global - a custom, all-in-one platform built for smarter decisions. Fast setup, 24/7 support, and access on any device. Start for free today.",
+  de: "Discover FXORO Global - a custom, all-in-one platform built for smarter decisions. Fast setup, 24/7 support, and access on any device. Start for free today.",
+  es: "Discover FXORO Global - a custom, all-in-one platform built for smarter decisions. Fast setup, 24/7 support, and access on any device. Start for free today.",
+  sv: "Discover FXORO Global - a custom, all-in-one platform built for smarter decisions. Fast setup, 24/7 support, and access on any device. Start for free today.",
+  pt: "Discover FXORO Global - a custom, all-in-one platform built for smarter decisions. Fast setup, 24/7 support, and access on any device. Start for free today.",
+  fi: "Discover FXORO Global - a custom, all-in-one platform built for smarter decisions. Fast setup, 24/7 support, and access on any device. Start for free today.",
+  pl: "Discover FXORO Global - a custom, all-in-one platform built for smarter decisions. Fast setup, 24/7 support, and access on any device. Start for free today.",
+  hu: "Discover FXORO Global - a custom, all-in-one platform built for smarter decisions. Fast setup, 24/7 support, and access on any device. Start for free today.",
+  th: "Discover FXORO Global - a custom, all-in-one platform built for smarter decisions. Fast setup, 24/7 support, and access on any device. Start for free today.",
+  ms: "Discover FXORO Global - a custom, all-in-one platform built for smarter decisions. Fast setup, 24/7 support, and access on any device. Start for free today.",
+  vi: "Discover FXORO Global - a custom, all-in-one platform built for smarter decisions. Fast setup, 24/7 support, and access on any device. Start for free today.",
 };
 const lang: Languages = "ar";
 const license: LicenseType = "fsa";
@@ -64,6 +65,7 @@ const fxoroFooter: boolean = false;
 const drThankYou: boolean = false;
 const customOptions: CustomOptions = {
   logoSquare: false,
+  customNumbers: false,
 };
 // ===============================
 

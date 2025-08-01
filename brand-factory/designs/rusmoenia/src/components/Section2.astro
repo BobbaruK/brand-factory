@@ -5,9 +5,10 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { textBy } from "../../../../globals/utils/text-by";
+import type { CustomOptions } from "@/pages/index.astro";
 
 interface Props {
-  componentProps: ComponentProps;
+  componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
 
@@ -98,7 +99,7 @@ const bullets: {
   label: TranslationsType;
 }[] = [
   {
-    icon: ICON1(componentProps.lang),
+    icon: ICON1(componentProps.lang, componentProps.customOptions?.customNumbers),
     label: {
       en: "Lightning-fast charting tools",
       it: "",
@@ -118,7 +119,7 @@ const bullets: {
     },
   },
   {
-    icon: ICON2(componentProps.lang),
+    icon: ICON2(componentProps.lang, componentProps.customOptions?.customNumbers),
     label: {
       en: "Instant switching between workspaces",
       it: "",
@@ -138,7 +139,7 @@ const bullets: {
     },
   },
   {
-    icon: ICON3(componentProps.lang),
+    icon: ICON3(componentProps.lang, componentProps.customOptions?.customNumbers),
     label: {
       en: "Clean UI for confident, distraction-free decisions",
       it: "",
