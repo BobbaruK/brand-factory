@@ -21,18 +21,18 @@ import { useMediaQuery } from "usehooks-ts";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 
 const chartData = [
-  { month: "06 '24", price: 62_754.3 },
-  { month: "07 '24", price: 64_626.0 },
-  { month: "08 '24", price: 58_978.6 },
-  { month: "09 '24", price: 63_339.2 },
-  { month: "10 '24", price: 70_281.8 },
-  { month: "11 '24", price: 96_405.7 },
-  { month: "12 '24", price: 93_557.2 },
-  { month: "01 '25", price: 94_536.1 },
-  { month: "02 '25", price: 84_381.2 },
-  { month: "03 '25", price: 82_548.8 },
-  { month: "04 '25", price: 94_184.4 },
-  { month: "05 '25", price: 103_699.6 },
+  { month: "09 '24", price: 4_356.77 },
+  { month: "10 '24", price: 4_477.27 },
+  { month: "11 '24", price: 4_621.37 },
+  { month: "12 '24", price: 4_853.64 },
+  { month: "01' 25", price: 5_153.33 },
+  { month: "02 '25", price: 5_182.76 },
+  { month: "03 '25", price: 5_327.6 },
+  { month: "04 '25", price: 5_112.24 },
+  { month: "05 '25", price: 5_272.8 },
+  { month: "06 '25", price: 5_484.72 },
+  { month: "07 '25", price: 5_692.5 },
+  { month: "08 '25", price: 6_111.97 },
 ];
 
 interface Props {
@@ -68,7 +68,7 @@ export function CustomLineChart({ title, componentProps }: Props) {
       <CardContent dir="ltr">
         <ChartContainer
           config={chartConfig}
-          className="max-lg:aspect-auto! max-lg:h-[450px] lg:h-[200px] lg:w-full"
+          className="max-lg:aspect-auto! max-lg:h-[450px] lg:h-[300px] lg:w-full"
         >
           {matchesLG ? (
             <LineChart
