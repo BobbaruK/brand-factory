@@ -1,0 +1,360 @@
+---
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: "What Data Tell Us",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "ماذا تخبرنا البيانات",
+      de: "",
+      es: "Lo que nos dicen los datos",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const para: TranslationsType = textBy(
+  {
+    default: {
+      en: "The Dubai Financial Market Index has delivered consistent growth across short and long-term timeframes:",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "قدّم مؤشر سوق دبي المالي نمواً ثابتاً عبر الفترات القصيرة والطويلة:",
+      de: "",
+      es: "El Índice del Mercado Financiero de Dubái ha mostrado un crecimiento constante en plazos cortos y largos:",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const list: TranslationsType[] = [
+  textBy(
+    {
+      default: {
+        en: "10.5% in July 2025",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "10.5٪ في يوليو 2025",
+        de: "",
+        es: "10,5% en julio de 2025",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: "+19.8% in the first half of 2025",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "+19.8٪ في النصف الأول من 2025",
+        de: "",
+        es: "+19,8% en el primer semestre de 2025",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: "+46.4% YoY in 2025",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "+46.4٪ على أساس سنوي في 2025",
+        de: "",
+        es: "+46,4% interanual en 2025",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: "+201% over the last 5 years",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "+201٪ خلال آخر 5 سنوات",
+        de: "",
+        es: "+201% en los últimos 5 años",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "license",
+    componentProps,
+  ),
+];
+
+const buttonLabel: TranslationsType = textBy(
+  {
+    default: {
+      en: "Trade Now",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "تداول الآن",
+      de: "",
+      es: "Operar Ahora",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+---
+
+<section id="section2" class="section2 pb-custom-spacing">
+  <div class="space-y-custom-spacing container">
+    <h2
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+      class="text-heading2 text-primary text-start font-black lg:text-center"
+    />
+    <p
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : para[componentProps.lang]}
+      class="text-custom-size-1 text-start text-balance lg:text-center"
+    />
+    <div
+      class="bg-primary text-primary-foreground p-4 [clip-path:_inset(0_-100vmax)] max-lg:shadow-[0_0_0_100vmax_var(--primary)]"
+    >
+      <ul
+        class="text-custom-size-2 marker:text-secondary flex list-inside list-disc flex-wrap gap-2 font-black lg:items-center lg:justify-around"
+      >
+        {
+          list.map((li) => (
+            <li
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 3,
+                    })
+                  : li[componentProps.lang]
+              }
+            />
+          ))
+        }
+      </ul>
+    </div>
+    <ButtonDisclaimer
+      componentProps={componentProps}
+      client:load
+      className="mx-auto"
+      disclaimer={{
+        active: false,
+      }}
+    >
+      <Button
+        variant={"accent"}
+        className={"js-modal-trigger text-custom-size-1! w-full cursor-pointer font-black md:px-14"}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+    </ButtonDisclaimer>
+  </div>
+</section>
