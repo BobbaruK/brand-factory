@@ -1,0 +1,82 @@
+---
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const buttonLabel: TranslationsType = textBy(
+  {
+    default: {
+      en: "Join Today",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "انضم اليوم",
+      de: "",
+      es: "Únete Hoy",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+---
+
+<section id="section4" class="section4 pb-custom-spacing py-custom-spacing">
+  <div class="space-y-custom-spacing container">
+    <div>
+      <ButtonDisclaimer
+        componentProps={componentProps}
+        client:load
+        className="mx-auto"
+        disclaimer={{
+          active: false,
+        }}
+      >
+        <Button
+          variant={"accent"}
+          className={"js-modal-trigger text-custom-size-1! w-full cursor-pointer font-black md:px-14"}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : buttonLabel[componentProps.lang]}
+        />
+      </ButtonDisclaimer>
+    </div>
+
+    <hr class="border-primary" />
+  </div>
+</section>

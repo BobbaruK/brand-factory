@@ -2,6 +2,7 @@
 import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
+import Section4 from "@/components/Section4.astro";
 import { brandFactory } from "../../../../globals/factory";
 import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
@@ -93,4 +94,5 @@ const componentProps: ComponentProps<Logo, CustomOptions> = {
   <Section1 componentProps={componentProps} />
   <Section2 componentProps={componentProps} />
   <Section3 componentProps={componentProps} />
+  <Section4 componentProps={componentProps} />
 </Layout>
