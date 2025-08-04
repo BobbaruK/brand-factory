@@ -1,0 +1,119 @@
+---
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: `${componentProps.brandObj.name} gives you access to Dubai’s growth`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `${componentProps.brandObj.name} يمنحك الوصول إلى نمو دبي`,
+      de: "",
+      es: `${componentProps.brandObj.name} te da acceso al crecimiento de Dubái`,
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const para: TranslationsType = textBy(
+  {
+    default: {
+      en: `While most brokers limit your options, ${componentProps.brandObj.name} opens the door to one of the region’s most dynamic areas - the Dubai Index`,
+      it: "",
+      tr: "",
+      ro: "",
+      ar: `بينما يقيّد معظم الوسطاء خياراتك، فإن ${componentProps.brandObj.name} تفتح لك الباب إلى واحدة من أكثر المناطق ديناميكية في المنطقة - مؤشر دبي.`,
+      de: "",
+      es: `Mientras que la mayoría de los corredores limitan tus opciones, ${componentProps.brandObj.name} te abre la puerta a una de las áreas más dinámicas de la región: el Índice de Dubái.`,
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+---
+
+<section
+  id="section3"
+  class="section3 pb-custom-spacing bg-primary text-primary-foreground py-custom-spacing"
+>
+  <div class="space-y-custom-spacing container">
+    <h2
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+      class="text-heading2 text-start font-black text-balance uppercase lg:text-center"
+    />
+    <p
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : para[componentProps.lang]}
+      class="text-custom-size-1 text-start text-balance lg:text-center"
+    />
+    <div>icons</div>
+  </div>
+</section>
