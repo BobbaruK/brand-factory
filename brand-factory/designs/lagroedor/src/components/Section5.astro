@@ -1,0 +1,313 @@
+---
+import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
+import { showcase } from "../../../../globals/features/showcase/text";
+import type { ComponentProps } from "../../../../globals/types/component-props";
+import { Features } from "../../../../globals/types/enums";
+import type { TranslationsType } from "../../../../globals/types/translations";
+import { textBy } from "../../../../globals/utils/text-by";
+import { Button } from "./ui/button";
+
+interface Props {
+  componentProps: ComponentProps;
+}
+const { componentProps } = Astro.props;
+
+const title: TranslationsType = textBy(
+  {
+    default: {
+      en: "How to access in 3 simple steps",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "كيفية الوصول في 3 خطوات بسيطة",
+      de: "",
+      es: "Cómo acceder en 3 simples pasos",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const list: TranslationsType[] = [
+  textBy(
+    {
+      default: {
+        en: `Open Your ${componentProps.brandObj.name} Account`,
+        it: "",
+        tr: "",
+        ro: "",
+        ar: `افتح حسابك لدى ${componentProps.brandObj.name}`,
+        de: "",
+        es: `Abre tu cuenta ${componentProps.brandObj.name}`,
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: "Fund & Access the Platform",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "قم بتمويل حسابك والوصول إلى المنصة",
+        de: "",
+        es: "Deposita fondos y accede a la plataforma",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: "Follow Dubai Market Movements",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "تابع تحركات سوق دبي",
+        de: "",
+        es: "Sigue los movimientos del mercado de Dubái",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "license",
+    componentProps,
+  ),
+  textBy(
+    {
+      default: {
+        en: "Get Support When You Need It",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "احصل على الدعم عند الحاجة",
+        de: "",
+        es: "Recibe soporte cuando lo necesites",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+      cysec: {
+        en: "",
+        it: "",
+        tr: "",
+        ro: "",
+        ar: "",
+        de: "",
+        es: "",
+        sv: "",
+        pt: "",
+        fi: "",
+        pl: "",
+        hu: "",
+        th: "",
+        ms: "",
+        vi: "",
+      },
+    },
+    "license",
+    componentProps,
+  ),
+];
+
+const buttonLabel: TranslationsType = textBy(
+  {
+    default: {
+      en: "Open Account Now",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "افتح حساب الآن",
+      de: "",
+      es: "Abrir Cuenta Ahora",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+---
+
+<section id="section5" class="section5 pb-custom-spacing">
+  <div class="space-y-custom-spacing container lg:max-w-[900px]">
+    <h2
+      set:html={componentProps.features?.includes(Features.showcase)
+        ? showcase({
+            words: 5,
+          })
+        : title[componentProps.lang]}
+      class="text-heading2 text-primary text-start font-black text-balance uppercase lg:text-center"
+    />
+
+    <div>
+      <ol
+        class="marker:text-secondary list-inside list-decimal space-y-6 font-black md:columns-2 lg:space-y-12"
+      >
+        {
+          list.map((li) => (
+            <li
+              set:html={
+                componentProps.features?.includes(Features.showcase)
+                  ? showcase({
+                      words: 3,
+                    })
+                  : li[componentProps.lang]
+              }
+            />
+          ))
+        }
+      </ol>
+    </div>
+
+    <div>
+      <ButtonDisclaimer
+        componentProps={componentProps}
+        client:load
+        className="mx-auto"
+        disclaimer={{
+          active: false,
+        }}
+      >
+        <Button
+          variant={"accent"}
+          className={"js-modal-trigger text-custom-size-1! w-full cursor-pointer font-black md:px-14"}
+          set:html={componentProps.features?.includes(Features.showcase)
+            ? showcase({
+                words: 2,
+              })
+            : buttonLabel[componentProps.lang]}
+        />
+      </ButtonDisclaimer>
+    </div>
+  </div>
+</section>
