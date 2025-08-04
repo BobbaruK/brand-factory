@@ -21,11 +21,6 @@ import { useMediaQuery } from "usehooks-ts";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 
 const chartData = [
-  // { month: "01 '24", price: 42_580.5 },
-  // { month: "02 '24", price: 61_169.3 },
-  // { month: "03 '24", price: 71_332.0 },
-  // { month: "04 '24", price: 60_666.6 },
-  // { month: "05 '24", price: 67_530.1 },
   { month: "06 '24", price: 62_754.3 },
   { month: "07 '24", price: 64_626.0 },
   { month: "08 '24", price: 58_978.6 },
@@ -46,7 +41,7 @@ interface Props {
 }
 
 export function CustomLineChart({ title, componentProps }: Props) {
-  const matchesLG = useMediaQuery("(min-width: 1081px)");
+  const matchesLG = useMediaQuery("(min-width: 1024px)");
   const showNumbers = useMediaQuery("(min-width: 636px)");
 
   const [compIsLoaded, setCompIsLoaded] = useState(false);
@@ -73,7 +68,7 @@ export function CustomLineChart({ title, componentProps }: Props) {
       <CardContent dir="ltr">
         <ChartContainer
           config={chartConfig}
-          className="max-lg:!aspect-auto max-lg:h-[450px]"
+          className="max-lg:aspect-auto! max-lg:h-[450px] lg:h-[200px] lg:w-full"
         >
           {matchesLG ? (
             <LineChart
