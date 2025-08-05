@@ -1,10 +1,10 @@
 import {
+  Area,
+  AreaChart,
   Bar,
   BarChart,
   CartesianGrid,
   LabelList,
-  Line,
-  LineChart,
   XAxis,
   YAxis,
 } from "recharts";
@@ -71,7 +71,7 @@ export function CustomLineChart({ title, componentProps }: Props) {
           className="max-lg:aspect-auto! max-lg:h-[450px] lg:h-[300px] lg:w-full"
         >
           {matchesLG ? (
-            <LineChart
+            <AreaChart
               accessibilityLayer
               data={chartData}
               margin={{
@@ -98,19 +98,70 @@ export function CustomLineChart({ title, componentProps }: Props) {
                   fontWeight: "bold",
                 }}
               />
-              <ChartTooltip
-                cursor={true}
-                content={<ChartTooltipContent hideLabel />}
-              />
-              <Line
+              <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+              <defs>
+                <linearGradient id="fillMobile" x1="0" y1="0" x2="0" y2="1">
+                  <stop
+                    offset="5%"
+                    stopColor="var(--color-price)"
+                    stopOpacity={0.8}
+                  />
+                  <stop
+                    offset="95%"
+                    stopColor="var(--color-price)"
+                    stopOpacity={0.1}
+                  />
+                </linearGradient>
+              </defs>
+              <Area
                 dataKey="price"
                 type="natural"
-                stroke="var(--color-price)"
-                strokeWidth={2}
-                dot={false}
+                fill="url(#fillMobile)"
+                fillOpacity={0.4}
+                stroke="var(--color-mobile)"
+                dot={true}
               />
-            </LineChart>
+            </AreaChart>
           ) : (
+            // <LineChart
+            //   accessibilityLayer
+            //   data={chartData}
+            //   margin={{
+            //     left: 12,
+            //     right: 12,
+            //   }}
+            // >
+            //   <CartesianGrid vertical={false} />
+            //   <XAxis
+            //     dataKey="month"
+            //     tickLine={true}
+            //     axisLine={true}
+            //     tickMargin={8}
+            //     tickFormatter={(value) => value}
+            //     style={{
+            //       fontWeight: "bold",
+            //     }}
+            //   />
+            //   <YAxis
+            //     tickLine={true}
+            //     axisLine={true}
+            //     tickMargin={8}
+            //     style={{
+            //       fontWeight: "bold",
+            //     }}
+            //   />
+            //   <ChartTooltip
+            //     cursor={true}
+            //     content={<ChartTooltipContent hideLabel />}
+            //   />
+            //   <Line
+            //     dataKey="price"
+            //     type="natural"
+            //     stroke="var(--color-price)"
+            //     strokeWidth={2}
+            //     dot={true}
+            //   />
+            // </LineChart>
             <BarChart
               accessibilityLayer
               data={chartData}
