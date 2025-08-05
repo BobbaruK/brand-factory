@@ -6,7 +6,7 @@ import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { Button } from "./ui/button";
-import {Image} from "astro:assets";
+import { Image } from "astro:assets";
 import phoneImage from "../assets/mobile.png";
 
 interface Props {
@@ -15,73 +15,83 @@ interface Props {
 const { componentProps } = Astro.props;
 
 const title: TranslationsType = {
-    en: "",
-    it: "Potenzia la tua conoscenza sul trading online",
-    tr: "",
-    ro: "",
-    ar: "",
-    de: "",
-    es: "",
-    sv: `Förbättra dina kunskaper om onlinehandel`,
-    pt: "",
-    fi: "",
-    pl: ``,
-    hu: "",
-    th: "",
-    ms: "",
-    vi: "",
+  en: "",
+  it: "Potenzia la tua conoscenza sul trading online",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Förbättra dina kunskaper om onlinehandel`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
 };
 
 const formBtn: TranslationsType = {
-    en: "",
-    it: "Scopri di più",
-    tr: "",
-    ro: "",
-    ar: "",
-    de: "",
-    es: "",
-    sv: `Upptäck mer!`,
-    pt: "",
-    fi: "",
-    pl: ``,
-    hu: "",
-    th: "",
-    ms: "",
-    vi: "",
+  en: "",
+  it: "Scopri di più",
+  tr: "",
+  ro: "",
+  ar: "",
+  de: "",
+  es: "",
+  sv: `Upptäck mer!`,
+  pt: "",
+  fi: "",
+  pl: ``,
+  hu: "",
+  th: "",
+  ms: "",
+  vi: "",
 };
 ---
 
-<section id="section1" class="section1 relative z-30 py-6 md:-mt-14 lg:-mt-14 xl:-mt-44 2xl:-mt-72">
- <div class="container md:flex">
-     <div class="flex flex-col gap-8 md:grow lg:justify-end">
-         <h2
-                 class="text-heading2 uppercase xl:line-clamp-1"
-                 set:html={title[componentProps.lang]}
-         />
-         <Form
-                 componentProps={componentProps}
-                 button={formBtn[componentProps.lang]}
-                 id="bottom-form"
-                 layout={2}
-         />
-     </div>
-     <div>
-         <Image
-                 src={phoneImage}
-                 alt="Background"
-                 class="hidden h-auto max-w-[275px] md:block"
-                 widths={[320, 576, 640, 768, 1024, 1280, 1536, phoneImage.width]}
-                 sizes={`275px`}
-         />
-     </div>
- </div>
+<section
+  id="section1"
+  class="section1 relative z-30 py-6 md:-mt-14 lg:-mt-14 xl:-mt-44 2xl:-mt-72"
+>
+  <div class="container md:flex">
+    <div class="flex flex-col gap-8 md:grow lg:justify-end">
+      <h2
+        class="text-heading2 uppercase xl:line-clamp-1"
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
+      />
+      <Form
+        componentProps={componentProps}
+        button={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : formBtn[componentProps.lang]}
+        id="bottom-form"
+        layout={2}
+      />
+    </div>
+    <div>
+      <Image
+        src={phoneImage}
+        alt="Background"
+        class="hidden h-auto max-w-[275px] md:block"
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, phoneImage.width]}
+        sizes={`275px`}
+      />
+    </div>
+  </div>
 </section>
 
 <style lang="scss" is:global>
   @reference "../styles/global.css";
 
   form.registerForm {
-
     .form-control {
       label {
       }
@@ -98,7 +108,7 @@ const formBtn: TranslationsType = {
         }
       }
       button {
-        @apply flex h-12 gap-4 bg-secondary uppercase text-secondary-foreground hover:bg-primary hover:text-primary-foreground;
+        @apply bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground flex h-12 gap-4 uppercase;
       }
     }
   }

@@ -2,10 +2,12 @@
 import { type CustomOptions } from "@/pages/index.astro";
 import MainLogo from "../../../../globals/components/logos/MainLogo.astro";
 import { type ComponentProps } from "../../../../globals/types/component-props";
-import type {TranslationsType} from "../../../../globals/types/translations";
+import type { TranslationsType } from "../../../../globals/types/translations";
 import { Image } from "astro:assets";
 import background from "../assets/header.jpg";
-import {cn} from "../lib/utils";
+import { cn } from "../lib/utils";
+import { showcase } from "../../../../globals/features/showcase/text";
+import { Features } from "../../../../globals/types/enums";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -50,30 +52,43 @@ const para: TranslationsType = {
 
 <header id="header" class="relative">
   <Image
-      src={background}
-      alt="Background"
-      class={cn(
-          "absolute inset-0 z-0 h-full w-full object-cover pointer-events-none bgImage",
-          componentProps.lang === "ar" ? "scale-x-[-1] " : "",
-      )}
-      widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
-      sizes={`100vw`}
-      loading={"eager"}
+    src={background}
+    alt="Background"
+    class={cn(
+      "absolute inset-0 z-0 h-full w-full object-cover pointer-events-none bgImage",
+      componentProps.lang === "ar" ? "scale-x-[-1] " : "",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, background.width]}
+    sizes={`100vw`}
+    loading={"eager"}
   />
-  <div class="z-10 relative text-white">
-    <div class="container pt-custom-spacing">
+  <div class="relative z-10 text-white">
+    <div class="pt-custom-spacing container">
       <MainLogo
-          size={componentProps.brandObj.nameToLower}
-          logo={componentProps.logo()}
-          square={componentProps.customOptions?.logoSquare}
+        size={componentProps.brandObj.nameToLower}
+        logo={componentProps.logo()}
+        square={componentProps.customOptions?.logoSquare}
       />
     </div>
-    <div class="container py-[clamp(1.5rem,_-0.4259rem_+_9.6296vw,_8rem)] 2xl:pb-[384px]">
+    <div
+      class="container py-[clamp(1.5rem,_-0.4259rem_+_9.6296vw,_8rem)] 2xl:pb-[384px]"
+    >
       <h1
-          class="text-heading1 uppercase"
-          set:html={title[componentProps.lang]}
+        class="text-heading1 uppercase"
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : title[componentProps.lang]}
       />
-      <p class="text-para-lead" set:html={para[componentProps.lang]} />
+      <p
+        class="text-para-lead"
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 5,
+            })
+          : para[componentProps.lang]}
+      />
     </div>
   </div>
 </header>
