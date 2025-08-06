@@ -97,10 +97,14 @@ export function CustomLineChart({ title, componentProps }: Props) {
                 style={{
                   fontWeight: "bold",
                 }}
+                // tickCount={2}
+                domain={[0, 6500]}
+                // includeHidden
+                allowDecimals={false}
               />
-              <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+              <ChartTooltip cursor={false} content={<ChartTooltipContent  hideIndicator />} />
               <defs>
-                <linearGradient id="fillMobile" x1="0" y1="0" x2="0" y2="1">
+                <linearGradient id="fillPrice" x1="0" y1="0" x2="0" y2="1">
                   <stop
                     offset="5%"
                     stopColor="var(--color-price)"
@@ -116,9 +120,9 @@ export function CustomLineChart({ title, componentProps }: Props) {
               <Area
                 dataKey="price"
                 type="natural"
-                fill="url(#fillMobile)"
+                fill="url(#fillPrice)"
                 fillOpacity={0.4}
-                stroke="var(--color-mobile)"
+                stroke="var(--color-price)"
                 dot={true}
               />
             </AreaChart>
