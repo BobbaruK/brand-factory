@@ -1,10 +1,13 @@
 ---
+import { cn } from "@/lib/utils";
 import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { textBy } from "../../../../globals/utils/text-by";
 import { CustomLineChart } from "./custom-line-chart";
+import chart from "../assets/grafic.png";
+import { Image } from "astro:assets";
 
 interface Props {
   componentProps: ComponentProps;
@@ -61,7 +64,7 @@ const para: TranslationsType = textBy(
       ro: "",
       ar: "أداء مؤشر دبي – من شهر واحد حتى 5 سنوات من النمو",
       de: "",
-      es: "Dubai Index Performance – From 1 Month to 5 Years of Growth",
+      es: "Rendimiento del Índice de Dubái: de 1 mes a 5 años de crecimiento",
       sv: "",
       pt: "",
       fi: "",
@@ -96,13 +99,13 @@ const para: TranslationsType = textBy(
 const chartDisclaimer: TranslationsType = textBy(
   {
     default: {
-      en: "*Performance data is historical and does not guarantee future results. Trading involves risk.",
+      en: "* Performance data is historical and presents the situation in August 2025. It does not guarantee future results. Trading involves risk.",
       it: "",
       tr: "",
       ro: "",
-      ar: "البيانات التاريخية لا تضمن النتائج المستقبلية. التداول ينطوي على مخاطر.",
+      ar: "البيانات المتعلقة بالأداء هي بيانات تاريخية وتُظهر الوضع في أغسطس 2025. لا تضمن النتائج المستقبلية. التداول ينطوي على مخاطر.",
       de: "",
-      es: "* Los datos de rendimiento son históricos y no garantizan resultados futuros. Operar implica riesgo.",
+      es: "* Los datos de rendimiento son históricos y muestran la situación en agosto de 2025. No garantizan resultados futuros. Operar conlleva riesgos.",
       sv: "",
       pt: "",
       fi: "",
@@ -133,6 +136,340 @@ const chartDisclaimer: TranslationsType = textBy(
   "license",
   componentProps,
 );
+
+const bullets: {
+  title: TranslationsType;
+  para: TranslationsType;
+}[] = [
+  {
+   title: textBy(
+      {
+        default: {
+          en: "6 Months",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "6 شهور",
+          de: "",
+          es: "6 Meses",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+    para: textBy(
+      {
+        default: {
+          en: "+17,94%",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "+17,94%",
+          de: "",
+          es: "+17,94%",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+  {
+    title: textBy(
+      {
+        default: {
+          en: "12 Months",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "12 شهور",
+          de: "",
+          es: "12 Meses",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+     para: textBy(
+      {
+        default: {
+          en: "+42,85%",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "+42,85%",
+          de: "",
+          es: "+42,85%",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+  {
+    title: textBy(
+      {
+        default: {
+          en: "5 Years",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "5 سنوات",
+          de: "",
+          es: "5 Años",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+    para: textBy(
+      {
+        default: {
+          en: "+196,01%",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "+196,01%",
+          de: "",
+          es: "+196,01%",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+   {
+    title: textBy(
+      {
+        default: {
+          en: "All time",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "منذ البداية",
+          de: "",
+          es: "Siempre",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+    para: textBy(
+      {
+        default: {
+          en: "+123,98%",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: "+123,98%",
+          de: "",
+          es: "+123,98%",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+        cysec: {
+          en: "",
+          it: "",
+          tr: "",
+          ro: "",
+          ar: ``,
+          de: "",
+          es: "",
+          sv: "",
+          pt: "",
+          fi: "",
+          pl: "",
+          hu: "",
+          th: "",
+          ms: "",
+          vi: "",
+        },
+      },
+      "license",
+      componentProps,
+    ),
+  },
+];
 ---
 
 <section id="section1" class="section1 py-custom-spacing">
@@ -154,12 +491,49 @@ const chartDisclaimer: TranslationsType = textBy(
       class="text-custom-size-1 text-start lg:text-center"
     />
     <div>
-      <CustomLineChart
+      <!-- <CustomLineChart
         componentProps={componentProps}
         title={"DFM Index"}
         client:load
-      />
-
+      /> -->
+  <Image
+    src={chart}
+    alt="chart"
+    class={cn(
+      " pointer-events-none",
+    )}
+    widths={[320, 576, 640, 768, 1024, 1280, 1536, chart.width]}
+    sizes={`100vw`}
+    loading={"eager"}
+  />
+    <div class="flex flex-wrap justify-between bg-primary">
+        {
+          bullets.map((bullet) => (
+            <div class="flex flex-col items-center text-center p-2 w-1/4 m-auto border-r border-white last:border-none">
+              <h3
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 2,
+                      })
+                    : bullet.title[componentProps.lang]
+                }
+                class="text-white lg:text-[24px] text-[16px] text-center"
+              />
+              <h3
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 10,
+                      })
+                    : bullet.para[componentProps.lang]
+                }
+                class="font-black lg:text-[24px] text-[16px] my-auto text-balance text-secondary"
+              />
+            </div>
+          ))
+        }
+      </div>
       <p
         set:html={componentProps.features?.includes(Features.showcase)
           ? showcase({
