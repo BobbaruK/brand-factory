@@ -24,7 +24,9 @@ export const daytradingstar = ({
     ro: "",
     ar: "",
     de: "",
-    es: "",
+    es: drThankYou
+      ? "https://daytradingstar.com/thankyou/dr/es/index.html"
+      : "https://daytradingstar.com/thanks-es.html",
     sv: "",
     pt: "",
     fi: "",

@@ -3,7 +3,7 @@ import Section1Brand from "@/components/brand/Section1.astro";
 import Section1Default from "@/components/default/Section1.astro";
 import Section1V1 from "@/components/v1/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradeNavigatorSVGVariation } from "../../../../globals/types/brands/logo";
+import { DayTradingStarSVGVariation, type TradeNavigatorSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
@@ -28,8 +28,8 @@ export interface CustomOptions {
 /**
  * Landing page's main variables
  */
-type Logo = TradeNavigatorSVGVariation;
-const brand: BrandsNames = "trade-navigator";
+type Logo = DayTradingStarSVGVariation;
+const brand: BrandsNames = "daytradingstar";
 const lpName = "";
 const metaDescription: TranslationsType = {
   en: "",
@@ -62,7 +62,7 @@ const features = checkFeatures([
 const registrationType: RegistrationType = "classic";
 const whatsapp = false;
 const fxoroFooter: boolean = false;
-const drThankYou: boolean = false;
+const drThankYou: boolean = true;
 const customOptions: CustomOptions = {
   logoSquare: false,
   designVersion: "brand",
