@@ -10,6 +10,7 @@ import background from "../assets/hero-header.png";
 import { showcase } from "../../../../globals/features/showcase/text";
 import { Features } from "../../../../globals/types/enums";
 import SVGMask from "../../../../globals/components/svg-mask";
+import { Button } from "./ui/button";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -19,13 +20,13 @@ const { componentProps } = Astro.props;
 const title: TranslationsType = textBy(
   {
     default: {
-      en: `Trade the momentum of Dubai’s financial market - <span class="text-secondary block">now on ${componentProps.brandObj.name}</span>`,
+      en: `Trade the momentum of Dubai’s financial market. <span class="text-secondary block">now on ${componentProps.brandObj.name}</span>`,
       it: "",
       tr: "",
       ro: "",
-      ar: `تداول زخم سوق دبي المالي – <span class="text-secondary block">الآن على FXORO Global</span>`,
+      ar: `تداول زخم سوق دبي المالي. <span class="text-secondary block">الآن على FXORO Global</span>`,
       de: "",
-      es: `Opera el momentum del mercado financiero de Dubái – <span class="text-secondary block">ahora en fxoro global</span>`,
+      es: `Opera el momentum del mercado financiero de Dubái. <span class="text-secondary block">ahora en fxoro global</span>`,
       sv: "",
       pt: "",
       fi: "",
@@ -60,13 +61,54 @@ const title: TranslationsType = textBy(
 const para: TranslationsType = textBy(
   {
     default: {
-      en: "Interested about the Dubai Index ? — Trade with global speed, local insight, and full control.",
+      en: "Interested about the Dubai Index?<br> Trade with global speed, local insight, and full control.",
       it: "",
       tr: "",
       ro: "",
-      ar: "مهتم بمؤشر دبي؟ — تداول بسرعة عالمية، ورؤية محلية، وتحكم كامل.",
+      ar: "مهتم بمؤشر دبي؟ <br> تداول بسرعة عالمية، ورؤية محلية، وتحكم كامل.",
       de: "",
-      es: "¿Interesado en el Índice de Dubái? — Opera con velocidad global, visión local y control total.",
+      es: "¿Interesado en el Índice de Dubái? <br> Opera con velocidad global, visión local y control total.",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+    cysec: {
+      en: "",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "",
+      de: "",
+      es: "",
+      sv: "",
+      pt: "",
+      fi: "",
+      pl: "",
+      hu: "",
+      th: "",
+      ms: "",
+      vi: "",
+    },
+  },
+  "license",
+  componentProps,
+);
+
+const buttonLabel: TranslationsType = textBy(
+  {
+    default: {
+      en: "Start Today",
+      it: "",
+      tr: "",
+      ro: "",
+      ar: "ابدأ اليوم",
+      de: "",
+      es: "Empieza Hoy",
       sv: "",
       pt: "",
       fi: "",
@@ -124,7 +166,7 @@ const para: TranslationsType = textBy(
             spanClasses: "text-secondary",
           })
         : title[componentProps.lang]}
-      class="text-heading1 max-w-[20ch] font-black text-balance uppercase"
+      class="text-heading1 font-black text-balance uppercase text-center"
     />
     <p
       set:html={componentProps.features?.includes(Features.showcase)
@@ -132,12 +174,25 @@ const para: TranslationsType = textBy(
             words: 10,
           })
         : para[componentProps.lang]}
-      class="text-para-lead max-w-[20ch] text-balance"
+      class="text-para-lead text-balance text-center"
     />
-    <div class="arrow grid place-items-center text-6xl [&>span]:animate-bounce">
+    <div class="text-center">
+             <Button
+        variant={"accent"}
+        className={"js-modal-trigger text-custom-size-1! cursor-pointer font-black md:px-14"}
+        set:html={componentProps.features?.includes(Features.showcase)
+          ? showcase({
+              words: 2,
+            })
+          : buttonLabel[componentProps.lang]}
+      />
+
+    </div>
+ 
+    <!-- <div class="arrow grid place-items-center text-6xl [&>span]:animate-bounce">
       <SVGMask
         url={`url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3C!-- Icon from Basil by Craftwork - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='currentColor' fill-rule='evenodd' d='M16.53 8.97a.75.75 0 0 1 0 1.06l-4 4a.75.75 0 0 1-1.06 0l-4-4a.75.75 0 1 1 1.06-1.06L12 12.44l3.47-3.47a.75.75 0 0 1 1.06 0' clip-rule='evenodd'/%3E%3C/svg%3E")`}
       />
-    </div>
+    </div> -->
   </div>
 </header>
