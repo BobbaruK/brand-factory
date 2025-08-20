@@ -1,4 +1,5 @@
 ---
+import type { features } from "process";
 import { showcase } from "../../features/showcase/text";
 import footerTranslations from "../../translations/footer";
 import {
@@ -23,6 +24,7 @@ const feature_rfm = componentProps.features?.includes(Features.readyForMail);
 const feature_outbrain = componentProps.features?.includes(Features.outbrain);
 const feature_atheneum = componentProps.features?.includes(Features.atheneum);
 const feature_showcase = componentProps.features?.includes(Features.showcase);
+const feature_type5 = componentProps.features?.includes(Features.type5)
 
 ---
 
@@ -33,7 +35,7 @@ const feature_showcase = componentProps.features?.includes(Features.showcase);
       <p set:html={showcase({ words: 50 })} />
     ) : (
       <>
-        {!feature_rfm && !feature_outbrain && !feature_atheneum ? (
+        {!feature_rfm && !feature_outbrain && !feature_atheneum && !feature_type5 ? (
             <BrandFooterType
               componentProps={componentProps}
               translations={translations}
@@ -44,7 +46,7 @@ const feature_showcase = componentProps.features?.includes(Features.showcase);
                 <Fragment set:html={translations.rfm[componentProps.lang]} />
               )}
 
-              {feature_outbrain && (
+              {(feature_outbrain || feature_type5) && (
                 <Fragment set:html={translations.outbrain[componentProps.lang]} />
               )}
 
