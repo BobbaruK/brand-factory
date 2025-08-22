@@ -24,6 +24,7 @@ import Layout from "../layouts/Layout.astro";
 
 export interface CustomOptions {
   logoSquare: boolean;
+  heroImage?: "v1" | "v2";
 }
 
 /**
@@ -66,6 +67,7 @@ const fxoroFooter: boolean = false;
 const drThankYou: boolean = true;
 const customOptions: CustomOptions = {
   logoSquare: false,
+  heroImage: "v2",
 };
 // ===============================
 

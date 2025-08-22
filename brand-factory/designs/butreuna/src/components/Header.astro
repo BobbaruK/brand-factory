@@ -1,5 +1,6 @@
 ---
 import { CUSTOM_DISCLAIMER } from "@/constants/custom-disclaimer";
+import { FORM_BUTTON } from "@/constants/form-button";
 import { cn } from "@/lib/utils";
 import { type CustomOptions } from "@/pages/index.astro";
 import { Image } from "astro:assets";
@@ -9,9 +10,9 @@ import { showcase } from "../../../../globals/features/showcase/text";
 import { type ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
+import heroImageV1 from "../assets/hero-image-v1.svg";
+import heroImageV2 from "../assets/hero-image-v2.png";
 import { Button } from "./ui/button";
-import heroImage from "../assets/hero-image.svg";
-import { FORM_BUTTON } from "@/constants/form-button";
 
 interface Props {
   componentProps: ComponentProps<any, CustomOptions>;
@@ -132,13 +133,19 @@ const paras: TranslationsType[] = [
     </div>
     <div class="relative grow lg:w-7/12">
       <Image
-        src={heroImage}
+        src={componentProps.customOptions?.heroImage === undefined ||
+        componentProps.customOptions?.heroImage === "v1"
+          ? heroImageV1
+          : heroImageV2}
         alt="50%"
         class={cn(
           "max-w-[400px] w-full max-lg:mx-auto lg:absolute  lg:h-[calc(100%_+_100px)] lg:object-contain lg:max-w-none lg:w-[785px] -start-10 bottom-0",
           componentProps.lang === "ar" ? "" : "",
+          componentProps.customOptions?.heroImage === "v2"
+            ? "rotate-[-5deg]"
+            : "",
         )}
-        widths={[320, 576, 640, 768, 1024, 1280, 1536, heroImage.width]}
+        widths={[320, 576, 640, 768, 1024, 1280, 1536, heroImageV1.width]}
         sizes={`
           (max-width: 320px) 273px,
           (max-width: 1023px) 400px,
