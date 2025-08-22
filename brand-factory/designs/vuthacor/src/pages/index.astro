@@ -17,7 +17,8 @@ const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
   // Features.readyForMail,
-  Features.outbrain,
+  // Features.outbrain,
+  Features.type5,
   // Features.atheneum,
   // Features.showcase,
   Features.policyInFooter,
@@ -32,7 +33,7 @@ const componentProps: ComponentProps<
   ArabTradingProSVGVariation,
   CustomOptions
 > = {
-  lang: "ar",
+  lang: "en",
   license,
   lpName: "Home",
   brandObj: brandFactory({
