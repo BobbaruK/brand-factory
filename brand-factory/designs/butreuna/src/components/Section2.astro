@@ -193,7 +193,7 @@ const buttonLabel: TranslationsType = {
                       })
                     : step.title[componentProps.lang]
                 }
-                class="text-heading3 font-black text-balance"
+                class="text-heading3 font-black text-primary text-balance"
               />
               <p
                 set:html={
@@ -222,7 +222,7 @@ const buttonLabel: TranslationsType = {
     >
       <Button
         variant={"secondary"}
-        className={"js-modal-trigger text-custom-size! w-full cursor-pointer rounded-[25px] font-black uppercase md:px-16 md:py-3"}
+        className={"js-modal-trigger text-custom-size! w-full cursor-pointer rounded-[25px] font-black uppercase md:px-16 md:py-3 border-2 border-primary"}
         set:html={componentProps.features?.includes(Features.showcase)
           ? showcase({
               words: 2,

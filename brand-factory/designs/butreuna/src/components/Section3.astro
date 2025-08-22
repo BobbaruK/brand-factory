@@ -152,7 +152,7 @@ const list: TranslationsType[] = [
 
 <section
   id="section3"
-  class="section3 bg-primary text-primary-foreground py-custom-spacing"
+  class="section3 text-primary-foreground"
 >
   <div class="space-y-custom-spacing container">
     <h2
@@ -161,17 +161,18 @@ const list: TranslationsType[] = [
             words: 5,
           })
         : title[componentProps.lang]}
-      class="text-heading2 font-black text-balance uppercase"
+      class="text-heading2 font-black text-black text-balance uppercase py-6"
     />
-    <ul
-      class="text-custom-size flex flex-wrap items-center justify-around gap-4"
+  </div>
+  <div class="border border-primary py-6">
+    <div class="space-y-custom-spacing container">
+      <ul
+      class="text-custom-size flex text-primary flex-wrap items-center justify-around gap-4"
     >
       {
         list.map((li) => (
           <li class="flex items-center max-md:grow">
-            <div class="text-accent relative -top-2 text-8xl leading-0">
-              &bull;
-            </div>
+           <div class="w-4 h-4 bg-accent border border-primary rounded-full inline-block mr-1"></div>
             <span
               set:html={
                 componentProps.features?.includes(Features.showcase)
@@ -184,6 +185,7 @@ const list: TranslationsType[] = [
           </li>
         ))
       }
-    </ul>
+      </ul>
+    </div>
   </div>
 </section>

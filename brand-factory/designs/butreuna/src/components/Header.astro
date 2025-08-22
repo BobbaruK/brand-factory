@@ -10,7 +10,7 @@ import { type ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { Button } from "./ui/button";
-import heroImage from "../assets/hero-image.svg";
+import heroImage from "../assets/hero-img.png";
 import { FORM_BUTTON } from "@/constants/form-button";
 
 interface Props {
@@ -90,7 +90,7 @@ const paras: TranslationsType[] = [
               words: 5,
             })
           : title[componentProps.lang]}
-        class="text-heading1 font-black text-balance uppercase"
+        class="text-heading1 font-black text-primary text-balance uppercase"
       />
 
       {
@@ -121,7 +121,7 @@ const paras: TranslationsType[] = [
       >
         <Button
           variant={"secondary"}
-          className={"js-modal-trigger text-custom-size! w-full cursor-pointer rounded-[25px] font-black uppercase md:px-16 md:py-3"}
+          className={"js-modal-trigger text-custom-size! w-full cursor-pointer rounded-[25px] font-black uppercase md:px-16 md:py-3 border-2 border-primary"}
           set:html={componentProps.features?.includes(Features.showcase)
             ? showcase({
                 words: 2,
@@ -135,7 +135,7 @@ const paras: TranslationsType[] = [
         src={heroImage}
         alt="50%"
         class={cn(
-          "max-w-[400px] w-full max-lg:mx-auto lg:absolute  lg:h-[calc(100%_+_100px)] lg:object-contain lg:max-w-none lg:w-[785px] -start-10 bottom-0",
+          "max-w-[400px] w-full max-lg:mx-auto lg:absolute  lg:h-[calc(100%_+_100px)] lg:object-contain lg:max-w-none lg:w-[785px] -start-10 bottom-0 rotate-[-5deg]",
           componentProps.lang === "ar" ? "" : "",
         )}
         widths={[320, 576, 640, 768, 1024, 1280, 1536, heroImage.width]}
