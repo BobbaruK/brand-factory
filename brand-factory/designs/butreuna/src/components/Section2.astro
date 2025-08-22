@@ -1,16 +1,15 @@
 ---
 import { CUSTOM_DISCLAIMER } from "@/constants/custom-disclaimer";
+import type { CustomOptions } from "@/pages/index.astro";
 import { ButtonDisclaimer } from "../../../../globals/components/button-disclaimer";
-import Form from "../../../../globals/components/form";
 import { showcase } from "../../../../globals/features/showcase/text";
-import { glossaryLetter_S } from "../../../../globals/translations/glossary";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 import { Button } from "./ui/button";
 
 interface Props {
-  componentProps: ComponentProps;
+  componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
 
@@ -180,10 +179,23 @@ const buttonLabel: TranslationsType = {
       {
         steps.map((step, index) => (
           <div class="flex items-center justify-start gap-4 lg:w-[calc(33.3333%_-_32px)]">
-            <div
-              set:html={index + 1}
-              class="text-primary text-shadow-accent grid h-full w-5 place-items-center gap-4 text-4xl font-black text-shadow-[-3px_0px_0px_#CE5937] lg:w-18 lg:text-9xl"
-            />
+            {(componentProps.customOptions?.s2Icons === undefined ||
+              componentProps.customOptions?.s2Icons === "v1") && (
+              <div
+                set:html={index + 1}
+                class="text-primary text-shadow-accent grid h-full w-5 place-items-center gap-4 text-4xl font-black text-shadow-[-3px_0px_0px_#CE5937] lg:w-18 lg:text-9xl"
+              />
+            )}
+
+            {componentProps.customOptions?.s2Icons === "v2" && (
+              <div class="bg-primary text-primary-foreground size-12 min-w-12 -rotate-8 lg:size-20 lg:min-w-20">
+                <div
+                  class="grid h-full w-full rotate-8 place-items-center font-black lg:text-4xl"
+                  set:html={index + 1 < 10 ? `0${index + 1}` : index + 1}
+                />
+              </div>
+            )}
+
             <div class="">
               <h3
                 set:html={
@@ -193,7 +205,7 @@ const buttonLabel: TranslationsType = {
                       })
                     : step.title[componentProps.lang]
                 }
-                class="text-heading3 font-black text-balance"
+                class="text-heading3 text-primary font-black text-balance"
               />
               <p
                 set:html={
@@ -222,7 +234,7 @@ const buttonLabel: TranslationsType = {
     >
       <Button
         variant={"secondary"}
-        className={"js-modal-trigger text-custom-size! w-full cursor-pointer rounded-[25px] font-black uppercase md:px-16 md:py-3"}
+        className={"js-modal-trigger text-custom-size! border-primary w-full cursor-pointer rounded-[25px] border-2 font-black uppercase md:px-16 md:py-3"}
         set:html={componentProps.features?.includes(Features.showcase)
           ? showcase({
               words: 2,
