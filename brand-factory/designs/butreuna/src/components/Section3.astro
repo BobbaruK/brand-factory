@@ -1,11 +1,12 @@
 ---
+import type { CustomOptions } from "@/pages/index.astro";
 import { showcase } from "../../../../globals/features/showcase/text";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
 
 interface Props {
-  componentProps: ComponentProps;
+  componentProps: ComponentProps<any, CustomOptions>;
 }
 const { componentProps } = Astro.props;
 
@@ -150,40 +151,82 @@ const list: TranslationsType[] = [
 ];
 ---
 
-<section
-  id="section3"
-  class="section3 bg-primary text-primary-foreground py-custom-spacing"
->
-  <div class="space-y-custom-spacing container">
-    <h2
-      set:html={componentProps.features?.includes(Features.showcase)
-        ? showcase({
-            words: 5,
-          })
-        : title[componentProps.lang]}
-      class="text-heading2 font-black text-balance uppercase"
-    />
-    <ul
-      class="text-custom-size flex flex-wrap items-center justify-around gap-4"
+{
+  (componentProps.customOptions?.s3Style === undefined ||
+    componentProps.customOptions.s3Style === "v1") && (
+    <section
+      id="section3"
+      class="section3 bg-primary text-primary-foreground py-custom-spacing"
     >
-      {
-        list.map((li) => (
-          <li class="flex items-center max-md:grow">
-            <div class="text-accent relative -top-2 text-8xl leading-0">
-              &bull;
-            </div>
-            <span
-              set:html={
-                componentProps.features?.includes(Features.showcase)
-                  ? showcase({
-                      words: 1,
-                    })
-                  : li[componentProps.lang]
-              }
-            />
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-</section>
+      <div class="space-y-custom-spacing container">
+        <h2
+          set:html={
+            componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 5,
+                })
+              : title[componentProps.lang]
+          }
+          class="text-heading2 font-black text-balance uppercase"
+        />
+        <ul class="text-custom-size flex flex-wrap items-center justify-around gap-4">
+          {list.map((li) => (
+            <li class="flex items-center max-md:grow">
+              <div class="text-accent relative -top-2 text-8xl leading-0">
+                &bull;
+              </div>
+              <span
+                set:html={
+                  componentProps.features?.includes(Features.showcase)
+                    ? showcase({
+                        words: 1,
+                      })
+                    : li[componentProps.lang]
+                }
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}
+
+{
+  componentProps.customOptions?.s3Style === "v2" && (
+    <section id="section3" class="section3 text-primary-foreground">
+      <div class="space-y-custom-spacing container">
+        <h2
+          set:html={
+            componentProps.features?.includes(Features.showcase)
+              ? showcase({
+                  words: 5,
+                })
+              : title[componentProps.lang]
+          }
+          class="text-heading2 py-6 font-black text-balance text-black uppercase"
+        />
+      </div>
+      <div class="border-primary border py-6">
+        <div class="space-y-custom-spacing container">
+          <ul class="text-custom-size text-primary flex flex-wrap items-center justify-around gap-4">
+            {list.map((li) => (
+              <li class="flex items-center max-md:grow">
+                <div class="bg-accent border-primary mr-1 inline-block h-4 w-4 rounded-full border" />
+                <span
+                  set:html={
+                    componentProps.features?.includes(Features.showcase)
+                      ? showcase({
+                          words: 1,
+                        })
+                      : li[componentProps.lang]
+                  }
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  )
+}
