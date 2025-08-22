@@ -1,11 +1,8 @@
 ---
-import Form from "../../../../globals/components/form";
 import { showcase } from "../../../../globals/features/showcase/text";
-import { glossaryLetter_S } from "../../../../globals/translations/glossary";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type { TranslationsType } from "../../../../globals/types/translations";
-import { Button } from "./ui/button";
 
 interface Props {
   componentProps: ComponentProps;
@@ -67,7 +64,7 @@ const list: TranslationsType[] = [
 ];
 ---
 
-<section id="section1" class="section1 bg-primary text-primary-foreground py-6">
+<section id="section1" class="section1 border-primary text-primary border py-6">
   <div class="container">
     <ul
       class="text-custom-size flex flex-wrap items-center justify-around gap-4"
@@ -75,7 +72,7 @@ const list: TranslationsType[] = [
       {
         list.map((li) => (
           <li class="flex items-center max-md:grow">
-            <div class="text-accent text-8xl leading-0 relative -top-2">&bull;</div>
+            <div class="bg-accent border-primary mr-1 inline-block h-4 w-4 rounded-full border" />
             <span
               set:html={
                 componentProps.features?.includes(Features.showcase)
