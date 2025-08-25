@@ -2,7 +2,10 @@
 import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type DayTradingStarSVGVariation, type TradersAcademicSVGVariation } from "../../../../globals/types/brands/logo";
+import {
+  type TradersProfilerSVGVariation,
+  type TradersAcademicSVGVariation,
+} from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
@@ -28,8 +31,8 @@ export interface CustomOptions {
 /**
  * Landing page's main variables
  */
-type Logo = DayTradingStarSVGVariation;
-const brand: BrandsNames = "daytradingstar";
+type Logo = TradersProfilerSVGVariation;
+const brand: BrandsNames = "tradersprofiler";
 const lpName = "";
 const metaDescription: TranslationsType = {
   en: "",
