@@ -7,7 +7,7 @@ import Section5 from "@/components/Section5.astro";
 import Section6 from "@/components/Section6.astro";
 import Section7 from "@/components/Section7.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type TradingProfilerSVGVariation } from "../../../../globals/types/brands/logo";
+import { type OracleSignalsSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
@@ -31,8 +31,8 @@ export interface CustomOptions {
 /**
  * Landing page's main variables
  */
-type Logo = TradingProfilerSVGVariation;
-const brand: BrandsNames = "tradingprofiler";
+type Logo = OracleSignalsSVGVariation;
+const brand: BrandsNames = "oracle-signals";
 const lpName = "";
 const metaDescription: TranslationsType = {
   en: "",
@@ -58,15 +58,15 @@ const features = checkFeatures([
   // Features.showcase,
   // Features.readyForMail,
   // Features.outbrain,
-    Features.type5,
+  Features.type5,
   // Features.atheneum,
   // Features.officialTerms,
-  // Features.policyInFooter,
+  Features.policyInFooter,
 ]);
 const registrationType: RegistrationType = "classic";
 const whatsapp = false;
 const fxoroFooter: boolean = false;
-const drThankYou: boolean = false;
+const drThankYou: boolean = true;
 const customOptions: CustomOptions = {
   logoSquare: false,
 };
