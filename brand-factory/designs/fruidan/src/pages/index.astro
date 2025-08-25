@@ -2,7 +2,11 @@
 import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type OracleSignalsSVGVariation, type FacoltaDiTradingSVGVariation, type TradersAcademicSVGVariation } from "../../../../globals/types/brands/logo";
+import {
+  type TradersProfilerSVGVariation,
+  type FacoltaDiTradingSVGVariation,
+  type TradersAcademicSVGVariation,
+} from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
@@ -28,8 +32,8 @@ export interface CustomOptions {
 /**
  * Landing page's main variables
  */
-type Logo = OracleSignalsSVGVariation;
-const brand: BrandsNames = "oracle-signals";
+type Logo = TradersProfilerSVGVariation;
+const brand: BrandsNames = "tradersprofiler";
 const lpName = "";
 const metaDescription: TranslationsType = {
   en: "",
@@ -66,7 +70,7 @@ const fxoroFooter: boolean = false;
 const drThankYou: boolean = true;
 const customOptions: CustomOptions = {
   logoSquare: false,
-  // textVersion: "meaningfulName",
+  textVersion: "meaningfulName",
   s2Icons: false,
 };
 // ===============================
