@@ -14,7 +14,7 @@ import type {
 import { checkFeatures } from "../../../../globals/utils/check-features";
 import { fxoroFooter as fxoroFooterFn } from "../../../../globals/utils/fxoro-footer";
 import Layout from "../layouts/Layout.astro";
-import type { TradeNavigatorSVGVariation } from "../../../../globals/types/brands/logo";
+import type { TradersProfilerSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type {
   TranslationsType,
@@ -30,8 +30,8 @@ export interface CustomOptions {
 /**
  * Landing page's main variables
  */
-type Logo = TradeNavigatorSVGVariation;
-const brand: BrandsNames = "trade-navigator";
+type Logo = TradersProfilerSVGVariation;
+const brand: BrandsNames = "tradersprofiler";
 const lpName = "";
 const metaDescription: TranslationsType = {
   en: "",
@@ -64,11 +64,11 @@ const features = checkFeatures([
 const registrationType: RegistrationType = "classic";
 const whatsapp = false;
 const fxoroFooter: boolean = false;
-const drThankYou: boolean = false;
+const drThankYou: boolean = true;
 const customOptions: CustomOptions = {
   logoSquare: false,
-  textVersion: "meaningfulName",
-  colorScheme: "pink",
+  // textVersion: "meaningfulName",
+  // colorScheme: "pink",
 };
 // ===============================
 
