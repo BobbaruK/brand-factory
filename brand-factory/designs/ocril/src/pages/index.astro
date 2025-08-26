@@ -3,7 +3,7 @@ import Section1 from "@/components/Section1.astro";
 import Section2 from "@/components/Section2.astro";
 import Section3 from "@/components/Section3.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type FXOROSVGVariation } from "../../../../globals/types/brands/logo";
+import { type ArabTradingProSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import type {
@@ -18,6 +18,7 @@ import type {
 import { checkFeatures } from "../../../../globals/utils/check-features";
 import { fxoroFooter as fxoroFooterFn } from "../../../../globals/utils/fxoro-footer";
 import Layout from "../layouts/Layout.astro";
+import { Features } from "../../../../globals/types/enums";
 
 export interface CustomOptions {
   logoSquare: boolean;
@@ -28,8 +29,8 @@ export interface CustomOptions {
 /**
  * Landing page's main variables
  */
-type Logo = FXOROSVGVariation;
-const brand: BrandsNames = "fxoro";
+type Logo = ArabTradingProSVGVariation;
+const brand: BrandsNames = "arabtradingpro";
 const lpName = "";
 const metaDescription: TranslationsType = {
   en: "",
@@ -48,14 +49,14 @@ const metaDescription: TranslationsType = {
   ms: "",
   vi: "",
 };
-const lang: Languages = "en";
-const license: LicenseType = "cysec";
+const lang: Languages = "ar";
+const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
   // Features.showcase,
   // Features.readyForMail,
   // Features.outbrain,
-  // Features.type5,
+  Features.type5,
   // Features.atheneum,
   // Features.officialTerms,
   // Features.policyInFooter,
@@ -63,11 +64,11 @@ const features = checkFeatures([
 const registrationType: RegistrationType = "classic";
 const whatsapp = false;
 const fxoroFooter: boolean = false;
-const drThankYou: boolean = false;
+const drThankYou: boolean = true;
 const customOptions: CustomOptions = {
   logoSquare: false,
-  showHeaderImage: true,
-  mobileImage: "hand-mobile",
+  // showHeaderImage: false,
+  mobileImage: "mobile",
 };
 // ===============================
 
