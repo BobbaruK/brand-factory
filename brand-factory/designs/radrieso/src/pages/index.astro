@@ -1,7 +1,7 @@
 ---
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
+import { type ArabTradingProSVGVariation } from "../../../../globals/types/brands/logo";
 import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
@@ -25,8 +25,8 @@ export interface CustomOptions {
 /**
  * Landing page's main variables
  */
-type Logo = FXOROGlobalSVGVariation;
-const brand: BrandsNames = "fxoro_global";
+type Logo = ArabTradingProSVGVariation;
+const brand: BrandsNames = "arabtradingpro";
 const lpName = "";
 const metaDescription: TranslationsType = {
   en: "",
@@ -52,15 +52,15 @@ const features = checkFeatures([
   // Features.showcase,
   // Features.readyForMail,
   // Features.outbrain,
-  // Features.type5,
+  Features.type5,
   // Features.atheneum,
-  Features.officialTerms,
+  // Features.officialTerms,
   // Features.policyInFooter,
 ]);
-const registrationType: RegistrationType = "direct_registration";
+const registrationType: RegistrationType = "classic";
 const whatsapp = false;
 const fxoroFooter: boolean = false;
-const drThankYou: boolean = false;
+const drThankYou: boolean = true;
 const customOptions: CustomOptions = {
   logoSquare: false,
 };
