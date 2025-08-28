@@ -11,7 +11,7 @@ export default defineConfig({
   // base: "/registration/v5/es/",
   // base: "/registration/v3/es/",
   // base: "/registration/v3/en/",
-  base: "/registration/v2/ar/",
+  base: "/registration/v2/es/",
   // base: "/lp/registration/v4/A/ar/",
   // base: "/lp/registration/v4/B/ar/",
   // base: "/lp/registration/v3/ar/",
