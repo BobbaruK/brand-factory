@@ -1,10 +1,8 @@
 ---
 import Section1 from "@/components/Section1.astro";
 import { brandFactory } from "../../../../globals/factory";
-import {
-  type FXOROGlobalSVGVariation,
-  type TradingProfilerSVGVariation,
-} from "../../../../globals/types/brands/logo";
+import { type FXOROGlobalSVGVariation } from "../../../../globals/types/brands/logo";
+import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type { ComponentProps } from "../../../../globals/types/component-props";
 import { Features } from "../../../../globals/types/enums";
 import type {
@@ -12,14 +10,13 @@ import type {
   LicenseType,
   RegistrationType,
 } from "../../../../globals/types/lp-params-type";
-import { checkFeatures } from "../../../../globals/utils/check-features";
-import Layout from "../layouts/Layout.astro";
-import { fxoroFooter as fxoroFooterFn } from "../../../../globals/utils/fxoro-footer";
-import type { BrandsNames } from "../../../../globals/types/brands/names";
 import type {
-  TranslationsType,
   Languages,
+  TranslationsType,
 } from "../../../../globals/types/translations";
+import { checkFeatures } from "../../../../globals/utils/check-features";
+import { fxoroFooter as fxoroFooterFn } from "../../../../globals/utils/fxoro-footer";
+import Layout from "../layouts/Layout.astro";
 
 export interface CustomOptions {
   logoSquare: boolean;
@@ -29,8 +26,8 @@ export interface CustomOptions {
 /**
  * Landing page's main variables
  */
-type Logo = TradingProfilerSVGVariation;
-const brand: BrandsNames = "tradingprofiler";
+type Logo = FXOROGlobalSVGVariation;
+const brand: BrandsNames = "fxoro_global";
 const lpName = "";
 const metaDescription: TranslationsType = {
   en: "",
@@ -49,18 +46,18 @@ const metaDescription: TranslationsType = {
   ms: "",
   vi: "",
 };
-const lang: Languages = "ar";
+const lang: Languages = "en";
 const license: LicenseType = "fsa";
 const lpType: LandingPageType = "classic";
 const features = checkFeatures([
   // Features.showcase,
   // Features.readyForMail,
-  Features.outbrain,
+  // Features.outbrain,
   // Features.atheneum,
-  // Features.officialTerms,
+  Features.officialTerms,
   // Features.policyInFooter,
 ]);
-const registrationType: RegistrationType = "classic";
+const registrationType: RegistrationType = "direct_registration";
 const whatsapp = false;
 const fxoroFooter: boolean = false;
 const drThankYou: boolean = false;
