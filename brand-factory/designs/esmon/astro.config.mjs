@@ -6,7 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/registration/v4/A/ar/",
+  // base: "/registration/v4/A/ar/",
   // base: "/registration/v4/B/ar/",
   // base: "/registration/v5/es/",
   // base: "/registration/v3/es/",
@@ -23,6 +23,8 @@ export default defineConfig({
   // base: "/lp/registration/es/",
   // base: "/lp/registration/v2/ar/",
   // base: "/lp/registration/v3/en/",
+  // base: "/registration/v4/ar/",
+  base: "/registration/v5/es/",
   trailingSlash: "ignore",
   integrations: [react()],
 
